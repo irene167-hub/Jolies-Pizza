@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jolie's Pizza - Staff Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+
+
+</head>
+
+<body>
+
+    <div class="staff-layout">
+
+
+        <!-- =====================================================
+         SIDEBAR
+    ===================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+                <img src="../images/logostaff.png" alt="Jolie's Pizza Logo">
+            </div>
+
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="orders.html" class="nav-item">
+                    <i class="fa-regular fa-clipboard"></i>
+                    <span>Orders</span>
+                </a>
+
+                <a href="delivery-tracking.html" class="nav-item">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>Delivery Tracking</span>
+                </a>
+
+                <a href="inventory.html" class="nav-item">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>Inventory</span>
+                </a>
+
+                <a href="payments.html" class="nav-item">
+                    <i class="fa-regular fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+
+                <a href="notifications.html" class="nav-item">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>Notifications</span>
+                    <span class="notification-count">3</span>
+                </a>
+
+                <a href="reports.html" class="nav-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Reports</span>
+                </a>
+
+                <a href="profile.html" class="nav-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="staff-profile">
+                    <div class="staff-avatar">👨🏻‍🍳</div>
+                    <div class="staff-info">
+                        <strong>Mark Santos</strong>
+                        <span>Kitchen Staff</span>
+                        <span class="online-status">Online</span>
+                    </div>
+                </div>
+
+                <button class="nav-item logout-button" id="logoutButton" type="button">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+        <main class="main">
+
+
+            <!-- =================================================
+             HEADER
+        ================================================== -->
+
+            <header class="top-header">
+
+                <div class="header-left">
+
+                    <button class="menu-toggle" id="menuToggle" type="button">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="welcome">
+
+                        <h1>
+                            Good morning, Mark! 👋
+                        </h1>
+
+                        <p>
+                            Here's what's happening at Jolie's Pizza today.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="header-right">
+
+                    <div class="header-location">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <div>
+                            <strong>
+                                Zone 3, San Roque
+                            </strong>
+
+                            <span>
+                                Northern Samar
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="header-date">
+
+                        <i class="fa-regular fa-calendar-days"></i>
+
+                        <div>
+                            <strong>
+                                May 10, 2025
+                            </strong>
+
+                            <span>
+                                Saturday · 10:30 AM
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+            <section class="dashboard">
+
+
+                <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon red">
+                            <i class="fa-regular fa-clipboard"></i>
+                        </div>
+
+                        <div>
+
+                            <div class="stat-label">
+                                New Orders
+                            </div>
+
+                            <div class="stat-value">
+                                6
+                            </div>
+
+                            <div class="stat-note red">
+                                Needs attention
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+
+                        <div>
+
+                            <div class="stat-label">
+                                Preparing
+                            </div>
+
+                            <div class="stat-value">
+                                8
+                            </div>
+
+                            <div class="stat-note gray">
+                                In progress
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+
+                        <div>
+
+                            <div class="stat-label">
+                                For Pickup / Delivery
+                            </div>
+
+                            <div class="stat-value">
+                                5
+                            </div>
+
+                            <div class="stat-note gray">
+                                Ready to release
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon green">
+                            <i class="fa-regular fa-circle-check"></i>
+                        </div>
+
+                        <div>
+
+                            <div class="stat-label">
+                                Completed Today
+                            </div>
+
+                            <div class="stat-value">
+                                28
+                            </div>
+
+                            <div class="stat-note green">
+                                ↑ 12% from yesterday
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon purple">
+                            ₱
+                        </div>
+
+                        <div>
+
+                            <div class="stat-label">
+                                Today's Sales
+                            </div>
+
+                            <div class="stat-value">
+                                ₱12,540.00
+                            </div>
+
+                            <div class="stat-note green">
+                                ↑ 8% from yesterday
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                 ROW 1
+            ================================================== -->
+
+                <div class="dashboard-grid">
+
+
+                    <!-- ORDER QUEUE -->
+
+                    <section class="dashboard-card">
+
+                        <div class="card-header">
+
+                            <h2>
+                                ORDER QUEUE
+                                <span class="queue-badge">6</span>
+                            </h2>
+
+                            <a href="#" class="view-link" id="viewOrders">
+                                View all orders
+                            </a>
+
+                        </div>
+
+
+                        <div class="queue-tabs">
+
+                            <button class="queue-tab active" data-filter="new">
+                                New (2)
+                            </button>
+
+                            <button class="queue-tab" data-filter="preparing">
+                                Preparing (8)
+                            </button>
+
+                            <button class="queue-tab" data-filter="ready">
+                                Ready (5)
+                            </button>
+
+                        </div>
+
+
+                        <div class="order-list" id="orderList">
+
+
+                            <div class="order-row" data-status="new">
+
+                                <span class="order-number">
+                                    #ORD-00045
+                                </span>
+
+                                <span class="order-type dine">
+                                    Dine In
+                                </span>
+
+                                <span class="customer-name">
+                                    Maria Santos
+                                </span>
+
+                                <span class="order-time">
+                                    10:28 AM
+                                </span>
+
+                                <button class="start-order" type="button">
+                                    Start
+                                </button>
+
+                                <span class="order-details">
+                                    2 items • Pepperoni Pizza (12"), Coke (1.5L)
+                                </span>
+
+                            </div>
+
+
+                            <div class="order-row" data-status="new">
+
+                                <span class="order-number">
+                                    #ORD-00046
+                                </span>
+
+                                <span class="order-type pickup">
+                                    Pick Up
+                                </span>
+
+                                <span class="customer-name">
+                                    John Reyes
+                                </span>
+
+                                <span class="order-time">
+                                    10:25 AM
+                                </span>
+
+                                <button class="start-order" type="button">
+                                    Start
+                                </button>
+
+                                <span class="order-details">
+                                    3 items • Hawaiian Pizza (12"), Garlic Bread, Coke (1.5L)
+                                </span>
+
+                            </div>
+
+
+                            <div class="order-row" data-status="preparing">
+
+                                <span class="order-number">
+                                    #ORD-00047
+                                </span>
+
+                                <span class="order-type delivery">
+                                    Delivery
+                                </span>
+
+                                <span class="customer-name">
+                                    Ana Bella
+                                </span>
+
+                                <span class="order-time">
+                                    10:24 AM
+                                </span>
+
+                                <button class="start-order" type="button">
+                                    Start
+                                </button>
+
+                                <span class="order-details">
+                                    2 items • Cheesy Fries, Coke (1.5L)
+                                </span>
+
+                            </div>
+
+
+                            <div class="order-row" data-status="new">
+
+                                <span class="order-number">
+                                    #ORD-00048
+                                </span>
+
+                                <span class="order-type dine">
+                                    Dine In
+                                </span>
+
+                                <span class="customer-name">
+                                    Mark Villanueva
+                                </span>
+
+                                <span class="order-time">
+                                    10:20 AM
+                                </span>
+
+                                <button class="start-order" type="button">
+                                    Start
+                                </button>
+
+                                <span class="order-details">
+                                    1 item • Buffalo Wings
+                                </span>
+
+                            </div>
+
+
+                            <div class="queue-tip">
+
+                                <i class="fa-regular fa-lightbulb"></i>
+
+                                Tip: Start preparing orders as soon as possible.
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- MY TASKS -->
+
+                    <section class="dashboard-card">
+
+                        <div class="card-header">
+
+                            <h2>
+                                MY TASKS
+                            </h2>
+
+                            <a href="#" class="view-link">
+                                View all tasks
+                            </a>
+
+                        </div>
+
+
+                        <div class="task-list">
+
+
+                            <div class="task-item">
+
+                                <button class="task-check" type="button"></button>
+
+                                <div class="task-content">
+
+                                    <span class="task-name">
+                                        Prepare ingredients for lunch rush
+                                    </span>
+
+                                    <span class="task-due">
+                                        Due: 11:00 AM
+                                    </span>
+
+                                </div>
+
+                                <span class="priority high">
+                                    High
+                                </span>
+
+                            </div>
+
+
+                            <div class="task-item completed">
+
+                                <button class="task-check" type="button">
+                                    ✓
+                                </button>
+
+                                <div class="task-content">
+
+                                    <span class="task-name">
+                                        Check and restock kitchen supplies
+                                    </span>
+
+                                    <span class="task-due">
+                                        Completed at 9:30 AM
+                                    </span>
+
+                                </div>
+
+                                <span class="priority completed">
+                                    Completed
+                                </span>
+
+                            </div>
+
+
+                            <div class="task-item">
+
+                                <button class="task-check" type="button"></button>
+
+                                <div class="task-content">
+
+                                    <span class="task-name">
+                                        Clean cooking station and utensils
+                                    </span>
+
+                                    <span class="task-due">
+                                        Due: 1:00 PM
+                                    </span>
+
+                                </div>
+
+                                <span class="priority medium">
+                                    Medium
+                                </span>
+
+                            </div>
+
+
+                            <div class="task-item">
+
+                                <button class="task-check" type="button"></button>
+
+                                <div class="task-content">
+
+                                    <span class="task-name">
+                                        End-of-day inventory count
+                                    </span>
+
+                                    <span class="task-due">
+                                        Due: 3:30 PM
+                                    </span>
+
+                                </div>
+
+                                <span class="priority low">
+                                    Low
+                                </span>
+
+                            </div>
+
+
+                            <div class="task-item">
+
+                                <button class="task-check" type="button"></button>
+
+                                <div class="task-content">
+
+                                    <span class="task-name">
+                                        Update daily sales log
+                                    </span>
+
+                                    <span class="task-due">
+                                        Due: 4:00 PM
+                                    </span>
+
+                                </div>
+
+                                <span class="priority low">
+                                    Low
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- SALES -->
+
+                    <section class="dashboard-card sales-card">
+
+                        <div class="card-header">
+
+                            <h2>
+                                TODAY'S SALES
+                            </h2>
+
+                            <select class="sales-select" id="salesPeriod">
+                                <option>Today</option>
+                                <option>This Week</option>
+                                <option>This Month</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="sales-summary">
+
+                            <div class="sales-title">
+                                Total Sales
+                            </div>
+
+                            <div class="sales-value">
+                                ₱12,540.00
+                            </div>
+
+                            <div class="sales-change">
+                                ↑ 8% from yesterday
+                            </div>
+
+                        </div>
+
+
+                        <div class="chart">
+
+                            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+
+                                <defs>
+
+                                    <linearGradient id="salesGradient" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#e31b23" stop-opacity=".22" />
+
+                                        <stop offset="100%" stop-color="#e31b23" stop-opacity="0" />
+
+                                    </linearGradient>
+
+                                </defs>
+
+
+                                <path d="
+                                M0,120
+                                C30,108 45,110 70,95
+                                S105,80 130,65
+                                S160,72 185,75
+                                S215,100 240,108
+                                S275,70 300,78
+                                S330,115 360,112
+                                S390,68 420,70
+                                S455,100 500,83
+                                L500,150
+                                L0,150
+                                Z
+                                " fill="url(#salesGradient)" />
+
+
+                                <path d="
+                                M0,120
+                                C30,108 45,110 70,95
+                                S105,80 130,65
+                                S160,72 185,75
+                                S215,100 240,108
+                                S275,70 300,78
+                                S330,115 360,112
+                                S390,68 420,70
+                                S455,100 500,83
+                                " fill="none" stroke="#e31b23" stroke-width="3" />
+
+                            </svg>
+
+
+                            <div class="sales-tooltip">
+
+                                10:00 AM
+
+                                <strong>
+                                    ₱2,450.00
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="sales-breakdown">
+
+                            <div class="breakdown-row">
+
+                                <span class="dot green"></span>
+
+                                <span>Dine In</span>
+
+                                <strong>₱4,850.00</strong>
+
+                                <span>38.7%</span>
+
+                            </div>
+
+
+                            <div class="breakdown-row">
+
+                                <span class="dot blue"></span>
+
+                                <span>Pick Up</span>
+
+                                <strong>₱3,120.00</strong>
+
+                                <span>24.9%</span>
+
+                            </div>
+
+
+                            <div class="breakdown-row">
+
+                                <span class="dot orange"></span>
+
+                                <span>Delivery</span>
+
+                                <strong>₱4,570.00</strong>
+
+                                <span>36.4%</span>
+
+                            </div>
+
+
+                            <div class="breakdown-row">
+
+                                <strong>Total Orders</strong>
+
+                                <span></span>
+
+                                <strong>28</strong>
+
+                                <span></span>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+
+                <!-- =================================================
+                 ROW 2
+            ================================================== -->
+
+                <div class="dashboard-grid">
+
+
+                    <!-- INVENTORY -->
+
+                    <section class="dashboard-card">
+
+                        <div class="card-header">
+
+                            <h2>
+                                INVENTORY ALERTS
+                            </h2>
+
+                            <a href="#" class="view-link">
+                                View all
+                            </a>
+
+                        </div>
+
+
+                        <div class="inventory-list">
+
+
+                            <div class="inventory-item">
+
+                                <div class="inventory-image">
+                                    🍕
+                                </div>
+
+                                <div class="inventory-info">
+
+                                    <strong>
+                                        Mozzarella Cheese
+                                    </strong>
+
+                                    <span>
+                                        Low stock: 1.2 kg left
+                                    </span>
+
+                                </div>
+
+                                <span class="stock-status low">
+                                    Low Stock
+                                </span>
+
+                            </div>
+
+
+                            <div class="inventory-item">
+
+                                <div class="inventory-image">
+                                    🍕
+                                </div>
+
+                                <div class="inventory-info">
+
+                                    <strong>
+                                        Pepperoni Slices
+                                    </strong>
+
+                                    <span>
+                                        Low stock: 300g left
+                                    </span>
+
+                                </div>
+
+                                <span class="stock-status low">
+                                    Low Stock
+                                </span>
+
+                            </div>
+
+
+                            <div class="inventory-item">
+
+                                <div class="inventory-image">
+                                    🍅
+                                </div>
+
+                                <div class="inventory-info">
+
+                                    <strong>
+                                        Tomato Sauce
+                                    </strong>
+
+                                    <span>
+                                        Good stock level
+                                    </span>
+
+                                </div>
+
+                                <span class="stock-status good">
+                                    Good
+                                </span>
+
+                            </div>
+
+
+                            <div class="inventory-item">
+
+                                <div class="inventory-image">
+                                    🍄
+                                </div>
+
+                                <div class="inventory-info">
+
+                                    <strong>
+                                        Mushrooms
+                                    </strong>
+
+                                    <span>
+                                        Good stock level
+                                    </span>
+
+                                </div>
+
+                                <span class="stock-status good">
+                                    Good
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <a href="#" class="card-footer-link">
+                            Go to Inventory
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+
+                    </section>
+
+
+
+                    <!-- NOTIFICATIONS -->
+
+                    <section class="dashboard-card">
+
+                        <div class="card-header">
+
+                            <h2>
+                                NOTIFICATIONS
+                            </h2>
+
+                            <a href="#" class="view-link">
+                                View all
+                            </a>
+
+                        </div>
+
+
+                        <div class="notification-list">
+
+
+                            <div class="notification-item">
+
+                                <div class="notification-icon">
+
+                                    <i class="fa-regular fa-clipboard"></i>
+
+                                </div>
+
+                                <div class="notification-content">
+
+                                    <strong>
+                                        New order received
+                                    </strong>
+
+                                    <span>
+                                        Order #ORD-00049
+                                    </span>
+
+                                </div>
+
+                                <span class="notification-time">
+                                    2 mins ago
+                                </span>
+
+                            </div>
+
+
+                            <div class="notification-item">
+
+                                <div class="notification-icon orange">
+
+                                    <i class="fa-solid fa-cube"></i>
+
+                                </div>
+
+                                <div class="notification-content">
+
+                                    <strong>
+                                        Low stock alert
+                                    </strong>
+
+                                    <span>
+                                        Mozzarella Cheese is running low.
+                                    </span>
+
+                                </div>
+
+                                <span class="notification-time">
+                                    15 mins ago
+                                </span>
+
+                            </div>
+
+
+                            <div class="notification-item">
+
+                                <div class="notification-icon blue">
+
+                                    <i class="fa-regular fa-message"></i>
+
+                                </div>
+
+                                <div class="notification-content">
+
+                                    <strong>
+                                        New customer message
+                                    </strong>
+
+                                    <span>
+                                        Maria Santos sent a message.
+                                    </span>
+
+                                </div>
+
+                                <span class="notification-time">
+                                    20 mins ago
+                                </span>
+
+                            </div>
+
+
+                            <div class="notification-item">
+
+                                <div class="notification-icon green">
+
+                                    <i class="fa-solid fa-truck-fast"></i>
+
+                                </div>
+
+                                <div class="notification-content">
+
+                                    <strong>
+                                        Delivery status updated
+                                    </strong>
+
+                                    <span>
+                                        Order #ORD-00043 is out for delivery.
+                                    </span>
+
+                                </div>
+
+                                <span class="notification-time">
+                                    30 mins ago
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <a href="#" class="card-footer-link">
+                            Go to Notifications
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+
+                    </section>
+
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <section class="dashboard-card">
+
+                        <div class="card-header">
+
+                            <h2>
+                                QUICK ACTIONS
+                            </h2>
+
+                        </div>
+
+
+                        <div class="quick-actions">
+
+
+                            <button class="quick-action red" data-action="View All Orders">
+
+                                <i class="fa-regular fa-clipboard"></i>
+
+                                <span>
+                                    View All Orders
+                                </span>
+
+                            </button>
+
+
+                            <button class="quick-action green" data-action="Update Order Status">
+
+                                <i class="fa-regular fa-circle-check"></i>
+
+                                <span>
+                                    Update Order Status
+                                </span>
+
+                            </button>
+
+
+                            <button class="quick-action blue" data-action="Delivery Tracking">
+
+                                <i class="fa-solid fa-truck-fast"></i>
+
+                                <span>
+                                    Delivery Tracking
+                                </span>
+
+                            </button>
+
+
+                            <button class="quick-action orange" data-action="Check Inventory">
+
+                                <i class="fa-solid fa-cube"></i>
+
+                                <span>
+                                    Check Inventory
+                                </span>
+
+                            </button>
+
+
+                            <button class="quick-action purple" data-action="Record Payment">
+
+                                <i class="fa-regular fa-credit-card"></i>
+
+                                <span>
+                                    Record Payment
+                                </span>
+
+                            </button>
+
+
+                            <button class="quick-action yellow" data-action="Customer Message">
+
+                                <i class="fa-regular fa-message"></i>
+
+                                <span>
+                                    Customer Message
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+     TOAST
+===================================================== -->
+
+    <div id="toast" style="
+        position:fixed;
+        right:25px;
+        bottom:25px;
+        z-index:9999;
+        background:#222;
+        color:#fff;
+        padding:13px 18px;
+        border-radius:8px;
+        font-size:13px;
+        opacity:0;
+        pointer-events:none;
+        transform:translateY(15px);
+        transition:.25s;
+    "></div>
+
+
+    <script>
+
+        /* =====================================================
+           STAFF DASHBOARD
+           PURE VANILLA JAVASCRIPT
+        ===================================================== */
+
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        const toast = document.getElementById("toast");
+
+        let toastTimer;
+
+
+        function showToast(message) {
+
+            toast.textContent = message;
+
+            toast.style.opacity = "1";
+
+            toast.style.transform =
+                "translateY(0)";
+
+            clearTimeout(toastTimer);
+
+            toastTimer = setTimeout(() => {
+
+                toast.style.opacity = "0";
+
+                toast.style.transform =
+                    "translateY(15px)";
+
+            }, 1800);
+
+        }
+
+
+        /* =====================================================
+           MOBILE SIDEBAR
+        ===================================================== */
+
+        const sidebar =
+            document.getElementById("sidebar");
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                sidebar.classList.toggle("open");
+
+            }
+        );
+
+
+        /* =====================================================
+           SIDEBAR NAVIGATION
+        ===================================================== */
+
+        document
+            .querySelectorAll(".nav-item[data-page]")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        document
+                            .querySelectorAll(
+                                ".nav-item[data-page]"
+                            )
+                            .forEach(item => {
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            });
+
+
+                        button.classList.add("active");
+
+
+                        const page =
+                            button.dataset.page;
+
+
+                        if (
+                            page !== "Dashboard"
+                        ) {
+
+                            showToast(
+                                `${page} selected`
+                            );
+
+                        }
+
+
+                        if (
+                            window.innerWidth <= 900
+                        ) {
+
+                            sidebar.classList.remove(
+                                "open"
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           ORDER TABS
+        ===================================================== */
+
+        const orderRows =
+            document.querySelectorAll(".order-row");
+
+        document
+            .querySelectorAll(".queue-tab")
+            .forEach(tab => {
+
+                tab.addEventListener(
+                    "click",
+                    () => {
+
+                        document
+                            .querySelectorAll(
+                                ".queue-tab"
+                            )
+                            .forEach(item => {
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            });
+
+
+                        tab.classList.add("active");
+
+
+                        const filter =
+                            tab.dataset.filter;
+
+
+                        orderRows.forEach(row => {
+
+                            if (
+                                row.dataset.status ===
+                                filter
+                            ) {
+
+                                row.style.display =
+                                    "grid";
+
+                            } else {
+
+                                row.style.display =
+                                    "none";
+
+                            }
+
+                        });
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           START ORDER
+        ===================================================== */
+
+        document
+            .querySelectorAll(".start-order")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const row =
+                            button.closest(
+                                ".order-row"
+                            );
+
+
+                        const orderNumber =
+                            row
+                                .querySelector(
+                                    ".order-number"
+                                )
+                                .textContent;
+
+
+                        button.textContent =
+                            "Started";
+
+                        button.style.background =
+                            "#159c50";
+
+                        row.dataset.status =
+                            "preparing";
+
+
+                        showToast(
+                            `${orderNumber} is now preparing.`
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           TASK CHECKBOXES
+        ===================================================== */
+
+        document
+            .querySelectorAll(".task-check")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const task =
+                            button.closest(
+                                ".task-item"
+                            );
+
+
+                        const completed =
+                            task.classList.toggle(
+                                "completed"
+                            );
+
+
+                        if (completed) {
+
+                            button.textContent =
+                                "✓";
+
+                            showToast(
+                                "Task completed."
+                            );
+
+                        } else {
+
+                            button.textContent =
+                                "";
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           QUICK ACTIONS
+        ===================================================== */
+
+        document
+            .querySelectorAll(".quick-action")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        showToast(
+                            button.dataset.action
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           SALES PERIOD
+        ===================================================== */
+
+        document
+            .getElementById("salesPeriod")
+            .addEventListener(
+                "change",
+                function () {
+
+                    showToast(
+                        `Sales period: ${this.value}`
+                    );
+
+                }
+            );
+
+
+        /* =====================================================
+           VIEW ORDERS
+        ===================================================== */
+
+        document
+            .getElementById("viewOrders")
+            .addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
+
+                    showToast(
+                        "Opening all orders..."
+                    );
+
+                }
+            );
+
+
+        /* =====================================================
+           LOGOUT
+        ===================================================== */
+
+        document
+            .getElementById("logoutButton")
+            .addEventListener(
+                "click",
+                () => {
+
+                    const confirmed =
+                        confirm(
+                            "Are you sure you want to logout?"
+                        );
+
+
+                    if (confirmed) {
+
+                        window.location.href = "../login.html";
+
+                    }
+
+                }
+            );
+
+    </script>
+
+</body>
+
+</html>

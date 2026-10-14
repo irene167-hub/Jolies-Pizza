@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jolie's Pizza - Admin Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <!-- LOGO -->
+            <div class="brand">
+                <img
+                    src="../images/logoadmin.png"
+                    alt="Jolie's Pizza San Roque"
+                    class="sidebar-logo"
+                >
+            </div>
+
+
+            <!-- NAVIGATION -->
+            <nav class="side-nav">
+
+                <!-- DASHBOARD -->
+                <button
+                    type="button"
+                    class="nav-item active"
+                    data-page="Dashboard"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Dashboard</span>
+                </button>
+
+
+                <!-- ORDERS -->
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-page="Orders"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Orders</span>
+                </button>
+
+
+                <!-- MENU MANAGEMENT -->
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-page="Menu Management"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Menu Management</span>
+                </button>
+
+
+                <!-- INVENTORY -->
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-page="Inventory"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Inventory</span>
+                </button>
+
+
+                <!-- DELIVERY TRACKING -->
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-page="Delivery Tracking"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Delivery Tracking</span>
+                </button>
+
+
+                <!-- ONLINE PAYMENTS -->
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-page="Online Payments"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Online Payments</span>
+                </button>
+
+
+                <!-- REPORTS -->
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-page="Reports"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Reports</span>
+                </button>
+
+
+                <!-- STAFF MANAGEMENT -->
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-page="Staff Management"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Staff Management</span>
+                </button>
+
+
+                <!-- SETTINGS -->
+                <button
+                    type="button"
+                    class="nav-item"
+                    data-page="Settings"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Settings</span>
+                </button>
+
+
+                <!-- =================================================
+                     LOG OUT
+                ================================================== -->
+
+                <button
+                    type="button"
+                    class="nav-item logout-item"
+                    id="sidebarLogoutBtn"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Log Out</span>
+                </button>
+
+            </nav>
+
+
+            <!-- SUPPORT BOX -->
+            <div class="support-box">
+
+                <div class="support-icon">♧</div>
+
+                <div>
+
+                    <strong>Need Help?</strong>
+
+                    <a href="tel:09123456789">
+                        Contact support
+                    </a>
+
+                    <span>
+                        0912 345 6789
+                    </span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
+
+        <main class="main">
+
+
+            <!-- =================================================
+                 TOP BAR
+            ================================================== -->
+
+            <header class="topbar">
+
+                <!-- MOBILE MENU -->
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+
+                <!-- PAGE HEADING -->
+                <div class="page-heading">
+
+                    <h1>Dashboard</h1>
+
+                    <p>
+                        Welcome back,
+                        <strong>Admin!</strong>
+                        Here's what's happening with your business today.
+                    </p>
+
+                </div>
+
+
+                <!-- TOP ACTIONS -->
+                <div class="top-actions">
+
+
+                    <!-- DATE -->
+                    <button
+                        type="button"
+                        class="date-picker"
+                        id="datePicker"
+                    >
+
+                        <span id="dateText">
+                            May 20, 2024
+                        </span>
+
+                        <span>▣</span>
+
+                    </button>
+
+
+                    <!-- NOTIFICATIONS -->
+                    <button
+                        type="button"
+                        class="notification"
+                        id="notificationBtn"
+                        aria-label="Notifications"
+                    >
+
+                        ♧
+
+                        <b>3</b>
+
+                    </button>
+
+
+                    <!-- PROFILE -->
+                    <button
+                        type="button"
+                        class="profile"
+                        id="profileBtn"
+                    >
+
+                        <span class="avatar">
+                            A
+                        </span>
+
+                        <span class="profile-text">
+
+                            <strong>
+                                Admin
+                            </strong>
+
+                            <small>
+                                Administrator
+                            </small>
+
+                        </span>
+
+                        <span class="chevron">
+                            ⌄
+                        </span>
+
+                    </button>
+
+
+                    <!-- PROFILE MENU -->
+                    <div
+                        class="profile-menu"
+                        id="profileMenu"
+                    >
+
+                        <button
+                            type="button"
+                            id="profileBtnMyProfile"
+                        >
+                            My Profile
+                        </button>
+
+                        <button
+                            type="button"
+                            id="profileBtnSettings"
+                        >
+                            Account Settings
+                        </button>
+
+                        <button
+                            type="button"
+                            id="profileLogoutBtn"
+                        >
+                            Log Out
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <section class="stats-grid">
+
+
+                <!-- TOTAL SALES -->
+                <article class="stat-card">
+
+                    <div class="stat-icon red">
+                        ♧
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Sales
+                        </span>
+
+                        <h2>
+                            ₱45,620.00
+                        </h2>
+
+                        <p class="trend up">
+                            ↑ 12.5%
+                            <em>
+                                vs May 19, 2024
+                            </em>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TOTAL ORDERS -->
+                <article class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ▤
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Orders
+                        </span>
+
+                        <h2>
+                            158
+                        </h2>
+
+                        <p class="trend up">
+                            ↑ 8.3%
+                            <em>
+                                vs May 19, 2024
+                            </em>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- AVERAGE ORDER VALUE -->
+                <article class="stat-card">
+
+                    <div class="stat-icon green">
+                        ♨
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Average Order Value
+                        </span>
+
+                        <h2>
+                            ₱288.73
+                        </h2>
+
+                        <p class="trend up">
+                            ↑ 5.6%
+                            <em>
+                                vs May 19, 2024
+                            </em>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- NET PROFIT -->
+                <article class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ⌁
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Net Profit
+                        </span>
+
+                        <h2>
+                            ₱18,340.00
+                        </h2>
+
+                        <p class="trend up">
+                            ↑ 11.2%
+                            <em>
+                                vs May 19, 2024
+                            </em>
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 CHARTS
+            ================================================== -->
+
+            <section class="chart-grid">
+
+
+                <!-- SALES OVERVIEW -->
+                <article class="panel sales-panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            Sales Overview
+                        </h2>
+
+                        <select id="salesPeriod">
+
+                            <option>
+                                This Week
+                            </option>
+
+                            <option>
+                                This Month
+                            </option>
+
+                            <option>
+                                This Year
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="chart-wrap">
+
+                        <canvas id="salesChart"></canvas>
+
+                    </div>
+
+
+                    <div class="legend">
+
+                        <span>
+                            <i class="legend-line red-line"></i>
+                            This Week
+                        </span>
+
+                        <span>
+                            <i class="legend-line dashed"></i>
+                            Last Week
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SALES BY CATEGORY -->
+                <article class="panel category-panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            Sales by Category
+                        </h2>
+
+                        <select>
+
+                            <option>
+                                This Week
+                            </option>
+
+                            <option>
+                                This Month
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="category-content">
+
+
+                        <!-- DONUT -->
+                        <div class="donut-wrap">
+
+                            <div class="donut">
+
+                                <div class="donut-center">
+
+                                    <strong>
+                                        ₱45,620
+                                    </strong>
+
+                                    <span>
+                                        Total Sales
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CATEGORY LIST -->
+                        <div class="category-list">
+
+
+                            <div>
+
+                                <span>
+                                    <i class="dot pizza"></i>
+                                    Pizza
+                                </span>
+
+                                <b>
+                                    62%
+                                </b>
+
+                                <strong>
+                                    ₱28,291
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    <i class="dot drinks"></i>
+                                    Drinks
+                                </span>
+
+                                <b>
+                                    18%
+                                </b>
+
+                                <strong>
+                                    ₱8,215
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    <i class="dot sides"></i>
+                                    Sides
+                                </span>
+
+                                <b>
+                                    12%
+                                </b>
+
+                                <strong>
+                                    ₱5,479
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    <i class="dot others"></i>
+                                    Others
+                                </span>
+
+                                <b>
+                                    8%
+                                </b>
+
+                                <strong>
+                                    ₱3,635
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 TABLES
+            ================================================== -->
+
+            <section class="tables-grid">
+
+
+                <!-- TOP SELLING ITEMS -->
+                <article class="panel table-panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            Top Selling Items
+                        </h2>
+
+                    </div>
+
+
+                    <div class="table-scroll">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        #
+                                    </th>
+
+                                    <th>
+                                        Item
+                                    </th>
+
+                                    <th>
+                                        Category
+                                    </th>
+
+                                    <th>
+                                        Quantity Sold
+                                    </th>
+
+                                    <th>
+                                        Sales
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+
+                                <tr>
+
+                                    <td>
+                                        1
+                                    </td>
+
+                                    <td>
+                                        <span class="food">
+                                            🍕
+                                        </span>
+                                        Pepperoni Pizza
+                                    </td>
+
+                                    <td>
+                                        Pizza
+                                    </td>
+
+                                    <td>
+                                        52
+                                    </td>
+
+                                    <td>
+                                        ₱9,100.00
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        2
+                                    </td>
+
+                                    <td>
+                                        <span class="food">
+                                            🍕
+                                        </span>
+                                        Hawaiian Pizza
+                                    </td>
+
+                                    <td>
+                                        Pizza
+                                    </td>
+
+                                    <td>
+                                        41
+                                    </td>
+
+                                    <td>
+                                        ₱7,175.00
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        3
+                                    </td>
+
+                                    <td>
+                                        <span class="food">
+                                            🍕
+                                        </span>
+                                        Bacon Cheeseburger Pizza
+                                    </td>
+
+                                    <td>
+                                        Pizza
+                                    </td>
+
+                                    <td>
+                                        36
+                                    </td>
+
+                                    <td>
+                                        ₱6,480.00
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        4
+                                    </td>
+
+                                    <td>
+                                        <span class="food">
+                                            🥤
+                                        </span>
+                                        Iced Tea
+                                    </td>
+
+                                    <td>
+                                        Drinks
+                                    </td>
+
+                                    <td>
+                                        48
+                                    </td>
+
+                                    <td>
+                                        ₱2,880.00
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        5
+                                    </td>
+
+                                    <td>
+                                        <span class="food">
+                                            🥖
+                                        </span>
+                                        Garlic Bread
+                                    </td>
+
+                                    <td>
+                                        Sides
+                                    </td>
+
+                                    <td>
+                                        39
+                                    </td>
+
+                                    <td>
+                                        ₱1,950.00
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="view-link"
+                        data-page="Menu Management"
+                    >
+                        View all items →
+                    </button>
+
+                </article>
+
+
+                <!-- RECENT ORDERS -->
+                <article class="panel table-panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            Recent Orders
+                        </h2>
+
+                        <button
+                            type="button"
+                            class="view-all"
+                            id="viewAllOrders"
+                        >
+                            View all
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-scroll">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Order ID
+                                    </th>
+
+                                    <th>
+                                        Customer
+                                    </th>
+
+                                    <th>
+                                        Total
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Time
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+
+                                <tr>
+
+                                    <td>
+                                        <b>#ORD-000158</b>
+                                    </td>
+
+                                    <td>
+                                        Walk-in Customer
+                                    </td>
+
+                                    <td>
+                                        ₱590.00
+                                    </td>
+
+                                    <td>
+                                        <span class="status completed">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        2:45 PM
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        <b>#ORD-000157</b>
+                                    </td>
+
+                                    <td>
+                                        John D.
+                                    </td>
+
+                                    <td>
+                                        ₱1,280.00
+                                    </td>
+
+                                    <td>
+                                        <span class="status completed">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        2:30 PM
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        <b>#ORD-000156</b>
+                                    </td>
+
+                                    <td>
+                                        Maria S.
+                                    </td>
+
+                                    <td>
+                                        ₱845.00
+                                    </td>
+
+                                    <td>
+                                        <span class="status completed">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        2:10 PM
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        <b>#ORD-000155</b>
+                                    </td>
+
+                                    <td>
+                                        Walk-in Customer
+                                    </td>
+
+                                    <td>
+                                        ₱460.00
+                                    </td>
+
+                                    <td>
+                                        <span class="status preparing">
+                                            Preparing
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        1:55 PM
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        <b>#ORD-000154</b>
+                                    </td>
+
+                                    <td>
+                                        David L.
+                                    </td>
+
+                                    <td>
+                                        ₱1,150.00
+                                    </td>
+
+                                    <td>
+                                        <span class="status ready">
+                                            Ready
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        1:40 PM
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================== -->
+
+            <section class="quick-section">
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+
+                <div class="quick-grid">
+
+
+                    <button
+                        type="button"
+                        class="quick-card"
+                        data-page="Menu Management"
+                    >
+
+                        <span class="quick-icon red">
+                            ◈
+                        </span>
+
+                        Add Menu Item
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-card"
+                        data-page="Inventory"
+                    >
+
+                        <span class="quick-icon orange">
+                            ▣
+                        </span>
+
+                        Manage Inventory
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-card"
+                        data-page="Reports"
+                    >
+
+                        <span class="quick-icon green">
+                            ▤
+                        </span>
+
+                        Generate Report
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-card"
+                        data-page="Reports"
+                    >
+
+                        <span class="quick-icon purple">
+                            ⌁
+                        </span>
+
+                        View Sales Report
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-card"
+                        data-page="Settings"
+                    >
+
+                        <span class="quick-icon yellow">
+                            ◇
+                        </span>
+
+                        Manage Promotions
+
+                    </button>
+
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         TOAST
+    ========================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            /* =====================================================
+               ELEMENTS
+            ===================================================== */
+
+            const sidebar =
+                document.getElementById("sidebar");
+
+            const menuToggle =
+                document.getElementById("menuToggle");
+
+            const profileBtn =
+                document.getElementById("profileBtn");
+
+            const profileMenu =
+                document.getElementById("profileMenu");
+
+            const sidebarLogoutBtn =
+                document.getElementById("sidebarLogoutBtn");
+
+            const profileLogoutBtn =
+                document.getElementById("profileLogoutBtn");
+
+            const profileBtnMyProfile =
+                document.getElementById("profileBtnMyProfile");
+
+            const profileBtnSettings =
+                document.getElementById("profileBtnSettings");
+
+            const notificationBtn =
+                document.getElementById("notificationBtn");
+
+            const datePicker =
+                document.getElementById("datePicker");
+
+            const dateText =
+                document.getElementById("dateText");
+
+            const salesPeriod =
+                document.getElementById("salesPeriod");
+
+            const toast =
+                document.getElementById("toast");
+
+            const navItems =
+                document.querySelectorAll(".nav-item[data-page]");
+
+            const pageButtons =
+                document.querySelectorAll("[data-page]");
+
+            const viewAllOrders =
+                document.getElementById("viewAllOrders");
+
+
+            /* =====================================================
+               TOAST
+            ===================================================== */
+
+            function showToast(message) {
+
+                if (!toast) {
+                    return;
+                }
+
+                toast.textContent = message;
+
+                toast.classList.add("show");
+
+                clearTimeout(window.toastTimer);
+
+                window.toastTimer =
+                    setTimeout(function () {
+
+                        toast.classList.remove("show");
+
+                    }, 2500);
+
+            }
+
+
+            /* =====================================================
+               SIDEBAR MOBILE TOGGLE
+            ===================================================== */
+
+            if (menuToggle && sidebar) {
+
+                menuToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        sidebar.classList.toggle("open");
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               PAGE NAVIGATION
+            ===================================================== */
+
+            const pageMap = {
+
+                "Dashboard":
+                    "dashboard.html",
+
+                "Orders":
+                    "orders.html",
+
+                "Menu Management":
+                    "menu-management.html",
+
+                "Inventory":
+                    "inventory overview.html",
+
+                "Delivery Tracking":
+                    "delivery-tracking.html",
+
+                "Online Payments":
+                    "online-payments.html",
+
+                "Reports":
+                    "reports.html",
+
+                "Staff Management":
+                    "staff-management.html",
+
+                "Settings":
+                    "settings.html"
+
+            };
+
+
+            /* =====================================================
+               SIDEBAR NAVIGATION
+            ===================================================== */
+
+            navItems.forEach(function (item) {
+
+                item.addEventListener(
+                    "click",
+                    function () {
+
+                        const page =
+                            item.getAttribute("data-page");
+
+
+                        /* Don't process logout */
+                        if (
+                            item.classList.contains(
+                                "logout-item"
+                            )
+                        ) {
+                            return;
+                        }
+
+
+                        /* Remove active */
+                        navItems.forEach(function (nav) {
+
+                            nav.classList.remove("active");
+
+                        });
+
+
+                        /* Add active */
+                        item.classList.add("active");
+
+
+                        /* Close mobile sidebar */
+                        if (
+                            window.innerWidth <= 1000 &&
+                            sidebar
+                        ) {
+
+                            sidebar.classList.remove("open");
+
+                        }
+
+
+                        /* Navigate */
+                        if (pageMap[page]) {
+
+                            window.location.href =
+                                pageMap[page];
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+            /* =====================================================
+               QUICK ACTIONS
+            ===================================================== */
+
+            pageButtons.forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const page =
+                            button.getAttribute("data-page");
+
+
+                        if (!page) {
+                            return;
+                        }
+
+
+                        /* Sidebar already has its own event */
+                        if (
+                            button.classList.contains(
+                                "nav-item"
+                            )
+                        ) {
+                            return;
+                        }
+
+
+                        /* Quick action navigation */
+                        if (pageMap[page]) {
+
+                            showToast(
+                                "Opening " + page + "..."
+                            );
+
+
+                            setTimeout(function () {
+
+                                window.location.href =
+                                    pageMap[page];
+
+                            }, 500);
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+            /* =====================================================
+               PROFILE MENU
+            ===================================================== */
+
+            if (profileBtn && profileMenu) {
+
+                profileBtn.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        profileMenu.classList.toggle("show");
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               CLOSE PROFILE MENU
+            ===================================================== */
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        profileMenu &&
+                        profileBtn &&
+                        !profileMenu.contains(event.target) &&
+                        !profileBtn.contains(event.target)
+                    ) {
+
+                        profileMenu.classList.remove("show");
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               PROFILE MENU - MY PROFILE
+            ===================================================== */
+
+            if (profileBtnMyProfile) {
+
+                profileBtnMyProfile.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Opening My Profile..."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               PROFILE MENU - ACCOUNT SETTINGS
+            ===================================================== */
+
+            if (profileBtnSettings) {
+
+                profileBtnSettings.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Opening Account Settings..."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               LOGOUT FUNCTION
+            ===================================================== */
+
+            function handleLogout() {
+
+                const confirmLogout =
+                    confirm(
+                        "Are you sure you want to log out?"
+                    );
+
+
+                if (!confirmLogout) {
+
+                    return;
+
+                }
+
+
+                showToast(
+                    "Logging out..."
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        /*
+                         * login.html is in the root folder.
+                         * dashboard.html is inside Admin.
+                         */
+
+                        window.location.href =
+                            "../login.html";
+
+                    },
+                    1000
+                );
+
+            }
+
+
+            /* =====================================================
+               SIDEBAR LOGOUT
+            ===================================================== */
+
+            if (sidebarLogoutBtn) {
+
+                sidebarLogoutBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        handleLogout();
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               PROFILE LOGOUT
+            ===================================================== */
+
+            if (profileLogoutBtn) {
+
+                profileLogoutBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        handleLogout();
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               NOTIFICATIONS
+            ===================================================== */
+
+            if (notificationBtn) {
+
+                notificationBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "You have 3 notifications."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               DATE PICKER
+            ===================================================== */
+
+            if (datePicker) {
+
+                datePicker.addEventListener(
+                    "click",
+                    function () {
+
+                        const selectedDate =
+                            prompt(
+                                "Enter a date (example: May 20, 2024):",
+                                dateText.textContent
+                            );
+
+
+                        if (
+                            selectedDate &&
+                            selectedDate.trim() !== ""
+                        ) {
+
+                            const newDate =
+                                selectedDate.trim();
+
+
+                            dateText.textContent =
+                                newDate;
+
+
+                            showToast(
+                                "Date changed to " +
+                                newDate
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               SALES CHART
+            ===================================================== */
+
+            const canvas =
+                document.getElementById("salesChart");
+
+
+            if (canvas) {
+
+                drawSalesChart("week");
+
+            }
+
+
+            /* =====================================================
+               SALES PERIOD
+            ===================================================== */
+
+            if (salesPeriod) {
+
+                salesPeriod.addEventListener(
+                    "change",
+                    function () {
+
+                        const selected =
+                            salesPeriod.value;
+
+
+                        if (
+                            selected === "This Week"
+                        ) {
+
+                            drawSalesChart("week");
+
+                        }
+                        else if (
+                            selected === "This Month"
+                        ) {
+
+                            drawSalesChart("month");
+
+                        }
+                        else if (
+                            selected === "This Year"
+                        ) {
+
+                            drawSalesChart("year");
+
+                        }
+
+
+                        showToast(
+                            "Sales period changed to " +
+                            selected
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               DRAW SALES CHART
+            ===================================================== */
+
+            function drawSalesChart(period) {
+
+                const canvas =
+                    document.getElementById("salesChart");
+
+
+                if (!canvas) {
+                    return;
+                }
+
+
+                const ctx =
+                    canvas.getContext("2d");
+
+
+                const width =
+                    canvas.clientWidth || 650;
+
+                const height =
+                    canvas.clientHeight || 300;
+
+
+                const devicePixelRatioValue =
+                    window.devicePixelRatio || 1;
+
+
+                canvas.width =
+                    width * devicePixelRatioValue;
+
+                canvas.height =
+                    height * devicePixelRatioValue;
+
+
+                ctx.setTransform(
+                    devicePixelRatioValue,
+                    0,
+                    0,
+                    devicePixelRatioValue,
+                    0,
+                    0
+                );
+
+
+                ctx.clearRect(
+                    0,
+                    0,
+                    width,
+                    height
+                );
+
+
+                /* =================================================
+                   DATA
+                ================================================= */
+
+                let labels;
+                let thisWeek;
+                let lastWeek;
+
+
+                if (period === "week") {
+
+                    labels = [
+                        "May 14",
+                        "May 15",
+                        "May 16",
+                        "May 17",
+                        "May 18",
+                        "May 19",
+                        "May 20"
+                    ];
+
+
+                    thisWeek = [
+                        28450,
+                        32120,
+                        29560,
+                        35680,
+                        31240,
+                        40520,
+                        45620
+                    ];
+
+
+                    lastWeek = [
+                        18000,
+                        23000,
+                        16000,
+                        26000,
+                        19500,
+                        29000,
+                        32500
+                    ];
+
+                }
+                else if (period === "month") {
+
+                    labels = [
+                        "Week 1",
+                        "Week 2",
+                        "Week 3",
+                        "Week 4"
+                    ];
+
+
+                    thisWeek = [
+                        32000,
+                        38500,
+                        41500,
+                        45620
+                    ];
+
+
+                    lastWeek = [
+                        27000,
+                        30000,
+                        35000,
+                        39000
+                    ];
+
+                }
+                else {
+
+                    labels = [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May"
+                    ];
+
+
+                    thisWeek = [
+                        28500,
+                        32000,
+                        36500,
+                        41000,
+                        45620
+                    ];
+
+
+                    lastWeek = [
+                        24000,
+                        28000,
+                        31000,
+                        35000,
+                        39000
+                    ];
+
+                }
+
+
+                /* =================================================
+                   CHART SETTINGS
+                ================================================= */
+
+                const paddingLeft = 55;
+                const paddingRight = 15;
+                const paddingTop = 20;
+                const paddingBottom = 45;
+
+
+                const chartWidth =
+                    width -
+                    paddingLeft -
+                    paddingRight;
+
+
+                const chartHeight =
+                    height -
+                    paddingTop -
+                    paddingBottom;
+
+
+                const maxValue = 50000;
+
+
+                /* =================================================
+                   GRID LINES
+                ================================================= */
+
+                ctx.font =
+                    "12px Arial";
+
+                ctx.textAlign =
+                    "right";
+
+                ctx.textBaseline =
+                    "middle";
+
+
+                for (
+                    let i = 0;
+                    i <= 5;
+                    i++
+                ) {
+
+                    const value =
+                        i * 10000;
+
+
+                    const y =
+                        paddingTop +
+                        chartHeight -
+                        (value / maxValue) *
+                        chartHeight;
+
+
+                    ctx.beginPath();
+
+
+                    ctx.moveTo(
+                        paddingLeft,
+                        y
+                    );
+
+
+                    ctx.lineTo(
+                        width - paddingRight,
+                        y
+                    );
+
+
+                    ctx.strokeStyle =
+                        "#eeeeee";
+
+                    ctx.lineWidth =
+                        1;
+
+
+                    ctx.stroke();
+
+
+                    ctx.fillStyle =
+                        "#555555";
+
+
+                    if (value === 0) {
+
+                        ctx.fillText(
+                            "₱0",
+                            paddingLeft - 10,
+                            y
+                        );
+
+                    }
+                    else {
+
+                        ctx.fillText(
+                            "₱" +
+                            (value / 1000) +
+                            "K",
+                            paddingLeft - 10,
+                            y
+                        );
+
+                    }
+
+                }
+
+
+                /* =================================================
+                   X AXIS LABELS
+                ================================================= */
+
+                ctx.textAlign =
+                    "center";
+
+                ctx.textBaseline =
+                    "top";
+
+                ctx.fillStyle =
+                    "#444444";
+
+                ctx.font =
+                    "12px Arial";
+
+
+                labels.forEach(
+                    function (label, index) {
+
+                        const x =
+                            paddingLeft +
+                            (
+                                index /
+                                (labels.length - 1)
+                            ) *
+                            chartWidth;
+
+
+                        ctx.fillText(
+                            label,
+                            x,
+                            height -
+                            paddingBottom +
+                            12
+                        );
+
+                    }
+                );
+
+
+                /* =================================================
+                   POINT CALCULATION
+                ================================================= */
+
+                function getPoints(data) {
+
+                    return data.map(
+                        function (value, index) {
+
+                            const x =
+                                paddingLeft +
+                                (
+                                    index /
+                                    (data.length - 1)
+                                ) *
+                                chartWidth;
+
+
+                            const y =
+                                paddingTop +
+                                chartHeight -
+                                (
+                                    value /
+                                    maxValue
+                                ) *
+                                chartHeight;
+
+
+                            return {
+
+                                x: x,
+
+                                y: y,
+
+                                value: value
+
+                            };
+
+                        }
+                    );
+
+                }
+
+
+                const currentPoints =
+                    getPoints(thisWeek);
+
+
+                const previousPoints =
+                    getPoints(lastWeek);
+
+
+                /* =================================================
+                   DRAW LAST WEEK
+                ================================================= */
+
+                ctx.beginPath();
+
+
+                previousPoints.forEach(
+                    function (point, index) {
+
+                        if (index === 0) {
+
+                            ctx.moveTo(
+                                point.x,
+                                point.y
+                            );
+
+                        }
+                        else {
+
+                            ctx.lineTo(
+                                point.x,
+                                point.y
+                            );
+
+                        }
+
+                    }
+                );
+
+
+                ctx.strokeStyle =
+                    "#9aa0ad";
+
+                ctx.lineWidth =
+                    2;
+
+
+                ctx.setLineDash([
+                    5,
+                    4
+                ]);
+
+
+                ctx.stroke();
+
+
+                ctx.setLineDash([]);
+
+
+                /* =================================================
+                   DRAW CURRENT WEEK
+                ================================================= */
+
+                ctx.beginPath();
+
+
+                currentPoints.forEach(
+                    function (point, index) {
+
+                        if (index === 0) {
+
+                            ctx.moveTo(
+                                point.x,
+                                point.y
+                            );
+
+                        }
+                        else {
+
+                            ctx.lineTo(
+                                point.x,
+                                point.y
+                            );
+
+                        }
+
+                    }
+                );
+
+
+                ctx.strokeStyle =
+                    "#e31b23";
+
+                ctx.lineWidth =
+                    3;
+
+
+                ctx.stroke();
+
+
+                /* =================================================
+                   DRAW POINTS AND VALUES
+                ================================================= */
+
+                currentPoints.forEach(
+                    function (point) {
+
+
+                        /* POINT */
+
+                        ctx.beginPath();
+
+
+                        ctx.arc(
+                            point.x,
+                            point.y,
+                            4,
+                            0,
+                            Math.PI * 2
+                        );
+
+
+                        ctx.fillStyle =
+                            "#e31b23";
+
+
+                        ctx.fill();
+
+
+                        /* VALUE */
+
+                        ctx.font =
+                            "bold 11px Arial";
+
+                        ctx.fillStyle =
+                            "#e31b23";
+
+                        ctx.textAlign =
+                            "center";
+
+                        ctx.textBaseline =
+                            "bottom";
+
+
+                        const valueText =
+                            "₱" +
+                            point.value.toLocaleString();
+
+
+                        ctx.fillText(
+                            valueText,
+                            point.x,
+                            point.y - 10
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               WINDOW RESIZE
+            ===================================================== */
+
+            window.addEventListener(
+                "resize",
+                function () {
+
+                    const canvas =
+                        document.getElementById(
+                            "salesChart"
+                        );
+
+
+                    if (!canvas) {
+                        return;
+                    }
+
+
+                    const selectedPeriod =
+                        salesPeriod
+                            ? salesPeriod.value
+                            : "This Week";
+
+
+                    if (
+                        selectedPeriod ===
+                        "This Month"
+                    ) {
+
+                        drawSalesChart(
+                            "month"
+                        );
+
+                    }
+                    else if (
+                        selectedPeriod ===
+                        "This Year"
+                    ) {
+
+                        drawSalesChart(
+                            "year"
+                        );
+
+                    }
+                    else {
+
+                        drawSalesChart(
+                            "week"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               VIEW ALL ORDERS
+            ===================================================== */
+
+            if (viewAllOrders) {
+
+                viewAllOrders.addEventListener(
+                    "click",
+                    function () {
+
+                        window.location.href =
+                            "orders.html";
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               CLOSE SIDEBAR WHEN CLICKING MAIN AREA
+               ON MOBILE
+            ===================================================== */
+
+            if (sidebar) {
+
+                document.addEventListener(
+                    "click",
+                    function (event) {
+
+                        if (
+                            window.innerWidth <= 1000 &&
+                            sidebar.classList.contains("open") &&
+                            !sidebar.contains(event.target) &&
+                            menuToggle &&
+                            !menuToggle.contains(event.target)
+                        ) {
+
+                            sidebar.classList.remove(
+                                "open"
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               INITIALIZATION
+            ===================================================== */
+
+            console.log(
+                "Jolie's Pizza Admin Dashboard loaded successfully."
+            );
+
+        });
+
+    </script>
+
+    <script src="sidebar-icons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings - Jolie's Pizza</title>
+
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <img src="../images/logoadmin.png" alt="Jolie's Pizza" class="logo">
+            </div>
+
+            <nav class="side-nav">
+
+                <!-- Dashboard -->
+                <a href="dashboard.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="7" height="7" />
+                            <rect x="14" y="3" width="7" height="7" />
+                            <rect x="3" y="14" width="7" height="7" />
+                            <rect x="14" y="14" width="7" height="7" />
+                        </svg>
+                    </span>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <!-- Orders -->
+                <a href="orders.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6 8H18L19 20H5L6 8Z" />
+                            <path d="M8 8V6A4 4 0 0 1 16 6V8" />
+                        </svg>
+                    </span>
+
+                    <span>Orders</span>
+
+                </a>
+
+
+                <!-- Menu Management -->
+                <div class="nav-group">
+
+                    <button class="nav-item nav-parent" data-menu="menuSubmenu">
+
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 20L7 7L12 4L17 7L20 20" />
+                                <path d="M7 10C9 11 10 11 12 10" />
+                                <path d="M12 10C14 11 15 11 17 10" />
+                            </svg>
+                        </span>
+
+                        <span>Menu Management</span>
+
+                        <span class="arrow">⌄</span>
+
+                    </button>
+
+                    <div class="submenu" id="menuSubmenu">
+
+                        <a href="menu-management.html">
+                            Menu Items
+                        </a>
+
+                        <a href="menu-management.html#categories">
+                            Categories
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Inventory -->
+                <div class="nav-group">
+
+                    <button class="nav-item nav-parent" data-menu="inventorySubmenu">
+
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 7L12 3L20 7V18L12 22L4 18V7Z" />
+                                <path d="M4 7L12 11L20 7" />
+                                <path d="M12 11V22" />
+                            </svg>
+                        </span>
+
+                        <span>Inventory</span>
+
+                        <span class="arrow">⌄</span>
+
+                    </button>
+
+                    <div class="submenu" id="inventorySubmenu">
+
+                        <a href="inventory.html">
+                            Overview
+                        </a>
+
+                        <a href="stock-items.html">
+                            Stock Items
+                        </a>
+
+                        <a href="stock-in.html">
+                            Stock In
+                        </a>
+
+                        <a href="stock-out.html">
+                            Stock Out
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Delivery Tracking -->
+                <a href="delivery-tracking.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 6H15V17H3Z" />
+                            <path d="M15 10H19L22 13V17H15Z" />
+                            <circle cx="7" cy="18" r="2" />
+                            <circle cx="18" cy="18" r="2" />
+                        </svg>
+                    </span>
+
+                    <span>Delivery Tracking</span>
+
+                </a>
+
+
+                <!-- Online Payments -->
+                <a href="online-payments.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                            <line x1="7" y1="15" x2="11" y2="15" />
+                        </svg>
+                    </span>
+
+                    <span>Online Payments</span>
+
+                </a>
+
+
+                <!-- Reports -->
+                <a href="reports.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3A9 9 0 1 0 21 12" />
+                            <path d="M12 3V12H21" />
+                        </svg>
+                    </span>
+
+                    <span>Reports</span>
+
+                </a>
+
+
+                <!-- Staff Management -->
+                <a href="staff-management.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="9" cy="8" r="4" />
+                            <path d="M2 21C2 16.5 5 14 9 14C13 14 16 16.5 16 21" />
+                            <circle cx="17" cy="9" r="3" />
+                        </svg>
+                    </span>
+
+                    <span>Staff Management</span>
+
+                </a>
+
+
+                <!-- Settings ACTIVE -->
+                <a href="settings.html" class="nav-item active">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+
+                            <circle cx="12" cy="12" r="3" />
+
+                            <path d="
+                            M19 13.5
+                            L21 15
+                            L19 18
+                            L16.7 17.2
+                            C16.2 17.7 15.7 18 15 18.3
+                            L14.7 21
+                            H9.3
+                            L9 18.3
+                            C8.3 18 7.8 17.7 7.3 17.2
+                            L5 18
+                            L3 15
+                            L5 13.5
+                            C4.9 13 4.9 12.5 5 12
+                            C4.9 11.5 4.9 11 5 10.5
+                            L3 9
+                            L5 6
+                            L7.3 6.8
+                            C7.8 6.3 8.3 6 9 5.7
+                            L9.3 3
+                            H14.7
+                            L15 5.7
+                            C15.7 6 16.2 6.3 16.7 6.8
+                            L19 6
+                            L21 9
+                            L19 10.5
+                            C19.1 11 19.1 11.5 19 12
+                            C19.1 12.5 19.1 13 19 13.5Z
+                        " />
+
+                        </svg>
+                    </span>
+
+                    <span>Settings</span>
+
+                </a>
+
+
+                <!-- Logout -->
+                <button class="nav-item logout" id="logoutBtn">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10 17L15 12L10 7" />
+                            <path d="M15 12H3" />
+                            <path d="M14 4H20V20H14" />
+                        </svg>
+                    </span>
+
+                    <span>Log Out</span>
+
+                </button>
+
+            </nav>
+
+
+            <!-- SUPPORT -->
+
+            <div class="support-box">
+
+                <div class="support-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M4 13V11A8 8 0 0 1 20 11V13" />
+
+                        <rect x="2" y="12" width="4" height="7" rx="2" />
+
+                        <rect x="18" y="12" width="4" height="7" rx="2" />
+
+                        <path d="M20 19C20 21 18 22 15 22H12" />
+
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <strong>Need Help?</strong>
+
+                    <a href="tel:09123456789">
+                        Contact support
+                    </a>
+
+                    <span>0912 345 6789</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div class="heading">
+
+                    <button class="mobile-menu" id="mobileMenu">
+                        ☰
+                    </button>
+
+                    <div>
+
+                        <h1>Settings</h1>
+
+                        <div class="breadcrumb">
+
+                            <span>Dashboard</span>
+
+                            <b>›</b>
+
+                            <strong>Settings</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="top-right">
+
+                    <button class="date-button">
+
+                        <span>May 20, 2024</span>
+
+                        <svg viewBox="0 0 24 24">
+
+                            <rect x="3" y="4" width="18" height="17" rx="2" />
+
+                            <line x1="8" y1="2" x2="8" y2="6" />
+
+                            <line x1="16" y1="2" x2="16" y2="6" />
+
+                            <line x1="3" y1="10" x2="21" y2="10" />
+
+                        </svg>
+
+                    </button>
+
+
+                    <button class="notification">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M18 8A6 6 0 0 0 6 8C6 15 3 16 3 18H21C21 16 18 15 18 8" />
+
+                            <path d="M10 21H14" />
+
+                        </svg>
+
+                        <b>3</b>
+
+                    </button>
+
+
+                    <div class="profile-wrapper">
+
+                        <button class="profile" id="profileBtn">
+
+                            <span class="profile-avatar">
+                                A
+                            </span>
+
+                            <span class="profile-info">
+
+                                <strong>Admin</strong>
+
+                                <small>Administrator</small>
+
+                            </span>
+
+                            <span class="profile-arrow">
+                                ⌄
+                            </span>
+
+                        </button>
+
+
+                        <div class="profile-menu" id="profileMenu">
+
+                            <button>My Profile</button>
+
+                            <button>Account Settings</button>
+
+                            <button id="profileLogout">
+                                Log Out
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= SETTINGS TABS ================= -->
+
+            <div class="settings-tabs">
+
+                <button class="settings-tab active" data-tab="general">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle cx="12" cy="12" r="3" />
+
+                        <path d="
+                        M19 13.5
+                        L21 15
+                        L19 18
+                        L16.7 17.2
+                        C16.2 17.7 15.7 18 15 18.3
+                        L14.7 21
+                        H9.3
+                        L9 18.3
+                        C8.3 18 7.8 17.7 7.3 17.2
+                        L5 18
+                        L3 15
+                        L5 13.5
+                        C4.9 13 4.9 12.5 5 12
+                        C4.9 11.5 4.9 11 5 10.5
+                        L3 9
+                        L5 6
+                        L7.3 6.8
+                        C7.8 6.3 8.3 6 9 5.7
+                        L9.3 3
+                        H14.7
+                        L15 5.7
+                        C15.7 6 16.2 6.3 16.7 6.8
+                        L19 6
+                        L21 9
+                        L19 10.5
+                        C19.1 11 19.1 11.5 19 12
+                        C19.1 12.5 19.1 13 19 13.5Z
+                    " />
+
+                    </svg>
+
+                    General
+
+                </button>
+
+
+                <button class="settings-tab" data-tab="business">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="4" y="5" width="16" height="15" rx="2" />
+                        <path d="M8 5V3H16V5" />
+                        <path d="M8 10H16" />
+                    </svg>
+
+                    Business Information
+
+                </button>
+
+
+                <button class="settings-tab" data-tab="payment">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                        <line x1="7" y1="15" x2="11" y2="15" />
+                    </svg>
+
+                    Payment Settings
+
+                </button>
+
+
+                <button class="settings-tab" data-tab="notifications">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 8A6 6 0 0 0 6 8C6 15 3 16 3 18H21C21 16 18 15 18 8" />
+                        <path d="M10 21H14" />
+                    </svg>
+
+                    Notification Settings
+
+                </button>
+
+
+                <button class="settings-tab" data-tab="system">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M19 13.5L21 15L19 18L16.7 17.2" />
+                        <path d="M5 18L3 15L5 13.5" />
+                        <path d="M5 10.5L3 9L5 6L7.3 6.8" />
+                    </svg>
+
+                    System Preferences
+
+                </button>
+
+
+                <button class="settings-tab" data-tab="accounts">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="9" cy="8" r="4" />
+                        <path d="M2 21C2 16.5 5 14 9 14" />
+                        <circle cx="17" cy="9" r="3" />
+                    </svg>
+
+                    User Accounts
+
+                </button>
+
+
+                <button class="settings-tab" data-tab="logs">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="5" y="3" width="14" height="18" rx="2" />
+                        <line x1="9" y1="8" x2="15" y2="8" />
+                        <line x1="9" y1="12" x2="15" y2="12" />
+                        <line x1="9" y1="16" x2="13" y2="16" />
+                    </svg>
+
+                    Activity Logs
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= CONTENT ================= -->
+
+            <div id="settingsContent">
+
+
+                <!-- =================================================
+                 GENERAL TAB
+            ================================================== -->
+
+                <div class="tab-content active" id="general">
+
+                    <div class="content-grid">
+
+
+                        <!-- LEFT -->
+
+                        <div class="left-column">
+
+
+                            <!-- GENERAL SETTINGS -->
+
+                            <section class="card general-card">
+
+                                <h2>General Settings</h2>
+
+
+                                <div class="form-grid">
+
+
+                                    <label>
+
+                                        Site Name
+
+                                        <input type="text" id="siteName" value="Jolie's Pizza - San Roque">
+
+                                        <small>
+                                            This name will appear in the system.
+                                        </small>
+
+                                    </label>
+
+
+                                    <label>
+
+                                        Business Email
+
+                                        <input type="email" id="businessEmail" value="info@joliespizza.com">
+
+                                        <small>
+                                            This email will be used for system notifications.
+                                        </small>
+
+                                    </label>
+
+
+                                    <label>
+
+                                        Contact Number
+
+                                        <input type="text" id="contactNumber" value="0912 987 6543">
+
+                                        <small>
+                                            Primary contact number of the business.
+                                        </small>
+
+                                    </label>
+
+
+                                    <label>
+
+                                        Currency
+
+                                        <select id="currency">
+
+                                            <option>
+                                                Philippine Peso (₱)
+                                            </option>
+
+                                            <option>
+                                                US Dollar ($)
+                                            </option>
+
+                                        </select>
+
+                                        <small>
+                                            Select the default currency for the system.
+                                        </small>
+
+                                    </label>
+
+
+                                    <label>
+
+                                        Timezone
+
+                                        <select id="timezone">
+
+                                            <option>
+                                                (GMT+08:00) Asia/Manila
+                                            </option>
+
+                                            <option>
+                                                (GMT+00:00) UTC
+                                            </option>
+
+                                        </select>
+
+                                        <small>
+                                            Select the timezone for your location.
+                                        </small>
+
+                                    </label>
+
+
+                                    <label>
+
+                                        Date Format
+
+                                        <select id="dateFormat">
+
+                                            <option>
+                                                May 20, 2024 (MMM DD, YYYY)
+                                            </option>
+
+                                            <option>
+                                                20/05/2024
+                                            </option>
+
+                                            <option>
+                                                2024-05-20
+                                            </option>
+
+                                        </select>
+
+                                        <small>
+                                            Choose how dates are displayed.
+                                        </small>
+
+                                    </label>
+
+                                </div>
+
+
+                                <button class="red-button" id="saveGeneral">
+
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M5 4H17L20 7V20H5Z" />
+                                        <path d="M8 4V9H16V4" />
+                                        <rect x="8" y="13" width="8" height="5" />
+                                    </svg>
+
+                                    Save Changes
+
+                                </button>
+
+                            </section>
+
+
+                            <!-- SYSTEM SETTINGS -->
+
+                            <section class="card system-card">
+
+                                <h2>System Settings</h2>
+
+
+                                <div class="system-grid">
+
+
+                                    <div class="system-column">
+
+
+                                        <div class="setting-item">
+
+                                            <div class="setting-icon">
+                                                ⚒
+                                            </div>
+
+                                            <div class="setting-text">
+
+                                                <strong>
+                                                    Maintenance Mode
+                                                </strong>
+
+                                                <span>
+                                                    Enable to put the system in maintenance mode.
+                                                </span>
+
+                                            </div>
+
+                                            <button class="toggle" data-setting="maintenance">
+                                                <span></span>
+                                            </button>
+
+                                        </div>
+
+
+                                        <div class="setting-item">
+
+                                            <div class="setting-icon">
+                                                ♙
+                                            </div>
+
+                                            <div class="setting-text">
+
+                                                <strong>
+                                                    Allow New Registrations
+                                                </strong>
+
+                                                <span>
+                                                    Allow customers to register on the system.
+                                                </span>
+
+                                            </div>
+
+                                            <button class="toggle on" data-setting="registrations">
+                                                <span></span>
+                                            </button>
+
+                                        </div>
+
+
+                                        <div class="setting-item">
+
+                                            <div class="setting-icon">
+                                                ✓
+                                            </div>
+
+                                            <div class="setting-text">
+
+                                                <strong>
+                                                    Auto Confirm Orders
+                                                </strong>
+
+                                                <span>
+                                                    Automatically confirm orders after payment.
+                                                </span>
+
+                                            </div>
+
+                                            <button class="toggle" data-setting="autoConfirm">
+                                                <span></span>
+                                            </button>
+
+                                        </div>
+
+
+                                        <div class="setting-item">
+
+                                            <div class="setting-icon">
+                                                ♧
+                                            </div>
+
+                                            <div class="setting-text">
+
+                                                <strong>
+                                                    Low Stock Alerts
+                                                </strong>
+
+                                                <span>
+                                                    Receive alerts when inventory goes below threshold.
+                                                </span>
+
+                                            </div>
+
+                                            <button class="toggle on" data-setting="lowStock">
+                                                <span></span>
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="system-column">
+
+
+                                        <div class="setting-item">
+
+                                            <div class="setting-icon">
+                                                ✉
+                                            </div>
+
+                                            <div class="setting-text">
+
+                                                <strong>
+                                                    Email Notifications
+                                                </strong>
+
+                                                <span>
+                                                    Receive important system notifications via email.
+                                                </span>
+
+                                            </div>
+
+                                            <button class="toggle on" data-setting="email">
+                                                <span></span>
+                                            </button>
+
+                                        </div>
+
+
+                                        <div class="setting-item">
+
+                                            <div class="setting-icon">
+                                                ♧
+                                            </div>
+
+                                            <div class="setting-text">
+
+                                                <strong>
+                                                    SMS Notifications
+                                                </strong>
+
+                                                <span>
+                                                    Receive important system notifications via SMS.
+                                                </span>
+
+                                            </div>
+
+                                            <button class="toggle" data-setting="sms">
+                                                <span></span>
+                                            </button>
+
+                                        </div>
+
+
+                                        <div class="setting-item">
+
+                                            <div class="setting-icon">
+                                                ↗
+                                            </div>
+
+                                            <div class="setting-text">
+
+                                                <strong>
+                                                    Daily Sales Summary
+                                                </strong>
+
+                                                <span>
+                                                    Receive daily sales summary via email.
+                                                </span>
+
+                                            </div>
+
+                                            <button class="toggle on" data-setting="sales">
+                                                <span></span>
+                                            </button>
+
+                                        </div>
+
+
+                                        <div class="setting-item">
+
+                                            <div class="setting-icon">
+                                                ▣
+                                            </div>
+
+                                            <div class="setting-text">
+
+                                                <strong>
+                                                    Backup Reminder
+                                                </strong>
+
+                                                <span>
+                                                    Get reminded to backup the system data.
+                                                </span>
+
+                                            </div>
+
+                                            <button class="toggle on" data-setting="backupReminder">
+                                                <span></span>
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <button class="red-button" id="saveSystem">
+
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M5 4H17L20 7V20H5Z" />
+                                        <path d="M8 4V9H16V4" />
+                                        <rect x="8" y="13" width="8" height="5" />
+                                    </svg>
+
+                                    Save Changes
+
+                                </button>
+
+                            </section>
+
+                        </div>
+
+
+                        <!-- RIGHT -->
+
+                        <div class="right-column">
+
+
+                            <!-- BUSINESS -->
+
+                            <section class="card side-card">
+
+                                <div class="card-heading">
+
+                                    <h2>
+
+                                        <span class="heading-icon">
+                                            ▣
+                                        </span>
+
+                                        Business Information
+
+                                    </h2>
+
+                                    <button class="outline-small">
+                                        Edit
+                                    </button>
+
+                                </div>
+
+
+                                <div class="business-info">
+
+                                    <div class="business-logo">
+
+                                        <img src="../images/logo.png" alt="Jolie's Pizza">
+
+                                    </div>
+
+
+                                    <div class="business-details">
+
+                                        <p>
+                                            ▣
+                                            Jolie's Pizza - San Roque
+                                        </p>
+
+                                        <p>
+                                            ♧
+                                            123 San Roque St., San Roque,<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            Antipolo City
+                                        </p>
+
+                                        <p>
+                                            ☎
+                                            0912 987 6543
+                                        </p>
+
+                                        <p>
+                                            ✉
+                                            info@joliespizza.com
+                                        </p>
+
+                                        <p>
+                                            ◷
+                                            Mon - Sun: 10:00 AM - 10:00 PM
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- LOGO BRANDING -->
+
+                            <section class="card side-card">
+
+                                <div class="card-heading">
+
+                                    <h2>
+
+                                        <span class="heading-icon">
+                                            ⚒
+                                        </span>
+
+                                        Logo & Branding
+
+                                    </h2>
+
+                                    <button class="outline-small">
+                                        Edit
+                                    </button>
+
+                                </div>
+
+
+                                <div class="branding">
+
+                                    <div>
+
+                                        <span class="label">
+                                            Current Logo
+                                        </span>
+
+                                        <div class="logo-row">
+
+                                            <img src="../images/logo.png" alt="Current logo">
+
+                                            <div>
+
+                                                <p>
+                                                    Recommended size: 512 x 512px
+                                                </p>
+
+                                                <p>
+                                                    JPG, PNG (Max. 2MB)
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- SYSTEM BACKUP -->
+
+                            <section class="card side-card backup-card">
+
+                                <div class="card-heading">
+
+                                    <h2>
+
+                                        <span class="heading-icon">
+                                            ☁
+                                        </span>
+
+                                        System Backup
+
+                                    </h2>
+
+                                </div>
+
+
+                                <div class="backup-info">
+
+                                    <div>
+                                        <span>Last Backup</span>
+                                        <strong>May 19, 2024 11:30 PM</strong>
+                                    </div>
+
+                                    <div>
+                                        <span>Next Backup</span>
+                                        <strong>May 20, 2024 11:30 PM</strong>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="backup-buttons">
+
+                                    <button class="backup-now" id="backupNow">
+
+                                        ↻
+
+                                        Backup Now
+
+                                    </button>
+
+                                    <button class="view-backups" id="viewBackups">
+
+                                        ↗
+
+                                        View Backups
+
+                                    </button>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- DANGER -->
+
+                            <section class="card danger-card">
+
+                                <h2>
+
+                                    <span>
+                                        ♧
+                                    </span>
+
+                                    Danger Zone
+
+                                </h2>
+
+                                <p>
+                                    Be careful! This action cannot be undone.
+                                </p>
+
+                                <button id="resetSystem" class="reset-button">
+
+                                    ▣
+
+                                    Reset System Data
+
+                                </button>
+
+                            </section>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                 OTHER TABS
+            ================================================== -->
+
+                <div class="tab-content placeholder-tab" id="business">
+
+                    <div class="card placeholder-card">
+
+                        <h2>Business Information</h2>
+
+                        <p>
+                            Business information settings can be managed here.
+                        </p>
+
+                        <button class="red-button">
+                            Edit Business Information
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tab-content placeholder-tab" id="payment">
+
+                    <div class="card placeholder-card">
+
+                        <h2>Payment Settings</h2>
+
+                        <p>
+                            Configure payment methods and payment options.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tab-content placeholder-tab" id="notifications">
+
+                    <div class="card placeholder-card">
+
+                        <h2>Notification Settings</h2>
+
+                        <p>
+                            Manage email and SMS notification preferences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tab-content placeholder-tab" id="system">
+
+                    <div class="card placeholder-card">
+
+                        <h2>System Preferences</h2>
+
+                        <p>
+                            Manage system-wide preferences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tab-content placeholder-tab" id="accounts">
+
+                    <div class="card placeholder-card">
+
+                        <h2>User Accounts</h2>
+
+                        <p>
+                            Manage administrator and staff accounts.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tab-content placeholder-tab" id="logs">
+
+                    <div class="card placeholder-card">
+
+                        <h2>Activity Logs</h2>
+
+                        <p>
+                            System activity logs will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <footer>
+
+                <span>
+                    © 2024 Jolie's Pizza - San Roque. All rights reserved.
+                </span>
+
+                <span>
+                    Version 1.0.0
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* =====================================================
+               ELEMENTS
+            ====================================================== */
+
+            const sidebar =
+                document.getElementById("sidebar");
+
+            const mobileMenu =
+                document.getElementById("mobileMenu");
+
+            const profileBtn =
+                document.getElementById("profileBtn");
+
+            const profileMenu =
+                document.getElementById("profileMenu");
+
+            const toast =
+                document.getElementById("toast");
+
+            const resetSystem =
+                document.getElementById("resetSystem");
+
+            const backupNow =
+                document.getElementById("backupNow");
+
+            const viewBackups =
+                document.getElementById("viewBackups");
+
+            const logoutBtn =
+                document.getElementById("logoutBtn");
+
+            const profileLogout =
+                document.getElementById("profileLogout");
+
+
+            /* =====================================================
+               TOAST
+            ====================================================== */
+
+            function showToast(message) {
+
+                toast.textContent = message;
+
+                toast.classList.add("show");
+
+                clearTimeout(window.toastTimer);
+
+                window.toastTimer =
+                    setTimeout(() => {
+
+                        toast.classList.remove("show");
+
+                    }, 2500);
+
+            }
+
+
+            /* =====================================================
+               MOBILE SIDEBAR
+            ====================================================== */
+
+            mobileMenu?.addEventListener(
+                "click",
+                () => {
+
+                    sidebar.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               SIDEBAR SUBMENUS
+            ====================================================== */
+
+            const menuParents =
+                document.querySelectorAll(
+                    ".nav-parent"
+                );
+
+
+            menuParents.forEach(parent => {
+
+                parent.addEventListener(
+                    "click",
+                    () => {
+
+                        const menuId =
+                            parent.dataset.menu;
+
+                        const submenu =
+                            document.getElementById(
+                                menuId
+                            );
+
+
+                        const currentlyOpen =
+                            submenu.classList.contains(
+                                "open"
+                            );
+
+
+                        /*
+                         * Close all submenus first
+                         */
+
+                        document
+                            .querySelectorAll(
+                                ".submenu"
+                            )
+                            .forEach(menu => {
+
+                                menu.classList.remove(
+                                    "open"
+                                );
+
+                            });
+
+
+                        document
+                            .querySelectorAll(
+                                ".nav-parent"
+                            )
+                            .forEach(item => {
+
+                                item.classList.remove(
+                                    "open"
+                                );
+
+                            });
+
+
+                        /*
+                         * Open clicked submenu
+                         */
+
+                        if (!currentlyOpen) {
+
+                            submenu.classList.add(
+                                "open"
+                            );
+
+                            parent.classList.add(
+                                "open"
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+            /* =====================================================
+               PROFILE DROPDOWN
+            ====================================================== */
+
+            profileBtn.addEventListener(
+                "click",
+                event => {
+
+                    event.stopPropagation();
+
+                    profileMenu.classList.toggle(
+                        "show"
+                    );
+
+                }
+            );
+
+
+            document.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        !profileMenu.contains(
+                            event.target
+                        ) &&
+                        !profileBtn.contains(
+                            event.target
+                        )
+                    ) {
+
+                        profileMenu.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               SETTINGS TABS
+            ====================================================== */
+
+            const settingTabs =
+                document.querySelectorAll(
+                    ".settings-tab"
+                );
+
+            const tabContents =
+                document.querySelectorAll(
+                    ".tab-content"
+                );
+
+
+            settingTabs.forEach(tab => {
+
+                tab.addEventListener(
+                    "click",
+                    () => {
+
+                        const tabId =
+                            tab.dataset.tab;
+
+
+                        /*
+                         * Remove active from tabs
+                         */
+
+                        settingTabs.forEach(item => {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+
+                        /*
+                         * Add active to clicked tab
+                         */
+
+                        tab.classList.add(
+                            "active"
+                        );
+
+
+                        /*
+                         * Hide all content
+                         */
+
+                        tabContents.forEach(content => {
+
+                            content.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+
+                        /*
+                         * Show selected content
+                         */
+
+                        const selected =
+                            document.getElementById(
+                                tabId
+                            );
+
+
+                        if (selected) {
+
+                            selected.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+            /* =====================================================
+               TOGGLE SETTINGS
+            ====================================================== */
+
+            const toggles =
+                document.querySelectorAll(
+                    ".toggle"
+                );
+
+
+            toggles.forEach(toggle => {
+
+                toggle.addEventListener(
+                    "click",
+                    () => {
+
+                        toggle.classList.toggle(
+                            "on"
+                        );
+
+
+                        const setting =
+                            toggle.dataset.setting;
+
+                        const enabled =
+                            toggle.classList.contains(
+                                "on"
+                            );
+
+
+                        console.log(
+                            setting,
+                            enabled
+                        );
+
+                    }
+                );
+
+            });
+
+
+            /* =====================================================
+               SAVE GENERAL SETTINGS
+            ====================================================== */
+
+            const saveGeneral =
+                document.getElementById(
+                    "saveGeneral"
+                );
+
+
+            saveGeneral.addEventListener(
+                "click",
+                () => {
+
+                    const settings = {
+
+                        siteName:
+                            document.getElementById(
+                                "siteName"
+                            ).value,
+
+                        email:
+                            document.getElementById(
+                                "businessEmail"
+                            ).value,
+
+                        contact:
+                            document.getElementById(
+                                "contactNumber"
+                            ).value,
+
+                        currency:
+                            document.getElementById(
+                                "currency"
+                            ).value,
+
+                        timezone:
+                            document.getElementById(
+                                "timezone"
+                            ).value,
+
+                        dateFormat:
+                            document.getElementById(
+                                "dateFormat"
+                            ).value
+
+                    };
+
+
+                    /*
+                     * Save locally.
+                     *
+                     * This can later be replaced
+                     * with a Node.js API request.
+                     */
+
+                    localStorage.setItem(
+                        "joliesPizzaSettings",
+                        JSON.stringify(settings)
+                    );
+
+
+                    showToast(
+                        "General settings saved successfully."
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               SAVE SYSTEM SETTINGS
+            ====================================================== */
+
+            const saveSystem =
+                document.getElementById(
+                    "saveSystem"
+                );
+
+
+            saveSystem.addEventListener(
+                "click",
+                () => {
+
+                    const systemSettings = {};
+
+
+                    toggles.forEach(toggle => {
+
+                        systemSettings[
+                            toggle.dataset.setting
+                        ] =
+                            toggle.classList.contains(
+                                "on"
+                            );
+
+                    });
+
+
+                    localStorage.setItem(
+                        "joliesPizzaSystemSettings",
+                        JSON.stringify(
+                            systemSettings
+                        )
+                    );
+
+
+                    showToast(
+                        "System settings saved successfully."
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               LOAD SAVED SETTINGS
+            ====================================================== */
+
+            const savedSettings =
+                localStorage.getItem(
+                    "joliesPizzaSettings"
+                );
+
+
+            if (savedSettings) {
+
+                try {
+
+                    const settings =
+                        JSON.parse(
+                            savedSettings
+                        );
+
+
+                    if (settings.siteName) {
+
+                        document.getElementById(
+                            "siteName"
+                        ).value =
+                            settings.siteName;
+
+                    }
+
+
+                    if (settings.email) {
+
+                        document.getElementById(
+                            "businessEmail"
+                        ).value =
+                            settings.email;
+
+                    }
+
+
+                    if (settings.contact) {
+
+                        document.getElementById(
+                            "contactNumber"
+                        ).value =
+                            settings.contact;
+
+                    }
+
+
+                    if (settings.currency) {
+
+                        document.getElementById(
+                            "currency"
+                        ).value =
+                            settings.currency;
+
+                    }
+
+
+                    if (settings.timezone) {
+
+                        document.getElementById(
+                            "timezone"
+                        ).value =
+                            settings.timezone;
+
+                    }
+
+
+                    if (settings.dateFormat) {
+
+                        document.getElementById(
+                            "dateFormat"
+                        ).value =
+                            settings.dateFormat;
+
+                    }
+
+                }
+                catch (error) {
+
+                    console.error(
+                        "Unable to load settings.",
+                        error
+                    );
+
+                }
+
+            }
+
+
+            /* =====================================================
+               LOAD SYSTEM SETTINGS
+            ====================================================== */
+
+            const savedSystem =
+                localStorage.getItem(
+                    "joliesPizzaSystemSettings"
+                );
+
+
+            if (savedSystem) {
+
+                try {
+
+                    const settings =
+                        JSON.parse(
+                            savedSystem
+                        );
+
+
+                    toggles.forEach(toggle => {
+
+                        const setting =
+                            toggle.dataset.setting;
+
+
+                        if (
+                            settings[setting] === true
+                        ) {
+
+                            toggle.classList.add(
+                                "on"
+                            );
+
+                        }
+                        else if (
+                            settings[setting] === false
+                        ) {
+
+                            toggle.classList.remove(
+                                "on"
+                            );
+
+                        }
+
+                    });
+
+                }
+                catch (error) {
+
+                    console.error(
+                        "Unable to load system settings.",
+                        error
+                    );
+
+                }
+
+            }
+
+
+            /* =====================================================
+               BACKUP NOW
+            ====================================================== */
+
+            backupNow.addEventListener(
+                "click",
+                () => {
+
+                    backupNow.disabled = true;
+
+                    backupNow.textContent =
+                        "Backing up...";
+
+
+                    setTimeout(
+                        () => {
+
+                            backupNow.disabled =
+                                false;
+
+                            backupNow.innerHTML =
+                                "↻ &nbsp; Backup Now";
+
+
+                            showToast(
+                                "System backup completed successfully."
+                            );
+
+                        },
+                        1500
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               VIEW BACKUPS
+            ====================================================== */
+
+            viewBackups.addEventListener(
+                "click",
+                () => {
+
+                    showToast(
+                        "Backup history opened."
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               EDIT BUTTONS
+            ====================================================== */
+
+            const editButtons =
+                document.querySelectorAll(
+                    ".outline-small"
+                );
+
+
+            editButtons.forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        showToast(
+                            "Edit mode opened."
+                        );
+
+                    }
+                );
+
+            });
+
+
+            /* =====================================================
+               RESET SYSTEM
+            ====================================================== */
+
+            resetSystem.addEventListener(
+                "click",
+                () => {
+
+                    const confirmed =
+                        confirm(
+                            "WARNING!\n\n" +
+                            "This will reset the system data and cannot be undone.\n\n" +
+                            "Are you sure you want to continue?"
+                        );
+
+
+                    if (!confirmed) {
+                        return;
+                    }
+
+
+                    const doubleConfirm =
+                        confirm(
+                            "This is your final confirmation.\n\n" +
+                            "Reset all system data?"
+                        );
+
+
+                    if (!doubleConfirm) {
+                        return;
+                    }
+
+
+                    localStorage.removeItem(
+                        "joliesPizzaSettings"
+                    );
+
+                    localStorage.removeItem(
+                        "joliesPizzaSystemSettings"
+                    );
+
+
+                    showToast(
+                        "System data has been reset."
+                    );
+
+
+                    setTimeout(
+                        () => {
+
+                            location.reload();
+
+                        },
+                        1200
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               LOGOUT
+            ====================================================== */
+
+            function logout() {
+
+                const confirmed =
+                    confirm(
+                        "Are you sure you want to log out?"
+                    );
+
+
+                if (!confirmed) {
+                    return;
+                }
+
+
+                showToast(
+                    "Logging out..."
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        window.location.href =
+                            "../login.html";
+
+                    },
+                    800
+                );
+
+            }
+
+
+            logoutBtn.addEventListener(
+                "click",
+                logout
+            );
+
+
+            profileLogout.addEventListener(
+                "click",
+                logout
+            );
+
+
+        });
+    </script>
+
+</body>
+
+</html>

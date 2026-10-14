@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jolie's Pizza - Categories</title>
+
+    <link rel="stylesheet" href="categories.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <img src="../images/logoadmin.png" alt="Jolie's Pizza" class="sidebar-logo">
+            </div>
+
+            <nav class="side-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="orders.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Orders</span>
+                </a>
+
+                <div class="menu-management-group">
+
+                    <a href="menu-management.html" class="nav-item menu-main active">
+                        <span class="nav-icon"></span>
+                        <span>Menu Management</span>
+                    </a>
+
+                    <div class="submenu">
+
+                        <a href="menu-management.html" class="submenu-item">
+                            <span class="submenu-dot"></span>
+                            Menu Items
+                        </a>
+
+                        <a href="categories.html" class="submenu-item active-sub">
+                            <span class="submenu-dot"></span>
+                            Categories
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a href="inventory overview.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Inventory</span>
+                </a>
+
+                <a href="delivery-tracking.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Delivery Tracking</span>
+                </a>
+
+                <a href="online-payments.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Online Payments</span>
+                </a>
+
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Reports</span>
+                </a>
+
+                <a href="staff-management.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Staff Management</span>
+                </a>
+
+                <a href="settings.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Settings</span>
+                </a>
+
+                <!-- =================================================
+                     LOG OUT
+                ================================================== -->
+
+                <button
+                    type="button"
+                    class="nav-item logout-item"
+                    id="sidebarLogoutBtn"
+                >
+                    <span class="nav-icon"></span>
+                    <span>Log Out</span>
+                </button>
+
+            </nav>
+
+
+            <!-- SUPPORT -->
+
+            <div class="support-box">
+
+                <div class="support-icon">
+                    ♧
+                </div>
+
+                <div class="support-content">
+
+                    <strong>Need Help?</strong>
+
+                    <a href="mailto:support@joliespizza.com">
+                        Contact support
+                    </a>
+
+                    <span>0912 345 6789</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+        <main class="main">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div class="heading-area">
+
+                    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                        ☰
+                    </button>
+
+                    <div class="page-heading">
+
+                        <h1>Menu Management</h1>
+
+                        <div class="breadcrumb">
+
+                            <span>Dashboard</span>
+
+                            <span>›</span>
+
+                            <span>Menu Management</span>
+
+                            <span>›</span>
+
+                            <strong>Categories</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOP ACTIONS -->
+
+                <div class="top-actions">
+
+                    <button class="date-picker">
+                        <span>May 20, 2024</span>
+                        <span>▣</span>
+                    </button>
+
+
+                    <button class="notification" id="notificationBtn">
+
+                        ♧
+
+                        <b>3</b>
+
+                    </button>
+
+
+                    <button class="profile" id="profileBtn">
+
+                        <span class="avatar">A</span>
+
+                        <span class="profile-text">
+
+                            <strong>Admin</strong>
+
+                            <small>Administrator</small>
+
+                        </span>
+
+                        <span class="chevron">⌄</span>
+
+                    </button>
+
+
+                    <!-- PROFILE MENU -->
+
+                    <div class="profile-menu" id="profileMenu">
+
+                        <button id="profileOption">
+                            My Profile
+                        </button>
+
+                        <button id="settingsOption">
+                            Settings
+                        </button>
+
+                        <button id="logoutBtn">
+                            Logout
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+             TABS
+        ================================================== -->
+
+            <div class="menu-tabs">
+
+                <a href="menu-management.html">
+                    Menu Items
+                </a>
+
+                <a href="categories.html" class="active">
+                    Categories
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+            <section class="category-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ▦
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>Total Categories</span>
+
+                        <strong id="totalCategories">
+                            8
+                        </strong>
+
+                        <small>
+                            All categories
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>Active Categories</span>
+
+                        <strong id="activeCategories">
+                            8
+                        </strong>
+
+                        <small id="activePercentage">
+                            100% of total
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ‖
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>Inactive Categories</span>
+
+                        <strong id="inactiveCategories">
+                            0
+                        </strong>
+
+                        <small id="inactivePercentage">
+                            0% of total
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ◇
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>Total Menu Items</span>
+
+                        <strong id="totalItems">
+                            48
+                        </strong>
+
+                        <small>
+                            Across all categories
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button class="add-category-btn" id="addCategoryBtn">
+
+                    <span>＋</span>
+                    Add New Category
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+             MAIN CATEGORY AREA
+        ================================================== -->
+
+            <section class="categories-layout">
+
+
+                <!-- =================================================
+                 CATEGORY TABLE
+            ================================================== -->
+
+                <div class="categories-panel">
+
+                    <!-- FILTER BAR -->
+
+                    <div class="filter-bar">
+
+                        <div class="search-box">
+
+                            <input type="text" id="searchInput" placeholder="Search categories...">
+
+                            <button id="searchBtn">
+                                ⌕
+                            </button>
+
+                        </div>
+
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All Status
+                            </option>
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+
+                        <button class="filter-btn" id="filterBtn">
+
+                            ◇
+                            Filters
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- TABLE -->
+
+                    <div class="category-table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>#</th>
+
+                                    <th>Category</th>
+
+                                    <th>Description</th>
+
+                                    <th>Items</th>
+
+                                    <th>Status</th>
+
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="categoryTableBody">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- PAGINATION -->
+
+                    <div class="pagination">
+
+                        <span id="showingText">
+                            Showing 1 to 8 of 8 categories
+                        </span>
+
+                        <div class="page-buttons">
+
+                            <button id="prevPage">
+                                ‹
+                            </button>
+
+                            <button class="active">
+                                1
+                            </button>
+
+                            <button id="nextPage">
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                 CATEGORY DETAILS
+            ================================================== -->
+
+                <aside class="right-column">
+
+                    <div class="details-card">
+
+                        <div class="details-header">
+
+                            <h2>Category Details</h2>
+
+                            <button class="more-btn">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <div class="category-preview">
+
+                            <div class="large-category-icon" id="detailIcon">
+
+                                🍕
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail-information">
+
+                            <div class="detail-row">
+
+                                <span class="detail-label">
+                                    Category Name
+                                </span>
+
+                                <strong id="detailName">
+                                    Pizza
+                                </strong>
+
+                            </div>
+
+
+                            <div class="detail-row">
+
+                                <span class="detail-label">
+                                    Description
+                                </span>
+
+                                <span id="detailDescription">
+                                    All pizza varieties
+                                </span>
+
+                            </div>
+
+
+                            <div class="detail-row inline">
+
+                                <span class="detail-label">
+                                    Items
+                                </span>
+
+                                <strong id="detailItems">
+                                    18
+                                </strong>
+
+                            </div>
+
+
+                            <div class="detail-row inline">
+
+                                <span class="detail-label">
+                                    Status
+                                </span>
+
+                                <span class="status-badge active" id="detailStatus">
+
+                                    Active
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="detail-row inline">
+
+                                <span class="detail-label">
+                                    Created At
+                                </span>
+
+                                <span id="detailCreated">
+                                    Apr 10, 2024 10:30 AM
+                                </span>
+
+                            </div>
+
+
+                            <div class="detail-row inline">
+
+                                <span class="detail-label">
+                                    Updated At
+                                </span>
+
+                                <span id="detailUpdated">
+                                    May 15, 2024 02:15 PM
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TIPS -->
+
+                    <div class="tips-card">
+
+                        <h3>
+                            <span>💡</span>
+                            Tips
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Use clear and simple category names.
+                            </li>
+
+                            <li>
+                                Organize items into relevant categories.
+                            </li>
+
+                            <li>
+                                Inactive categories will not be visible in the menu.
+                            </li>
+
+                            <li>
+                                You can reorder categories from the actions menu.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+     CATEGORY MODAL
+========================================================= -->
+
+    <div class="modal-overlay" id="categoryModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">
+                    Add New Category
+                </h2>
+
+                <button class="modal-close" id="modalClose">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="categoryForm">
+
+                <div class="form-group">
+
+                    <label>
+                        Category Name
+                    </label>
+
+                    <input type="text" id="categoryName" placeholder="Enter category name" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea id="categoryDescription" placeholder="Enter category description" required></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select id="categoryStatus">
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button type="button" class="cancel-btn" id="cancelModal">
+
+                        Cancel
+
+                    </button>
+
+                    <button type="submit" class="save-btn">
+
+                        Save Category
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+     TOAST
+    ========================================================= -->
+
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+        /* =========================================================
+   JOLIE'S PIZZA
+   CATEGORY MANAGEMENT
+   PURE VANILLA JAVASCRIPT
+========================================================= */
+
+
+        /* =========================================================
+           CATEGORY DATA
+        ========================================================= */
+
+        let categories = [
+
+            {
+                id: 1,
+                name: "Pizza",
+                description: "All pizza varieties",
+                items: 18,
+                status: "Active",
+                icon: "🍕",
+                iconClass: "pizza",
+                created: "Apr 10, 2024 10:30 AM",
+                updated: "May 15, 2024 02:15 PM"
+            },
+
+            {
+                id: 2,
+                name: "Sides",
+                description: "Side dishes and add-ons",
+                items: 8,
+                status: "Active",
+                icon: "🍟",
+                iconClass: "sides",
+                created: "Apr 10, 2024 10:35 AM",
+                updated: "May 15, 2024 02:20 PM"
+            },
+
+            {
+                id: 3,
+                name: "Drinks",
+                description: "Beverages and drinks",
+                items: 7,
+                status: "Active",
+                icon: "🥤",
+                iconClass: "drinks",
+                created: "Apr 11, 2024 09:10 AM",
+                updated: "May 15, 2024 02:30 PM"
+            },
+
+            {
+                id: 4,
+                name: "Pasta",
+                description: "Pasta dishes",
+                items: 6,
+                status: "Active",
+                icon: "🍝",
+                iconClass: "pasta",
+                created: "Apr 11, 2024 10:15 AM",
+                updated: "May 14, 2024 03:10 PM"
+            },
+
+            {
+                id: 5,
+                name: "Desserts",
+                description: "Desserts and sweets",
+                items: 4,
+                status: "Active",
+                icon: "🍰",
+                iconClass: "desserts",
+                created: "Apr 12, 2024 11:00 AM",
+                updated: "May 14, 2024 03:25 PM"
+            },
+
+            {
+                id: 6,
+                name: "Promos",
+                description: "Promotional items",
+                items: 3,
+                status: "Active",
+                icon: "🏷️",
+                iconClass: "promos",
+                created: "Apr 13, 2024 01:15 PM",
+                updated: "May 13, 2024 01:30 PM"
+            },
+
+            {
+                id: 7,
+                name: "Sauces",
+                description: "Sauces and dips",
+                items: 1,
+                status: "Active",
+                icon: "🧴",
+                iconClass: "sauces",
+                created: "Apr 14, 2024 09:30 AM",
+                updated: "May 12, 2024 10:10 AM"
+            },
+
+            {
+                id: 8,
+                name: "Add-ons",
+                description: "Extra toppings and add-ons",
+                items: 1,
+                status: "Active",
+                icon: "⊕",
+                iconClass: "addons",
+                created: "Apr 15, 2024 10:00 AM",
+                updated: "May 12, 2024 11:00 AM"
+            }
+
+        ];
+
+
+        /* =========================================================
+           ELEMENTS
+        ========================================================= */
+
+        const tableBody =
+            document.getElementById("categoryTableBody");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const searchBtn =
+            document.getElementById("searchBtn");
+
+        const statusFilter =
+            document.getElementById("statusFilter");
+
+        const filterBtn =
+            document.getElementById("filterBtn");
+
+
+        const totalCategories =
+            document.getElementById("totalCategories");
+
+        const activeCategories =
+            document.getElementById("activeCategories");
+
+        const inactiveCategories =
+            document.getElementById("inactiveCategories");
+
+        const activePercentage =
+            document.getElementById("activePercentage");
+
+        const inactivePercentage =
+            document.getElementById("inactivePercentage");
+
+        const totalItems =
+            document.getElementById("totalItems");
+
+
+        const detailIcon =
+            document.getElementById("detailIcon");
+
+        const detailName =
+            document.getElementById("detailName");
+
+        const detailDescription =
+            document.getElementById("detailDescription");
+
+        const detailItems =
+            document.getElementById("detailItems");
+
+        const detailStatus =
+            document.getElementById("detailStatus");
+
+        const detailCreated =
+            document.getElementById("detailCreated");
+
+        const detailUpdated =
+            document.getElementById("detailUpdated");
+
+
+        /* =========================================================
+           MODAL ELEMENTS
+        ========================================================= */
+
+        const modal =
+            document.getElementById("categoryModal");
+
+        const addCategoryBtn =
+            document.getElementById("addCategoryBtn");
+
+        const modalClose =
+            document.getElementById("modalClose");
+
+        const cancelModal =
+            document.getElementById("cancelModal");
+
+        const categoryForm =
+            document.getElementById("categoryForm");
+
+        const modalTitle =
+            document.getElementById("modalTitle");
+
+        const categoryName =
+            document.getElementById("categoryName");
+
+        const categoryDescription =
+            document.getElementById("categoryDescription");
+
+        const categoryStatus =
+            document.getElementById("categoryStatus");
+
+
+        let editingId = null;
+
+
+        /* =========================================================
+           RENDER TABLE
+        ========================================================= */
+
+        function renderCategories() {
+
+            const searchValue =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
+
+            const selectedStatus =
+                statusFilter.value;
+
+
+            let filtered =
+                categories.filter(category => {
+
+                    const matchesSearch =
+                        category.name
+                            .toLowerCase()
+                            .includes(searchValue)
+                        ||
+                        category.description
+                            .toLowerCase()
+                            .includes(searchValue);
+
+
+                    const matchesStatus =
+                        selectedStatus === "all"
+                        ||
+                        category.status === selectedStatus;
+
+
+                    return matchesSearch && matchesStatus;
+
+                });
+
+
+            tableBody.innerHTML = "";
+
+
+            if (filtered.length === 0) {
+
+                tableBody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    class="empty-state">
+
+                    No categories found.
+
+                </td>
+
+            </tr>
+
+        `;
+
+                updateStats();
+
+                updateShowingText(0);
+
+                return;
+            }
+
+
+            filtered.forEach((category, index) => {
+
+                const row =
+                    document.createElement("tr");
+
+
+                row.dataset.id =
+                    category.id;
+
+
+                row.innerHTML = `
+
+            <td>
+                ${index + 1}
+            </td>
+
+
+            <td>
+
+                <div class="category-name-cell">
+
+                    <div
+                        class="category-icon ${category.iconClass}">
+
+                        ${category.icon}
+
+                    </div>
+
+                    <span class="category-name">
+                        ${escapeHTML(category.name)}
+                    </span>
+
+                </div>
+
+            </td>
+
+
+            <td>
+                ${escapeHTML(category.description)}
+            </td>
+
+
+            <td>
+                ${category.items}
+            </td>
+
+
+            <td>
+
+                <span
+                    class="status-badge ${category.status.toLowerCase()
+                    }">
+
+                    ${category.status}
+
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <div class="action-buttons">
+
+                    <button
+                        class="action-button edit"
+                        title="Edit"
+                        data-action="edit"
+                        data-id="${category.id}">
+
+                        ✎
+
+                    </button>
+
+
+                    <button
+                        class="action-button delete"
+                        title="Delete"
+                        data-action="delete"
+                        data-id="${category.id}">
+
+                        ♡
+
+                    </button>
+
+                </div>
+
+            </td>
+
+        `;
+
+
+                row.addEventListener("click", function (event) {
+
+                    if (
+                        event.target.closest(".action-button")
+                    ) {
+                        return;
+                    }
+
+                    selectCategory(category.id);
+
+                });
+
+
+                tableBody.appendChild(row);
+
+            });
+
+
+            updateShowingText(filtered.length);
+
+            updateStats();
+
+        }
+
+
+        /* =========================================================
+           ESCAPE HTML
+        ========================================================= */
+
+        function escapeHTML(value) {
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /* =========================================================
+           UPDATE STATISTICS
+        ========================================================= */
+
+        function updateStats() {
+
+            const total =
+                categories.length;
+
+
+            const active =
+                categories.filter(
+                    category => category.status === "Active"
+                ).length;
+
+
+            const inactive =
+                categories.filter(
+                    category => category.status === "Inactive"
+                ).length;
+
+
+            const items =
+                categories.reduce(
+                    (sum, category) =>
+                        sum + Number(category.items),
+                    0
+                );
+
+
+            totalCategories.textContent =
+                total;
+
+
+            activeCategories.textContent =
+                active;
+
+
+            inactiveCategories.textContent =
+                inactive;
+
+
+            totalItems.textContent =
+                items;
+
+
+            const activePercent =
+                total > 0
+                    ? Math.round((active / total) * 100)
+                    : 0;
+
+
+            const inactivePercent =
+                total > 0
+                    ? Math.round((inactive / total) * 100)
+                    : 0;
+
+
+            activePercentage.textContent =
+                `${activePercent}% of total`;
+
+
+            inactivePercentage.textContent =
+                `${inactivePercent}% of total`;
+
+        }
+
+
+        /* =========================================================
+           SHOWING TEXT
+        ========================================================= */
+
+        function updateShowingText(count) {
+
+            const showingText =
+                document.getElementById("showingText");
+
+
+            const total =
+                categories.length;
+
+
+            if (count === 0) {
+
+                showingText.textContent =
+                    `Showing 0 of ${total} categories`;
+
+                return;
+            }
+
+
+            showingText.textContent =
+                `Showing 1 to ${count} of ${total} categories`;
+
+        }
+
+
+        /* =========================================================
+           SELECT CATEGORY
+        ========================================================= */
+
+        function selectCategory(id) {
+
+            const category =
+                categories.find(
+                    item => item.id === id
+                );
+
+
+            if (!category) {
+                return;
+            }
+
+
+            document.querySelectorAll(
+                "#categoryTableBody tr"
+            ).forEach(row => {
+
+                row.classList.remove("selected");
+
+            });
+
+
+            const selectedRow =
+                document.querySelector(
+                    `#categoryTableBody tr[data-id="${id}"]`
+                );
+
+
+            if (selectedRow) {
+
+                selectedRow.classList.add("selected");
+
+            }
+
+
+            detailIcon.textContent =
+                category.icon;
+
+
+            detailName.textContent =
+                category.name;
+
+
+            detailDescription.textContent =
+                category.description;
+
+
+            detailItems.textContent =
+                category.items;
+
+
+            detailStatus.textContent =
+                category.status;
+
+
+            detailStatus.className =
+                `status-badge ${category.status.toLowerCase()
+                }`;
+
+
+            detailCreated.textContent =
+                category.created;
+
+
+            detailUpdated.textContent =
+                category.updated;
+
+        }
+
+
+        /* =========================================================
+           TABLE ACTIONS
+        ========================================================= */
+
+        tableBody.addEventListener("click", function (event) {
+
+            const button =
+                event.target.closest(".action-button");
+
+
+            if (!button) {
+                return;
+            }
+
+
+            const id =
+                Number(button.dataset.id);
+
+
+            const action =
+                button.dataset.action;
+
+
+            if (action === "edit") {
+
+                editCategory(id);
+
+            }
+
+
+            if (action === "delete") {
+
+                deleteCategory(id);
+
+            }
+
+        });
+
+
+        /* =========================================================
+           EDIT CATEGORY
+        ========================================================= */
+
+        function editCategory(id) {
+
+            const category =
+                categories.find(
+                    item => item.id === id
+                );
+
+
+            if (!category) {
+                return;
+            }
+
+
+            editingId = id;
+
+
+            modalTitle.textContent =
+                "Edit Category";
+
+
+            categoryName.value =
+                category.name;
+
+
+            categoryDescription.value =
+                category.description;
+
+
+            categoryStatus.value =
+                category.status;
+
+
+            modal.classList.add("show");
+
+
+            categoryName.focus();
+
+        }
+
+
+        /* =========================================================
+           DELETE CATEGORY
+        ========================================================= */
+
+        function deleteCategory(id) {
+
+            const category =
+                categories.find(
+                    item => item.id === id
+                );
+
+
+            if (!category) {
+                return;
+            }
+
+
+            const confirmed =
+                confirm(
+                    `Are you sure you want to delete "${category.name}"?`
+                );
+
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            categories =
+                categories.filter(
+                    item => item.id !== id
+                );
+
+
+            renderCategories();
+
+
+            if (categories.length > 0) {
+
+                selectCategory(
+                    categories[0].id
+                );
+
+            }
+
+
+            showToast(
+                "Category deleted successfully."
+            );
+
+        }
+
+
+        /* =========================================================
+           ADD CATEGORY
+        ========================================================= */
+
+        addCategoryBtn.addEventListener("click", function () {
+
+            editingId = null;
+
+
+            modalTitle.textContent =
+                "Add New Category";
+
+
+            categoryForm.reset();
+
+
+            categoryStatus.value =
+                "Active";
+
+
+            modal.classList.add("show");
+
+
+            categoryName.focus();
+
+        });
+
+
+        /* =========================================================
+           CLOSE MODAL
+        ========================================================= */
+
+        function closeModal() {
+
+            modal.classList.remove("show");
+
+            categoryForm.reset();
+
+            editingId = null;
+
+        }
+
+
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        cancelModal.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        modal.addEventListener(
+            "click",
+            function (event) {
+
+                if (event.target === modal) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           SAVE CATEGORY
+        ========================================================= */
+
+        categoryForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    categoryName.value.trim();
+
+
+                const description =
+                    categoryDescription.value.trim();
+
+
+                const status =
+                    categoryStatus.value;
+
+
+                if (!name || !description) {
+
+                    showToast(
+                        "Please complete all fields."
+                    );
+
+                    return;
+                }
+
+
+                if (editingId !== null) {
+
+                    const category =
+                        categories.find(
+                            item => item.id === editingId
+                        );
+
+
+                    if (category) {
+
+                        category.name =
+                            name;
+
+                        category.description =
+                            description;
+
+                        category.status =
+                            status;
+
+                        category.updated =
+                            new Date().toLocaleString(
+                                "en-US",
+                                {
+                                    month: "short",
+                                    day: "2-digit",
+                                    year: "numeric",
+                                    hour: "2-digit",
+                                    minute: "2-digit"
+                                }
+                            );
+
+                    }
+
+
+                    showToast(
+                        "Category updated successfully."
+                    );
+
+                }
+
+                else {
+
+                    const newCategory = {
+
+                        id:
+                            Date.now(),
+
+                        name:
+                            name,
+
+                        description:
+                            description,
+
+                        items:
+                            0,
+
+                        status:
+                            status,
+
+                        icon:
+                            "⊕",
+
+                        iconClass:
+                            "addons",
+
+                        created:
+                            new Date().toLocaleString(
+                                "en-US",
+                                {
+                                    month: "short",
+                                    day: "2-digit",
+                                    year: "numeric",
+                                    hour: "2-digit",
+                                    minute: "2-digit"
+                                }
+                            ),
+
+                        updated:
+                            new Date().toLocaleString(
+                                "en-US",
+                                {
+                                    month: "short",
+                                    day: "2-digit",
+                                    year: "numeric",
+                                    hour: "2-digit",
+                                    minute: "2-digit"
+                                }
+                            )
+
+                    };
+
+
+                    categories.push(
+                        newCategory
+                    );
+
+
+                    showToast(
+                        "Category added successfully."
+                    );
+
+                }
+
+
+                closeModal();
+
+                renderCategories();
+
+
+                if (editingId !== null) {
+
+                    selectCategory(editingId);
+
+                }
+
+            }
+        );
+        
+                    /* =====================================================
+               LOGOUT FUNCTION
+            ===================================================== */
+
+            function handleLogout() {
+
+                const confirmLogout =
+                    confirm(
+                        "Are you sure you want to log out?"
+                    );
+
+
+                if (!confirmLogout) {
+
+                    return;
+
+                }
+
+
+                showToast(
+                    "Logging out..."
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        /*
+                         * login.html is in the root folder.
+                         * dashboard.html is inside Admin.
+                         */
+
+                        window.location.href =
+                            "../login.html";
+
+                    },
+                    1000
+                );
+
+            }
+
+
+            /* =====================================================
+               SIDEBAR LOGOUT
+            ===================================================== */
+
+            if (sidebarLogoutBtn) {
+
+                sidebarLogoutBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        handleLogout();
+
+                    }
+                );
+
+            }
+
+        /* =========================================================
+           SEARCH
+        ========================================================= */
+
+        searchInput.addEventListener(
+            "input",
+            renderCategories
+        );
+
+
+        searchBtn.addEventListener(
+            "click",
+            renderCategories
+        );
+
+
+        statusFilter.addEventListener(
+            "change",
+            renderCategories
+        );
+
+
+        /* =========================================================
+           FILTER BUTTON
+        ========================================================= */
+
+        filterBtn.addEventListener(
+            "click",
+            function () {
+
+                statusFilter.focus();
+
+                showToast(
+                    "Use the status dropdown to filter categories."
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           PAGINATION BUTTONS
+        ========================================================= */
+
+        document.getElementById(
+            "prevPage"
+        ).addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "You are already on the first page."
+                );
+
+            }
+        );
+
+
+        document.getElementById(
+            "nextPage"
+        ).addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "There are no more pages."
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           PROFILE DROPDOWN
+        ========================================================= */
+
+        const profileBtn =
+            document.getElementById("profileBtn");
+
+        const profileMenu =
+            document.getElementById("profileMenu");
+
+
+        profileBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                profileMenu.classList.toggle("show");
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    !profileMenu.contains(event.target)
+                    &&
+                    !profileBtn.contains(event.target)
+                ) {
+
+                    profileMenu.classList.remove("show");
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           PROFILE OPTIONS
+        ========================================================= */
+
+        document.getElementById(
+            "profileOption"
+        ).addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "Profile page is not connected yet."
+                );
+
+            }
+        );
+
+
+        document.getElementById(
+            "settingsOption"
+        ).addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "settings.html";
+
+            }
+        );
+
+
+        /* =========================================================
+           LOGOUT
+        ========================================================= */
+
+        document.getElementById(
+            "logoutBtn"
+        ).addEventListener(
+            "click",
+            function () {
+
+                const confirmed =
+                    confirm(
+                        "Are you sure you want to logout?"
+                    );
+
+
+                if (confirmed) {
+
+                    window.location.href =
+                        "../login.html";
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           MOBILE SIDEBAR
+        ========================================================= */
+
+        const sidebar =
+            document.getElementById("sidebar");
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                sidebar.classList.toggle("open");
+
+            }
+        );
+
+
+        /* =========================================================
+           CLOSE MOBILE SIDEBAR WHEN CLICKING MAIN
+        ========================================================= */
+
+        document.querySelector(".main")
+            .addEventListener(
+                "click",
+                function () {
+
+                    if (
+                        window.innerWidth <= 900
+                    ) {
+
+                        sidebar.classList.remove(
+                            "open"
+                        );
+
+                    }
+
+                }
+            );
+
+
+        /* =========================================================
+           NOTIFICATION
+        ========================================================= */
+
+        document.getElementById(
+            "notificationBtn"
+        ).addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "You have 3 notifications."
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        let toastTimer;
+
+
+        function showToast(message) {
+
+            const toast =
+                document.getElementById("toast");
+
+
+            toast.textContent =
+                message;
+
+
+            toast.classList.add("show");
+
+
+            clearTimeout(toastTimer);
+
+
+            toastTimer =
+                setTimeout(
+                    function () {
+
+                        toast.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    2500
+                );
+
+        }
+
+
+        /* =========================================================
+           INITIAL LOAD
+        ========================================================= */
+
+        renderCategories();
+
+
+        if (categories.length > 0) {
+
+            selectCategory(
+                categories[0].id
+            );
+
+        }
+    </script>
+
+    <script src="sidebar-icons.js"></script>
+</body>
+
+</html>

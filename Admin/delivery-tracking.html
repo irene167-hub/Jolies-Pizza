@@ -1,0 +1,2663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jolie's Pizza - Delivery Tracking</title>
+
+    <link rel="stylesheet" href="delivery-tracking.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <img src="../images/logoadmin.png" alt="Jolie's Pizza" class="sidebar-logo">
+            </div>
+
+            <nav class="side-nav">
+
+                <!-- Dashboard -->
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Dashboard</span>
+                </a>
+
+                <!-- Orders -->
+                <a href="orders.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Orders</span>
+                </a>
+
+                <a href="menu-management.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Menu Management</span>
+                </a>
+
+
+                <!-- Inventory -->
+                <div class="nav-group">
+
+                    <a href="inventory overview.html" class="nav-item">
+                        <span class="nav-icon"></span>
+                        <span>Inventory</span>
+                    </a>
+
+                </div>
+
+
+                <!-- Delivery Tracking -->
+                <a href="delivery-tracking.html" class="nav-item active">
+                    <span class="nav-icon"></span>
+                    <span>Delivery Tracking</span>
+                </a>
+
+
+                <!-- Online Payments -->
+                <a href="online-payments.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Online Payments</span>
+                </a>
+
+
+                <!-- Reports -->
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Reports</span>
+                </a>
+
+
+                <!-- Staff Management -->
+                <a href="staff-management.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Staff Management</span>
+                </a>
+
+
+                <!-- Settings -->
+                <a href="settings.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Settings</span>
+                </a>
+
+
+                <!-- Logout -->
+                <button type="button" class="nav-item logout-item" id="logoutBtn">
+                    <span class="nav-icon"></span>
+                    <span>Log Out</span>
+                </button>
+
+            </nav>
+
+
+            <!-- Support -->
+            <div class="support-box">
+
+                <div class="support-icon">
+                    ♧
+                </div>
+
+                <div class="support-content">
+
+                    <strong>
+                        Need Help?
+                    </strong>
+
+                    <a href="tel:09123456789">
+                        Contact support
+                    </a>
+
+                    <span>
+                        0912 345 6789
+                    </span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+        <main class="main">
+
+
+            <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+            <header class="topbar">
+
+                <button type="button" class="menu-toggle" id="menuToggle">
+                    ☰
+                </button>
+
+
+                <div class="page-heading">
+
+                    <h1>
+                        Delivery Tracking
+                    </h1>
+
+                    <div class="breadcrumb">
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                        <b>›</b>
+
+                        <strong>
+                            Delivery Tracking
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="top-actions">
+
+
+                    <!-- DATE -->
+
+                    <button type="button" class="date-picker" id="datePicker">
+
+                        <span id="dateText">
+                            May 20, 2024
+                        </span>
+
+                        <span>
+                            ▣
+                        </span>
+
+                    </button>
+
+
+                    <!-- NOTIFICATION -->
+
+                    <button type="button" class="notification" id="notificationBtn">
+
+                        ♧
+
+                        <b>
+                            3
+                        </b>
+
+                    </button>
+
+
+                    <!-- PROFILE -->
+
+                    <div class="profile-wrap">
+
+                        <button type="button" class="profile" id="profileBtn">
+
+                            <span class="avatar">
+                                A
+                            </span>
+
+                            <span class="profile-text">
+
+                                <strong>
+                                    Admin
+                                </strong>
+
+                                <small>
+                                    Administrator
+                                </small>
+
+                            </span>
+
+                            <span class="chevron">
+                                ⌄
+                            </span>
+
+                        </button>
+
+
+                        <div class="profile-menu" id="profileMenu">
+
+                            <button type="button">
+                                My Profile
+                            </button>
+
+                            <button type="button">
+                                Account Settings
+                            </button>
+
+                            <button type="button" id="profileLogout">
+                                Log Out
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+            <section class="delivery-stats">
+
+
+                <!-- Total Deliveries -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon red">
+                        🛵
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Deliveries
+                        </span>
+
+                        <h2>
+                            28
+                        </h2>
+
+                        <p class="positive">
+                            ↑ 12.5%
+                            <small>
+                                vs yesterday
+                            </small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Out for Delivery -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon orange">
+                        🚚
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Out for Delivery
+                        </span>
+
+                        <h2>
+                            12
+                        </h2>
+
+                        <p class="positive">
+                            ↑ 8.3%
+                            <small>
+                                vs yesterday
+                            </small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Delivered -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Delivered
+                        </span>
+
+                        <h2>
+                            14
+                        </h2>
+
+                        <p class="positive">
+                            ↑ 16.7%
+                            <small>
+                                vs yesterday
+                            </small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Pending -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon yellow">
+                        ◷
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Pending
+                        </span>
+
+                        <h2>
+                            2
+                        </h2>
+
+                        <p class="negative">
+                            ↓ 20.0%
+                            <small>
+                                vs yesterday
+                            </small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Cancelled -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon gray">
+                        ×
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Cancelled
+                        </span>
+
+                        <h2>
+                            0
+                        </h2>
+
+                        <p>
+                            0%
+                            <small>
+                                vs yesterday
+                            </small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+             DELIVERY CONTENT
+        ================================================== -->
+
+            <section class="delivery-layout">
+
+
+                <!-- =================================================
+                 LEFT
+            ================================================== -->
+
+                <section class="delivery-card">
+
+
+                    <!-- Tabs -->
+
+                    <div class="delivery-toolbar">
+
+                        <div class="delivery-tabs">
+
+                            <button type="button" class="delivery-tab active" data-status="all">
+                                All Deliveries
+                            </button>
+
+                            <button type="button" class="delivery-tab" data-status="out">
+                                Out for Delivery
+                            </button>
+
+                            <button type="button" class="delivery-tab" data-status="delivered">
+                                Delivered
+                            </button>
+
+                            <button type="button" class="delivery-tab" data-status="pending">
+                                Pending
+                            </button>
+
+                            <button type="button" class="delivery-tab" data-status="cancelled">
+                                Cancelled
+                            </button>
+
+                        </div>
+
+
+                        <!-- Auto Refresh -->
+
+                        <label class="auto-refresh">
+
+                            <span>
+                                Auto refresh
+                            </span>
+
+                            <input type="checkbox" id="autoRefresh" checked>
+
+                            <span class="switch"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- Filters -->
+
+                    <div class="filter-bar">
+
+                        <div class="search-box">
+
+                            <input type="text" id="searchInput" placeholder="Search order ID, customer or phone...">
+
+                            <button type="button" id="searchBtn">
+                                ⌕
+                            </button>
+
+                        </div>
+
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All Status
+                            </option>
+
+                            <option value="out">
+                                Out for Delivery
+                            </option>
+
+                            <option value="delivered">
+                                Delivered
+                            </option>
+
+                            <option value="pending">
+                                Pending
+                            </option>
+
+                            <option value="cancelled">
+                                Cancelled
+                            </option>
+
+                        </select>
+
+
+                        <select id="riderFilter">
+
+                            <option value="all">
+                                All Riders
+                            </option>
+
+                            <option value="Mark Santos">
+                                Mark Santos
+                            </option>
+
+                            <option value="Liza Reyes">
+                                Liza Reyes
+                            </option>
+
+                            <option value="EJ Dela Cruz">
+                                EJ Dela Cruz
+                            </option>
+
+                        </select>
+
+
+                        <button type="button" class="filter-btn" id="filterBtn">
+                            ⚱ &nbsp; Filters
+                        </button>
+
+
+                        <button type="button" class="export-btn" id="exportBtn">
+                            ⇩ &nbsp; Export
+                        </button>
+
+                    </div>
+
+
+                    <!-- =================================================
+                     TABLE
+                ================================================== -->
+
+                    <div class="table-wrapper">
+
+                        <table class="delivery-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Order ID
+                                    </th>
+
+                                    <th>
+                                        Customer
+                                    </th>
+
+                                    <th>
+                                        Address
+                                    </th>
+
+                                    <th>
+                                        Rider
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        ETA / Time
+                                    </th>
+
+                                    <th>
+                                        Actions
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="deliveryBody">
+
+
+                                <!-- ROW 1 -->
+
+                                <tr data-status="out" data-rider="Mark Santos" data-order="#ORD-000158">
+
+                                    <td>
+
+                                        <strong>
+                                            #ORD-000158
+                                        </strong>
+
+                                        <small>
+                                            2:45 PM
+                                        </small>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong>
+                                            John D.
+                                        </strong>
+
+                                        <small>
+                                            0917 123 4567
+                                        </small>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong>
+                                            ◉ &nbsp;123 San Roque St.
+                                        </strong>
+
+                                        <small>
+                                            San Roque, Antipolo City
+                                        </small>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="rider-cell">
+
+                                            <div class="rider-avatar">
+                                                MS
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Mark Santos
+                                                </strong>
+
+                                                <small>
+                                                    0917 987 6543
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="delivery-status out">
+                                            Out for Delivery
+                                        </span>
+
+                                        <small>
+                                            On the way
+                                        </small>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong>
+                                            15 min
+                                        </strong>
+
+                                        <small>
+                                            3:00 PM
+                                        </small>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="row-actions">
+
+                                            <button type="button" class="view-btn" data-order="#ORD-000158">
+                                                ◉
+                                            </button>
+
+                                            <button type="button" class="message-btn" data-order="#ORD-000158">
+                                                ☏
+                                            </button>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ROW 2 -->
+
+                                <tr data-status="out" data-rider="Liza Reyes" data-order="#ORD-000157">
+
+                                    <td>
+                                        <strong>#ORD-000157</strong>
+                                        <small>2:30 PM</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>Maria S.</strong>
+                                        <small>0908 765 4321</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>◉ &nbsp;456 Hillcrest Ave.</strong>
+                                        <small>San Roque, Antipolo City</small>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="rider-cell">
+
+                                            <div class="rider-avatar female">
+                                                LR
+                                            </div>
+
+                                            <div>
+                                                <strong>Liza Reyes</strong>
+                                                <small>0906 456 7890</small>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        <span class="delivery-status out">
+                                            Out for Delivery
+                                        </span>
+                                        <small>On the way</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>25 min</strong>
+                                        <small>2:55 PM</small>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="row-actions">
+
+                                            <button type="button" class="view-btn" data-order="#ORD-000157">
+                                                ◉
+                                            </button>
+
+                                            <button type="button" class="message-btn" data-order="#ORD-000157">
+                                                ☏
+                                            </button>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ROW 3 -->
+
+                                <tr class="pending-row" data-status="pending" data-rider="EJ Dela Cruz"
+                                    data-order="#ORD-000156">
+
+                                    <td>
+                                        <strong>#ORD-000156</strong>
+                                        <small>2:10 PM</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>Kevin T.</strong>
+                                        <small>0916 555 1122</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>◉ &nbsp;789 Pine St.</strong>
+                                        <small>San Roque, Antipolo City</small>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="rider-cell">
+
+                                            <div class="rider-avatar">
+                                                EJ
+                                            </div>
+
+                                            <div>
+                                                <strong>EJ Dela Cruz</strong>
+                                                <small>0919 223 3445</small>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        <span class="delivery-status pending">
+                                            Pending
+                                        </span>
+                                        <small>Preparing for pickup</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>30 min</strong>
+                                        <small>2:40 PM</small>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="row-actions">
+
+                                            <button type="button" class="view-btn" data-order="#ORD-000156">
+                                                ◉
+                                            </button>
+
+                                            <button type="button" class="edit-btn" data-order="#ORD-000156">
+                                                ✎
+                                            </button>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ROW 4 -->
+
+                                <tr data-status="delivered" data-rider="" data-order="#ORD-000155">
+
+                                    <td>
+                                        <strong>#ORD-000155</strong>
+                                        <small>1:55 PM</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>Walk-in Customer</strong>
+                                        <small>— &nbsp;—</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>◉ &nbsp;San Roque Pizza House</strong>
+                                        <small>Counter Order</small>
+                                    </td>
+
+                                    <td>
+                                        <div class="no-rider">—</div>
+                                    </td>
+
+                                    <td>
+                                        <span class="delivery-status delivered">
+                                            Delivered
+                                        </span>
+                                        <small>Delivered</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>—</strong>
+                                        <small>1:58 PM</small>
+                                    </td>
+
+                                    <td>
+
+                                        <button type="button" class="view-btn" data-order="#ORD-000155">
+                                            ◉
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ROW 5 -->
+
+                                <tr data-status="delivered" data-rider="Mark Santos" data-order="#ORD-000154">
+
+                                    <td>
+                                        <strong>#ORD-000154</strong>
+                                        <small>1:40 PM</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>David L.</strong>
+                                        <small>0920 111 2233</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>◉ &nbsp;321 Valley View Dr.</strong>
+                                        <small>San Roque, Antipolo City</small>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="rider-cell">
+
+                                            <div class="rider-avatar">
+                                                MS
+                                            </div>
+
+                                            <div>
+                                                <strong>Mark Santos</strong>
+                                                <small>0917 987 6543</small>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        <span class="delivery-status delivered">
+                                            Delivered
+                                        </span>
+                                        <small>Delivered</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>—</strong>
+                                        <small>1:50 PM</small>
+                                    </td>
+
+                                    <td>
+
+                                        <button type="button" class="view-btn" data-order="#ORD-000154">
+                                            ◉
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ROW 6 -->
+
+                                <tr data-status="cancelled" data-rider="Liza Reyes" data-order="#ORD-000153">
+
+                                    <td>
+                                        <strong>#ORD-000153</strong>
+                                        <small>1:25 PM</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>Alyssa G.</strong>
+                                        <small>0912 444 5566</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>◉ &nbsp;654 Sunshine St.</strong>
+                                        <small>San Roque, Antipolo City</small>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="rider-cell">
+
+                                            <div class="rider-avatar female">
+                                                LR
+                                            </div>
+
+                                            <div>
+                                                <strong>Liza Reyes</strong>
+                                                <small>0906 456 7890</small>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        <span class="delivery-status cancelled">
+                                            Cancelled
+                                        </span>
+                                        <small>Cancelled by customer</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>—</strong>
+                                        <small>1:30 PM</small>
+                                    </td>
+
+                                    <td>
+
+                                        <button type="button" class="view-btn" data-order="#ORD-000153">
+                                            ◉
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ROW 7 -->
+
+                                <tr data-status="delivered" data-rider="" data-order="#ORD-000152">
+
+                                    <td>
+                                        <strong>#ORD-000152</strong>
+                                        <small>12:50 PM</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>Paolo R.</strong>
+                                        <small>0905 333 7788</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>◉ &nbsp;987 Greenfield St.</strong>
+                                        <small>San Roque, Antipolo City</small>
+                                    </td>
+
+                                    <td>
+                                        <div class="no-rider">—</div>
+                                    </td>
+
+                                    <td>
+                                        <span class="delivery-status delivered">
+                                            Delivered
+                                        </span>
+                                        <small>Delivered</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>—</strong>
+                                        <small>1:05 PM</small>
+                                    </td>
+
+                                    <td>
+
+                                        <button type="button" class="view-btn" data-order="#ORD-000152">
+                                            ◉
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ROW 8 -->
+
+                                <tr data-status="out" data-rider="EJ Dela Cruz" data-order="#ORD-000151">
+
+                                    <td>
+                                        <strong>#ORD-000151</strong>
+                                        <small>12:30 PM</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>Camille B.</strong>
+                                        <small>0919 888 9900</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>◉ &nbsp;147 Maple Rd.</strong>
+                                        <small>San Roque, Antipolo City</small>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="rider-cell">
+
+                                            <div class="rider-avatar">
+                                                EJ
+                                            </div>
+
+                                            <div>
+                                                <strong>EJ Dela Cruz</strong>
+                                                <small>0919 223 3445</small>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        <span class="delivery-status out">
+                                            Out for Delivery
+                                        </span>
+                                        <small>On the way</small>
+                                    </td>
+
+                                    <td>
+                                        <strong>10 min</strong>
+                                        <small>12:40 PM</small>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="row-actions">
+
+                                            <button type="button" class="view-btn" data-order="#ORD-000151">
+                                                ◉
+                                            </button>
+
+                                            <button type="button" class="message-btn" data-order="#ORD-000151">
+                                                ☏
+                                            </button>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- Pagination -->
+
+                    <div class="pagination">
+
+                        <span id="resultText">
+                            Showing 1 to 8 of 28 deliveries
+                        </span>
+
+                        <div class="page-buttons">
+
+                            <button>
+                                ‹
+                            </button>
+
+                            <button class="active">
+                                1
+                            </button>
+
+                            <button>
+                                2
+                            </button>
+
+                            <button>
+                                3
+                            </button>
+
+                            <button>
+                                4
+                            </button>
+
+                            <button>
+                                ...
+                            </button>
+
+                            <button>
+                                7
+                            </button>
+
+                            <button>
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 RIGHT DETAILS
+            ================================================== -->
+
+                <aside class="details-card">
+
+
+                    <!-- Details Header -->
+
+                    <div class="details-header">
+
+                        <h2>
+                            Delivery Details
+                        </h2>
+
+                        <button type="button" id="refreshDetails">
+                            ↻
+                        </button>
+
+                    </div>
+
+
+                    <!-- Order -->
+
+                    <div class="order-heading">
+
+                        <div>
+
+                            <small>
+                                Order ID
+                            </small>
+
+                            <h3 id="detailOrder">
+                                #ORD-000158
+                            </h3>
+
+                        </div>
+
+                        <span class="delivery-status out" id="detailStatus">
+                            Out for Delivery
+                        </span>
+
+                    </div>
+
+
+                    <!-- Live Tracking -->
+
+                    <div class="live-tracking">
+
+                        <strong>
+                            Live Tracking
+                        </strong>
+
+                        <span>
+                            <i></i>
+                            On the way
+                        </span>
+
+                    </div>
+
+
+                    <!-- Map -->
+
+                    <div class="map-box">
+
+                        <div class="map-road road-1"></div>
+                        <div class="map-road road-2"></div>
+                        <div class="map-road road-3"></div>
+
+                        <div class="map-grid"></div>
+
+
+                        <div class="map-marker rider-marker">
+                            🛵
+                        </div>
+
+                        <div class="map-marker home-marker">
+                            🏠
+                        </div>
+
+                        <div class="map-line"></div>
+
+
+                        <div class="map-controls">
+
+                            <button>
+                                +
+                            </button>
+
+                            <button>
+                                −
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Rider -->
+
+                    <div class="rider-detail">
+
+                        <div class="rider-profile">
+
+                            <div class="large-rider-avatar">
+                                MS
+                            </div>
+
+                            <div>
+
+                                <strong id="detailRider">
+                                    Mark Santos
+                                </strong>
+
+                                <span>
+                                    Rider
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <a href="tel:09179876543" class="rider-phone" id="detailPhone">
+                            ☎ &nbsp;0917 987 6543
+                        </a>
+
+                    </div>
+
+
+                    <div class="rider-meta">
+
+                        <span>
+                            Rider Rating
+                        </span>
+
+                        <strong>
+                            ★ &nbsp; Plate No. &nbsp;&nbsp;
+                            <b>1234 ABC</b>
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Rider Buttons -->
+
+                    <div class="rider-actions">
+
+                        <button type="button" id="callRider">
+                            ☎ &nbsp; Call Rider
+                        </button>
+
+                        <button type="button" id="messageRider">
+                            💬 &nbsp; Message
+                        </button>
+
+                        <button type="button" id="viewProfile">
+                            ♙ &nbsp; View Profile
+                        </button>
+
+                    </div>
+
+
+                    <!-- Customer -->
+
+                    <div class="detail-section">
+
+                        <h3>
+                            Customer Information
+                        </h3>
+
+
+                        <div class="customer-name">
+
+                            <strong>
+                                John D.
+                            </strong>
+
+                            <span>
+                                ☎ &nbsp;0917 123 4567
+                            </span>
+
+                        </div>
+
+
+                        <p>
+                            123 San Roque St., San Roque,
+                            Antipolo City
+                        </p>
+
+
+                        <div class="customer-actions">
+
+                            <button>
+                                ☎
+                            </button>
+
+                            <button>
+                                💬
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Order Summary -->
+
+                    <div class="detail-section">
+
+                        <div class="order-summary-header">
+
+                            <h3>
+                                Order Summary
+                            </h3>
+
+                            <button type="button" id="viewOrderBtn">
+                                View Order
+                            </button>
+
+                        </div>
+
+
+                        <div class="order-line">
+
+                            <span>
+                                Pizza Supreme (Large)
+                            </span>
+
+                            <span>
+                                1x
+                            </span>
+
+                            <strong>
+                                ₱549.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="order-line">
+
+                            <span>
+                                Coke 1.5L
+                            </span>
+
+                            <span>
+                                1x
+                            </span>
+
+                            <strong>
+                                ₱95.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="order-total">
+
+                            <strong>
+                                Total
+                            </strong>
+
+                            <strong>
+                                ₱644.00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Update Status -->
+
+                    <div class="status-control">
+
+                        <select id="deliveryStatus">
+
+                            <option value="out">
+                                Out for Delivery
+                            </option>
+
+                            <option value="pending">
+                                Pending
+                            </option>
+
+                            <option value="delivered">
+                                Delivered
+                            </option>
+
+                            <option value="cancelled">
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                        <button type="button" id="updateStatusBtn">
+                            Update Delivery Status
+                            <span>⌄</span>
+                        </button>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+     TOAST
+========================================================== -->
+
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+        /* =========================================================
+       JOLIE'S PIZZA
+       DELIVERY TRACKING
+       PURE VANILLA JAVASCRIPT
+    ========================================================= */
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            /* =====================================================
+               ELEMENTS
+            ===================================================== */
+
+            const sidebar =
+                document.getElementById("sidebar");
+
+            const menuToggle =
+                document.getElementById("menuToggle");
+
+            const logoutBtn =
+                document.getElementById("logoutBtn");
+
+            const profileLogout =
+                document.getElementById("profileLogout");
+
+            const profileBtn =
+                document.getElementById("profileBtn");
+
+            const profileMenu =
+                document.getElementById("profileMenu");
+
+            const notificationBtn =
+                document.getElementById("notificationBtn");
+
+            const datePicker =
+                document.getElementById("datePicker");
+
+            const dateText =
+                document.getElementById("dateText");
+
+            const searchInput =
+                document.getElementById("searchInput");
+
+            const searchBtn =
+                document.getElementById("searchBtn");
+
+            const statusFilter =
+                document.getElementById("statusFilter");
+
+            const riderFilter =
+                document.getElementById("riderFilter");
+
+            const filterBtn =
+                document.getElementById("filterBtn");
+
+            const exportBtn =
+                document.getElementById("exportBtn");
+
+            const deliveryBody =
+                document.getElementById("deliveryBody");
+
+            const resultText =
+                document.getElementById("resultText");
+
+            const autoRefresh =
+                document.getElementById("autoRefresh");
+
+            const detailOrder =
+                document.getElementById("detailOrder");
+
+            const detailStatus =
+                document.getElementById("detailStatus");
+
+            const detailRider =
+                document.getElementById("detailRider");
+
+            const detailPhone =
+                document.getElementById("detailPhone");
+
+            const deliveryStatus =
+                document.getElementById("deliveryStatus");
+
+            const updateStatusBtn =
+                document.getElementById("updateStatusBtn");
+
+            const toast =
+                document.getElementById("toast");
+
+
+            /* =====================================================
+               TOAST
+            ===================================================== */
+
+            function showToast(message) {
+
+                toast.textContent = message;
+
+                toast.classList.add("show");
+
+                clearTimeout(
+                    window.toastTimer
+                );
+
+                window.toastTimer =
+                    setTimeout(function () {
+
+                        toast.classList.remove(
+                            "show"
+                        );
+
+                    }, 2500);
+            }
+
+
+            /* =====================================================
+               MOBILE SIDEBAR
+            ===================================================== */
+
+            if (menuToggle) {
+
+                menuToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        sidebar.classList.toggle(
+                            "open"
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               PROFILE
+            ===================================================== */
+
+            if (profileBtn) {
+
+                profileBtn.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        profileMenu.classList.toggle(
+                            "show"
+                        );
+
+                    }
+                );
+
+            }
+
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        profileMenu &&
+                        profileBtn &&
+                        !profileMenu.contains(
+                            event.target
+                        ) &&
+                        !profileBtn.contains(
+                            event.target
+                        )
+                    ) {
+
+                        profileMenu.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               LOGOUT
+            ===================================================== */
+
+            function logout() {
+
+                const confirmed =
+                    window.confirm(
+                        "Are you sure you want to log out?"
+                    );
+
+                if (!confirmed) {
+                    return;
+                }
+
+                showToast(
+                    "Logging out..."
+                );
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "../login.html";
+
+                    },
+                    800
+                );
+
+            }
+
+
+            if (logoutBtn) {
+
+                logoutBtn.addEventListener(
+                    "click",
+                    logout
+                );
+
+            }
+
+
+            if (profileLogout) {
+
+                profileLogout.addEventListener(
+                    "click",
+                    logout
+                );
+
+            }
+
+
+            /* =====================================================
+               NOTIFICATIONS
+            ===================================================== */
+
+            if (notificationBtn) {
+
+                notificationBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "You have 3 notifications."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               DATE
+            ===================================================== */
+
+            if (datePicker) {
+
+                datePicker.addEventListener(
+                    "click",
+                    function () {
+
+                        const newDate =
+                            window.prompt(
+                                "Enter date:",
+                                dateText.textContent
+                            );
+
+                        if (
+                            newDate &&
+                            newDate.trim() !== ""
+                        ) {
+
+                            dateText.textContent =
+                                newDate.trim();
+
+                            showToast(
+                                "Date updated."
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               DELIVERY TABS
+            ===================================================== */
+
+            const tabs =
+                document.querySelectorAll(
+                    ".delivery-tab"
+                );
+
+
+            tabs.forEach(function (tab) {
+
+                tab.addEventListener(
+                    "click",
+                    function () {
+
+                        tabs.forEach(
+                            function (item) {
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+                        tab.classList.add(
+                            "active"
+                        );
+
+
+                        const status =
+                            tab.dataset.status;
+
+                        statusFilter.value =
+                            status;
+
+                        filterDeliveries();
+
+                    }
+                );
+
+            });
+
+
+            /* =====================================================
+               STATUS TEXT
+            ===================================================== */
+
+            function getStatusText(status) {
+
+                const statusNames = {
+
+                    all: "All Status",
+
+                    out: "Out for Delivery",
+
+                    delivered: "Delivered",
+
+                    pending: "Pending",
+
+                    cancelled: "Cancelled"
+
+                };
+
+                return (
+                    statusNames[status]
+                    || status
+                );
+
+            }
+
+
+            /* =====================================================
+               FILTER DELIVERIES
+            ===================================================== */
+
+            function filterDeliveries() {
+
+                const search =
+                    searchInput.value
+                        .toLowerCase()
+                        .trim();
+
+                const selectedStatus =
+                    statusFilter.value;
+
+                const selectedRider =
+                    riderFilter.value;
+
+
+                const rows =
+                    deliveryBody.querySelectorAll(
+                        "tr"
+                    );
+
+
+                let visibleCount = 0;
+
+
+                rows.forEach(function (row) {
+
+                    const order =
+                        (
+                            row.dataset.order
+                            || ""
+                        ).toLowerCase();
+
+                    const rider =
+                        (
+                            row.dataset.rider
+                            || ""
+                        ).toLowerCase();
+
+                    const rowText =
+                        row.textContent.toLowerCase();
+
+
+                    const matchesSearch =
+                        search === "" ||
+                        order.includes(search) ||
+                        rider.includes(search) ||
+                        rowText.includes(search);
+
+
+                    const matchesStatus =
+                        selectedStatus === "all" ||
+                        row.dataset.status ===
+                        selectedStatus;
+
+
+                    const matchesRider =
+                        selectedRider === "all" ||
+                        row.dataset.rider ===
+                        selectedRider;
+
+
+                    const visible =
+                        matchesSearch &&
+                        matchesStatus &&
+                        matchesRider;
+
+
+                    row.style.display =
+                        visible
+                            ? ""
+                            : "none";
+
+
+                    if (visible) {
+
+                        visibleCount++;
+
+                    }
+
+                });
+
+
+                resultText.textContent =
+                    "Showing 1 to " +
+                    visibleCount +
+                    " of 28 deliveries";
+
+            }
+
+
+            /* =====================================================
+               SEARCH
+            ===================================================== */
+
+            if (searchInput) {
+
+                searchInput.addEventListener(
+                    "input",
+                    filterDeliveries
+                );
+
+            }
+
+
+            if (searchBtn) {
+
+                searchBtn.addEventListener(
+                    "click",
+                    filterDeliveries
+                );
+
+            }
+
+
+            /* =====================================================
+               SELECT FILTERS
+            ===================================================== */
+
+            if (statusFilter) {
+
+                statusFilter.addEventListener(
+                    "change",
+                    function () {
+
+                        filterDeliveries();
+
+                        const selected =
+                            statusFilter.value;
+
+                        tabs.forEach(
+                            function (tab) {
+
+                                tab.classList.toggle(
+                                    "active",
+                                    tab.dataset.status ===
+                                    selected
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+
+
+            if (riderFilter) {
+
+                riderFilter.addEventListener(
+                    "change",
+                    filterDeliveries
+                );
+
+            }
+
+
+            /* =====================================================
+               FILTER BUTTON
+            ===================================================== */
+
+            if (filterBtn) {
+
+                filterBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Use the Status and Rider filters to narrow deliveries."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               EXPORT
+            ===================================================== */
+
+            if (exportBtn) {
+
+                exportBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const rows =
+                            deliveryBody.querySelectorAll(
+                                "tr"
+                            );
+
+                        let csv =
+                            "Order ID,Customer,Status,Rider\n";
+
+
+                        rows.forEach(
+                            function (row) {
+
+                                if (
+                                    row.style.display ===
+                                    "none"
+                                ) {
+                                    return;
+                                }
+
+
+                                const cells =
+                                    row.querySelectorAll(
+                                        "td"
+                                    );
+
+
+                                if (
+                                    cells.length < 5
+                                ) {
+                                    return;
+                                }
+
+
+                                const order =
+                                    cells[0]
+                                        .innerText
+                                        .replace(/\n/g, " ");
+
+
+                                const customer =
+                                    cells[1]
+                                        .innerText
+                                        .replace(/\n/g, " ");
+
+
+                                const rider =
+                                    row.dataset.rider
+                                    || "-";
+
+
+                                const status =
+                                    row.dataset.status;
+
+
+                                csv +=
+                                    '"' +
+                                    order +
+                                    '","' +
+                                    customer +
+                                    '","' +
+                                    getStatusText(
+                                        status
+                                    ) +
+                                    '","' +
+                                    rider +
+                                    '"\n';
+
+                            }
+                        );
+
+
+                        const blob =
+                            new Blob(
+                                [csv],
+                                {
+                                    type:
+                                        "text/csv;charset=utf-8;"
+                                }
+                            );
+
+
+                        const url =
+                            URL.createObjectURL(
+                                blob
+                            );
+
+
+                        const link =
+                            document.createElement(
+                                "a"
+                            );
+
+
+                        link.href = url;
+
+                        link.download =
+                            "delivery-tracking.csv";
+
+                        link.click();
+
+
+                        URL.revokeObjectURL(
+                            url
+                        );
+
+
+                        showToast(
+                            "Delivery report exported."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               VIEW ORDER
+            ===================================================== */
+
+            document
+                .querySelectorAll(".view-btn")
+                .forEach(function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const order =
+                                button.dataset.order;
+
+                            loadDeliveryDetails(
+                                order
+                            );
+
+                            showToast(
+                                "Viewing " +
+                                order
+                            );
+
+                        }
+                    );
+
+                });
+
+
+            /* =====================================================
+               MESSAGE BUTTON
+            ===================================================== */
+
+            document
+                .querySelectorAll(".message-btn")
+                .forEach(function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const order =
+                                button.dataset.order;
+
+                            showToast(
+                                "Opening message for " +
+                                order
+                            );
+
+                        }
+                    );
+
+                });
+
+
+            /* =====================================================
+               EDIT BUTTON
+            ===================================================== */
+
+            document
+                .querySelectorAll(".edit-btn")
+                .forEach(function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            showToast(
+                                "Delivery information opened for editing."
+                            );
+
+                        }
+                    );
+
+                });
+
+
+            /* =====================================================
+               LOAD DELIVERY DETAILS
+            ===================================================== */
+
+            function loadDeliveryDetails(order) {
+
+                const rows =
+                    deliveryBody.querySelectorAll(
+                        "tr"
+                    );
+
+
+                let selectedRow = null;
+
+
+                rows.forEach(function (row) {
+
+                    if (
+                        row.dataset.order ===
+                        order
+                    ) {
+
+                        selectedRow = row;
+
+                    }
+
+                });
+
+
+                if (!selectedRow) {
+                    return;
+                }
+
+
+                detailOrder.textContent =
+                    order;
+
+
+                const status =
+                    selectedRow.dataset.status;
+
+
+                updateDetailStatus(
+                    status
+                );
+
+
+                const rider =
+                    selectedRow.dataset.rider;
+
+
+                if (rider) {
+
+                    detailRider.textContent =
+                        rider;
+
+                }
+
+
+                const riderPhones = {
+
+                    "Mark Santos":
+                        "0917 987 6543",
+
+                    "Liza Reyes":
+                        "0906 456 7890",
+
+                    "EJ Dela Cruz":
+                        "0919 223 3445"
+
+                };
+
+
+                if (
+                    riderPhones[rider]
+                ) {
+
+                    detailPhone.textContent =
+                        "☎  " +
+                        riderPhones[rider];
+
+                    detailPhone.href =
+                        "tel:" +
+                        riderPhones[rider]
+                            .replace(/\s/g, "");
+
+                }
+
+            }
+
+
+            /* =====================================================
+               UPDATE DETAIL STATUS
+            ===================================================== */
+
+            function updateDetailStatus(status) {
+
+                detailStatus.className =
+                    "delivery-status " +
+                    status;
+
+                detailStatus.textContent =
+                    getStatusText(status);
+
+                deliveryStatus.value =
+                    status;
+
+            }
+
+
+            /* =====================================================
+               UPDATE DELIVERY STATUS
+            ===================================================== */
+
+            if (updateStatusBtn) {
+
+                updateStatusBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const selectedStatus =
+                            deliveryStatus.value;
+
+
+                        updateDetailStatus(
+                            selectedStatus
+                        );
+
+
+                        showToast(
+                            "Delivery status updated to " +
+                            getStatusText(
+                                selectedStatus
+                            ) +
+                            "."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               RIDER BUTTONS
+            ===================================================== */
+
+            const callRider =
+                document.getElementById(
+                    "callRider"
+                );
+
+            const messageRider =
+                document.getElementById(
+                    "messageRider"
+                );
+
+            const viewProfile =
+                document.getElementById(
+                    "viewProfile"
+                );
+
+
+            if (callRider) {
+
+                callRider.addEventListener(
+                    "click",
+                    function () {
+
+                        window.location.href =
+                            "tel:09179876543";
+
+                    }
+                );
+
+            }
+
+
+            if (messageRider) {
+
+                messageRider.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Opening rider messages..."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            if (viewProfile) {
+
+                viewProfile.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Opening rider profile..."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               VIEW ORDER
+            ===================================================== */
+
+            const viewOrderBtn =
+                document.getElementById(
+                    "viewOrderBtn"
+                );
+
+
+            if (viewOrderBtn) {
+
+                viewOrderBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Opening order details..."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               REFRESH DETAILS
+            ===================================================== */
+
+            const refreshDetails =
+                document.getElementById(
+                    "refreshDetails"
+                );
+
+
+            if (refreshDetails) {
+
+                refreshDetails.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Delivery details refreshed."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               AUTO REFRESH
+            ===================================================== */
+
+            let refreshTimer = null;
+
+
+            function startAutoRefresh() {
+
+                if (refreshTimer) {
+
+                    clearInterval(
+                        refreshTimer
+                    );
+
+                }
+
+
+                if (!autoRefresh.checked) {
+                    return;
+                }
+
+
+                refreshTimer =
+                    setInterval(
+                        function () {
+
+                            console.log(
+                                "Delivery data refreshed."
+                            );
+
+                        },
+                        30000
+                    );
+
+            }
+
+
+            if (autoRefresh) {
+
+                autoRefresh.addEventListener(
+                    "change",
+                    function () {
+
+                        startAutoRefresh();
+
+                        showToast(
+                            autoRefresh.checked
+                                ? "Auto refresh enabled."
+                                : "Auto refresh disabled."
+                        );
+
+                    }
+                );
+
+
+                startAutoRefresh();
+
+            }
+
+
+            /* =====================================================
+               PAGINATION
+            ===================================================== */
+
+            document
+                .querySelectorAll(
+                    ".page-buttons button"
+                )
+                .forEach(function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            if (
+                                button.textContent
+                                    .trim() === "..."
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            document
+                                .querySelectorAll(
+                                    ".page-buttons button"
+                                )
+                                .forEach(
+                                    function (item) {
+
+                                        item.classList.remove(
+                                            "active"
+                                        );
+
+                                    }
+                                );
+
+
+                            button.classList.add(
+                                "active"
+                            );
+
+
+                            showToast(
+                                "Page " +
+                                button.textContent.trim()
+                            );
+
+                        }
+                    );
+
+                });
+
+
+            /* =====================================================
+               MAP CONTROLS
+            ===================================================== */
+
+            document
+                .querySelectorAll(
+                    ".map-controls button"
+                )
+                .forEach(function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            showToast(
+                                button.textContent.trim() === "+"
+                                    ? "Map zoomed in."
+                                    : "Map zoomed out."
+                            );
+
+                        }
+                    );
+
+                });
+
+
+            /* =====================================================
+               INITIALIZE
+            ===================================================== */
+
+            filterDeliveries();
+
+
+            console.log(
+                "Jolie's Pizza Delivery Tracking loaded successfully."
+            );
+
+        });
+    </script>
+
+    <script src="sidebar-icons.js"></script>
+</body>
+
+</html>

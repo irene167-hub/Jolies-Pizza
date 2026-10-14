@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolie's Pizza - Orders</title>
+    <link rel="stylesheet" href="orders.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <img src="../images/logoadmin.png" alt="Jolie's Pizza San Roque" class="sidebar-logo">
+            </div>
+
+            <nav class="side-nav">
+
+                <button class="nav-item" data-page="Dashboard">
+                    <span class="nav-icon"></span>
+                    <span>Dashboard</span>
+                </button>
+
+                <button class="nav-item active" data-page="Orders">
+                    <span class="nav-icon"></span>
+                    <span>Orders</span>
+                </button>
+
+                <button class="nav-item" data-page="Menu Management">
+                    <span class="nav-icon"></span>
+                    <span>Menu Management</span>
+                </button>
+
+                <button class="nav-item" data-page="Inventory Overview">
+                    <span class="nav-icon"></span>
+                    <span>Inventory</span>
+                </button>
+
+                <button class="nav-item" data-page="Delivery Tracking">
+                    <span class="nav-icon"></span>
+                    <span>Delivery Tracking</span>
+                </button>
+
+                <button class="nav-item" data-page="Online Payments">
+                    <span class="nav-icon"></span>
+                    <span>Online Payments</span>
+                </button>
+
+                <button class="nav-item" data-page="Reports">
+                    <span class="nav-icon"></span>
+                    <span>Reports</span>
+                </button>
+
+                <button class="nav-item" data-page="Staff Management">
+                    <span class="nav-icon"></span>
+                    <span>Staff Management</span>
+                </button>
+
+                <button class="nav-item" data-page="Settings">
+                    <span class="nav-icon"></span>
+                    <span>Settings</span>
+                </button>
+
+                <button class="nav-item logout-item" id="logoutBtn">
+                    <span class="nav-icon"></span>
+                    <span>Log Out</span>
+                </button>
+
+            </nav>
+
+            <div class="support-box">
+                <div class="support-icon">♧</div>
+
+                <div class="support-content">
+                    <strong>Need Help?</strong>
+                    <a href="tel:09123456789">Contact support</a>
+                    <span>0912 345 6789</span>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <button class="menu-toggle" id="menuToggle">
+                    ☰
+                </button>
+
+                <div class="page-heading">
+
+                    <h1>Orders</h1>
+
+                    <div class="breadcrumb">
+                        <span>Dashboard</span>
+                        <span>›</span>
+                        <strong>Orders</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="top-actions">
+
+                    <button class="date-picker" id="datePicker">
+                        <span id="dateText">May 20, 2024</span>
+                        <span>▣</span>
+                    </button>
+
+                    <button class="notification" id="notificationBtn">
+                        ♧
+                        <b>3</b>
+                    </button>
+
+                    <button class="profile" id="profileBtn">
+
+                        <span class="avatar">A</span>
+
+                        <span class="profile-text">
+                            <strong>Admin</strong>
+                            <small>Administrator</small>
+                        </span>
+
+                        <span class="chevron">⌄</span>
+
+                    </button>
+
+                    <div class="profile-menu" id="profileMenu">
+
+                        <button>My Profile</button>
+                        <button>Account Settings</button>
+                        <button id="profileLogout">Log Out</button>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= ORDER STATISTICS ================= -->
+            <section class="order-stats">
+
+                <article class="order-stat">
+
+                    <div class="stat-icon purple">
+                        ♧
+                    </div>
+
+                    <div>
+                        <span>All Orders</span>
+                        <h2>158</h2>
+                        <small>View all orders</small>
+                    </div>
+
+                </article>
+
+
+                <article class="order-stat">
+
+                    <div class="stat-icon orange">
+                        ◷
+                    </div>
+
+                    <div>
+                        <span>Pending</span>
+                        <h2>12</h2>
+                        <small class="orange-text">8.3% of all orders</small>
+                    </div>
+
+                </article>
+
+
+                <article class="order-stat">
+
+                    <div class="stat-icon yellow">
+                        ♨
+                    </div>
+
+                    <div>
+                        <span>Preparing</span>
+                        <h2>15</h2>
+                        <small class="orange-text">9.5% of all orders</small>
+                    </div>
+
+                </article>
+
+
+                <article class="order-stat">
+
+                    <div class="stat-icon green">
+                        ♧
+                    </div>
+
+                    <div>
+                        <span>Out for Delivery</span>
+                        <h2>8</h2>
+                        <small class="orange-text">5.1% of all orders</small>
+                    </div>
+
+                </article>
+
+
+                <article class="order-stat">
+
+                    <div class="stat-icon green-dark">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Completed</span>
+                        <h2>110</h2>
+                        <small class="green-text">69.6% of all orders</small>
+                    </div>
+
+                </article>
+
+
+                <article class="order-stat">
+
+                    <div class="stat-icon red">
+                        ×
+                    </div>
+
+                    <div>
+                        <span>Cancelled</span>
+                        <h2>13</h2>
+                        <small class="red-text">8.2% of all orders</small>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- ================= ORDERS AREA ================= -->
+            <section class="orders-layout">
+
+                <!-- ORDER TABLE -->
+                <div class="orders-container">
+
+                    <!-- FILTER BAR -->
+                    <div class="filter-bar">
+
+                        <div class="search-box">
+
+                            <input type="text" id="orderSearch" placeholder="Search by Order ID, Customer or Phone...">
+
+                            <button id="searchBtn">
+                                ⌕
+                            </button>
+
+                        </div>
+
+
+                        <div class="filter-group">
+
+                            <label>Status</label>
+
+                            <select id="statusFilter">
+
+                                <option value="All">All Statuses</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Preparing">Preparing</option>
+                                <option value="Out for Delivery">Out for Delivery</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="filter-group">
+
+                            <label>Order Type</label>
+
+                            <select id="typeFilter">
+
+                                <option value="All">All Types</option>
+                                <option value="Dine-in">Dine-in</option>
+                                <option value="Delivery">Delivery</option>
+                                <option value="Takeaway">Takeaway</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="filter-group">
+
+                            <label>Date Range</label>
+
+                            <select id="dateFilter">
+
+                                <option>May 20, 2024</option>
+                                <option>May 19, 2024</option>
+                                <option>May 18, 2024</option>
+                                <option>Last 7 Days</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <button class="filter-btn" id="filterBtn">
+                            ⚱ Filters
+                        </button>
+
+
+                        <button class="export-btn" id="exportBtn">
+                            ↓ Export
+                        </button>
+
+                    </div>
+
+
+                    <!-- TABLE -->
+                    <div class="table-wrapper">
+
+                        <table id="ordersTable">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        <input type="checkbox" id="selectAll">
+                                    </th>
+
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Type</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Payment</th>
+                                    <th>Time</th>
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="ordersBody">
+
+                                <tr data-order="ORD-000158" data-customer="Walk-in Customer" data-type="Dine-in"
+                                    data-status="Completed">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000158</strong></td>
+
+                                    <td>Walk-in Customer</td>
+
+                                    <td>
+                                        <span class="type dinein">
+                                            ♙ Dine-in
+                                        </span>
+                                    </td>
+
+                                    <td>3</td>
+
+                                    <td>₱590.00</td>
+
+                                    <td>
+                                        <span class="status completed">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment paid">
+                                            Paid
+                                        </span>
+                                    </td>
+
+                                    <td>2:45 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr data-order="ORD-000157" data-customer="John D." data-type="Delivery"
+                                    data-status="Completed">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000157</strong></td>
+
+                                    <td>John D.</td>
+
+                                    <td>
+                                        <span class="type delivery">
+                                            ♧ Delivery
+                                        </span>
+                                    </td>
+
+                                    <td>4</td>
+
+                                    <td>₱1,280.00</td>
+
+                                    <td>
+                                        <span class="status completed">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment paid">
+                                            Paid
+                                        </span>
+                                    </td>
+
+                                    <td>2:30 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr data-order="ORD-000156" data-customer="Maria S." data-type="Delivery"
+                                    data-status="Completed">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000156</strong></td>
+
+                                    <td>Maria S.</td>
+
+                                    <td>
+                                        <span class="type delivery">
+                                            ♧ Delivery
+                                        </span>
+                                    </td>
+
+                                    <td>3</td>
+
+                                    <td>₱845.00</td>
+
+                                    <td>
+                                        <span class="status completed">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment paid">
+                                            Paid
+                                        </span>
+                                    </td>
+
+                                    <td>2:10 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr data-order="ORD-000155" data-customer="Walk-in Customer" data-type="Takeaway"
+                                    data-status="Preparing">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000155</strong></td>
+
+                                    <td>Walk-in Customer</td>
+
+                                    <td>
+                                        <span class="type takeaway">
+                                            ♧ Takeaway
+                                        </span>
+                                    </td>
+
+                                    <td>2</td>
+
+                                    <td>₱460.00</td>
+
+                                    <td>
+                                        <span class="status preparing">
+                                            Preparing
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment paid">
+                                            Paid
+                                        </span>
+                                    </td>
+
+                                    <td>1:55 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr data-order="ORD-000154" data-customer="David L." data-type="Delivery"
+                                    data-status="Out for Delivery">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000154</strong></td>
+
+                                    <td>David L.</td>
+
+                                    <td>
+                                        <span class="type delivery">
+                                            ♧ Delivery
+                                        </span>
+                                    </td>
+
+                                    <td>5</td>
+
+                                    <td>₱1,150.00</td>
+
+                                    <td>
+                                        <span class="status out-delivery">
+                                            Out for Delivery
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment paid">
+                                            Paid
+                                        </span>
+                                    </td>
+
+                                    <td>1:40 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr data-order="ORD-000153" data-customer="Sarah K." data-type="Delivery"
+                                    data-status="Preparing">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000153</strong></td>
+
+                                    <td>Sarah K.</td>
+
+                                    <td>
+                                        <span class="type delivery">
+                                            ♧ Delivery
+                                        </span>
+                                    </td>
+
+                                    <td>2</td>
+
+                                    <td>₱760.00</td>
+
+                                    <td>
+                                        <span class="status preparing">
+                                            Preparing
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment paid">
+                                            Paid
+                                        </span>
+                                    </td>
+
+                                    <td>1:25 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr data-order="ORD-000152" data-customer="James P." data-type="Dine-in"
+                                    data-status="Pending">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000152</strong></td>
+
+                                    <td>James P.</td>
+
+                                    <td>
+                                        <span class="type dinein">
+                                            ♙ Dine-in
+                                        </span>
+                                    </td>
+
+                                    <td>4</td>
+
+                                    <td>₱910.00</td>
+
+                                    <td>
+                                        <span class="status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment paid">
+                                            Paid
+                                        </span>
+                                    </td>
+
+                                    <td>1:15 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr data-order="ORD-000151" data-customer="Michael T." data-type="Delivery"
+                                    data-status="Pending">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000151</strong></td>
+
+                                    <td>Michael T.</td>
+
+                                    <td>
+                                        <span class="type delivery">
+                                            ♧ Delivery
+                                        </span>
+                                    </td>
+
+                                    <td>3</td>
+
+                                    <td>₱670.00</td>
+
+                                    <td>
+                                        <span class="status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment online">
+                                            Online
+                                        </span>
+                                    </td>
+
+                                    <td>1:05 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr data-order="ORD-000150" data-customer="Anna R." data-type="Takeaway"
+                                    data-status="Cancelled">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000150</strong></td>
+
+                                    <td>Anna R.</td>
+
+                                    <td>
+                                        <span class="type takeaway">
+                                            ♧ Takeaway
+                                        </span>
+                                    </td>
+
+                                    <td>1</td>
+
+                                    <td>₱220.00</td>
+
+                                    <td>
+                                        <span class="status cancelled">
+                                            Cancelled
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment refunded">
+                                            Refunded
+                                        </span>
+                                    </td>
+
+                                    <td>12:50 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr data-order="ORD-000149" data-customer="Walk-in Customer" data-type="Dine-in"
+                                    data-status="Completed">
+
+                                    <td>
+                                        <input type="checkbox" class="row-check">
+                                    </td>
+
+                                    <td><strong>#ORD-000149</strong></td>
+
+                                    <td>Walk-in Customer</td>
+
+                                    <td>
+                                        <span class="type dinein">
+                                            ♙ Dine-in
+                                        </span>
+                                    </td>
+
+                                    <td>2</td>
+
+                                    <td>₱350.00</td>
+
+                                    <td>
+                                        <span class="status completed">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="payment paid">
+                                            Paid
+                                        </span>
+                                    </td>
+
+                                    <td>12:30 PM</td>
+
+                                    <td>
+                                        <button class="action-btn">•••</button>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- PAGINATION -->
+                    <div class="pagination">
+
+                        <span id="showingText">
+                            Showing 1 to 10 of 158 orders
+                        </span>
+
+                        <div class="page-buttons">
+
+                            <button>‹</button>
+                            <button class="active">1</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <button>...</button>
+                            <button>16</button>
+                            <button>›</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= ORDER DETAILS ================= -->
+                <aside class="order-details" id="orderDetails">
+
+                    <button class="close-details" id="closeDetails">
+                        ×
+                    </button>
+
+                    <div class="details-content">
+
+                        <div class="details-status-row">
+
+                            <span class="status completed">
+                                Completed
+                            </span>
+
+                            <span class="payment paid">
+                                Paid
+                            </span>
+
+                        </div>
+
+
+                        <h2 id="detailOrderId">
+                            #ORD-000158
+                        </h2>
+
+                        <p class="order-date">
+                            May 20, 2024 at 2:45 PM
+                        </p>
+
+
+                        <!-- CUSTOMER -->
+                        <div class="detail-section">
+
+                            <h3>
+                                ♙
+                                Customer Information
+                            </h3>
+
+                            <strong id="detailCustomer">
+                                Walk-in Customer
+                            </strong>
+
+                            <span>
+                                No phone number
+                            </span>
+
+                        </div>
+
+
+                        <!-- ORDER TYPE -->
+                        <div class="detail-section">
+
+                            <h3>
+                                ♧
+                                Order Type
+                            </h3>
+
+                            <span id="detailType">
+                                ♙ &nbsp; Dine-in
+                            </span>
+
+                        </div>
+
+
+                        <!-- ORDER ITEMS -->
+                        <div class="detail-section">
+
+                            <h3>
+                                Order Items (3)
+                            </h3>
+
+                            <div class="order-item">
+
+                                <span class="item-image">🍕</span>
+
+                                <span>1x Pepperoni Pizza</span>
+
+                                <strong>₱450.00</strong>
+
+                            </div>
+
+
+                            <div class="order-item">
+
+                                <span class="item-image">🥖</span>
+
+                                <span>1x Garlic Bread</span>
+
+                                <strong>₱120.00</strong>
+
+                            </div>
+
+
+                            <div class="order-item">
+
+                                <span class="item-image">🥤</span>
+
+                                <span>1x Iced Tea</span>
+
+                                <strong>₱120.00</strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TOTALS -->
+                        <div class="totals">
+
+                            <div>
+                                <span>Subtotal</span>
+                                <strong>₱690.00</strong>
+                            </div>
+
+                            <div>
+                                <span>Discount</span>
+                                <strong class="discount">-₱100.00</strong>
+                            </div>
+
+                            <div class="total-row">
+                                <span>Total</span>
+                                <strong>₱590.00</strong>
+                            </div>
+
+                        </div>
+
+
+                        <!-- PAYMENT -->
+                        <div class="detail-section payment-section">
+
+                            <h3>
+                                ▤
+                                Payment Information
+                            </h3>
+
+                            <div class="payment-row">
+                                <span>Payment Method</span>
+                                <strong>Cash</strong>
+                            </div>
+
+                            <div class="payment-row">
+                                <span>Amount Paid</span>
+                                <strong>₱590.00</strong>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTIONS -->
+                        <div class="detail-actions">
+
+                            <h3>Actions</h3>
+
+                            <button class="receipt-btn" id="receiptBtn">
+                                ▤
+                                View Receipt
+                            </button>
+
+                            <button class="reorder-btn" id="reorderBtn">
+                                ⟳
+                                Reorder
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+        /* =========================================================
+       JOLIE'S PIZZA - ORDERS
+       PURE VANILLA JAVASCRIPT
+    ========================================================= */
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* =====================================================
+               ELEMENTS
+            ===================================================== */
+
+            const sidebar = document.getElementById("sidebar");
+            const menuToggle = document.getElementById("menuToggle");
+
+            const profileBtn = document.getElementById("profileBtn");
+            const profileMenu = document.getElementById("profileMenu");
+
+            const notificationBtn =
+                document.getElementById("notificationBtn");
+
+            const datePicker =
+                document.getElementById("datePicker");
+
+            const dateText =
+                document.getElementById("dateText");
+
+            const orderSearch =
+                document.getElementById("orderSearch");
+
+            const searchBtn =
+                document.getElementById("searchBtn");
+
+            const statusFilter =
+                document.getElementById("statusFilter");
+
+            const typeFilter =
+                document.getElementById("typeFilter");
+
+            const dateFilter =
+                document.getElementById("dateFilter");
+
+            const filterBtn =
+                document.getElementById("filterBtn");
+
+            const exportBtn =
+                document.getElementById("exportBtn");
+
+            const ordersBody =
+                document.getElementById("ordersBody");
+
+            const selectAll =
+                document.getElementById("selectAll");
+
+            const closeDetails =
+                document.getElementById("closeDetails");
+
+            const orderDetails =
+                document.getElementById("orderDetails");
+
+            const detailOrderId =
+                document.getElementById("detailOrderId");
+
+            const detailCustomer =
+                document.getElementById("detailCustomer");
+
+            const detailType =
+                document.getElementById("detailType");
+
+            const receiptBtn =
+                document.getElementById("receiptBtn");
+
+            const reorderBtn =
+                document.getElementById("reorderBtn");
+
+            const logoutBtn =
+                document.getElementById("logoutBtn");
+
+            const profileLogout =
+                document.getElementById("profileLogout");
+
+            const toast =
+                document.getElementById("toast");
+
+
+            /* =====================================================
+               TOAST FUNCTION
+            ===================================================== */
+
+            function showToast(message) {
+
+                if (!toast) return;
+
+                toast.textContent = message;
+
+                toast.classList.add("show");
+
+                setTimeout(function () {
+                    toast.classList.remove("show");
+                }, 2500);
+            }
+
+
+            /* =====================================================
+               MOBILE SIDEBAR
+            ===================================================== */
+
+            if (menuToggle) {
+
+                menuToggle.addEventListener("click", function () {
+
+                    sidebar.classList.toggle("open");
+
+                });
+
+            }
+
+
+            /* =====================================================
+               SIDEBAR NAVIGATION
+            ===================================================== */
+
+            const navItems =
+                document.querySelectorAll(".nav-item[data-page]");
+
+            navItems.forEach(function (item) {
+
+                item.addEventListener("click", function () {
+
+                    const page = item.getAttribute("data-page");
+
+                    /* Remove active state */
+
+                    navItems.forEach(function (nav) {
+                        nav.classList.remove("active");
+                    });
+
+                    /* Add active state */
+
+                    item.classList.add("active");
+
+                    /* Close mobile sidebar */
+
+                    if (window.innerWidth <= 900) {
+                        sidebar.classList.remove("open");
+                    }
+
+                    /* Dashboard */
+
+                    if (page === "Dashboard") {
+
+                        window.location.href =
+                            "dashboard.html";
+
+                        return;
+                    }
+
+
+                    /* Orders */
+
+                    if (page === "Orders") {
+                        return;
+                    }
+
+
+
+                    /* Other pages */
+
+                    const pageMap = {
+
+                        "Menu Management":
+                            "menu-management.html",
+
+                        "Inventory Overview":
+                            "inventory overview.html",
+
+                        "Delivery Tracking":
+                            "delivery-tracking.html",
+
+                        "Online Payments":
+                            "online-payments.html",
+
+                        "Reports":
+                            "reports.html",
+
+                        "Staff Management":
+                            "staff-management.html",
+
+                        "Settings":
+                            "settings.html"
+
+                    };
+
+                    if (pageMap[page]) {
+
+                        window.location.href =
+                            pageMap[page];
+
+                    }
+
+                });
+
+            });
+
+
+            /* =====================================================
+               PROFILE MENU
+            ===================================================== */
+
+            if (profileBtn) {
+
+                profileBtn.addEventListener("click", function (event) {
+
+                    event.stopPropagation();
+
+                    profileMenu.classList.toggle("show");
+
+                });
+
+            }
+
+
+            document.addEventListener("click", function (event) {
+
+                if (
+                    profileMenu &&
+                    !profileMenu.contains(event.target) &&
+                    !profileBtn.contains(event.target)
+                ) {
+
+                    profileMenu.classList.remove("show");
+
+                }
+
+            });
+
+
+            /* =====================================================
+               NOTIFICATION
+            ===================================================== */
+
+            if (notificationBtn) {
+
+                notificationBtn.addEventListener("click", function () {
+
+                    showToast("You have 3 new notifications.");
+
+                });
+
+            }
+
+
+            /* =====================================================
+               DATE PICKER
+            ===================================================== */
+
+            if (datePicker) {
+
+                datePicker.addEventListener("click", function () {
+
+                    showToast(
+                        "Selected date: " +
+                        dateText.textContent
+                    );
+
+                });
+
+            }
+
+
+            /* =====================================================
+               SEARCH
+            ===================================================== */
+
+            function filterOrders() {
+
+                const searchValue =
+                    orderSearch.value
+                        .trim()
+                        .toLowerCase();
+
+                const selectedStatus =
+                    statusFilter.value;
+
+                const selectedType =
+                    typeFilter.value;
+
+                const rows =
+                    ordersBody.querySelectorAll("tr");
+
+                let visibleCount = 0;
+
+
+                rows.forEach(function (row) {
+
+                    const order =
+                        row.dataset.order.toLowerCase();
+
+                    const customer =
+                        row.dataset.customer.toLowerCase();
+
+                    const type =
+                        row.dataset.type;
+
+                    const status =
+                        row.dataset.status;
+
+
+                    const matchesSearch =
+                        searchValue === "" ||
+                        order.includes(searchValue) ||
+                        customer.includes(searchValue);
+
+                    const matchesStatus =
+                        selectedStatus === "All" ||
+                        status === selectedStatus;
+
+                    const matchesType =
+                        selectedType === "All" ||
+                        type === selectedType;
+
+
+                    if (
+                        matchesSearch &&
+                        matchesStatus &&
+                        matchesType
+                    ) {
+
+                        row.style.display = "";
+
+                        visibleCount++;
+
+                    } else {
+
+                        row.style.display = "none";
+
+                    }
+
+                });
+
+
+                const showingText =
+                    document.getElementById("showingText");
+
+                if (showingText) {
+
+                    if (visibleCount === 0) {
+
+                        showingText.textContent =
+                            "No orders found";
+
+                    } else {
+
+                        showingText.textContent =
+                            "Showing 1 to " +
+                            visibleCount +
+                            " of 158 orders";
+
+                    }
+
+                }
+
+            }
+
+
+            if (searchBtn) {
+
+                searchBtn.addEventListener(
+                    "click",
+                    filterOrders
+                );
+
+            }
+
+
+            if (orderSearch) {
+
+                orderSearch.addEventListener(
+                    "input",
+                    filterOrders
+                );
+
+            }
+
+
+            if (statusFilter) {
+
+                statusFilter.addEventListener(
+                    "change",
+                    filterOrders
+                );
+
+            }
+
+
+            if (typeFilter) {
+
+                typeFilter.addEventListener(
+                    "change",
+                    filterOrders
+                );
+
+            }
+
+
+            if (dateFilter) {
+
+                dateFilter.addEventListener(
+                    "change",
+                    function () {
+
+                        showToast(
+                            "Date range changed to " +
+                            dateFilter.value
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               FILTER BUTTON
+            ===================================================== */
+
+            if (filterBtn) {
+
+                filterBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Filters are ready to use."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               SELECT ALL
+            ===================================================== */
+
+            if (selectAll) {
+
+                selectAll.addEventListener(
+                    "change",
+                    function () {
+
+                        const checkboxes =
+                            document.querySelectorAll(
+                                ".row-check"
+                            );
+
+                        checkboxes.forEach(function (checkbox) {
+
+                            const row =
+                                checkbox.closest("tr");
+
+                            if (
+                                row &&
+                                row.style.display !== "none"
+                            ) {
+
+                                checkbox.checked =
+                                    selectAll.checked;
+
+                            }
+
+                        });
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               ORDER ROW SELECTION
+            ===================================================== */
+
+            const rows =
+                ordersBody.querySelectorAll("tr");
+
+
+            rows.forEach(function (row) {
+
+                row.addEventListener("click", function (event) {
+
+                    /*
+                       Don't open order details when
+                       clicking the checkbox or action button.
+                    */
+
+                    if (
+                        event.target.type === "checkbox" ||
+                        event.target.classList.contains("action-btn")
+                    ) {
+                        return;
+                    }
+
+
+                    openOrderDetails(row);
+
+                });
+
+
+                /* Action button */
+
+                const actionBtn =
+                    row.querySelector(".action-btn");
+
+
+                if (actionBtn) {
+
+                    actionBtn.addEventListener(
+                        "click",
+                        function (event) {
+
+                            event.stopPropagation();
+
+                            openOrderDetails(row);
+
+                        }
+                    );
+
+                }
+
+            });
+
+
+            /* =====================================================
+               OPEN ORDER DETAILS
+            ===================================================== */
+
+            function openOrderDetails(row) {
+
+                const order =
+                    row.dataset.order;
+
+                const customer =
+                    row.dataset.customer;
+
+                const type =
+                    row.dataset.type;
+
+                const status =
+                    row.dataset.status;
+
+
+                if (detailOrderId) {
+
+                    detailOrderId.textContent =
+                        "#" + order;
+
+                }
+
+
+                if (detailCustomer) {
+
+                    detailCustomer.textContent =
+                        customer;
+
+                }
+
+
+                if (detailType) {
+
+                    if (type === "Dine-in") {
+
+                        detailType.textContent =
+                            "♙  Dine-in";
+
+                    } else if (type === "Delivery") {
+
+                        detailType.textContent =
+                            "♧  Delivery";
+
+                    } else {
+
+                        detailType.textContent =
+                            "♧  Takeaway";
+
+                    }
+
+                }
+
+
+                /*
+                   Update status badge
+                */
+
+                const detailsStatus =
+                    orderDetails.querySelector(
+                        ".details-status-row .status"
+                    );
+
+
+                if (detailsStatus) {
+
+                    detailsStatus.textContent =
+                        status;
+
+                    detailsStatus.className =
+                        "status " +
+                        getStatusClass(status);
+
+                }
+
+
+                /*
+                   Open details
+                */
+
+                orderDetails.classList.add("show");
+
+
+                showToast(
+                    "Opened order #" + order
+                );
+
+            }
+
+
+            /* =====================================================
+               STATUS CLASS
+            ===================================================== */
+
+            function getStatusClass(status) {
+
+                switch (status) {
+
+                    case "Completed":
+                        return "completed";
+
+                    case "Preparing":
+                        return "preparing";
+
+                    case "Pending":
+                        return "pending";
+
+                    case "Out for Delivery":
+                        return "out-delivery";
+
+                    case "Cancelled":
+                        return "cancelled";
+
+                    default:
+                        return "";
+
+                }
+
+            }
+
+
+            /* =====================================================
+               CLOSE ORDER DETAILS
+            ===================================================== */
+
+            if (closeDetails) {
+
+                closeDetails.addEventListener(
+                    "click",
+                    function () {
+
+                        orderDetails.classList.remove("show");
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               VIEW RECEIPT
+            ===================================================== */
+
+            if (receiptBtn) {
+
+                receiptBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Receipt opened successfully."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               REORDER
+            ===================================================== */
+
+            if (reorderBtn) {
+
+                reorderBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Order added for reorder."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               EXPORT
+            ===================================================== */
+
+            if (exportBtn) {
+
+                exportBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const rows =
+                            document.querySelectorAll(
+                                "#ordersTable tr"
+                            );
+
+                        let csv = "";
+
+
+                        rows.forEach(function (row) {
+
+                            if (
+                                row.style.display === "none"
+                            ) {
+                                return;
+                            }
+
+
+                            const columns =
+                                row.querySelectorAll(
+                                    "th, td"
+                                );
+
+                            const values = [];
+
+
+                            columns.forEach(function (column) {
+
+                                /*
+                                   Skip checkbox and action column
+                                */
+
+                                if (
+                                    column.querySelector(
+                                        "input"
+                                    )
+                                ) {
+                                    return;
+                                }
+
+                                if (
+                                    column.classList.contains(
+                                        "action-btn"
+                                    )
+                                ) {
+                                    return;
+                                }
+
+
+                                let value =
+                                    column.textContent
+                                        .trim()
+                                        .replace(/\s+/g, " ");
+
+                                value =
+                                    value.replace(/"/g, '""');
+
+                                values.push(
+                                    '"' + value + '"'
+                                );
+
+                            });
+
+
+                            csv +=
+                                values.join(",") +
+                                "\n";
+
+                        });
+
+
+                        const blob =
+                            new Blob(
+                                [csv],
+                                {
+                                    type:
+                                        "text/csv;charset=utf-8;"
+                                }
+                            );
+
+
+                        const url =
+                            URL.createObjectURL(blob);
+
+
+                        const link =
+                            document.createElement("a");
+
+                        link.href = url;
+
+                        link.download =
+                            "jolies-pizza-orders.csv";
+
+                        document.body.appendChild(link);
+
+                        link.click();
+
+                        document.body.removeChild(link);
+
+                        URL.revokeObjectURL(url);
+
+
+                        showToast(
+                            "Orders exported successfully."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               PAGINATION
+            ===================================================== */
+
+            const pageButtons =
+                document.querySelectorAll(
+                    ".page-buttons button"
+                );
+
+
+            pageButtons.forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        if (
+                            button.textContent === "..." ||
+                            button.classList.contains("active")
+                        ) {
+                            return;
+                        }
+
+
+                        pageButtons.forEach(function (btn) {
+
+                            btn.classList.remove("active");
+
+                        });
+
+
+                        /*
+                           Only number buttons become active
+                        */
+
+                        if (
+                            !isNaN(
+                                Number(button.textContent)
+                            )
+                        ) {
+
+                            button.classList.add("active");
+
+                        }
+
+
+                        showToast(
+                            "Page " +
+                            button.textContent +
+                            " selected."
+                        );
+
+                    }
+                );
+
+            });
+
+
+            /* =====================================================
+               LOGOUT
+            ===================================================== */
+
+            function logout() {
+
+                const confirmLogout =
+                    window.confirm(
+                        "Are you sure you want to log out?"
+                    );
+
+
+                if (!confirmLogout) {
+                    return;
+                }
+
+
+                showToast(
+                    "Logging out..."
+                );
+
+
+                setTimeout(function () {
+
+                    /*
+                       Change this to your actual
+                       login page if necessary.
+                    */
+
+                    window.location.href =
+                        "../login.html";
+
+                }, 1000);
+
+            }
+
+
+            if (logoutBtn) {
+
+                logoutBtn.addEventListener(
+                    "click",
+                    logout
+                );
+
+            }
+
+
+            if (profileLogout) {
+
+                profileLogout.addEventListener(
+                    "click",
+                    logout
+                );
+
+            }
+
+
+            /* =====================================================
+               INITIALIZE
+            ===================================================== */
+
+            filterOrders();
+
+        });
+    </script>
+
+    <script src="sidebar-icons.js"></script>
+</body>
+
+</html>

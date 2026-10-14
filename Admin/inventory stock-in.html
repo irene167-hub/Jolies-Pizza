@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jolie's Pizza - Stock In</title>
+
+    <link rel="stylesheet" href="inventory stock-in.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <img src="../images/logoadmin.png" alt="Jolie's Pizza San Roque" class="sidebar-logo">
+            </div>
+
+            <nav class="side-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="orders.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Orders</span>
+                </a>
+
+                <a href="menu-management.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Menu Management</span>
+                </a>
+
+
+                <!-- INVENTORY -->
+                <div class="nav-group">
+
+                    <button class="nav-item nav-dropdown active" id="inventoryToggle" type="button">
+                        <span class="nav-icon"></span>
+                        <span class="nav-title">Inventory</span>
+                        <span class="nav-arrow">⌄</span>
+                    </button>
+
+                    <div class="submenu" id="inventorySubmenu">
+
+                        <a href="inventory overview.html" class="submenu-item">
+                            <span>Overview</span>
+                        </a>
+
+                        <a href="inventory stock-items.html" class="submenu-item">
+                            <span>Stock Items</span>
+                        </a>
+
+                        <a href="inventory stock-in.html" class="submenu-item active-sub">
+                            <span class="sub-dot"></span>
+                            <span>Stock In</span>
+                        </a>
+
+                        <a href="inventory stock-out.html" class="submenu-item">
+                            <span>Stock Out</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <a href="delivery-tracking.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Delivery Tracking</span>
+                </a>
+
+                <a href="online-payments.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Online Payments</span>
+                </a>
+
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Reports</span>
+                </a>
+
+                <a href="staff-management.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Staff Management</span>
+                </a>
+
+                <a href="settings.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Settings</span>
+                </a>
+
+                <!-- LOGOUT -->
+                <button type="button" class="nav-item logout-item" id="logoutBtn">
+                    <span class="nav-icon"></span>
+                    <span>Log Out</span>
+                </button>
+
+            </nav>
+
+
+            <!-- SUPPORT -->
+
+            <div class="support-box">
+
+                <div class="support-icon">♧</div>
+
+                <div class="support-content">
+
+                    <strong>Need Help?</strong>
+
+                    <a href="tel:09123456789">
+                        Contact support
+                    </a>
+
+                    <span>0912 345 6789</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+        <main class="main">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <button class="menu-toggle" id="menuToggle" type="button">
+                    ☰
+                </button>
+
+
+                <div class="page-heading">
+
+                    <h1>Stock In</h1>
+
+                    <div class="breadcrumb">
+
+                        <span>Dashboard</span>
+
+                        <b>›</b>
+
+                        <span>Inventory</span>
+
+                        <b>›</b>
+
+                        <strong>Stock In</strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="top-actions">
+
+                    <button class="date-picker" id="datePicker" type="button">
+
+                        <span id="dateText">
+                            May 20, 2024
+                        </span>
+
+                        <span>▣</span>
+
+                    </button>
+
+
+                    <button class="notification" id="notificationBtn" type="button">
+
+                        ♧
+
+                        <b>3</b>
+
+                    </button>
+
+
+                    <div class="profile-wrap">
+
+                        <button class="profile" id="profileBtn" type="button">
+
+                            <span class="avatar">
+                                A
+                            </span>
+
+                            <span class="profile-text">
+
+                                <strong>Admin</strong>
+
+                                <small>
+                                    Administrator
+                                </small>
+
+                            </span>
+
+                            <span class="chevron">
+                                ⌄
+                            </span>
+
+                        </button>
+
+
+                        <div class="profile-menu" id="profileMenu">
+
+                            <button type="button">
+                                My Profile
+                            </button>
+
+                            <button type="button">
+                                Account Settings
+                            </button>
+
+                            <button type="button" id="profileLogout">
+                                Log Out
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+            <section class="stock-stats">
+
+                <article class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ↓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Stock In (This Month)
+                        </span>
+
+                        <h2>
+                            <span id="totalStockIn">
+                                25
+                            </span>
+                        </h2>
+
+                        <p class="positive">
+                            ↑ 12.5%
+                            <small>vs Apr 1 - Apr 20</small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon green">
+                        ▣
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Items Added
+                        </span>
+
+                        <h2>
+                            <span id="totalItemsAdded">
+                                152
+                            </span>
+                        </h2>
+
+                        <p class="positive">
+                            ↑ 8.3%
+                            <small>vs Apr 1 - Apr 20</small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ₱
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Amount
+                        </span>
+
+                        <h2 id="totalAmount">
+                            ₱45,620.00
+                        </h2>
+
+                        <p class="positive">
+                            ↑ 10.6%
+                            <small>vs Apr 1 - Apr 20</small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon purple">
+                        🚚
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Suppliers
+                        </span>
+
+                        <h2>
+                            8
+                        </h2>
+
+                        <p>
+                            Active suppliers
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <button class="new-stock-btn" id="newStockBtn" type="button">
+                    <span>＋</span>
+                    New Stock In
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+            <section class="stock-layout">
+
+
+                <!-- =============================================
+                 STOCK IN FORM
+            ============================================== -->
+
+                <section class="stock-form-card">
+
+                    <h2 class="section-title">
+                        Stock In Information
+                    </h2>
+
+
+                    <!-- BASIC INFORMATION -->
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>
+                                Reference No.
+                                <span>*</span>
+                            </label>
+
+                            <input type="text" id="referenceNo" value="SIN-2024-05-0026" readonly>
+
+                            <small>
+                                Auto generated number
+                            </small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Stock In Date
+                                <span>*</span>
+                            </label>
+
+                            <div class="input-icon">
+
+                                <input type="text" id="stockInDate" value="May 20, 2024">
+
+                                <span>▣</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Expected Delivery Date
+                            </label>
+
+                            <div class="input-icon">
+
+                                <input type="text" id="deliveryDate" value="May 20, 2024">
+
+                                <span>▣</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group supplier-group">
+
+                            <label>
+                                Supplier
+                                <span>*</span>
+                            </label>
+
+                            <div class="supplier-input">
+
+                                <select id="supplier">
+
+                                    <option>
+                                        Good Harvest Supplies
+                                    </option>
+
+                                    <option>
+                                        Fresh Food Supplier
+                                    </option>
+
+                                    <option>
+                                        Metro Food Distributor
+                                    </option>
+
+                                </select>
+
+                                <button type="button" id="addSupplierBtn">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Purchase Invoice No.
+                                <span>*</span>
+                            </label>
+
+                            <input type="text" id="invoiceNo" value="INV-45678">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Method
+                            </label>
+
+                            <select id="paymentMethod">
+
+                                <option>Cash</option>
+
+                                <option>
+                                    Bank Transfer
+                                </option>
+
+                                <option>
+                                    Credit Card
+                                </option>
+
+                                <option>
+                                    GCash
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group notes-group">
+
+                            <label>
+                                Notes
+                            </label>
+
+                            <textarea id="notes" maxlength="255" placeholder="Enter notes (optional)"></textarea>
+
+                            <small class="character-count" id="characterCount">
+                                0 / 255
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================================
+                     ITEMS HEADER
+                ========================================== -->
+
+                    <div class="items-header">
+
+                        <h2>
+                            Items
+                        </h2>
+
+                        <div class="item-actions">
+
+                            <button type="button" class="add-item-btn" id="addItemBtn">
+                                ＋ Add Item
+                            </button>
+
+                            <button type="button" class="barcode-btn" id="barcodeBtn">
+                                ▥ &nbsp; Scan Barcode
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================================
+                     ITEMS TABLE
+                ========================================== -->
+
+                    <div class="items-table-wrapper">
+
+                        <table class="items-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>#</th>
+
+                                    <th>Item</th>
+
+                                    <th>Unit</th>
+
+                                    <th>Batch / Lot No.</th>
+
+                                    <th>Expiry Date</th>
+
+                                    <th>Quantity</th>
+
+                                    <th>Unit Cost</th>
+
+                                    <th>Total Cost</th>
+
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="itemsBody">
+
+                                <!-- ITEM 1 -->
+
+                                <tr>
+
+                                    <td>1</td>
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image cheese">
+                                                🧀
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Mozzarella Cheese
+                                                </strong>
+
+                                                <small>
+                                                    Cheese
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>kg</option>
+                                            <option>g</option>
+                                            <option>L</option>
+                                            <option>pcs</option>
+
+                                        </select>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input class="batch-input" value="BATCH-0520">
+
+                                    </td>
+
+                                    <td>
+
+                                        <div class="small-date">
+
+                                            <input value="Jun 15, 2024">
+
+                                            <span>▣</span>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="10" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="cost-input" value="320" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td class="total-cost">
+                                        ₱3,200.00
+                                    </td>
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ITEM 2 -->
+
+                                <tr>
+
+                                    <td>2</td>
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image flour">
+                                                🥣
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    All-Purpose Flour
+                                                </strong>
+
+                                                <small>
+                                                    Cooking Ingredients
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>kg</option>
+                                            <option>g</option>
+                                            <option>L</option>
+                                            <option>pcs</option>
+
+                                        </select>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input class="batch-input" value="BATCH-0520">
+
+                                    </td>
+
+                                    <td>
+
+                                        <div class="small-date">
+
+                                            <input value="Nov 20, 2024">
+
+                                            <span>▣</span>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="25" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="cost-input" value="45" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td class="total-cost">
+                                        ₱1,125.00
+                                    </td>
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ITEM 3 -->
+
+                                <tr>
+
+                                    <td>3</td>
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image sauce">
+                                                🍅
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Tomato Sauce
+                                                </strong>
+
+                                                <small>
+                                                    Sauce & Condiments
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>kg</option>
+                                            <option>g</option>
+                                            <option>L</option>
+                                            <option>pcs</option>
+
+                                        </select>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input class="batch-input" value="BATCH-0520">
+
+                                    </td>
+
+                                    <td>
+
+                                        <div class="small-date">
+
+                                            <input value="Jan 10, 2025">
+
+                                            <span>▣</span>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="5" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="cost-input" value="120" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td class="total-cost">
+                                        ₱600.00
+                                    </td>
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ITEM 4 -->
+
+                                <tr>
+
+                                    <td>4</td>
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image pepperoni">
+                                                🍕
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Pepperoni Slices
+                                                </strong>
+
+                                                <small>
+                                                    Meats
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>kg</option>
+                                            <option>g</option>
+                                            <option>L</option>
+                                            <option>pcs</option>
+
+                                        </select>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input class="batch-input" value="BATCH-0520">
+
+                                    </td>
+
+                                    <td>
+
+                                        <div class="small-date">
+
+                                            <input value="Jun 10, 2024">
+
+                                            <span>▣</span>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="15" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="cost-input" value="280" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td class="total-cost">
+                                        ₱4,200.00
+                                    </td>
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- ITEM 5 -->
+
+                                <tr>
+
+                                    <td>5</td>
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image oil">
+                                                🫒
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Olive Oil
+                                                </strong>
+
+                                                <small>
+                                                    Oils & Vinegar
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>L</option>
+                                            <option>kg</option>
+                                            <option>g</option>
+                                            <option>pcs</option>
+
+                                        </select>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input class="batch-input" value="BATCH-0520">
+
+                                    </td>
+
+                                    <td>
+
+                                        <div class="small-date">
+
+                                            <input value="Dec 20, 2024">
+
+                                            <span>▣</span>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="5" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td>
+
+                                        <input type="number" class="cost-input" value="350" min="0" step="0.01">
+
+                                    </td>
+
+                                    <td class="total-cost">
+                                        ₱1,750.00
+                                    </td>
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- ADD MORE -->
+
+                    <button type="button" class="add-more" id="addMoreBtn">
+                        ⊕ &nbsp; Add more items
+                    </button>
+
+
+                    <!-- TOTALS -->
+
+                    <div class="items-summary">
+
+                        <span>
+                            Total Items:
+                            <strong id="summaryItems">
+                                5
+                            </strong>
+                        </span>
+
+                        <span>
+                            Total Quantity:
+                            <strong id="summaryQuantity">
+                                60.00
+                            </strong>
+                        </span>
+
+                        <span>
+                            Total Amount:
+                            <strong id="summaryAmount">
+                                ₱10,875.00
+                            </strong>
+                        </span>
+
+                    </div>
+
+
+                    <!-- FORM ACTIONS -->
+
+                    <div class="form-actions">
+
+                        <button type="button" class="cancel-btn" id="cancelBtn">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="draft-btn" id="draftBtn">
+                            Save as Draft
+                        </button>
+
+                        <button type="button" class="confirm-btn" id="confirmBtn">
+                            ▣ &nbsp; Save & Confirm
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 RIGHT SIDEBAR
+            ================================================== -->
+
+                <aside class="right-column">
+
+
+                    <!-- PURCHASE SUMMARY -->
+
+                    <section class="side-card purchase-card">
+
+                        <h2>
+                            Purchase Summary
+                        </h2>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Total Items
+                            </span>
+
+                            <strong id="purchaseItems">
+                                5
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Total Quantity
+                            </span>
+
+                            <strong id="purchaseQuantity">
+                                60.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Total Amount
+                            </span>
+
+                            <strong id="purchaseAmount">
+                                ₱10,875.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row input-row">
+
+                            <span>
+                                Discount
+                            </span>
+
+                            <div class="money-input">
+
+                                <input type="number" id="discount" value="0" min="0" step="0.01">
+
+                                <b>₱</b>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="summary-row input-row">
+
+                            <span>
+                                Shipping Fee
+                            </span>
+
+                            <div class="money-input">
+
+                                <input type="number" id="shipping" value="0" min="0" step="0.01">
+
+                                <b>₱</b>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="grand-total">
+
+                            <strong>
+                                Grand Total
+                            </strong>
+
+                            <strong id="grandTotal">
+                                ₱10,875.00
+                            </strong>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- SUPPLIER -->
+
+                    <section class="side-card supplier-card">
+
+                        <h2>
+                            Supplier Information
+                        </h2>
+
+
+                        <div class="supplier-info">
+
+                            <div class="supplier-avatar">
+                                GH
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Good Harvest Supplies
+                                </strong>
+
+                                <p>
+                                    123 Agriculture St.
+                                </p>
+
+                                <p>
+                                    Quezon City, Metro Manila
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="supplier-contact">
+                            ☎
+                            <span>
+                                (02) 8123 4567
+                            </span>
+                        </div>
+
+                        <div class="supplier-contact">
+                            ✉
+                            <span>
+                                sales@goodharvest.com
+                            </span>
+                        </div>
+
+                    </section>
+
+
+                    <!-- RECENT STOCK IN -->
+
+                    <section class="side-card recent-card">
+
+                        <div class="side-header">
+
+                            <h2>
+                                Recent Stock In
+                            </h2>
+
+                            <button type="button" id="viewAllBtn">
+                                View all
+                            </button>
+
+                        </div>
+
+
+                        <div class="recent-item">
+
+                            <div>
+
+                                <strong>
+                                    SIN-2024-05-0025
+                                </strong>
+
+                                <small>
+                                    May 18, 2024
+                                </small>
+
+                            </div>
+
+                            <strong>
+                                ₱8,760.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="recent-item">
+
+                            <div>
+
+                                <strong>
+                                    SIN-2024-05-0024
+                                </strong>
+
+                                <small>
+                                    May 15, 2024
+                                </small>
+
+                            </div>
+
+                            <strong>
+                                ₱12,450.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="recent-item">
+
+                            <div>
+
+                                <strong>
+                                    SIN-2024-05-0023
+                                </strong>
+
+                                <small>
+                                    May 10, 2024
+                                </small>
+
+                            </div>
+
+                            <strong>
+                                ₱6,230.00
+                            </strong>
+
+                        </div>
+
+                    </section>
+
+                </aside>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+     TOAST
+========================================================== -->
+
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+
+        /* =========================================================
+   JOLIE'S PIZZA - STOCK IN
+   PURE VANILLA JAVASCRIPT
+========================================================= */
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* =====================================================
+               ELEMENTS
+            ===================================================== */
+
+            const sidebar =
+                document.getElementById("sidebar");
+
+            const menuToggle =
+                document.getElementById("menuToggle");
+
+            const inventoryToggle =
+                document.getElementById("inventoryToggle");
+
+            const inventorySubmenu =
+                document.getElementById("inventorySubmenu");
+
+            const logoutBtn =
+                document.getElementById("logoutBtn");
+
+            const profileLogout =
+                document.getElementById("profileLogout");
+
+            const profileBtn =
+                document.getElementById("profileBtn");
+
+            const profileMenu =
+                document.getElementById("profileMenu");
+
+            const notificationBtn =
+                document.getElementById("notificationBtn");
+
+            const datePicker =
+                document.getElementById("datePicker");
+
+            const dateText =
+                document.getElementById("dateText");
+
+            const itemsBody =
+                document.getElementById("itemsBody");
+
+            const addItemBtn =
+                document.getElementById("addItemBtn");
+
+            const addMoreBtn =
+                document.getElementById("addMoreBtn");
+
+            const discountInput =
+                document.getElementById("discount");
+
+            const shippingInput =
+                document.getElementById("shipping");
+
+            const notes =
+                document.getElementById("notes");
+
+            const characterCount =
+                document.getElementById("characterCount");
+
+            const cancelBtn =
+                document.getElementById("cancelBtn");
+
+            const draftBtn =
+                document.getElementById("draftBtn");
+
+            const confirmBtn =
+                document.getElementById("confirmBtn");
+
+            const newStockBtn =
+                document.getElementById("newStockBtn");
+
+            const barcodeBtn =
+                document.getElementById("barcodeBtn");
+
+            const addSupplierBtn =
+                document.getElementById("addSupplierBtn");
+
+            const viewAllBtn =
+                document.getElementById("viewAllBtn");
+
+            const toast =
+                document.getElementById("toast");
+
+
+            /* =====================================================
+               TOAST
+            ===================================================== */
+
+            function showToast(message) {
+
+                if (!toast) return;
+
+                toast.textContent = message;
+
+                toast.classList.add("show");
+
+                clearTimeout(window.toastTimer);
+
+                window.toastTimer =
+                    setTimeout(function () {
+
+                        toast.classList.remove("show");
+
+                    }, 2500);
+            }
+
+
+            /* =====================================================
+               MOBILE SIDEBAR
+            ===================================================== */
+
+            if (menuToggle && sidebar) {
+
+                menuToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        sidebar.classList.toggle("open");
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               SIDEBAR GROUPS
+            ===================================================== */
+
+            if (inventoryToggle && inventorySubmenu) {
+
+                inventoryToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        inventoryToggle.classList.toggle("open");
+
+                        inventorySubmenu.style.display = "flex";
+
+                    }
+                );
+
+                inventoryToggle.classList.add("open");
+
+                inventorySubmenu.style.display = "flex";
+
+            }
+
+
+            /* =====================================================
+               CLOSE MOBILE SIDEBAR
+            ===================================================== */
+
+            document
+                .querySelectorAll(".sidebar a")
+                .forEach(function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            if (window.innerWidth <= 900) {
+
+                                sidebar.classList.remove("open");
+
+                            }
+
+                        }
+                    );
+
+                });
+
+
+            /* =====================================================
+               PROFILE
+            ===================================================== */
+
+            if (profileBtn && profileMenu) {
+
+                profileBtn.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        profileMenu.classList.toggle("show");
+
+                    }
+                );
+
+            }
+
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        profileMenu &&
+                        profileBtn &&
+                        !profileMenu.contains(event.target) &&
+                        !profileBtn.contains(event.target)
+                    ) {
+
+                        profileMenu.classList.remove("show");
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               LOGOUT
+            ===================================================== */
+
+            function logout() {
+
+                const confirmLogout =
+                    confirm(
+                        "Are you sure you want to log out?"
+                    );
+
+                if (!confirmLogout) return;
+
+                showToast("Logging out...");
+
+                setTimeout(function () {
+
+                    /*
+                     * Your login.html is outside Admin.
+                     *
+                     * Therefore:
+                     */
+
+                    window.location.href =
+                        "../login.html";
+
+                }, 800);
+
+            }
+
+
+            if (logoutBtn) {
+
+                logoutBtn.addEventListener(
+                    "click",
+                    logout
+                );
+
+            }
+
+
+            if (profileLogout) {
+
+                profileLogout.addEventListener(
+                    "click",
+                    logout
+                );
+
+            }
+
+
+            /* =====================================================
+               NOTIFICATIONS
+            ===================================================== */
+
+            if (notificationBtn) {
+
+                notificationBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "You have 3 notifications."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               DATE PICKER
+            ===================================================== */
+
+            if (datePicker) {
+
+                datePicker.addEventListener(
+                    "click",
+                    function () {
+
+                        const newDate =
+                            prompt(
+                                "Enter date:",
+                                dateText.textContent
+                            );
+
+                        if (
+                            newDate &&
+                            newDate.trim() !== ""
+                        ) {
+
+                            dateText.textContent =
+                                newDate.trim();
+
+                            showToast(
+                                "Date changed to " +
+                                newDate.trim()
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               NOTES CHARACTER COUNTER
+            ===================================================== */
+
+            if (notes) {
+
+                notes.addEventListener(
+                    "input",
+                    function () {
+
+                        characterCount.textContent =
+                            notes.value.length +
+                            " / 255";
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               CALCULATE ITEMS
+            ===================================================== */
+
+            function updateItemNumbers() {
+
+                const rows =
+                    itemsBody.querySelectorAll("tr");
+
+                rows.forEach(
+                    function (row, index) {
+
+                        row.children[0].textContent =
+                            index + 1;
+
+                    }
+                );
+
+            }
+
+
+            function calculateTotals() {
+
+                const rows =
+                    itemsBody.querySelectorAll("tr");
+
+                let totalQuantity = 0;
+
+                let totalAmount = 0;
+
+
+                rows.forEach(
+                    function (row) {
+
+                        const quantityInput =
+                            row.querySelector(
+                                ".quantity-input"
+                            );
+
+                        const costInput =
+                            row.querySelector(
+                                ".cost-input"
+                            );
+
+                        const totalCell =
+                            row.querySelector(
+                                ".total-cost"
+                            );
+
+                        const quantity =
+                            parseFloat(
+                                quantityInput.value
+                            ) || 0;
+
+                        const cost =
+                            parseFloat(
+                                costInput.value
+                            ) || 0;
+
+                        const total =
+                            quantity * cost;
+
+                        totalQuantity += quantity;
+
+                        totalAmount += total;
+
+
+                        if (totalCell) {
+
+                            totalCell.textContent =
+                                formatCurrency(total);
+
+                        }
+
+                    }
+                );
+
+
+                const discount =
+                    parseFloat(
+                        discountInput.value
+                    ) || 0;
+
+                const shipping =
+                    parseFloat(
+                        shippingInput.value
+                    ) || 0;
+
+
+                const grandTotal =
+                    totalAmount -
+                    discount +
+                    shipping;
+
+
+                document.getElementById(
+                    "summaryItems"
+                ).textContent =
+                    rows.length;
+
+
+                document.getElementById(
+                    "summaryQuantity"
+                ).textContent =
+                    totalQuantity.toFixed(2);
+
+
+                document.getElementById(
+                    "summaryAmount"
+                ).textContent =
+                    formatCurrency(totalAmount);
+
+
+                document.getElementById(
+                    "purchaseItems"
+                ).textContent =
+                    rows.length;
+
+
+                document.getElementById(
+                    "purchaseQuantity"
+                ).textContent =
+                    totalQuantity.toFixed(2);
+
+
+                document.getElementById(
+                    "purchaseAmount"
+                ).textContent =
+                    formatCurrency(totalAmount);
+
+
+                document.getElementById(
+                    "grandTotal"
+                ).textContent =
+                    formatCurrency(grandTotal);
+
+            }
+
+
+            /* =====================================================
+               CURRENCY
+            ===================================================== */
+
+            function formatCurrency(value) {
+
+                return "₱" +
+                    Number(value).toLocaleString(
+                        "en-PH",
+                        {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        }
+                    );
+
+            }
+
+
+            /* =====================================================
+               TABLE INPUT EVENTS
+            ===================================================== */
+
+            function attachRowEvents(row) {
+
+                const quantity =
+                    row.querySelector(
+                        ".quantity-input"
+                    );
+
+                const cost =
+                    row.querySelector(
+                        ".cost-input"
+                    );
+
+                const deleteButton =
+                    row.querySelector(
+                        ".delete-item"
+                    );
+
+
+                if (quantity) {
+
+                    quantity.addEventListener(
+                        "input",
+                        calculateTotals
+                    );
+
+                }
+
+
+                if (cost) {
+
+                    cost.addEventListener(
+                        "input",
+                        calculateTotals
+                    );
+
+                }
+
+
+                if (deleteButton) {
+
+                    deleteButton.addEventListener(
+                        "click",
+                        function () {
+
+                            const confirmed =
+                                confirm(
+                                    "Remove this item?"
+                                );
+
+                            if (!confirmed) return;
+
+                            row.remove();
+
+                            updateItemNumbers();
+
+                            calculateTotals();
+
+                            showToast(
+                                "Item removed."
+                            );
+
+                        }
+                    );
+
+                }
+
+            }
+
+
+            /* Attach to existing rows */
+
+            itemsBody
+                .querySelectorAll("tr")
+                .forEach(function (row) {
+
+                    attachRowEvents(row);
+
+                });
+
+
+            /* =====================================================
+               ADD ITEM
+            ===================================================== */
+
+            function addNewItem() {
+
+                const row =
+                    document.createElement("tr");
+
+                row.innerHTML = `
+
+            <td></td>
+
+            <td>
+
+                <div class="product-cell">
+
+                    <div class="product-image">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            New Inventory Item
+                        </strong>
+
+                        <small>
+                            General
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </td>
+
+            <td>
+
+                <select class="unit-input">
+
+                    <option>kg</option>
+                    <option>g</option>
+                    <option>L</option>
+                    <option>pcs</option>
+
+                </select>
+
+            </td>
+
+            <td>
+
+                <input
+                    class="batch-input"
+                    value="BATCH-0520"
+                >
+
+            </td>
+
+            <td>
+
+                <div class="small-date">
+
+                    <input
+                        value="Dec 31, 2024"
+                    >
+
+                    <span>▣</span>
+
+                </div>
+
+            </td>
+
+            <td>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    value="1"
+                    min="0"
+                    step="0.01"
+                >
+
+            </td>
+
+            <td>
+
+                <input
+                    type="number"
+                    class="cost-input"
+                    value="0"
+                    min="0"
+                    step="0.01"
+                >
+
+            </td>
+
+            <td class="total-cost">
+                ₱0.00
+            </td>
+
+            <td>
+
+                <button
+                    type="button"
+                    class="delete-item"
+                >
+                    ♧
+                </button>
+
+            </td>
+
+        `;
+
+
+                itemsBody.appendChild(row);
+
+                attachRowEvents(row);
+
+                updateItemNumbers();
+
+                calculateTotals();
+
+                showToast(
+                    "New item added."
+                );
+
+            }
+
+
+            if (addItemBtn) {
+
+                addItemBtn.addEventListener(
+                    "click",
+                    addNewItem
+                );
+
+            }
+
+
+            if (addMoreBtn) {
+
+                addMoreBtn.addEventListener(
+                    "click",
+                    addNewItem
+                );
+
+            }
+
+
+            /* =====================================================
+               DISCOUNT / SHIPPING
+            ===================================================== */
+
+            if (discountInput) {
+
+                discountInput.addEventListener(
+                    "input",
+                    calculateTotals
+                );
+
+            }
+
+
+            if (shippingInput) {
+
+                shippingInput.addEventListener(
+                    "input",
+                    calculateTotals
+                );
+
+            }
+
+
+            /* =====================================================
+               NEW STOCK IN
+            ===================================================== */
+
+            if (newStockBtn) {
+
+                newStockBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        document
+                            .getElementById("referenceNo")
+                            .value =
+                            generateReferenceNumber();
+
+                        showToast(
+                            "New Stock In form ready."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            function generateReferenceNumber() {
+
+                const now =
+                    new Date();
+
+                const year =
+                    now.getFullYear();
+
+                const month =
+                    String(
+                        now.getMonth() + 1
+                    ).padStart(2, "0");
+
+                const random =
+                    Math.floor(
+                        1000 +
+                        Math.random() * 9000
+                    );
+
+                return (
+                    "SIN-" +
+                    year +
+                    "-" +
+                    month +
+                    "-" +
+                    random
+                );
+
+            }
+
+
+            /* =====================================================
+               SCAN BARCODE
+            ===================================================== */
+
+            if (barcodeBtn) {
+
+                barcodeBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const barcode =
+                            prompt(
+                                "Enter or scan barcode:"
+                            );
+
+                        if (
+                            barcode &&
+                            barcode.trim() !== ""
+                        ) {
+
+                            showToast(
+                                "Barcode scanned: " +
+                                barcode.trim()
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               ADD SUPPLIER
+            ===================================================== */
+
+            if (addSupplierBtn) {
+
+                addSupplierBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const supplier =
+                            prompt(
+                                "Enter new supplier name:"
+                            );
+
+                        if (
+                            supplier &&
+                            supplier.trim() !== ""
+                        ) {
+
+                            const select =
+                                document.getElementById(
+                                    "supplier"
+                                );
+
+                            const option =
+                                document.createElement(
+                                    "option"
+                                );
+
+                            option.textContent =
+                                supplier.trim();
+
+                            option.selected = true;
+
+                            select.appendChild(option);
+
+                            showToast(
+                                "Supplier added."
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               SAVE AS DRAFT
+            ===================================================== */
+
+            if (draftBtn) {
+
+                draftBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        calculateTotals();
+
+                        showToast(
+                            "Stock In saved as draft."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               SAVE & CONFIRM
+            ===================================================== */
+
+            if (confirmBtn) {
+
+                confirmBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const rows =
+                            itemsBody.querySelectorAll("tr");
+
+                        if (rows.length === 0) {
+
+                            showToast(
+                                "Please add at least one item."
+                            );
+
+                            return;
+
+                        }
+
+
+                        calculateTotals();
+
+                        const confirmed =
+                            confirm(
+                                "Save and confirm this Stock In transaction?"
+                            );
+
+                        if (!confirmed) return;
+
+
+                        showToast(
+                            "Stock In saved successfully."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               CANCEL
+            ===================================================== */
+
+            if (cancelBtn) {
+
+                cancelBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const confirmed =
+                            confirm(
+                                "Are you sure you want to cancel?"
+                            );
+
+                        if (!confirmed) return;
+
+                        showToast(
+                            "Stock In cancelled."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               VIEW ALL
+            ===================================================== */
+
+            if (viewAllBtn) {
+
+                viewAllBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Opening recent Stock In records..."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               INITIAL CALCULATION
+            ===================================================== */
+
+            calculateTotals();
+
+            updateItemNumbers();
+
+
+            console.log(
+                "Jolie's Pizza Stock In loaded successfully."
+            );
+
+        });
+    </script>
+
+    <script src="sidebar-icons.js"></script>
+</body>
+
+</html>

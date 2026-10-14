@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Jolie's Pizza | My Profile </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+    <link rel="stylesheet" href="profile.css">
+    <script defer src="profile.js"></script>
+</head>
+
+<body>
+    <div class="profile-shell">
+        <aside class="sidebar">
+            <div class="profile-identity">
+                <div class="avatar">V</div>
+                <div class="identity-text">
+                    <h2>Vlxx Capate</h2>
+                    <p>vlxxcapate96@gmail.com</p>
+                </div>
+            </div>
+
+            <nav class="side-menu" aria-label="Profile navigation">
+                <button class="menu-item active" type="button">
+                    <span class="icon">◔</span>
+                    <span>My Profile</span>
+                </button>
+
+                <button class="menu-item" type="button">
+                    <span class="icon">▣</span>
+                    <span>My Orders</span>
+                </button>
+
+                <button class="menu-item logout" type="button">
+                    <span class="icon">↩</span>
+                    <span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <main class="profile-content">
+            <button class="back-button" id="profileBackBtn" type="button">
+                <span aria-hidden="true">←</span>
+                <span>Back</span>
+            </button>
+
+            <header class="page-header">
+                <div>
+                    <p class="eyebrow">Customer Account</p>
+                    <h1>My Profile</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="primary-btn" id="editProfileBtn" type="button">Edit Profile</button>
+                </div>
+            </header>
+
+            <section class="summary-card">
+                <div class="summary-media">
+                    <div class="summary-avatar">V</div>
+                </div>
+
+                <div class="summary-info">
+                    <h3>Vlxx Capate</h3>
+                    <p>Premium customer</p>
+                </div>
+
+                <div class="status-pill">Active</div>
+            </section>
+
+            <section class="details-grid">
+                <article class="info-card">
+                    <div class="card-header">
+                        <h3>Customer Details</h3>
+                    </div>
+
+                    <div class="field-row">
+                        <span class="label">Full Name</span>
+                        <strong data-field="fullName">Vlxx Capate</strong>
+                    </div>
+
+                    <div class="field-row">
+                        <span class="label">Mobile Number</span>
+                        <strong data-field="mobile">+63 912 345 6789</strong>
+                    </div>
+
+                    <div class="field-row">
+                        <span class="label">Email Address</span>
+                        <strong data-field="email">vlxxcapate96@gmail.com</strong>
+                    </div>
+
+                    <div class="field-row">
+                        <span class="label">Birthday</span>
+                        <strong data-field="birthday">April 12, 1998</strong>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="card-header">
+                        <h3>Delivery Address</h3>
+                    </div>
+
+                    <div class="address-box">
+                        <p data-address="line1">San Roque, Tarlac City</p>
+                        <p data-address="line2">Barangay San Roque</p>
+                        <p data-address="line3">Phase 2, Lot 15, Villa del Sol</p>
+                    </div>
+
+                    <div class="field-row compact">
+                        <span class="label">Delivery Notes</span>
+                        <strong data-field="deliveryNotes">Ring the bell twice</strong>
+                    </div>
+
+                    <div class="field-row compact">
+                        <span class="label">Preferred Payment</span>
+                        <strong data-field="preferredPayment">Cash on Delivery</strong>
+                    </div>
+                </article>
+            </section>
+
+            <section class="info-card wide-card">
+                <div class="card-header">
+                    <h3>Account Activity</h3>
+                </div>
+
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <span class="activity-label">Last Order</span>
+                        <strong>Jolie's Supreme Pizza</strong>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-label">Member Since</span>
+                        <strong>January 2024</strong>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-label">Loyalty Points</span>
+                        <strong>1,260 pts</strong>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolie's Pizza - Notifications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="notifications.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+    <div class="staff-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand"><img src="../images/logostaff.png" alt="Jolie's Pizza Logo"></div>
+            <nav class="sidebar-nav" aria-label="Staff navigation">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+                <a href="orders.html" class="nav-item"><i class="fa-regular fa-clipboard"></i><span>Orders</span></a>
+                <a href="delivery-tracking.html" class="nav-item"><i class="fa-solid fa-truck-fast"></i><span>Delivery
+                        Tracking</span></a>
+                <a href="inventory.html" class="nav-item"><i class="fa-solid fa-cube"></i><span>Inventory</span></a>
+                <a href="payments.html" class="nav-item"><i
+                        class="fa-regular fa-credit-card"></i><span>Payments</span></a>
+                <a href="notifications.html" class="nav-item active" aria-current="page"><i
+                        class="fa-regular fa-bell"></i><span>Notifications</span><span class="notification-count"
+                        id="sidebarUnread">6</span></a>
+                <a href="reports.html" class="nav-item"><i class="fa-solid fa-chart-column"></i><span>Reports</span></a>
+                <a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i><span>Profile</span></a>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="staff-profile">
+                    <div class="staff-avatar" aria-hidden="true">👨🏻‍🍳</div>
+                    <div class="staff-info"><strong>Mark Santos</strong><span>Kitchen Staff</span><span
+                            class="online-status">Online</span></div>
+                </div>
+                <button class="nav-item logout-button" id="logoutButton" type="button"><i
+                        class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></button>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle sidebar"
+                        aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+                    <div class="welcome">
+                        <h1>Notifications</h1>
+                        <p>View and manage all notifications and alerts.</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-location"><i class="fa-solid fa-location-dot"></i>
+                        <div><strong>Zone 3, San Roque</strong><span>Northern Samar</span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <div class="header-date"><i class="fa-regular fa-calendar-days"></i>
+                        <div><strong id="currentDate"></strong><span id="currentTime"></span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <a class="header-notifications" href="notifications.html" aria-label="Notifications"><i
+                            class="fa-regular fa-bell"></i><span id="headerUnread">6</span></a>
+                </div>
+            </header>
+
+            <section class="notifications-page" aria-label="Notifications dashboard">
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <div class="stat-icon red"><i class="fa-regular fa-message"></i></div>
+                        <div>
+                            <div class="stat-label">All Notifications</div>
+                            <div class="stat-value" id="allCount">28</div>
+                            <div class="stat-note">Total notifications</div>
+                        </div>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon blue"><i class="fa-regular fa-bell"></i></div>
+                        <div>
+                            <div class="stat-label">Unread</div>
+                            <div class="stat-value" id="unreadCount">6</div>
+                            <div class="stat-note">New notifications</div>
+                        </div>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon green"><i class="fa-regular fa-circle-check"></i></div>
+                        <div>
+                            <div class="stat-label">Read</div>
+                            <div class="stat-value" id="readCount">22</div>
+                            <div class="stat-note">Read notifications</div>
+                        </div>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon orange"><i class="fa-regular fa-star"></i></div>
+                        <div>
+                            <div class="stat-label">Important</div>
+                            <div class="stat-value" id="importantCount">5</div>
+                            <div class="stat-note">Priority alerts</div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="notifications-layout">
+                    <section class="notification-list-card" aria-label="Notification list">
+                        <div class="notification-tabs" id="notificationTabs" role="tablist"
+                            aria-label="Notification categories">
+                            <button class="notification-tab active" type="button" role="tab" aria-selected="true"
+                                data-category="all">All</button>
+                            <button class="notification-tab" type="button" role="tab" aria-selected="false"
+                                data-category="Unread">Unread</button>
+                            <button class="notification-tab" type="button" role="tab" aria-selected="false"
+                                data-category="Important">Important</button>
+                            <button class="notification-tab" type="button" role="tab" aria-selected="false"
+                                data-category="Orders">Orders</button>
+                            <button class="notification-tab" type="button" role="tab" aria-selected="false"
+                                data-category="Inventory">Inventory</button>
+                            <button class="notification-tab" type="button" role="tab" aria-selected="false"
+                                data-category="System">System</button>
+                            <button class="notification-tab" type="button" role="tab" aria-selected="false"
+                                data-category="Delivery">Delivery</button>
+                        </div>
+                        <div class="list-tools">
+                            <label class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input
+                                    id="notificationSearch" type="search" placeholder="Search notifications..."></label>
+                            <label class="filter-select"><i class="fa-solid fa-filter"></i><select
+                                    id="notificationFilter" aria-label="Filter notifications">
+                                    <option value="all">Filter</option>
+                                    <option value="Unread">Unread</option>
+                                    <option value="Read">Read</option>
+                                    <option value="Important">Important</option>
+                                </select></label>
+                            <button class="mark-all-button" id="markAllRead" type="button"><i
+                                    class="fa-regular fa-circle-check"></i> Mark all as read</button>
+                        </div>
+                        <div class="notification-list" id="notificationList"></div>
+                        <div class="table-footer"><span id="showingText"></span>
+                            <div class="pagination" id="pagination" aria-label="Notification pages"></div>
+                        </div>
+                    </section>
+
+                    <aside class="details-card" id="detailsCard" aria-label="Notification details">
+                        <div class="details-header">
+                            <h2>Notification Details</h2><button class="close-details" id="closeDetails" type="button"
+                                aria-label="Close details"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="details-body" id="detailsBody"></div>
+                    </aside>
+                </div>
+                <footer class="page-footer"><span>© 2025 Jolie's Pizza San Roque. All rights
+                        reserved.</span><span>Notifications v1.0.0</span></footer>
+            </section>
+        </main>
+    </div>
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        const notifications = [
+            { id: 53, title: "New order received", message: "Order #ORD-00053 has been placed by Maria Santos.", category: "Orders", icon: "fa-clipboard-list", time: "2026-10-02T10:28:00", unread: true, important: true, orderId: "ORD-00053", orderType: "Delivery", total: 615, payment: "Cash on Delivery", customer: "Maria Santos", items: ["Pepperoni Pizza (12\")", "Coke (1.5L)", "Garlic Bread"] },
+            { id: 52, title: "Order is ready for pickup", message: "Order #ORD-00051 is now ready for pickup.", category: "Orders", icon: "fa-clock", time: "2026-10-02T10:18:00", unread: true, important: false, orderId: "ORD-00051", orderType: "Pick Up", total: 540, payment: "Cash", customer: "John Reyes", items: ["Hawaiian Pizza", "Coke", "French Fries"] },
+            { id: 51, title: "Rider is on the way", message: "Kevin Dela Cruz is on the way to deliver order #ORD-00048.", category: "Delivery", icon: "fa-truck-fast", time: "2026-10-02T09:58:00", unread: true, important: true, orderId: "ORD-00048", orderType: "Delivery", total: 335, payment: "Cash on Delivery", customer: "Crisanto L.", items: ["All Cheese Pizza"] },
+            { id: 50, title: "Low stock alert", message: "Pepperoni Slices is running low (300g left).", category: "Inventory", icon: "fa-cube", time: "2026-10-02T09:48:00", unread: true, important: true },
+            { id: 49, title: "New customer message", message: "John Reyes sent a message regarding his order.", category: "Messages", icon: "fa-comment-dots", time: "2026-10-02T09:33:00", unread: true, important: false, customer: "John Reyes" },
+            { id: 48, title: "Payment received", message: "Payment for order #ORD-00047 via GCash.", category: "Payments", icon: "fa-file-invoice-dollar", time: "2026-10-02T08:28:00", unread: false, important: false, orderId: "ORD-00047", orderType: "Delivery", total: 715, payment: "GCash", customer: "Liza Mae", items: ["Meat Lovers Pizza", "Coke", "Garlic Bread"] },
+            { id: 47, title: "Stock request submitted", message: "You have submitted a stock request for Mozzarella Cheese.", category: "Inventory", icon: "fa-cube", time: "2026-10-02T08:28:00", unread: true, important: false },
+            { id: 46, title: "System maintenance scheduled", message: "System maintenance will be on Oct 3, 2026 at 11:00 PM.", category: "System", icon: "fa-gear", time: "2026-10-02T07:28:00", unread: false, important: true }
+        ];
+        const generated = [
+            ["Order completed", "Order #ORD-00046 was completed successfully.", "Orders", "fa-circle-check", "ORD-00046"],
+            ["Delivery status updated", "Order #ORD-00045 is now out for delivery.", "Delivery", "fa-truck-fast", "ORD-00045"],
+            ["Inventory restocked", "Tomato Sauce stock has been updated.", "Inventory", "fa-cube", ""],
+            ["Payment pending", "Payment confirmation is still pending for order #ORD-00044.", "Payments", "fa-credit-card", "ORD-00044"],
+            ["New customer message", "A customer sent a question about today's menu.", "Messages", "fa-comment-dots", ""],
+            ["Order cancelled", "Order #ORD-00042 was cancelled by the customer.", "Orders", "fa-circle-xmark", "ORD-00042"],
+            ["Rider assigned", "Camille Bautista was assigned to a new delivery.", "Delivery", "fa-truck-fast", ""],
+            ["Stock request approved", "Your request for pizza boxes was approved.", "Inventory", "fa-cube", ""],
+            ["Daily report is ready", "Your daily sales report is ready to view.", "System", "fa-chart-column", ""],
+            ["Payment received", "A customer payment was received via GCash.", "Payments", "fa-credit-card", ""],
+            ["New order received", "A new dine-in order has been added to the queue.", "Orders", "fa-clipboard-list", "ORD-00040"],
+            ["Delivery completed", "Order #ORD-00039 was delivered successfully.", "Delivery", "fa-truck-fast", "ORD-00039"],
+            ["Low stock alert", "Garlic Bread is below its recommended stock level.", "Inventory", "fa-cube", ""],
+            ["Schedule reminder", "Your shift handover is scheduled for 4:00 PM.", "System", "fa-calendar", ""],
+            ["Refund processed", "A refund was issued for order #ORD-00037.", "Payments", "fa-credit-card", "ORD-00037"],
+            ["New order received", "A pickup order was received from Ana Garcia.", "Orders", "fa-clipboard-list", "ORD-00036"],
+            ["Rider location updated", "The delivery rider location was refreshed.", "Delivery", "fa-truck-fast", ""],
+            ["Inventory updated", "Mushrooms stock was adjusted after the shift.", "Inventory", "fa-cube", ""],
+            ["Payment received", "Card payment received for order #ORD-00034.", "Payments", "fa-credit-card", "ORD-00034"],
+            ["System backup complete", "The nightly data backup completed successfully.", "System", "fa-gear", ""]
+        ];
+        generated.forEach((entry, index) => notifications.push({
+            id: 45 - index, title: entry[0], message: entry[1], category: entry[2], icon: entry[3],
+            time: new Date(Date.now() - (index + 4) * 3600000).toISOString(), unread: false,
+            important: index === 2, orderId: entry[4] || undefined,
+            orderType: entry[4] ? "Delivery" : undefined, total: entry[4] ? 485 + index * 15 : undefined,
+            payment: entry[2] === "Payments" ? "GCash" : undefined, customer: entry[4] ? "Jolie's Pizza Customer" : undefined,
+            items: entry[4] ? ["Pizza", "Drink"] : undefined
+        }));
+
+        const PAGE_SIZE = 8;
+        let currentPage = 1;
+        let activeCategory = "all";
+        let selectedId = notifications[0].id;
+        const notificationList = document.getElementById("notificationList");
+        const detailsBody = document.getElementById("detailsBody");
+
+        function escapeHTML(value) {
+            return String(value ?? "").replace(/[&<>"']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[character]);
+        }
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.classList.add("show");
+            clearTimeout(showToast.timer);
+            showToast.timer = setTimeout(() => toast.classList.remove("show"), 2200);
+        }
+        function formatTime(value) {
+            const date = new Date(value);
+            const elapsed = Math.max(0, Math.floor((Date.now() - date.getTime()) / 60000));
+            if (elapsed < 1) return "Just now";
+            if (elapsed < 60) return `${elapsed} mins ago`;
+            if (elapsed < 1440) return `${Math.floor(elapsed / 60)} hour${Math.floor(elapsed / 60) === 1 ? "" : "s"} ago`;
+            return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+        }
+        function formatDateTime(value) {
+            return new Date(value).toLocaleString("en-US", { month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" });
+        }
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("currentDate").textContent = now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+            document.getElementById("currentTime").textContent = now.toLocaleDateString("en-US", { weekday: "long" }) + " · " + now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+        }
+        function updateCounts() {
+            const unread = notifications.filter(item => item.unread).length;
+            document.getElementById("allCount").textContent = notifications.length;
+            document.getElementById("unreadCount").textContent = unread;
+            document.getElementById("readCount").textContent = notifications.length - unread;
+            document.getElementById("importantCount").textContent = notifications.filter(item => item.important).length;
+            document.getElementById("sidebarUnread").textContent = unread;
+            document.getElementById("headerUnread").textContent = unread;
+            document.getElementById("headerUnread").hidden = unread === 0;
+            document.getElementById("sidebarUnread").hidden = unread === 0;
+        }
+        function getFilteredNotifications() {
+            const query = document.getElementById("notificationSearch").value.trim().toLowerCase();
+            const filter = document.getElementById("notificationFilter").value;
+            return notifications.filter(item => {
+                const categoryMatch = activeCategory === "all" || (activeCategory === "Unread" ? item.unread : activeCategory === "Important" ? item.important : item.category === activeCategory);
+                const filterMatch = filter === "all" || (filter === "Unread" ? item.unread : filter === "Read" ? !item.unread : item.important);
+                return categoryMatch && filterMatch && `${item.title} ${item.message} ${item.category}`.toLowerCase().includes(query);
+            }).sort((a, b) => new Date(b.time) - new Date(a.time));
+        }
+        function renderPagination(totalPages) {
+            const pagination = document.getElementById("pagination");
+            let html = `<button class="page-button" type="button" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""} aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></button>`;
+            for (let page = 1; page <= totalPages; page++) html += `<button class="page-button ${currentPage === page ? "active" : ""}" type="button" data-page="${page}" aria-label="Page ${page}" ${currentPage === page ? 'aria-current="page"' : ""}>${page}</button>`;
+            html += `<button class="page-button" type="button" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""} aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></button>`;
+            pagination.innerHTML = html;
+        }
+        function renderNotifications() {
+            const filtered = getFilteredNotifications();
+            const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+            currentPage = Math.min(currentPage, totalPages);
+            const start = (currentPage - 1) * PAGE_SIZE;
+            const visible = filtered.slice(start, start + PAGE_SIZE);
+            notificationList.innerHTML = visible.length ? visible.map(item => `<button class="notification-row ${item.unread ? "unread" : ""} ${item.id === selectedId ? "selected" : ""}" type="button" data-id="${item.id}" aria-pressed="${item.id === selectedId}">
+				<span class="notice-icon ${item.category.toLowerCase()}"><i class="fa-solid ${escapeHTML(item.icon)}"></i></span>
+				<span class="notice-copy"><strong>${escapeHTML(item.title)}</strong><span>${escapeHTML(item.message)}</span></span>
+				<span class="notice-category ${item.category.toLowerCase()}">${escapeHTML(item.category)}</span>
+				<span class="notice-time">${formatTime(item.time)}</span>
+				<span class="unread-dot" aria-label="${item.unread ? "Unread" : "Read"}"></span>
+			</button>`).join("") : '<div class="empty-state">No notifications match these filters.</div>';
+            document.getElementById("showingText").textContent = filtered.length ? `Showing ${start + 1} to ${Math.min(start + PAGE_SIZE, filtered.length)} of ${filtered.length} notifications` : "Showing 0 notifications";
+            renderPagination(totalPages);
+            updateCounts();
+        }
+        function renderDetails(item) {
+            if (!item) {
+                detailsBody.innerHTML = '<p class="empty-detail">Select a notification to view its details.</p>';
+                return;
+            }
+            const orderInfo = item.orderId ? `<div class="order-information"><h3>Order Information</h3><div><span>Order ID</span><strong class="order-id">#${escapeHTML(item.orderId)}</strong></div><div><span>Order Type</span><strong>${escapeHTML(item.orderType)}</strong></div><div><span>Order Time</span><strong>${formatDateTime(item.time)}</strong></div><div><span>Total Amount</span><strong>₱${Number(item.total).toLocaleString("en-PH", { minimumFractionDigits: 2 })}</strong></div><div><span>Payment Method</span><strong>${escapeHTML(item.payment)}</strong></div></div>` : "";
+            const customerInfo = item.customer ? `<div class="detail-section"><h3>Customer Information</h3><div class="customer-line"><i class="fa-regular fa-user"></i><div><strong>${escapeHTML(item.customer)}</strong><span>Zone 3, San Roque</span></div></div></div>` : "";
+            const itemsInfo = item.items ? `<div class="detail-section"><h3>Order Items (${item.items.length})</h3>${item.items.map((name, index) => `<div class="detail-item"><span>${index + 1}x</span><strong>${escapeHTML(name)}</strong><b>₱${[485, 35, 95][index % 3].toFixed(2)}</b></div>`).join("")}</div>` : "";
+            detailsBody.innerHTML = `<div class="detail-notice-heading"><span class="notice-icon ${item.category.toLowerCase()}"><i class="fa-solid ${escapeHTML(item.icon)}"></i></span><div><strong>${escapeHTML(item.title)}</strong><span>${formatDateTime(item.time)}</span></div><span class="notice-category ${item.category.toLowerCase()}">${escapeHTML(item.category)}</span></div>
+				<p class="detail-message">${escapeHTML(item.message)}</p>${orderInfo}${customerInfo}${itemsInfo}
+				<div class="detail-actions"><button class="mark-read-button" type="button" data-action="read"><i class="fa-regular fa-circle-check"></i>${item.unread ? "Mark as Read" : "Mark as Unread"}</button>${item.orderId ? `<a class="view-order-button" href="orders.html">View Order</a>` : ""}<button class="important-button ${item.important ? "is-important" : ""}" type="button" data-action="important"><i class="fa-${item.important ? "solid" : "regular"} fa-star"></i>${item.important ? "Remove Important" : "Mark Important"}</button></div>`;
+        }
+        function selectNotification(id) {
+            const item = notifications.find(notification => notification.id === id);
+            if (!item) return;
+            selectedId = id;
+            document.getElementById("detailsCard").classList.remove("details-collapsed");
+            renderNotifications();
+            renderDetails(item);
+        }
+
+        document.getElementById("notificationList").addEventListener("click", event => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const row = target.closest("[data-id]");
+            if (row) selectNotification(Number(row.dataset.id));
+        });
+        detailsBody.addEventListener("click", event => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const action = target.closest("[data-action]")?.dataset.action;
+            const item = notifications.find(notification => notification.id === selectedId);
+            if (!item || !action) return;
+            if (action === "read") item.unread = !item.unread;
+            if (action === "important") item.important = !item.important;
+            renderNotifications();
+            renderDetails(item);
+            showToast(action === "read" ? (item.unread ? "Notification marked unread." : "Notification marked as read.") : (item.important ? "Added to important notifications." : "Removed from important notifications."));
+        });
+        document.getElementById("notificationTabs").addEventListener("click", event => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const tab = target.closest("[data-category]");
+            if (!tab) return;
+            activeCategory = tab.dataset.category;
+            document.querySelectorAll(".notification-tab").forEach(button => {
+                const selected = button === tab;
+                button.classList.toggle("active", selected);
+                button.setAttribute("aria-selected", String(selected));
+            });
+            currentPage = 1;
+            renderNotifications();
+        });
+        document.getElementById("notificationSearch").addEventListener("input", () => { currentPage = 1; renderNotifications(); });
+        document.getElementById("notificationFilter").addEventListener("change", () => { currentPage = 1; renderNotifications(); });
+        document.getElementById("markAllRead").addEventListener("click", () => {
+            notifications.forEach(item => { item.unread = false; });
+            renderNotifications();
+            const selected = notifications.find(item => item.id === selectedId);
+            renderDetails(selected);
+            showToast("All notifications marked as read.");
+        });
+        document.getElementById("pagination").addEventListener("click", event => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const button = target.closest("[data-page]");
+            if (!button || button.disabled) return;
+            currentPage = Number(button.dataset.page);
+            renderNotifications();
+        });
+        document.getElementById("closeDetails").addEventListener("click", () => document.getElementById("detailsCard").classList.toggle("details-collapsed"));
+        document.getElementById("menuToggle").addEventListener("click", event => {
+            const open = document.getElementById("sidebar").classList.toggle("open");
+            event.currentTarget.setAttribute("aria-expanded", String(open));
+        });
+        document.getElementById("logoutButton").addEventListener("click", () => {
+            if (confirm("Are you sure you want to logout?")) window.location.href = "../login.html";
+        });
+        updateDateTime();
+        setInterval(updateDateTime, 60000);
+        renderNotifications();
+        renderDetails(notifications[0]);
+    </script>
+</body>
+
+</html>

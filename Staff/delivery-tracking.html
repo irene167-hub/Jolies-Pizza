@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolie's Pizza - Delivery Tracking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="delivery-tracking.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+    <div class="staff-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <img src="../images/logostaff.png" alt="Jolie's Pizza Logo">
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Staff navigation">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+                <a href="orders.html" class="nav-item"><i class="fa-regular fa-clipboard"></i><span>Orders</span></a>
+                <a href="delivery-tracking.html" class="nav-item active" aria-current="page"><i
+                        class="fa-solid fa-truck-fast"></i><span>Delivery Tracking</span></a>
+                <a href="inventory.html" class="nav-item"><i class="fa-solid fa-cube"></i><span>Inventory</span></a>
+                <a href="payments.html" class="nav-item"><i
+                        class="fa-regular fa-credit-card"></i><span>Payments</span></a>
+                <a href="notifications.html" class="nav-item"><i
+                        class="fa-regular fa-bell"></i><span>Notifications</span><span
+                        class="notification-count">3</span></a>
+
+                <a href="reports.html" class="nav-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Reports</span>
+                </a>
+                
+                <a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i><span>Profile</span></a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="staff-profile">
+                    <div class="staff-avatar" aria-hidden="true">👨🏻‍🍳</div>
+                    <div class="staff-info">
+                        <strong>Mark Santos</strong>
+                        <span>Kitchen Staff</span>
+                        <span class="online-status">Online</span>
+                    </div>
+                </div>
+                <button class="nav-item logout-button" id="logoutButton" type="button">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle sidebar"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="welcome">
+                        <h1>Delivery Tracking</h1>
+                        <p>Dispatch prepared orders, then share the rider's live GPS location from this phone.</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div><strong>Zone 3, San Roque</strong><span>Northern Samar</span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <div class="header-date">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <div><strong id="currentDate"></strong><span id="currentTime"></span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <a class="header-notifications" href="notifications.html" aria-label="Notifications, 3 unread">
+                        <i class="fa-regular fa-bell"></i><span>3</span>
+                    </a>
+                </div>
+            </header>
+
+            <section class="tracking-page" aria-label="Delivery tracking dashboard">
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <div class="stat-icon blue"><i class="fa-solid fa-truck-fast"></i></div>
+                        <div>
+                            <div class="stat-label">Active Deliveries</div>
+                            <div class="stat-value" id="outCount">0</div>
+                            <div class="stat-note" id="activeDeliveryNote">Active order queue</div>
+                        </div>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon orange"><i class="fa-regular fa-clock"></i></div>
+                        <div>
+                            <div class="stat-label">GPS Sharing</div>
+                            <div class="stat-value" id="wayCount">0</div>
+                            <div class="stat-note">Deliveries</div>
+                        </div>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon green"><i class="fa-regular fa-circle-check"></i></div>
+                        <div>
+                            <div class="stat-label">Waiting for GPS</div>
+                            <div class="stat-value" id="deliveredCount">0</div>
+                            <div class="stat-note">Deliveries</div>
+                        </div>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon purple"><i class="fa-regular fa-circle-xmark"></i></div>
+                        <div>
+                            <div class="stat-label">GPS Delayed</div>
+                            <div class="stat-value" id="cancelledCount">0</div>
+                            <div class="stat-note">Deliveries</div>
+                        </div>
+                    </article>
+                    <article class="stat-card revenue-card">
+                        <div class="stat-icon red"><i class="fa-solid fa-signal"></i></div>
+                        <div>
+                            <div class="stat-label">GPS Coverage</div>
+                            <div class="stat-value" id="salesValue">₱0.00</div>
+                            <div class="stat-note">Active order coverage</div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="tracking-layout">
+                    <section class="deliveries-card" aria-label="Active deliveries">
+                        <div class="section-heading">
+                            <h2>Active Deliveries <span class="count-badge" id="activeCount">0</span></h2>
+                            <label class="filter-select-wrap"><i class="fa-solid fa-filter"></i>
+                                <select id="statusFilter" aria-label="Filter delivery status">
+                                    <option value="all">All statuses</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Confirmed">Confirmed</option>
+                                    <option value="Preparing">Preparing</option>
+                                    <option value="Out for Delivery">Out for Delivery</option>
+                                    <option value="gps">GPS Sharing</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="delivery-tabs" id="deliveryTabs" role="tablist" aria-label="Delivery status">
+                            <button class="delivery-tab active" type="button" role="tab" aria-selected="true"
+                                data-status="all">All <span id="allTabCount">0</span></button>
+                            <button class="delivery-tab" type="button" role="tab" aria-selected="false"
+                                data-status="prep-queue">Order Prep Queue <span id="prepTabCount">0</span></button>
+                            <button class="delivery-tab" type="button" role="tab" aria-selected="false"
+                                data-status="Out for Delivery">Out for Delivery <span id="outTabCount">0</span></button>
+                            <button class="delivery-tab" type="button" role="tab" aria-selected="false"
+                                data-status="gps">GPS Sharing <span id="wayTabCount">0</span></button>
+                        </div>
+                        <div class="table-tools">
+                            <label class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="search"
+                                    id="deliverySearch"
+                                    placeholder="Search order, customer, address or rider..."></label>
+                            <label class="sort-wrap"><span>Sort:</span>
+                                <select id="sortSelect" aria-label="Sort deliveries">
+                                    <option value="eta">ETA</option>
+                                    <option value="newest">Newest</option>
+                                    <option value="oldest">Oldest</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="table-scroll">
+                            <table class="deliveries-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Address</th>
+                                        <th>Rider</th>
+                                        <th>Status</th>
+                                        <th>ETA</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="deliveriesTableBody"></tbody>
+                            </table>
+                        </div>
+                        <div class="table-footer">
+                            <span id="showingText">Showing 0 deliveries</span>
+                            <div class="pagination" id="pagination" aria-label="Delivery pages"></div>
+                        </div>
+                    </section>
+
+                    <aside class="details-card" id="detailsCard" aria-live="polite">
+                        <div class="details-header">
+                            <h2>Delivery Details</h2><button class="close-details" id="closeDetails" type="button"
+                                aria-label="Close delivery details"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="details-body" id="detailsBody"></div>
+                    </aside>
+                </div>
+
+                <footer class="page-footer"><span>© 2025 Jolie's Pizza San Roque. All rights
+                        reserved.</span><span>Delivery Tracking v1.0.0</span></footer>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+
+    <script src="../Customer/google-maps-loader.js"></script>
+    <script src="delivery-tracking.js"></script>
+</body>
+
+</html>

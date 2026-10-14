@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Jolie's Pizza | Contact Us </title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Contact CSS -->
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="customer-header.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <a href="home.html" class="brand">
+
+            <img src="../images/logo.png" alt="Jolie's Pizza" class="brand-logo">
+
+            <span>
+                Jolie's Pizza
+            </span>
+
+        </a>
+
+
+        <nav class="main-nav">
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="menus.html">
+                Menus
+            </a>
+
+            <a href="my orders.html">
+                My Orders
+            </a>
+
+            <a href="track-order.html">
+                Track Order
+            </a>
+
+            <a href="about-us.html">
+                About Us
+            </a>
+
+            <a href="contact.html" class="active">
+                Contact
+            </a>
+
+        </nav>
+
+
+       <div class="header-actions">
+
+            <button class="cart-header" type="button" aria-label="Shopping cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge" id="cartBadge">3</span>
+            </button>
+
+            <strong id="headerTotal">₱615.00</strong>
+
+            <div class="header-divider"></div>
+
+            <div class="profile-dropdown" id="profileDropdown">
+
+                <button class="user-button" type="button" id="profileToggle" aria-expanded="false"
+                    aria-controls="profileMenu">
+
+                    <span class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+
+                    <span>Juan Dela Cruz</span>
+
+                    <i class="fa-solid fa-chevron-down profile-chevron"></i>
+                </button>
+
+                <div class="profile-menu" id="profileMenu">
+
+                    <div class="profile-menu-header">
+                        <span class="profile-avatar-large">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+
+                        <div class="profile-details">
+                            <strong>Juan Dela Cruz</strong>
+                            <span>Customer Account</span>
+                            <small>juan@gmail.com</small>
+                        </div>
+                    </div>
+
+                    <div class="profile-menu-divider"></div>
+
+                    <a href="profile.html" class="profile-menu-item">
+                        <i class="fa-regular fa-user"></i>
+                        My Profile
+                    </a>
+
+                    <a href="my orders.html" class="profile-menu-item">
+                        <i class="fa-solid fa-box"></i>
+                        My Orders
+                    </a>
+
+                    <button type="button" class="profile-menu-item logout-item" id="logoutButton">
+
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="page">
+
+
+        <!-- =================================================
+             CONTACT HERO
+        ================================================== -->
+
+        <section class="contact-hero">
+
+            <div class="contact-hero-content">
+
+                <h1>
+                    Contact Us
+                </h1>
+
+
+                <div class="hero-line"></div>
+
+
+                <p>
+                    We'd love to hear from you! Whether you have
+                    a question, feedback, or special request,
+                    feel free to reach out to us.
+                </p>
+
+            </div>
+
+
+            <!-- Decorative pizza image -->
+
+            <div class="hero-pizza-image"></div>
+
+
+            <!-- Decorative icons -->
+
+            <span class="hero-decoration decoration-one">
+                <i class="fa-solid fa-pizza-slice"></i>
+            </span>
+
+            <span class="hero-decoration decoration-two">
+                <i class="fa-solid fa-pizza-slice"></i>
+            </span>
+
+            <span class="hero-decoration decoration-three">
+                <i class="fa-solid fa-pizza-slice"></i>
+            </span>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTACT CONTENT
+        ================================================== -->
+
+        <section class="contact-layout">
+
+
+            <!-- =================================================
+                 LEFT COLUMN
+            ================================================== -->
+
+            <div class="left-column">
+
+
+                <!-- GET IN TOUCH -->
+
+                <section class="info-card get-touch-card">
+
+                    <h2>
+                        Get in Touch
+                    </h2>
+
+
+                    <!-- PHONE -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Phone
+                            </h3>
+
+                            <p>
+                                +6309978736812
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Email
+                            </h3>
+
+                            <p>
+                                joeliespizzahouse.main@gmail.com
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUSINESS HOURS -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-regular fa-clock"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Business Hours
+                            </h3>
+
+                            <p>
+                                10:00 AM – 9:00 PM
+                                <br>
+                                Monday – Sunday
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     VISIT US
+                ================================================== -->
+
+                <section class="info-card visit-card">
+
+                    <h2>
+                        Visit Us
+                    </h2>
+
+
+                    <div class="address-row">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <p>
+                            Zone 3, San Roque
+                            <br>
+                            Northern Samar
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-map">
+
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3431.5722492483546!2d124.87161104083908!3d12.536679855795596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x330a23ad558be785%3A0xf92e96d5410e8fd8!2sJoelie's%20Pizza%20House!5e0!3m2!1sen!2sph!4v1790071219142!5m2!1sen!2sph"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin" title="Jolie's Pizza Location"
+                            loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     FOLLOW US
+                ================================================== -->
+
+                <section class="info-card follow-card">
+
+                    <h2>
+                        Follow Us
+                    </h2>
+
+
+                    <div class="social-icons">
+
+                        <a href="https://web.facebook.com/JoeliesPizza?rdid=PHDPwIQadZzba085&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F1HsEN1CbqZ%2F%3F_rdc%3D1%26_rdr" class="facebook" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+
+                        <a href="https://www.instagram.com/joeliespizzahouse/" class="instagram" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+
+                        <a href="https://www.tiktok.com/@joeliespizzahouse" class="tiktok" aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+
+
+                        <a href="https://www.youtube.com/@JoeliesPizzaHouse" class="youtube" aria-label="Social Media">
+                            <i class="fa-solid fa-store"></i>
+                        </a>
+
+                    </div>
+
+
+                    <p>
+                        Stay updated with our latest promos and menu!
+                    </p>
+
+                </section>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT COLUMN - MESSAGE FORM
+            ================================================== -->
+
+            <section class="message-card">
+
+                <h2>
+                    Send Us a Message
+                </h2>
+
+
+                <p class="message-description">
+                    Fill out the form below and we'll get back
+                    to you as soon as possible.
+                </p>
+
+
+                <form id="contactForm" novalidate>
+
+
+                    <!-- NAME + EMAIL -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <input type="text" id="name" name="name" placeholder="Your Name *" autocomplete="name">
+
+                            <small class="error" id="nameError"></small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <input type="email" id="email" name="email" placeholder="Your Email *" autocomplete="email">
+
+                            <small class="error" id="emailError"></small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" autocomplete="tel">
+
+                    </div>
+
+
+
+                    <!-- INQUIRY -->
+
+                    <div class="form-group">
+
+                        <div class="select-wrapper">
+
+                            <select id="inquiry" name="inquiry">
+
+                                <option value="" selected disabled>
+                                    Inquiry Type *
+                                </option>
+
+                                <option value="order">
+                                    Order Inquiry
+                                </option>
+
+                                <option value="delivery">
+                                    Delivery Concern
+                                </option>
+
+                                <option value="payment">
+                                    Payment Concern
+                                </option>
+
+                                <option value="product">
+                                    Product Inquiry
+                                </option>
+
+                                <option value="feedback">
+                                    Feedback
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+
+                        <small class="error" id="inquiryError"></small>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group">
+
+                        <textarea id="message" name="message"
+                            placeholder="Your Message *&#10;Type your message here..."></textarea>
+
+
+                        <small class="error" id="messageError"></small>
+
+                    </div>
+
+
+
+                    <!-- SEND -->
+
+                    <button class="send-button" id="sendButton" type="submit">
+
+                        <i class="fa-regular fa-paper-plane"></i>
+
+                        <span>
+                            Send Message
+                        </span>
+
+                    </button>
+
+
+                    <!-- PRIVACY -->
+
+                    <div class="privacy-note">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <span>
+                            We respect your privacy.
+                            Your information will never be shared.
+                        </span>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOTTOM MESSAGE
+        ================================================== -->
+
+        <section class="service-banner">
+
+            <div class="service-icon">
+
+                <i class="fa-regular fa-paper-plane"></i>
+
+            </div>
+
+
+            <div class="service-text">
+
+                <h2>
+                    We're Here to Serve You!
+                </h2>
+
+                <p>
+                    Your satisfaction is our top priority.
+                    Thank you for choosing Jolie's Pizza!
+                </p>
+
+            </div>
+
+
+            <div class="service-decoration">
+
+                <span>🌿</span>
+                <span>🍅</span>
+                <span>🌿</span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div class="toast" id="toast"></div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="header.js"></script>
+
+    <script>
+        /* =====================================================
+   JOLIE'S PIZZA
+   CONTACT PAGE
+   PURE VANILLA JAVASCRIPT
+===================================================== */
+
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        const toast =
+            document.getElementById("toast");
+
+        const cartButton =
+            document.getElementById("cartButton");
+
+        const userButton =
+            document.getElementById("userButton");
+
+
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        function showToast(message) {
+
+            if (!toast) {
+                return;
+            }
+
+
+            toast.textContent = message;
+
+            toast.classList.add("show");
+
+
+            clearTimeout(
+                window.contactToastTimer
+            );
+
+
+            window.contactToastTimer =
+                setTimeout(() => {
+
+                    toast.classList.remove("show");
+
+                }, 2500);
+
+        }
+
+
+
+        /* =====================================================
+           CLEAR ERRORS
+        ===================================================== */
+
+        function clearErrors() {
+
+            document
+                .querySelectorAll(".error")
+                .forEach(error => {
+
+                    error.textContent = "";
+
+                });
+
+        }
+
+
+
+        /* =====================================================
+           VALIDATION
+        ===================================================== */
+
+        function validateForm() {
+
+            clearErrors();
+
+
+            let valid = true;
+
+
+            const name =
+                document.getElementById("name");
+
+            const email =
+                document.getElementById("email");
+
+            const inquiry =
+                document.getElementById("inquiry");
+
+            const message =
+                document.getElementById("message");
+
+
+            /* NAME */
+
+            if (
+                name.value.trim() === ""
+            ) {
+
+                document.getElementById(
+                    "nameError"
+                ).textContent =
+                    "Please enter your name.";
+
+                valid = false;
+
+            }
+
+
+
+            /* EMAIL */
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (
+                email.value.trim() === ""
+            ) {
+
+                document.getElementById(
+                    "emailError"
+                ).textContent =
+                    "Please enter your email.";
+
+                valid = false;
+
+            }
+
+            else if (
+                !emailPattern.test(
+                    email.value.trim()
+                )
+            ) {
+
+                document.getElementById(
+                    "emailError"
+                ).textContent =
+                    "Please enter a valid email.";
+
+                valid = false;
+
+            }
+
+
+
+            /* INQUIRY */
+
+            if (
+                inquiry.value === ""
+            ) {
+
+                document.getElementById(
+                    "inquiryError"
+                ).textContent =
+                    "Please select an inquiry type.";
+
+                valid = false;
+
+            }
+
+
+
+            /* MESSAGE */
+
+            if (
+                message.value.trim() === ""
+            ) {
+
+                document.getElementById(
+                    "messageError"
+                ).textContent =
+                    "Please enter your message.";
+
+                valid = false;
+
+            }
+
+
+            return valid;
+
+        }
+
+
+
+        /* =====================================================
+           FORM SUBMIT
+        ===================================================== */
+
+        if (contactForm) {
+
+            contactForm.addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    if (!validateForm()) {
+
+                        showToast(
+                            "Please complete the required fields."
+                        );
+
+                        return;
+
+                    }
+
+
+                    const sendButton =
+                        document.getElementById(
+                            "sendButton"
+                        );
+
+
+                    const originalHTML =
+                        sendButton.innerHTML;
+
+
+                    sendButton.disabled = true;
+
+
+                    sendButton.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Sending...
+            `;
+
+
+                    /*
+                        Demo submission.
+        
+                        Later, connect this to your
+                        Node.js backend/API.
+                    */
+
+                    setTimeout(() => {
+
+                        sendButton.disabled = false;
+
+                        sendButton.innerHTML =
+                            originalHTML;
+
+
+                        contactForm.reset();
+
+
+                        showToast(
+                            "Your message has been sent successfully!"
+                        );
+
+                    }, 1200);
+
+                }
+            );
+
+        }
+
+
+
+        /* =====================================================
+           INPUT EVENTS
+        ===================================================== */
+
+        document
+            .querySelectorAll(
+                "#name, #email, #message"
+            )
+            .forEach(input => {
+
+                input.addEventListener(
+                    "input",
+                    function () {
+
+                        const error =
+                            document.getElementById(
+                                this.id + "Error"
+                            );
+
+
+                        if (error) {
+
+                            error.textContent = "";
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+
+        /* =====================================================
+           INQUIRY
+        ===================================================== */
+
+        const inquiry =
+            document.getElementById("inquiry");
+
+
+        if (inquiry) {
+
+            inquiry.addEventListener(
+                "change",
+                function () {
+
+                    const error =
+                        document.getElementById(
+                            "inquiryError"
+                        );
+
+
+                    error.textContent = "";
+
+                }
+            );
+
+        }
+
+
+
+        /* =====================================================
+           CART BUTTON
+        ===================================================== */
+
+        if (cartButton) {
+
+            cartButton.addEventListener(
+                "click",
+                function () {
+
+                    window.location.href =
+                        "menus.html";
+
+                }
+            );
+
+        }
+
+
+
+        /* =====================================================
+           USER BUTTON
+        ===================================================== */
+
+        if (userButton) {
+
+            userButton.addEventListener(
+                "click",
+                function () {
+
+                    showToast(
+                        "Account menu"
+                    );
+
+                }
+            );
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

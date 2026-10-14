@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Joelie's Pizza - Login</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/png" href="images/logoadmin.png">
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <!-- ================= LEFT BRANDING ================= -->
+        <section class="brand-section">
+
+            <!-- Joelie's Pizza Logo -->
+            <div class="brand-content">
+
+                <img
+                    src="images/logoadmin.png"
+                    alt="Joelie's Pizza San Roque Logo"
+                    class="pizza-logo"
+                >
+
+                <div class="brand-tagline">
+                    Good Pizza. Good Times.<br>
+                    Made for You.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LOGIN SECTION ================= -->
+        <section class="form-section">
+
+            <div class="login-card">
+
+                <!-- ================= WELCOME ================= -->
+                <div class="welcome">
+
+                    <h1>
+                        🍕 Welcome Back!
+                    </h1>
+
+                    <p>
+                        Login to your account to continue
+                    </p>
+
+                </div>
+
+
+                <!-- ================= ROLE SELECTION ================= -->
+
+                <div class="section-title">
+                    <span>Login as</span>
+                </div>
+
+                <div class="roles">
+
+                    <!-- CUSTOMER -->
+                    <div
+                        class="role-card customer active"
+                        data-role="customer"
+                    >
+
+                        <div class="check">
+                            ✓
+                        </div>
+
+                        <div class="role-icon customer-icon">
+                            👥
+                        </div>
+
+                        <h3>
+                            CUSTOMER
+                        </h3>
+
+                        <p>
+                            Place orders, track<br>
+                            your orders and more.
+                        </p>
+
+                    </div>
+
+
+                    <!-- STAFF -->
+                    <div
+                        class="role-card staff"
+                        data-role="staff"
+                    >
+
+                        <div class="check">
+                            ✓
+                        </div>
+
+                        <div class="role-icon staff-icon">
+                            👨‍💼
+                        </div>
+
+                        <h3>
+                            STAFF
+                        </h3>
+
+                        <p>
+                            Manage orders, menu<br>
+                            and daily operations.
+                        </p>
+
+                    </div>
+
+
+                    <!-- ADMIN -->
+                    <div
+                        class="role-card admin"
+                        data-role="admin"
+                    >
+
+                        <div class="check">
+                            ✓
+                        </div>
+
+                        <div class="role-icon admin-icon">
+                            🛡
+                        </div>
+
+                        <h3>
+                            ADMIN
+                        </h3>
+
+                        <p>
+                            Full access to system<br>
+                            and management.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= LOGIN FORM ================= -->
+
+                <div class="section-title">
+                    <span>Login to your account</span>
+                </div>
+
+                <form id="loginForm">
+
+                    <!-- EMAIL -->
+                    <div class="input-group">
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Email Address"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+                    <div class="input-group">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Password"
+                            autocomplete="current-password"
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                        </button>
+
+                    </div>
+
+
+                    <!-- OPTIONS -->
+                    <div class="options">
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                                id="remember"
+                                checked
+                            >
+
+                            <span>
+                                Remember me
+                            </span>
+
+                        </label>
+
+
+                        <a
+                            href="#"
+                            class="forgot"
+                            id="forgotPassword"
+                        >
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+                    <button
+                        type="submit"
+                        class="login-btn"
+                    >
+                        ⇥ &nbsp; Login
+                    </button>
+
+                </form>
+
+
+                <!-- MESSAGE -->
+                <div
+                    class="message"
+                    id="message"
+                ></div>
+
+
+                <!-- ================= GOOGLE LOGIN ================= -->
+
+                <div class="or-divider">
+                    <span>or</span>
+                </div>
+
+                <button
+                    type="button"
+                    class="google-btn"
+                    id="googleLogin"
+                >
+
+                    <span class="google-icon">
+                        G
+                    </span>
+
+                    Continue with Google
+
+                </button>
+
+
+                <!-- ================= REGISTER ================= -->
+
+                <div class="register">
+
+                    <p class="register-link">
+
+                        Don't have an account?
+
+                        <a href="signup.html">
+                            Register here
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="login.js"></script>
+
+</body>
+</html>

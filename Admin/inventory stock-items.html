@@ -1,0 +1,2391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventory Stock Items | Jolie's Pizza</title>
+
+    <link rel="stylesheet" href="inventory stock-items.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <img src="../images/logoadmin.png" alt="Jolie's Pizza" class="sidebar-logo">
+            </div>
+
+            <nav class="side-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="orders.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Orders</span>
+                </a>
+
+                <a href="menu-management.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Menu Management</span>
+                </a>
+
+
+                <!-- INVENTORY -->
+                <div class="nav-group">
+
+                    <button class="nav-item nav-dropdown active" id="inventoryToggle">
+                        <span class="nav-icon"></span>
+
+                        <span class="nav-title">
+                            Inventory
+                        </span>
+
+                        <span class="nav-arrow">⌄</span>
+                    </button>
+
+                    <div class="submenu" id="inventorySubmenu">
+
+                        <a href="inventory overview.html" class="submenu-item">
+                            Overview
+                        </a>
+
+                        <a href="inventory stock-items.html" class="submenu-item active-sub">
+                            Stock Items
+                        </a>
+
+                        <a href="inventory stock-in.html" class="submenu-item">
+                            Stock In
+                        </a>
+
+                        <a href="inventory stock-out.html" class="submenu-item">
+                            Stock Out
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <a href="delivery-tracking.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Delivery Tracking</span>
+                </a>
+
+                <a href="online-payments.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Online Payments</span>
+                </a>
+
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Reports</span>
+                </a>
+
+                <a href="staff-management.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Staff Management</span>
+                </a>
+
+                <a href="settings.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Settings</span>
+                </a>
+
+                <!-- =================================================
+                                LOG OUT
+                    ================================================== -->
+
+                    <button type="button" class="nav-item logout-item" id="sidebarLogoutBtn">
+                        <span class="nav-icon"></span>
+                        <span>Log Out</span>
+                    </button>
+
+            </nav>
+
+
+            <!-- SUPPORT -->
+
+            <div class="support-box">
+
+                <div class="support-icon">
+                    ♧
+                </div>
+
+                <div class="support-content">
+
+                    <strong>Need Help?</strong>
+
+                    <a href="mailto:support@joliespizza.com">
+                        Contact support
+                    </a>
+
+                    <span>0912 345 6789</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+        <main class="main">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div class="page-heading">
+
+                    <div class="mobile-title-row">
+
+                        <button class="menu-toggle" id="menuToggle">
+                            ☰
+                        </button>
+
+                        <div>
+
+                            <h1>Stock Items</h1>
+
+                            <div class="breadcrumb">
+
+                                <span>Dashboard</span>
+
+                                <b>›</b>
+
+                                <span>Inventory</span>
+
+                                <b>›</b>
+
+                                <strong>Stock Items</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="top-actions">
+
+                    <button class="date-picker">
+
+                        <span>▣</span>
+
+                        <span>May 20, 2024</span>
+
+                        <span>⌄</span>
+
+                    </button>
+
+
+                    <button class="notification" id="notificationBtn">
+
+                        ♧
+
+                        <b>3</b>
+
+                    </button>
+
+
+                    <button class="profile" id="profileBtn">
+
+                        <span class="avatar">
+                            A
+                        </span>
+
+                        <span class="profile-text">
+
+                            <strong>Admin</strong>
+
+                            <small>Administrator</small>
+
+                        </span>
+
+                        <span class="chevron">
+                            ⌄
+                        </span>
+
+                    </button>
+
+
+                    <div class="profile-menu" id="profileMenu">
+
+                        <button>My Profile</button>
+
+                        <button>Account Settings</button>
+
+                        <button id="logoutBtn">
+                            Logout
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+            <section class="stats-grid">
+
+                <!-- TOTAL -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ▣
+                    </div>
+
+                    <div>
+
+                        <span>Total Items</span>
+
+                        <h2>86</h2>
+
+                        <small>All stock items</small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IN STOCK -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>In Stock</span>
+
+                        <h2>62</h2>
+
+                        <small>72.1% of total</small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOW STOCK -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ⚠
+                    </div>
+
+                    <div>
+
+                        <span>Low Stock</span>
+
+                        <h2>18</h2>
+
+                        <small>20.9% of total</small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OUT OF STOCK -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">
+                        ×
+                    </div>
+
+                    <div>
+
+                        <span>Out of Stock</span>
+
+                        <h2>6</h2>
+
+                        <small>7.0% of total</small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VALUE -->
+
+                <div class="stat-card inventory-value">
+
+                    <div class="stat-icon purple">
+                        ₱
+                    </div>
+
+                    <div>
+
+                        <span>Total Inventory Value</span>
+
+                        <h2>₱156,780.50</h2>
+
+                        <small>Current stock value</small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             INVENTORY CONTENT
+        ================================================== -->
+
+            <section class="inventory-layout">
+
+
+                <!-- =================================================
+                 STOCK TABLE
+            ================================================== -->
+
+                <div class="stock-container">
+
+                    <!-- FILTER BAR -->
+
+                    <div class="filter-bar">
+
+                        <div class="search-box">
+
+                            <input type="text" id="searchInput" placeholder="Search items...">
+
+                            <button id="searchBtn">
+                                ⌕
+                            </button>
+
+                        </div>
+
+
+                        <select id="categoryFilter">
+
+                            <option value="all">
+                                All Categories
+                            </option>
+
+                            <option value="Cooking Ingredients">
+                                Cooking Ingredients
+                            </option>
+
+                            <option value="Cheese">
+                                Cheese
+                            </option>
+
+                            <option value="Meats">
+                                Meats
+                            </option>
+
+                            <option value="Sauce & Condiments">
+                                Sauce & Condiments
+                            </option>
+
+                            <option value="Spices & Herbs">
+                                Spices & Herbs
+                            </option>
+
+                            <option value="Oils & Vinegar">
+                                Oils & Vinegar
+                            </option>
+
+                            <option value="Vegetables">
+                                Vegetables
+                            </option>
+
+                        </select>
+
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All Status
+                            </option>
+
+                            <option value="In Stock">
+                                In Stock
+                            </option>
+
+                            <option value="Low Stock">
+                                Low Stock
+                            </option>
+
+                            <option value="Out of Stock">
+                                Out of Stock
+                            </option>
+
+                        </select>
+
+
+                        <button class="filter-btn" id="filterBtn">
+                            ⚱ Filters
+                        </button>
+
+
+                        <button class="export-btn" id="exportBtn">
+                            ⇩ Export
+                        </button>
+
+
+                        <button class="add-btn" id="addItemBtn">
+                            + &nbsp; Add New Item
+                        </button>
+
+                    </div>
+
+
+                    <!-- TABLE -->
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Item</th>
+
+                                    <th>Category</th>
+
+                                    <th>Unit</th>
+
+                                    <th>Current Stock</th>
+
+                                    <th>Reorder Level</th>
+
+                                    <th>Status</th>
+
+                                    <th>Unit Cost</th>
+
+                                    <th>Total Value</th>
+
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="inventoryTable">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- PAGINATION -->
+
+                    <div class="pagination">
+
+                        <span id="paginationText">
+                            Showing 1 to 8 of 86 items
+                        </span>
+
+                        <div class="page-buttons">
+
+                            <button id="prevPage">
+                                ‹
+                            </button>
+
+                            <button class="active">
+                                1
+                            </button>
+
+                            <button>2</button>
+
+                            <button>3</button>
+
+                            <button>...</button>
+
+                            <button>11</button>
+
+                            <button id="nextPage">
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                 ITEM DETAILS
+            ================================================== -->
+
+                <aside class="item-details" id="itemDetails">
+
+                    <button class="close-details" id="closeDetails">
+                        ×
+                    </button>
+
+
+                    <div class="details-content">
+
+                        <h2>Item Details</h2>
+
+
+                        <div class="detail-item-preview">
+
+                            <div class="detail-image">
+                                🥣
+                            </div>
+
+                            <div>
+
+                                <h3 id="detailName">
+                                    All-Purpose Flour
+                                </h3>
+
+                                <span class="status in-stock" id="detailStatus">
+                                    In Stock
+                                </span>
+
+                                <p id="detailCategory">
+                                    Cooking Ingredients
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="details-list">
+
+                            <div>
+
+                                <strong>Unit</strong>
+
+                                <span id="detailUnit">
+                                    kg
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>Current Stock</strong>
+
+                                <span id="detailStock">
+                                    25.00 kg
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>Reorder Level</strong>
+
+                                <span id="detailReorder">
+                                    10.00 kg
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>Unit Cost</strong>
+
+                                <span id="detailCost">
+                                    ₱45.00
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>Total Value</strong>
+
+                                <span id="detailValue">
+                                    ₱1,125.00
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>Supplier</strong>
+
+                                <span id="detailSupplier">
+                                    Good Harvest Supplies
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>Expiration Date</strong>
+
+                                <span>
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>Location / Storage</strong>
+
+                                <span>
+                                    Dry Storage Area
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>Date Added</strong>
+
+                                <span>
+                                    Jan 15, 2024
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>Last Updated</strong>
+
+                                <span>
+                                    May 20, 2024 10:30 AM<br>
+                                    by Admin
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="details-actions">
+
+                            <button class="edit-btn" id="editItemBtn">
+                                ✎ &nbsp; Edit Item
+                            </button>
+
+                            <button class="adjust-btn" id="adjustStockBtn">
+                                ☷ &nbsp; Adjust Stock
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+
+            <!-- =================================================
+             TIP
+        ================================================== -->
+
+            <div class="tip-box">
+
+                <div class="tip-icon">
+                    ♧
+                </div>
+
+                <div>
+
+                    <strong>Tip</strong>
+
+                    <p>
+                        Keep your inventory updated to avoid running
+                        out of important ingredients.
+                    </p>
+
+                </div>
+
+                <button id="lowStockBtn">
+                    View Low Stock Items
+                </button>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+     ADD / EDIT MODAL
+====================================================== -->
+
+    <div class="modal-overlay" id="itemModal">
+
+        <div class="modal">
+
+            <button class="modal-close" id="modalClose">
+                ×
+            </button>
+
+            <h2 id="modalTitle">
+                Add New Item
+            </h2>
+
+            <p class="modal-subtitle">
+                Enter the stock item information below.
+            </p>
+
+
+            <form id="itemForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Item Name
+                        </label>
+
+                        <input type="text" id="itemNameInput" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Category
+                        </label>
+
+                        <select id="itemCategoryInput" required>
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option>
+                                Cooking Ingredients
+                            </option>
+
+                            <option>
+                                Cheese
+                            </option>
+
+                            <option>
+                                Meats
+                            </option>
+
+                            <option>
+                                Sauce & Condiments
+                            </option>
+
+                            <option>
+                                Spices & Herbs
+                            </option>
+
+                            <option>
+                                Oils & Vinegar
+                            </option>
+
+                            <option>
+                                Vegetables
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Unit
+                        </label>
+
+                        <select id="itemUnitInput">
+
+                            <option>kg</option>
+
+                            <option>g</option>
+
+                            <option>L</option>
+
+                            <option>pcs</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Current Stock
+                        </label>
+
+                        <input type="number" id="itemStockInput" step="0.01" min="0" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Reorder Level
+                        </label>
+
+                        <input type="number" id="itemReorderInput" step="0.01" min="0" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Unit Cost
+                        </label>
+
+                        <input type="number" id="itemCostInput" step="0.01" min="0" required>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Supplier
+                        </label>
+
+                        <input type="text" id="itemSupplierInput">
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button type="button" class="cancel-btn" id="cancelModal">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="save-btn">
+                        Save Item
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     TOAST
+====================================================== -->
+
+    <div class="toast" id="toast">
+        Item saved successfully.
+    </div>
+
+
+    <script>
+        /* =========================================================
+       JOLIE'S PIZZA
+       INVENTORY / STOCK ITEMS
+       VANILLA JAVASCRIPT
+    ========================================================= */
+
+
+        /* =========================================================
+           INVENTORY DATA
+        ========================================================= */
+
+        let inventoryItems = [
+
+            {
+                id: 1,
+                name: "All-Purpose Flour",
+                category: "Cooking Ingredients",
+                description: "Cooking Ingredients",
+                unit: "kg",
+                stock: 25,
+                reorder: 10,
+                cost: 45,
+                supplier: "Good Harvest Supplies",
+                status: "In Stock",
+                icon: "🥣"
+            },
+
+            {
+                id: 2,
+                name: "Mozzarella Cheese",
+                category: "Cheese",
+                description: "Cheese",
+                unit: "kg",
+                stock: 8.5,
+                reorder: 5,
+                cost: 320,
+                supplier: "Dairy Fresh Supplies",
+                status: "Low Stock",
+                icon: "🧀"
+            },
+
+            {
+                id: 3,
+                name: "Pepperoni Slices",
+                category: "Meats",
+                description: "Meats",
+                unit: "kg",
+                stock: 15,
+                reorder: 8,
+                cost: 280,
+                supplier: "Premium Meat Supplier",
+                status: "In Stock",
+                icon: "🍕"
+            },
+
+            {
+                id: 4,
+                name: "Tomato Sauce",
+                category: "Sauce & Condiments",
+                description: "Sauce & Condiments",
+                unit: "kg",
+                stock: 2,
+                reorder: 3,
+                cost: 120,
+                supplier: "Food Essentials",
+                status: "Low Stock",
+                icon: "🍅"
+            },
+
+            {
+                id: 5,
+                name: "Dried Oregano",
+                category: "Spices & Herbs",
+                description: "Spices",
+                unit: "g",
+                stock: 100,
+                reorder: 50,
+                cost: .80,
+                supplier: "Herbs & Spices PH",
+                status: "In Stock",
+                icon: "🌿"
+            },
+
+            {
+                id: 6,
+                name: "Olive Oil",
+                category: "Oils & Vinegar",
+                description: "Oils & Vinegar",
+                unit: "L",
+                stock: 0,
+                reorder: 2,
+                cost: 350,
+                supplier: "Mediterranean Foods",
+                status: "Out of Stock",
+                icon: "🫒"
+            },
+
+            {
+                id: 7,
+                name: "Chicken Breast",
+                category: "Meats",
+                description: "Meats",
+                unit: "kg",
+                stock: 1.2,
+                reorder: 2,
+                cost: 190,
+                supplier: "Premium Meat Supplier",
+                status: "Low Stock",
+                icon: "🍗"
+            },
+
+            {
+                id: 8,
+                name: "Mushrooms",
+                category: "Vegetables",
+                description: "Vegetables",
+                unit: "kg",
+                stock: 6,
+                reorder: 3,
+                cost: 160,
+                supplier: "Fresh Farm Market",
+                status: "In Stock",
+                icon: "🍄"
+            }
+
+        ];
+
+
+        /* =========================================================
+           ELEMENTS
+        ========================================================= */
+
+        const inventoryTable =
+            document.getElementById("inventoryTable");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const categoryFilter =
+            document.getElementById("categoryFilter");
+
+        const statusFilter =
+            document.getElementById("statusFilter");
+
+        const searchBtn =
+            document.getElementById("searchBtn");
+
+        const filterBtn =
+            document.getElementById("filterBtn");
+
+        const exportBtn =
+            document.getElementById("exportBtn");
+
+        const addItemBtn =
+            document.getElementById("addItemBtn");
+
+        const itemModal =
+            document.getElementById("itemModal");
+
+        const modalClose =
+            document.getElementById("modalClose");
+
+        const cancelModal =
+            document.getElementById("cancelModal");
+
+        const itemForm =
+            document.getElementById("itemForm");
+
+        const modalTitle =
+            document.getElementById("modalTitle");
+
+
+        /* =========================================================
+           DETAIL ELEMENTS
+        ========================================================= */
+
+        const detailName =
+            document.getElementById("detailName");
+
+        const detailStatus =
+            document.getElementById("detailStatus");
+
+        const detailCategory =
+            document.getElementById("detailCategory");
+
+        const detailUnit =
+            document.getElementById("detailUnit");
+
+        const detailStock =
+            document.getElementById("detailStock");
+
+        const detailReorder =
+            document.getElementById("detailReorder");
+
+        const detailCost =
+            document.getElementById("detailCost");
+
+        const detailValue =
+            document.getElementById("detailValue");
+
+        const detailSupplier =
+            document.getElementById("detailSupplier");
+
+
+        /* =========================================================
+           MODAL INPUTS
+        ========================================================= */
+
+        const itemNameInput =
+            document.getElementById("itemNameInput");
+
+        const itemCategoryInput =
+            document.getElementById("itemCategoryInput");
+
+        const itemUnitInput =
+            document.getElementById("itemUnitInput");
+
+        const itemStockInput =
+            document.getElementById("itemStockInput");
+
+        const itemReorderInput =
+            document.getElementById("itemReorderInput");
+
+        const itemCostInput =
+            document.getElementById("itemCostInput");
+
+        const itemSupplierInput =
+            document.getElementById("itemSupplierInput");
+
+
+        let selectedItemId = 1;
+        let editingItemId = null;
+
+
+        /* =========================================================
+           FORMAT MONEY
+        ========================================================= */
+
+        function formatMoney(value) {
+
+            return "₱" +
+                Number(value).toLocaleString(
+                    "en-PH",
+                    {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }
+                );
+
+        }
+
+
+        /* =========================================================
+           GET STATUS
+        ========================================================= */
+
+        function calculateStatus(item) {
+
+            if (Number(item.stock) <= 0) {
+
+                return "Out of Stock";
+
+            }
+
+            if (
+                Number(item.stock) <=
+                Number(item.reorder)
+            ) {
+
+                return "Low Stock";
+
+            }
+
+            return "In Stock";
+
+        }
+
+
+        /* =========================================================
+           STATUS CLASS
+        ========================================================= */
+
+        function statusClass(status) {
+
+            if (status === "In Stock") {
+
+                return "in-stock";
+
+            }
+
+            if (status === "Low Stock") {
+
+                return "low-stock";
+
+            }
+
+            return "out-stock";
+
+        }
+
+
+        /* =========================================================
+           RENDER TABLE
+        ========================================================= */
+
+        function renderTable(items = inventoryItems) {
+
+            inventoryTable.innerHTML = "";
+
+            if (items.length === 0) {
+
+                inventoryTable.innerHTML = `
+            <tr>
+                <td colspan="9" class="empty-row">
+                    No inventory items found.
+                </td>
+            </tr>
+        `;
+
+                return;
+            }
+
+
+            items.forEach(item => {
+
+                item.status = calculateStatus(item);
+
+                const totalValue =
+                    Number(item.stock) *
+                    Number(item.cost);
+
+
+                const row = document.createElement("tr");
+
+                row.dataset.id = item.id;
+
+
+                row.innerHTML = `
+
+            <td>
+
+                <div class="item-cell">
+
+                    <div class="item-image">
+                        ${item.icon}
+                    </div>
+
+                    <div class="item-info">
+
+                        <strong>
+                            ${item.name}
+                        </strong>
+
+                        <small>
+                            ${item.description}
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </td>
+
+
+            <td>
+                ${item.category}
+            </td>
+
+
+            <td>
+                ${item.unit}
+            </td>
+
+
+            <td>
+                ${Number(item.stock).toFixed(2)}
+            </td>
+
+
+            <td>
+                ${Number(item.reorder).toFixed(2)}
+            </td>
+
+
+            <td>
+
+                <span class="status ${statusClass(item.status)}">
+
+                    ${item.status}
+
+                </span>
+
+            </td>
+
+
+            <td>
+                ${formatMoney(item.cost)}
+            </td>
+
+
+            <td>
+                ${formatMoney(totalValue)}
+            </td>
+
+
+            <td>
+
+                <div class="actions">
+
+                    <button
+                        class="row-action edit-row"
+                        data-id="${item.id}"
+                        title="Edit"
+                    >
+                        ✎
+                    </button>
+
+                    <button
+                        class="row-action delete delete-row"
+                        data-id="${item.id}"
+                        title="Delete"
+                    >
+                        ♲
+                    </button>
+
+                </div>
+
+            </td>
+
+        `;
+
+
+                /* Open details */
+
+                row.addEventListener(
+                    "click",
+                    function (event) {
+
+                        if (
+                            event.target.closest(
+                                ".row-action"
+                            )
+                        ) {
+                            return;
+                        }
+
+                        showDetails(item.id);
+
+                    }
+                );
+
+
+                inventoryTable.appendChild(row);
+
+            });
+
+
+            /* Edit buttons */
+
+            document
+                .querySelectorAll(".edit-row")
+                .forEach(button => {
+
+                    button.addEventListener(
+                        "click",
+                        function (event) {
+
+                            event.stopPropagation();
+
+                            openEditModal(
+                                Number(
+                                    this.dataset.id
+                                )
+                            );
+
+                        }
+                    );
+
+                });
+
+
+            /* Delete buttons */
+
+            document
+                .querySelectorAll(".delete-row")
+                .forEach(button => {
+
+                    button.addEventListener(
+                        "click",
+                        function (event) {
+
+                            event.stopPropagation();
+
+                            deleteItem(
+                                Number(
+                                    this.dataset.id
+                                )
+                            );
+
+                        }
+                    );
+
+                });
+
+        }
+
+
+        /* =========================================================
+           SHOW DETAILS
+        ========================================================= */
+
+        function showDetails(id) {
+
+            const item =
+                inventoryItems.find(
+                    item => item.id === id
+                );
+
+            if (!item) return;
+
+            selectedItemId = id;
+
+            item.status =
+                calculateStatus(item);
+
+
+            detailName.textContent =
+                item.name;
+
+            detailCategory.textContent =
+                item.category;
+
+            detailUnit.textContent =
+                item.unit;
+
+            detailStock.textContent =
+                `${Number(item.stock).toFixed(2)} ${item.unit}`;
+
+            detailReorder.textContent =
+                `${Number(item.reorder).toFixed(2)} ${item.unit}`;
+
+            detailCost.textContent =
+                formatMoney(item.cost);
+
+            detailValue.textContent =
+                formatMoney(
+                    Number(item.stock) *
+                    Number(item.cost)
+                );
+
+            detailSupplier.textContent =
+                item.supplier || "-";
+
+
+            detailStatus.textContent =
+                item.status;
+
+            detailStatus.className =
+                `status ${statusClass(item.status)}`;
+
+        }
+
+
+        /* =========================================================
+           SEARCH + FILTER
+        ========================================================= */
+
+        function applyFilters() {
+
+            const search =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+            const category =
+                categoryFilter.value;
+
+            const status =
+                statusFilter.value;
+
+
+            const filtered =
+                inventoryItems.filter(item => {
+
+                    const matchesSearch =
+                        item.name
+                            .toLowerCase()
+                            .includes(search) ||
+
+                        item.category
+                            .toLowerCase()
+                            .includes(search);
+
+
+                    const matchesCategory =
+                        category === "all" ||
+                        item.category === category;
+
+
+                    const matchesStatus =
+                        status === "all" ||
+                        calculateStatus(item) === status;
+
+
+                    return (
+                        matchesSearch &&
+                        matchesCategory &&
+                        matchesStatus
+                    );
+
+                });
+
+
+            renderTable(filtered);
+
+        }
+
+
+        /* =========================================================
+           SEARCH EVENTS
+        ========================================================= */
+
+        searchInput.addEventListener(
+            "input",
+            applyFilters
+        );
+
+        searchBtn.addEventListener(
+            "click",
+            applyFilters
+        );
+
+        categoryFilter.addEventListener(
+            "change",
+            applyFilters
+        );
+
+        statusFilter.addEventListener(
+            "change",
+            applyFilters
+        );
+
+
+        /* =========================================================
+           FILTER BUTTON
+        ========================================================= */
+
+        filterBtn.addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "Use the category and status filters."
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           OPEN ADD MODAL
+        ========================================================= */
+
+        addItemBtn.addEventListener(
+            "click",
+            function () {
+
+                editingItemId = null;
+
+                modalTitle.textContent =
+                    "Add New Item";
+
+                itemForm.reset();
+
+                itemModal.classList.add(
+                    "show"
+                );
+
+                itemNameInput.focus();
+
+            }
+        );
+
+
+        /* =========================================================
+           OPEN EDIT MODAL
+        ========================================================= */
+
+        function openEditModal(id) {
+
+            const item =
+                inventoryItems.find(
+                    item => item.id === id
+                );
+
+            if (!item) return;
+
+            editingItemId = id;
+
+            modalTitle.textContent =
+                "Edit Stock Item";
+
+
+            itemNameInput.value =
+                item.name;
+
+            itemCategoryInput.value =
+                item.category;
+
+            itemUnitInput.value =
+                item.unit;
+
+            itemStockInput.value =
+                item.stock;
+
+            itemReorderInput.value =
+                item.reorder;
+
+            itemCostInput.value =
+                item.cost;
+
+            itemSupplierInput.value =
+                item.supplier;
+
+
+            itemModal.classList.add(
+                "show"
+            );
+
+        }
+
+
+        /* =========================================================
+           CLOSE MODAL
+        ========================================================= */
+
+        function closeModal() {
+
+            itemModal.classList.remove(
+                "show"
+            );
+
+        }
+
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
+
+        cancelModal.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        /* Click outside modal */
+
+        itemModal.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target === itemModal
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           SAVE ITEM
+        ========================================================= */
+
+        itemForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const itemData = {
+
+                    name:
+                        itemNameInput.value.trim(),
+
+                    category:
+                        itemCategoryInput.value,
+
+                    description:
+                        itemCategoryInput.value,
+
+                    unit:
+                        itemUnitInput.value,
+
+                    stock:
+                        Number(
+                            itemStockInput.value
+                        ),
+
+                    reorder:
+                        Number(
+                            itemReorderInput.value
+                        ),
+
+                    cost:
+                        Number(
+                            itemCostInput.value
+                        ),
+
+                    supplier:
+                        itemSupplierInput.value.trim(),
+
+                    icon: "📦"
+
+                };
+
+
+                if (editingItemId) {
+
+                    const index =
+                        inventoryItems.findIndex(
+                            item =>
+                                item.id ===
+                                editingItemId
+                        );
+
+
+                    if (index !== -1) {
+
+                        inventoryItems[index] = {
+
+                            ...inventoryItems[index],
+
+                            ...itemData
+
+                        };
+
+                    }
+
+
+                    showToast(
+                        "Item updated successfully."
+                    );
+
+                } else {
+
+                    const newItem = {
+
+                        id:
+                            Date.now(),
+
+                        ...itemData
+
+                    };
+
+
+                    inventoryItems.push(
+                        newItem
+                    );
+
+
+                    showToast(
+                        "New item added successfully."
+                    );
+
+                }
+
+
+                closeModal();
+
+                renderTable();
+
+                showDetails(
+                    editingItemId ||
+                    inventoryItems[
+                        inventoryItems.length - 1
+                    ].id
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           DELETE ITEM
+        ========================================================= */
+
+        function deleteItem(id) {
+
+            const item =
+                inventoryItems.find(
+                    item => item.id === id
+                );
+
+            if (!item) return;
+
+
+            const confirmed =
+                confirm(
+                    `Are you sure you want to delete "${item.name}"?`
+                );
+
+
+            if (!confirmed) return;
+
+
+            inventoryItems =
+                inventoryItems.filter(
+                    item => item.id !== id
+                );
+
+
+            renderTable();
+
+
+            if (
+                selectedItemId === id
+            ) {
+
+                if (
+                    inventoryItems.length
+                ) {
+
+                    showDetails(
+                        inventoryItems[0].id
+                    );
+
+                }
+
+            }
+
+
+            showToast(
+                "Item deleted successfully."
+            );
+
+        }
+
+
+        /* =========================================================
+           ADJUST STOCK
+        ========================================================= */
+
+        document
+            .getElementById("adjustStockBtn")
+            .addEventListener(
+                "click",
+                function () {
+
+                    const item =
+                        inventoryItems.find(
+                            item =>
+                                item.id ===
+                                selectedItemId
+                        );
+
+                    if (!item) return;
+
+
+                    const amount =
+                        prompt(
+                            `Current stock: ${item.stock} ${item.unit}\n\nEnter stock adjustment amount.\nUse positive number to add stock.\nUse negative number to remove stock.`
+                        );
+
+
+                    if (
+                        amount === null ||
+                        amount.trim() === ""
+                    ) {
+                        return;
+                    }
+
+
+                    const adjustment =
+                        Number(amount);
+
+
+                    if (
+                        Number.isNaN(
+                            adjustment
+                        )
+                    ) {
+
+                        alert(
+                            "Please enter a valid number."
+                        );
+
+                        return;
+
+                    }
+
+
+                    item.stock =
+                        Math.max(
+                            0,
+                            Number(item.stock) +
+                            adjustment
+                        );
+
+
+                    item.status =
+                        calculateStatus(item);
+
+
+                    renderTable();
+
+                    showDetails(
+                        item.id
+                    );
+
+
+                    showToast(
+                        "Stock adjusted successfully."
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
+           EDIT FROM DETAILS
+        ========================================================= */
+
+        document
+            .getElementById("editItemBtn")
+            .addEventListener(
+                "click",
+                function () {
+
+                    openEditModal(
+                        selectedItemId
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
+           CLOSE DETAILS
+        ========================================================= */
+
+        document
+            .getElementById("closeDetails")
+            .addEventListener(
+                "click",
+                function () {
+
+                    const details =
+                        document.getElementById(
+                            "itemDetails"
+                        );
+
+                    details.classList.toggle(
+                        "hidden"
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
+           LOW STOCK
+        ========================================================= */
+
+        document
+            .getElementById("lowStockBtn")
+            .addEventListener(
+                "click",
+                function () {
+
+                    statusFilter.value =
+                        "Low Stock";
+
+                    applyFilters();
+
+                }
+            );
+
+
+        /* =========================================================
+           EXPORT
+        ========================================================= */
+
+        exportBtn.addEventListener(
+            "click",
+            function () {
+
+                let csv =
+                    "Item,Category,Unit,Current Stock,Reorder Level,Status,Unit Cost,Total Value\n";
+
+
+                inventoryItems.forEach(item => {
+
+                    const total =
+                        item.stock *
+                        item.cost;
+
+
+                    csv +=
+                        `"${item.name}",` +
+                        `"${item.category}",` +
+                        `"${item.unit}",` +
+                        `${item.stock},` +
+                        `${item.reorder},` +
+                        `"${calculateStatus(item)}",` +
+                        `${item.cost},` +
+                        `${total}\n`;
+
+                });
+
+
+                const blob =
+                    new Blob(
+                        [csv],
+                        {
+                            type:
+                                "text/csv;charset=utf-8;"
+                        }
+                    );
+
+
+                const url =
+                    URL.createObjectURL(
+                        blob
+                    );
+
+
+                const link =
+                    document.createElement(
+                        "a"
+                    );
+
+                link.href = url;
+
+                link.download =
+                    "jolies-pizza-inventory.csv";
+
+                link.click();
+
+
+                URL.revokeObjectURL(
+                    url
+                );
+
+
+                showToast(
+                    "Inventory exported successfully."
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           PROFILE MENU
+        ========================================================= */
+
+        const profileBtn =
+            document.getElementById(
+                "profileBtn"
+            );
+
+        const profileMenu =
+            document.getElementById(
+                "profileMenu"
+            );
+
+
+        profileBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                profileMenu.classList.toggle(
+                    "show"
+                );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function () {
+
+                profileMenu.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           LOGOUT
+        ========================================================= */
+
+        document
+            .getElementById("logoutBtn")
+            .addEventListener(
+                "click",
+                function () {
+
+                    const confirmed =
+                        confirm(
+                            "Are you sure you want to logout?"
+                        );
+
+
+                    if (confirmed) {
+
+                        window.location.href =
+                            "../login.html";
+
+                    }
+
+                }
+            );
+
+        /* =====================================================
+           LOGOUT FUNCTION
+        ===================================================== */
+
+        function handleLogout() {
+
+            const confirmLogout =
+                confirm(
+                    "Are you sure you want to log out?"
+                );
+
+
+            if (!confirmLogout) {
+
+                return;
+
+            }
+
+
+            showToast(
+                "Logging out..."
+            );
+
+
+            setTimeout(
+                function () {
+
+                    /*
+                     * login.html is in the root folder.
+                     * dashboard.html is inside Admin.
+                     */
+
+                    window.location.href =
+                        "../login.html";
+
+                },
+                1000
+            );
+
+        }
+
+
+        /* =====================================================
+           SIDEBAR LOGOUT
+        ===================================================== */
+
+        if (sidebarLogoutBtn) {
+
+            sidebarLogoutBtn.addEventListener(
+                "click",
+                function () {
+
+                    handleLogout();
+
+                }
+            );
+
+        }
+
+        /* =========================================================
+           SIDEBAR INVENTORY DROPDOWN
+        ========================================================= */
+
+        const inventoryToggle =
+            document.getElementById(
+                "inventoryToggle"
+            );
+
+        const inventorySubmenu =
+            document.getElementById(
+                "inventorySubmenu"
+            );
+
+
+        inventoryToggle.addEventListener(
+            "click",
+            function () {
+
+                inventoryToggle.classList.toggle(
+                    "open"
+                );
+
+
+                if (
+                    inventorySubmenu.style.display ===
+                    "none"
+                ) {
+
+                    inventorySubmenu.style.display =
+                        "flex";
+
+                } else {
+
+                    inventorySubmenu.style.display =
+                        "flex";
+
+                }
+
+            }
+        );
+
+
+        /* Keep inventory submenu open */
+
+        inventoryToggle.classList.add(
+            "open"
+        );
+
+        inventorySubmenu.style.display =
+            "flex";
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        const menuToggle =
+            document.getElementById(
+                "menuToggle"
+            );
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                sidebar.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        /* Close sidebar after clicking a link */
+
+        document
+            .querySelectorAll(
+                ".sidebar a"
+            )
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        if (
+                            window.innerWidth <=
+                            900
+                        ) {
+
+                            sidebar.classList.remove(
+                                "open"
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* =========================================================
+           NOTIFICATION
+        ========================================================= */
+
+        document
+            .getElementById("notificationBtn")
+            .addEventListener(
+                "click",
+                function () {
+
+                    showToast(
+                        "You have 3 new notifications."
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        let toastTimer;
+
+        function showToast(message) {
+
+            const toast =
+                document.getElementById(
+                    "toast"
+                );
+
+
+            toast.textContent =
+                message;
+
+
+            toast.classList.add(
+                "show"
+            );
+
+
+            clearTimeout(
+                toastTimer
+            );
+
+
+            toastTimer =
+                setTimeout(
+                    function () {
+
+                        toast.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    2500
+                );
+
+        }
+
+
+        /* =========================================================
+           INITIALIZE
+        ========================================================= */
+
+        renderTable();
+
+        showDetails(1);
+    </script>
+
+    <script src="sidebar-icons.js"></script>
+</body>
+
+</html>

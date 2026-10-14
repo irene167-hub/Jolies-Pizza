@@ -1,0 +1,6242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Jolie's Pizza | Menu </title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="menus.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+
+    <style id="view-all-and-category-fix">
+        /* Show only the first 4 products in each category by default. */
+        .product-card.view-all-hidden {
+            display: none !important;
+        }
+
+        /* Hide menu sections that do not belong to the selected sidebar category. */
+        .menu-section.hidden {
+            display: none !important;
+        }
+
+        /* Keep the View All link aligned and easy to click. */
+        .section-header a {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+    <link rel="stylesheet" href="customer-header.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <a href="#" class="brand">
+            <img src="../images/logo.png" alt="Jolie's Pizza" class="brand-logo">
+            <span>Jolie's Pizza</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="home.html">Home</a>
+            <a href="menus.html" class="active">Menus</a>
+            <a href="my orders.html">My Orders</a>
+            <a href="track-order.html">Track Order</a>
+            <a href="about-us.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+       <div class="header-actions">
+
+            <button class="cart-header" type="button" aria-label="Shopping cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge" id="cartBadge" hidden>0</span>
+            </button>
+
+            <strong id="headerTotal" hidden>₱0.00</strong>
+
+            <div class="header-divider"></div>
+
+            <div class="profile-dropdown" id="profileDropdown">
+
+                <button class="user-button" type="button" id="profileToggle" aria-expanded="false"
+                    aria-controls="profileMenu">
+
+                    <span class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+
+                    <span>Juan Dela Cruz</span>
+
+                    <i class="fa-solid fa-chevron-down profile-chevron"></i>
+                </button>
+
+                <div class="profile-menu" id="profileMenu">
+
+                    <div class="profile-menu-header">
+                        <span class="profile-avatar-large">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+
+                        <div class="profile-details">
+                            <strong>Juan Dela Cruz</strong>
+                            <span>Customer Account</span>
+                            <small>juan@gmail.com</small>
+                        </div>
+                    </div>
+
+                    <div class="profile-menu-divider"></div>
+
+                    <a href="profile.html" class="profile-menu-item">
+                        <i class="fa-regular fa-user"></i>
+                        My Profile
+                    </a>
+
+                    <a href="my orders.html" class="profile-menu-item">
+                        <i class="fa-solid fa-box"></i>
+                        My Orders
+                    </a>
+
+                    <button type="button" class="profile-menu-item logout-item" id="logoutButton">
+
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN PAGE
+    ====================================================== -->
+
+    <main class="page">
+
+        <!-- =================================================
+             MENU HERO
+        ================================================== -->
+
+        <section class="menu-hero">
+
+            <div class="menu-hero-content">
+
+                <h1>
+                    Our Menus
+                </h1>
+
+                <p>
+                    Freshly made with the finest ingredients
+                    <br>
+                    and baked to perfection.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LEFT SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="category-title">
+
+                <i class="fa-solid fa-grip"></i>
+
+                <span>
+                    Categories
+                </span>
+
+            </div>
+
+
+            <div class="category-list">
+
+                <button type="button" class="sidebar-category active" data-category="all">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        All Items
+                    </span>
+
+                </button>
+
+
+                <button type="button" class="sidebar-category" data-category="pizza">
+
+                    <span class="category-emoji">🍕</span>
+
+                    <span>
+                        Pizza
+                    </span>
+
+                </button>
+
+
+                <button type="button" class="sidebar-category" data-category="pasta">
+
+                    <span class="category-emoji">🍝</span>
+
+                    <span>
+                        Pasta
+                    </span>
+
+                </button>
+
+
+                <button type="button" class="sidebar-category" data-category="house-special">
+
+                    <span class="category-emoji">⭐</span>
+
+                    <span>
+                        House Special
+                    </span>
+
+                </button>
+
+
+                <button type="button" class="sidebar-category" data-category="appetizers">
+
+                    <span class="category-emoji">🍟</span>
+
+                    <span>
+                        Appetizers
+                    </span>
+
+                </button>
+
+
+                <button type="button" class="sidebar-category" data-category="rice-meals">
+
+                    <span class="category-emoji">🍳</span>
+
+                    <span>
+                        Rice Meals
+                    </span>
+
+                </button>
+
+
+                <button type="button" class="sidebar-category" data-category="sandwiches">
+
+                    <span class="category-emoji">🍔</span>
+
+                    <span>
+                        Sandwiches
+                    </span>
+
+                </button>
+
+
+                <button type="button" class="sidebar-category" data-category="drinks">
+
+                    <span class="category-emoji">🥤</span>
+
+                    <span>
+                        Drinks
+                    </span>
+
+                </button>
+
+
+                <button type="button" class="sidebar-category" data-category="salad">
+
+                    <span class="category-emoji">🥗</span>
+
+                    <span>
+                        Salad
+                    </span>
+
+                </button>
+
+
+                <button type="button" class="sidebar-category" data-category="desserts">
+
+                    <span class="category-emoji">🍰</span>
+
+                    <span>
+                        Desserts
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- DIETARY OPTIONS -->
+
+            <div class="dietary-box">
+
+                <h3>
+                    Dietary Options
+                </h3>
+
+                <label>
+                    <input type="checkbox" value="vegetarian" class="diet-filter">
+
+                    <span>
+                        Vegetarian
+                    </span>
+                </label>
+
+
+                <label>
+                    <input type="checkbox" value="meat" class="diet-filter">
+
+                    <span>
+                        Meat Lovers
+                    </span>
+                </label>
+
+
+                <label>
+                    <input type="checkbox" value="spicy" class="diet-filter">
+
+                    <span>
+                        Spicy
+                    </span>
+                </label>
+
+
+                <label>
+                    <input type="checkbox" value="gluten" class="diet-filter">
+
+                    <span>
+                        Gluten-Free
+                    </span>
+                </label>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CENTER CONTENT
+        ================================================== -->
+
+        <section class="content">
+
+            <!-- SEARCH + SORT -->
+
+            <div class="toolbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" id="searchInput" placeholder="Search menu...">
+
+                </div>
+
+
+                <select id="sortSelect">
+
+                    <option value="popular">
+                        Sort by: Popular
+                    </option>
+
+                    <option value="low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high">
+                        Price: High to Low
+                    </option>
+
+                    <option value="name">
+                        Name
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- =================================================
+                 PIZZA
+            ================================================== -->
+
+            <section class="menu-section" data-section="pizza">
+
+                <div class="section-header">
+
+                    <h2>
+                        PIZZA 🍕
+                    </h2>
+
+                    <a href="menus.html">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid" id="pizzaGrid">
+
+
+                    <!-- 1. PEPPERONI -->
+
+                    <article class="product-card" data-category="pizza" data-name="Pepperoni Pizza" data-price="350"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Pepperoni.png" alt="Pepperoni Pizza" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Pepperoni Pizza
+                            </h3>
+
+                            <p>
+                                Classic pepperoni with mozzarella cheese.
+                            </p>
+
+                            <strong>
+                                ₱350.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Pepperoni Pizza" data-price="350"
+                                data-image="../images/Pepperoni.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 2. HAWAIIAN SUPERSTAR -->
+
+                    <article class="product-card" data-category="pizza" data-name="Hawaiian Superstar" data-price="335"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Hawaiian_Superstar.png" alt="Hawaiian Superstar" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Hawaiian Superstar
+                            </h3>
+
+                            <p>
+                                Ham, pineapple, and mozzarella cheese.
+                            </p>
+
+                            <strong>
+                                ₱335.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Hawaiian Superstar" data-price="335"
+                                data-image="../images/Hawaiian_Superstar.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 3. ALL CHEESE -->
+
+                    <article class="product-card" data-category="pizza" data-name="All Cheese" data-price="335"
+                        data-tags="vegetarian">
+
+                        <div class="food-image">
+
+                            <img src="../images/All Cheese.png" alt="All Cheese" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                All Cheese
+                            </h3>
+
+                            <p>
+                                A cheesy delight for cheese lovers.
+                            </p>
+
+                            <strong>
+                                ₱335.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="All Cheese" data-price="335"
+                                data-image="../images/All Cheese.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 4. ALL MEAT OVERLOAD -->
+
+                    <article class="product-card" data-category="pizza" data-name="All Meat Overload" data-price="380"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/All_Meat_Overload.png" alt="All Meat Overload" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                All Meat Overload
+                            </h3>
+
+                            <p>
+                                Pepperoni, ham, bacon, sausage, and beef.
+                            </p>
+
+                            <strong>
+                                ₱380.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="All Meat Overload" data-price="380"
+                                data-image="../images/All_Meat_Overload.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 5. SAMA ALL -->
+
+                    <article class="product-card" data-category="pizza" data-name="Sama All" data-price="385"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Sama_All.png" alt="Sama All" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Sama All
+                            </h3>
+
+                            <p>
+                                Our signature loaded pizza with a rich mix of toppings.
+                            </p>
+
+                            <strong>
+                                From ₱385.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Sama All" data-price="385"
+                                data-image="../images/Sama_All.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 6. BACON & MUSHROOM -->
+
+                    <article class="product-card" data-category="pizza" data-name="Bacon & Mushroom" data-price="245"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Bacon & Mashroom.png" alt="Bacon & Mushroom" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Bacon & Mushroom
+                            </h3>
+
+                            <p>
+                                Savory bacon and mushrooms with melted mozzarella.
+                            </p>
+
+                            <strong>
+                                From ₱245.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Bacon & Mushroom" data-price="245"
+                                data-image="../images/Bacon & Mashroom.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 7. BRUNO OVERLOAD -->
+
+                    <article class="product-card" data-category="pizza" data-name="Bruno Overload" data-price="260"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Bruno_Overload.png" alt="Bruno Overload" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Bruno Overload
+                            </h3>
+
+                            <p>
+                                A loaded pizza packed with savory toppings.
+                            </p>
+
+                            <strong>
+                                From ₱260.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Bruno Overload" data-price="260"
+                                data-image="../images/Bruno_Overload.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 8. CHUCKIE OVERLOAD -->
+
+                    <article class="product-card" data-category="pizza" data-name="Chuckie Overload" data-price="260"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Chuckie_Overload.png" alt="Chuckie Overload" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Chuckie Overload
+                            </h3>
+
+                            <p>
+                                A hearty overloaded pizza for meat lovers.
+                            </p>
+
+                            <strong>
+                                From ₱260.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Chuckie Overload" data-price="260"
+                                data-image="../images/Chuckie_Overload.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 9. TUNA -->
+
+                    <article class="product-card" data-category="pizza" data-name="Tuna" data-price="260" data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Tuna.png" alt="Tuna" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Tuna
+                            </h3>
+
+                            <p>
+                                Tuna with cheese for a savory and satisfying pizza.
+                            </p>
+
+                            <strong>
+                                From ₱260.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Tuna" data-price="260"
+                                data-image="../images/Tuna.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 10. VEGGIE -->
+
+                    <article class="product-card" data-category="pizza" data-name="Veggie" data-price="255"
+                        data-tags="vegetarian">
+
+                        <div class="food-image">
+
+                            <img src="../images/Veggie.png" alt="Veggie" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Veggie
+                            </h3>
+
+                            <p>
+                                A vegetable-filled pizza with melted cheese.
+                            </p>
+
+                            <strong>
+                                From ₱255.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Veggie" data-price="255"
+                                data-image="../images/Veggie.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 11. HAM & CHEESE -->
+
+                    <article class="product-card" data-category="pizza" data-name="Ham & Cheese" data-price="210"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Ham_Cheese.png" alt="Ham & Cheese" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Ham & Cheese
+                            </h3>
+
+                            <p>
+                                Classic ham and melted cheese on a delicious crust.
+                            </p>
+
+                            <strong>
+                                From ₱210.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Ham & Cheese" data-price="210"
+                                data-image="../images/Ham_Cheese.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 12. HAM & PINEAPPLE -->
+
+                    <article class="product-card" data-category="pizza" data-name="Ham & Pineapple" data-price="220"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Ham_Pineapple.png" alt="Ham & Pineapple" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Ham & Pineapple
+                            </h3>
+
+                            <p>
+                                Sweet pineapple paired with savory ham and cheese.
+                            </p>
+
+                            <strong>
+                                From ₱220.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Ham & Pineapple" data-price="220"
+                                data-image="../images/Ham_Pineapple.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 13. BEEF & MUSHROOM -->
+
+                    <article class="product-card" data-category="pizza" data-name="Beef & Mushroom" data-price="220"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Beef_Mushroom.png" alt="Beef & Mushroom" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Beef & Mushroom
+                            </h3>
+
+                            <p>
+                                Savory beef and mushrooms with melted cheese.
+                            </p>
+
+                            <strong>
+                                From ₱220.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Beef & Mushroom" data-price="220"
+                                data-image="../images/Beef_Mushroom.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PASTA
+            ================================================== -->
+
+            <section class="menu-section" data-section="pasta">
+
+                <div class="section-header">
+
+                    <h2>
+                        PASTA 🍝
+                    </h2>
+
+                    <a href="#">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid">
+
+
+                    <!-- 14. CARBONARA -->
+
+                    <article class="product-card" data-category="pasta" data-name="Carbonara" data-price="140"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Carbonara.png" alt="Carbonara" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Carbonara
+                            </h3>
+
+                            <p>
+                                Creamy white sauce with bacon and parmesan.
+                                Solo ₱140 · Platter ₱300.
+                            </p>
+
+                            <strong>
+                                ₱140.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Carbonara" data-price="140"
+                                data-image="../images/Carbonara.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 15. SPAGHETTI -->
+
+                    <article class="product-card" data-category="pasta" data-name="Spaghetti" data-price="140"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Spaghetti.png" alt="Spaghetti" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Spaghetti
+                            </h3>
+
+                            <p>
+                                Classic Italian-style spaghetti with meat sauce.
+                                Solo ₱140 · Platter ₱300.
+                            </p>
+
+                            <strong>
+                                ₱140.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Spaghetti" data-price="140"
+                                data-image="../images/Spaghetti.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 16. TUNA PESTO -->
+
+                    <article class="product-card" data-category="pasta" data-name="Tuna Pesto" data-price="160"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Tuna Pesto Pasta.png" alt="Tuna Pesto" class="food-img">
+
+                            <span class="new-badge">
+                                NEW
+                            </span>
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Tuna Pesto
+                            </h3>
+
+                            <p>
+                                Tuna flakes with pesto cream sauce.
+                                Solo ₱160 · Platter ₱350.
+                            </p>
+
+                            <strong>
+                                ₱160.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Tuna Pesto" data-price="160"
+                                data-image="../images/Tuna Pesto Pasta.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 17. TUNA CARBONARA -->
+
+                    <article class="product-card" data-category="pasta" data-name="Tuna Carbonara" data-price="160"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Tuna Carbonara.png" alt="Tuna Carbonara" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Tuna Carbonara
+                            </h3>
+
+                            <p>
+                                Tuna flakes in creamy carbonara sauce.
+                            </p>
+
+                            <strong>
+                                ₱160.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Tuna Carbonara" data-price="160"
+                                data-image="../images/Tuna Carbonara.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 APPETIZERS
+            ================================================== -->
+
+            <section class="menu-section" data-section="appetizers">
+
+                <div class="section-header">
+
+                    <h2>
+                        APPETIZERS 🍟
+                    </h2>
+
+                    <a href="#">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid">
+
+
+                    <!-- 18. NACHOS OVERLOAD -->
+
+                    <article class="product-card" data-category="appetizers" data-name="Nachos Overload"
+                        data-price="200" data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Nachos_Overload.png" alt="Nachos Overload" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Nachos Overload
+                            </h3>
+
+                            <p>
+                                Loaded nachos with savory toppings.
+                            </p>
+
+                            <strong>
+                                ₱200.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Nachos Overload" data-price="200"
+                                data-image="../images/Nachos_Overload.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 19. LILY FRIES -->
+
+                    <article class="product-card" data-category="appetizers" data-name="Lily Fries" data-price="190"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Lily_Fries.png" alt="Lily Fries" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Lily Fries
+                            </h3>
+
+                            <p>
+                                Crispy flavored Lily Fries.
+                            </p>
+
+                            <strong>
+                                ₱190.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Lily Fries" data-price="190"
+                                data-image="../images/Lily_Fries.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 20. FRENCH FRIES WITH GARLIC MAYO -->
+
+                    <article class="product-card" data-category="appetizers" data-name="French Fries w/ Garlic Mayo"
+                        data-price="150" data-tags="vegetarian">
+
+                        <div class="food-image">
+
+                            <img src="../images/French_Fries_w_Garlic_Mayo.png" alt="French Fries with Garlic Mayo"
+                                class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                French Fries w/ Garlic Mayo
+                            </h3>
+
+                            <p>
+                                Crispy fries served with garlic mayo.
+                            </p>
+
+                            <strong>
+                                ₱150.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="French Fries w/ Garlic Mayo"
+                                data-price="150" data-image="../images/French_Fries_w_Garlic_Mayo.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 21. GARLIC BREAD -->
+
+                    <article class="product-card" data-category="appetizers" data-name="Garlic Bread" data-price="135"
+                        data-tags="vegetarian">
+
+                        <div class="food-image">
+
+                            <img src="../images/Garlic_Bread.png" alt="Garlic Bread" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Garlic Bread
+                            </h3>
+
+                            <p>
+                                Toasted garlic bread with herbs.
+                            </p>
+
+                            <strong>
+                                ₱135.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Garlic Bread" data-price="135"
+                                data-image="../images/Garlic_Bread.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 22. POTATO CHIPS -->
+
+                    <article class="product-card" data-category="appetizers" data-name="Home-Made Potato Chips"
+                        data-price="150" data-tags="vegetarian">
+
+                        <div class="food-image">
+
+                            <img src="../images/Potato_Chips.png" alt="Home-Made Potato Chips" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Home-Made Potato Chips
+                            </h3>
+
+                            <p>
+                                Crispy homemade potato chips.
+                            </p>
+
+                            <strong>
+                                ₱150.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Home-Made Potato Chips" data-price="150"
+                                data-image="../images/Potato_Chips.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 23. LUMPIA -->
+
+                    <article class="product-card" data-category="appetizers" data-name="Lumpia" data-price="200"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Lumpia_10_pcs.png" alt="Lumpia" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Lumpia (10 pcs)
+                            </h3>
+
+                            <p>
+                                Crispy fried lumpia served in a 10-piece serving.
+                            </p>
+
+                            <strong>
+                                ₱200.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Lumpia (10 pcs)" data-price="200"
+                                data-image="../images/Lumpia_10_pcs.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 HOUSE SPECIAL
+            ================================================== -->
+
+            <section class="menu-section" data-section="house-special">
+
+                <div class="section-header">
+
+                    <h2>
+                        HOUSE SPECIAL ⭐
+                    </h2>
+
+                    <a href="#">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid">
+
+
+                    <!-- 24. CHEESY GARLIC -->
+
+                    <article class="product-card" data-category="house-special" data-name="Cheesy Garlic"
+                        data-price="415" data-tags="vegetarian">
+
+                        <div class="food-image">
+
+                            <img src="../images/Cheesy_Garlic.png" alt="Cheesy Garlic" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Cheesy Garlic
+                            </h3>
+
+                            <p>
+                                Cheesy garlic pizza with a rich, savory garlic flavor.
+                            </p>
+
+                            <strong>
+                                ₱415.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Cheesy Garlic" data-price="415"
+                                data-image="../images/Cheesy_Garlic.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 25. MEATY GARLIC -->
+
+                    <article class="product-card" data-category="house-special" data-name="Meaty Garlic"
+                        data-price="415" data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Meaty_Garlic.png" alt="Meaty Garlic" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Meaty Garlic
+                            </h3>
+
+                            <p>
+                                Garlic pizza loaded with savory meat and cheese.
+                            </p>
+
+                            <strong>
+                                ₱415.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Meaty Garlic" data-price="415"
+                                data-image="../images/Meaty_Garlic.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 26. CHEESY TUNA PESTO -->
+
+                    <article class="product-card" data-category="house-special" data-name="Cheesy Tuna Pesto"
+                        data-price="450" data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Cheesy_Tuna_Pesto.png" alt="Cheesy Tuna Pesto" class="food-img">
+
+                            <span class="new-badge">
+                                NEW
+                            </span>
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Cheesy Tuna Pesto
+                            </h3>
+
+                            <p>
+                                Cheesy pizza with tuna and flavorful pesto.
+                            </p>
+
+                            <strong>
+                                12" ₱450 · 18" ₱960
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Cheesy Tuna Pesto" data-price="450"
+                                data-image="../images/Cheesy_Tuna_Pesto.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 27. CHEESY PESTO -->
+
+                    <article class="product-card" data-category="house-special" data-name="Cheesy Pesto"
+                        data-price="450" data-tags="vegetarian">
+
+                        <div class="food-image">
+
+                            <img src="../images/Cheesy_Pesto.png" alt="Cheesy Pesto" class="food-img">
+
+                            <span class="new-badge">
+                                NEW
+                            </span>
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Cheesy Pesto
+                            </h3>
+
+                            <p>
+                                Creamy pesto and cheese on a delicious pizza crust.
+                            </p>
+
+                            <strong>
+                                12" ₱450 · 18" ₱960
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Cheesy Pesto" data-price="450"
+                                data-image="../images/Cheesy_Pesto.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RICE MEALS
+            ================================================== -->
+
+            <section class="menu-section" data-section="rice-meals">
+
+                <div class="section-header">
+
+                    <h2>
+                        RICE MEALS 🍳
+                    </h2>
+
+                    <a href="#">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid">
+
+
+                    <!-- 28. TAPA & EGG -->
+
+                    <article class="product-card" data-category="rice-meals" data-name="Tapa & Egg" data-price="160"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Tapa_Egg.png" alt="Tapa & Egg" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Tapa & Egg
+                            </h3>
+
+                            <p>
+                                Savory tapa served with egg and rice.
+                            </p>
+
+                            <strong>
+                                ₱160.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Tapa & Egg" data-price="160"
+                                data-image="../images/Tapa_Egg.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 29. SPAM & EGG -->
+
+                    <article class="product-card" data-category="rice-meals" data-name="Spam & Egg" data-price="150"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Spam_Egg.png" alt="Spam & Egg" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Spam & Egg
+                            </h3>
+
+                            <p>
+                                Classic spam and egg served with rice.
+                            </p>
+
+                            <strong>
+                                ₱150.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Spam & Egg" data-price="150"
+                                data-image="../images/Spam_Egg.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 30. BACON & EGG -->
+
+                    <article class="product-card" data-category="rice-meals" data-name="Bacon & Egg" data-price="150"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Bacon_Egg.png" alt="Bacon & Egg" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Bacon & Egg
+                            </h3>
+
+                            <p>
+                                Crispy bacon and egg served with rice.
+                            </p>
+
+                            <strong>
+                                ₱150.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Bacon & Egg" data-price="150"
+                                data-image="../images/Bacon_Egg.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 31. TOCINO & EGG -->
+
+                    <article class="product-card" data-category="rice-meals" data-name="Tocino & Egg" data-price="130"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Tocino_Egg.png" alt="Tocino & Egg" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Tocino & Egg
+                            </h3>
+
+                            <p>
+                                Sweet-style tocino with egg and rice.
+                            </p>
+
+                            <strong>
+                                ₱130.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Tocino & Egg" data-price="130"
+                                data-image="../images/Tocino_Egg.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 32. LUMPIA -->
+
+                    <article class="product-card" data-category="rice-meals" data-name="Lumpia" data-price="140"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Lumpia_10_pcs.png" alt="Lumpia" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Lumpia
+                            </h3>
+
+                            <p>
+                                Crispy lumpia served with rice.
+                            </p>
+
+                            <strong>
+                                ₱140.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Lumpia" data-price="140"
+                                data-image="../images/Lumpia_10_pcs.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 33. LIEMPO -->
+
+                    <article class="product-card" data-category="rice-meals" data-name="Liempo" data-price="160"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Liempo.png" alt="Liempo" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Liempo
+                            </h3>
+
+                            <p>
+                                Savory grilled liempo served with rice.
+                            </p>
+
+                            <strong>
+                                ₱160.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Liempo" data-price="160"
+                                data-image="../images/Liempo.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 34. MEATBALLS -->
+
+                    <article class="product-card" data-category="rice-meals" data-name="Meatballs" data-price="160"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Meatballs.png" alt="Meatballs" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Meatballs
+                            </h3>
+
+                            <p>
+                                Savory meatballs served with rice.
+                            </p>
+
+                            <strong>
+                                ₱160.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Meatballs" data-price="160"
+                                data-image="../images/Meatballs.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SANDWICHES
+            ================================================== -->
+
+            <section class="menu-section" data-section="sandwiches">
+
+                <div class="section-header">
+
+                    <h2>
+                        SANDWICHES 🍔
+                    </h2>
+
+                    <a href="#">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid">
+
+
+                    <!-- 35. CHEESE BURGER -->
+
+                    <article class="product-card" data-category="sandwiches" data-name="Cheese Burger" data-price="75"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Cheese_Burger.png" alt="Cheese Burger" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Cheese Burger
+                            </h3>
+
+                            <p>
+                                Classic burger with cheese and savory fillings.
+                            </p>
+
+                            <strong>
+                                ₱75.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Cheese Burger" data-price="75"
+                                data-image="../images/Cheese_Burger.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 36. BURGER -->
+
+                    <article class="product-card" data-category="sandwiches" data-name="Burger" data-price="65"
+                        data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Burger.png" alt="Burger" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Burger
+                            </h3>
+
+                            <p>
+                                A simple and satisfying classic burger.
+                            </p>
+
+                            <strong>
+                                ₱65.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Burger" data-price="65"
+                                data-image="../images/Burger.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 37. CHEESE BURGER + SOLO FLAVORED FRIES -->
+
+                    <article class="product-card" data-category="sandwiches"
+                        data-name="Cheese Burger + Solo Flavored Fries" data-price="130" data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Cheese_Burger_Solo_Flavored_Fries.png"
+                                alt="Cheese Burger + Solo Flavored Fries" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Cheese Burger + Solo Flavored Fries
+                            </h3>
+
+                            <p>
+                                Cheese burger served with solo flavored fries.
+                            </p>
+
+                            <strong>
+                                ₱130.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Cheese Burger + Solo Flavored Fries"
+                                data-price="130" data-image="../images/Cheese_Burger_Solo_Flavored_Fries.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 38. BURGER + SOLO FLAVORED FRIES -->
+
+                    <article class="product-card" data-category="sandwiches" data-name="Burger + Solo Flavored Fries"
+                        data-price="120" data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Burger_Solo_Flavored_Fries.png" alt="Burger + Solo Flavored Fries"
+                                class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Burger + Solo Flavored Fries
+                            </h3>
+
+                            <p>
+                                Burger served with solo flavored fries.
+                            </p>
+
+                            <strong>
+                                ₱120.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Burger + Solo Flavored Fries"
+                                data-price="120" data-image="../images/Burger_Solo_Flavored_Fries.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 39. CHEESE BURGER + SOLO LILY FRIES -->
+
+                    <article class="product-card" data-category="sandwiches" data-name="Cheese Burger + Solo Lily Fries"
+                        data-price="150" data-tags="meat">
+
+                        <div class="food-image">
+
+                            <img src="../images/Cheese_Burger_Solo_Lily_Fries.png" alt="Cheese Burger + Solo Lily Fries"
+                                class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Cheese Burger + Solo Lily Fries
+                            </h3>
+
+                            <p>
+                                Cheese burger served with solo Lily Fries.
+                            </p>
+
+                            <strong>
+                                ₱150.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Cheese Burger + Solo Lily Fries"
+                                data-price="150" data-image="../images/Cheese_Burger_Solo_Lily_Fries.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DRINKS
+            ================================================== -->
+
+            <section class="menu-section" data-section="drinks">
+
+                <div class="section-header">
+
+                    <h2>
+                        DRINKS 🥤
+                    </h2>
+
+                    <a href="#">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid">
+
+
+                    <!-- 40. MANGO GRAHAM -->
+
+                    <article class="product-card" data-category="drinks" data-name="Mango Graham" data-price="130"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Mango_Graham.png" alt="Mango Graham" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Mango Graham
+                            </h3>
+
+                            <p>
+                                Creamy mango graham milkshake.
+                            </p>
+
+                            <strong>
+                                ₱130.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Mango Graham" data-price="130"
+                                data-image="../images/Mango_Graham.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 41. MANGO -->
+
+                    <article class="product-card" data-category="drinks" data-name="Mango" data-price="120"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Mango.png" alt="Mango" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Mango
+                            </h3>
+
+                            <p>
+                                Refreshing mango milkshake.
+                            </p>
+
+                            <strong>
+                                ₱120.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Mango" data-price="120"
+                                data-image="../images/Mango.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 42. COOKIES & CREAM -->
+
+                    <article class="product-card" data-category="drinks" data-name="Cookies & Cream" data-price="120"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Cookies_Cream.png" alt="Cookies & Cream" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Cookies & Cream
+                            </h3>
+
+                            <p>
+                                Creamy cookies and cream milkshake.
+                            </p>
+
+                            <strong>
+                                ₱120.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Cookies & Cream" data-price="120"
+                                data-image="../images/Cookies_Cream.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 43. CHOCOLATE -->
+
+                    <article class="product-card" data-category="drinks" data-name="Chocolate" data-price="110"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Chocolate_Milkshake.png" alt="Chocolate" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Chocolate
+                            </h3>
+
+                            <p>
+                                Rich and creamy chocolate milkshake.
+                            </p>
+
+                            <strong>
+                                ₱110.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Chocolate" data-price="110"
+                                data-image="../images/Chocolate_Milkshake.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 44. CUCUMBER -->
+
+                    <article class="product-card" data-category="drinks" data-name="Cucumber" data-price="110"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Cucumber_Milkshake.png" alt="Cucumber" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Cucumber
+                            </h3>
+
+                            <p>
+                                Cool and refreshing cucumber milkshake.
+                            </p>
+
+                            <strong>
+                                ₱110.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Cucumber" data-price="110"
+                                data-image="../images/Cucumber_Milkshake.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 45. WINTERMELON MILK TEA -->
+
+                    <article class="product-card" data-category="drinks" data-name="Wintermelon Milk Tea"
+                        data-price="90" data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Wintermelon_Milk_Tea.png" alt="Wintermelon Milk Tea" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Wintermelon Milk Tea
+                            </h3>
+
+                            <p>
+                                Classic wintermelon milk tea.
+                                Medium ₱90 · Large ₱110.
+                            </p>
+
+                            <strong>
+                                ₱90.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Wintermelon Milk Tea" data-price="90"
+                                data-image="../images/Wintermelon_Milk_Tea.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 46. OKINAWA MILK TEA -->
+
+                    <article class="product-card" data-category="drinks" data-name="Okinawa Milk Tea" data-price="90"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Okinawa_Milk_Tea.png" alt="Okinawa Milk Tea" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Okinawa Milk Tea
+                            </h3>
+
+                            <p>
+                                Rich Okinawa-style milk tea.
+                                Medium ₱90 · Large ₱110.
+                            </p>
+
+                            <strong>
+                                ₱90.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Okinawa Milk Tea" data-price="90"
+                                data-image="../images/Okinawa_Milk_Tea.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 47. MATCHA MILK TEA -->
+
+                    <article class="product-card" data-category="drinks" data-name="Matcha Milk Tea" data-price="90"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Matcha_Milk_Tea.png" alt="Matcha Milk Tea" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Matcha Milk Tea
+                            </h3>
+
+                            <p>
+                                Smooth matcha milk tea.
+                                Medium ₱90 · Large ₱110.
+                            </p>
+
+                            <strong>
+                                ₱90.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Matcha Milk Tea" data-price="90"
+                                data-image="../images/Matcha_Milk_Tea.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 48. CHOCOLATE MILK TEA -->
+
+                    <article class="product-card" data-category="drinks" data-name="Chocolate Milk Tea" data-price="90"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Chocolate_Milk_Tea.png" alt="Chocolate Milk Tea" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Chocolate Milk Tea
+                            </h3>
+
+                            <p>
+                                Creamy chocolate milk tea.
+                                Medium ₱90 · Large ₱110.
+                            </p>
+
+                            <strong>
+                                ₱90.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Chocolate Milk Tea" data-price="90"
+                                data-image="../images/Chocolate_Milk_Tea.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 49. DARK CHOCOLATE MILK TEA -->
+
+                    <article class="product-card" data-category="drinks" data-name="Dark Chocolate Milk Tea"
+                        data-price="90" data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Dark_Chocolate_Milk_Tea.png" alt="Dark Chocolate Milk Tea"
+                                class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Dark Chocolate Milk Tea
+                            </h3>
+
+                            <p>
+                                Rich dark chocolate milk tea.
+                            </p>
+
+                            <strong>
+                                ₱90.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Dark Chocolate Milk Tea" data-price="90"
+                                data-image="../images/Dark_Chocolate_Milk_Tea.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 50. OREO MILK TEA -->
+
+                    <article class="product-card" data-category="drinks" data-name="Oreo Milk Tea" data-price="90"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Oreo_Milk_Tea.png" alt="Oreo Milk Tea" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Oreo Milk Tea
+                            </h3>
+
+                            <p>
+                                Creamy Oreo milk tea.
+                            </p>
+
+                            <strong>
+                                ₱90.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Oreo Milk Tea" data-price="90"
+                                data-image="../images/Oreo_Milk_Tea.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 51. RED VELVET MILK TEA -->
+
+                    <article class="product-card" data-category="drinks" data-name="Red Velvet Milk Tea" data-price="90"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Red_Velvet_Milk_Tea.png" alt="Red Velvet Milk Tea" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Red Velvet Milk Tea
+                            </h3>
+
+                            <p>
+                                Sweet and creamy red velvet milk tea.
+                            </p>
+
+                            <strong>
+                                ₱90.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Red Velvet Milk Tea" data-price="90"
+                                data-image="../images/Red_Velvet_Milk_Tea.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 52. CARAMEL MILK TEA -->
+
+                    <article class="product-card" data-category="drinks" data-name="Caramel Milk Tea" data-price="90"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Caramel_Milk_Tea.png" alt="Caramel Milk Tea" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Caramel Milk Tea
+                            </h3>
+
+                            <p>
+                                Smooth and sweet caramel milk tea.
+                            </p>
+
+                            <strong>
+                                ₱90.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Caramel Milk Tea" data-price="90"
+                                data-image="../images/Caramel_Milk_Tea.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 53. SPANISH LATTE -->
+
+                    <article class="product-card" data-category="drinks" data-name="Spanish Latte" data-price="100"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Spanish_Latte.png" alt="Spanish Latte" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Spanish Latte
+                            </h3>
+
+                            <p>
+                                Smooth and creamy Spanish-style latte.
+                            </p>
+
+                            <strong>
+                                ₱100.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Spanish Latte" data-price="100"
+                                data-image="../images/Spanish_Latte.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 54. ROCKSALT LATTE -->
+
+                    <article class="product-card" data-category="drinks" data-name="Rocksalt Latte" data-price="110"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Rocksalt_Latte.png" alt="Rocksalt Latte" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Rocksalt Latte
+                            </h3>
+
+                            <p>
+                                Rich coffee with a smooth salted finish.
+                            </p>
+
+                            <strong>
+                                ₱110.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Rocksalt Latte" data-price="110"
+                                data-image="../images/Rocksalt_Latte.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 55. CARAMEL MACCHIATO -->
+
+                    <article class="product-card" data-category="drinks" data-name="Caramel Macchiato" data-price="110"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Caramel_Macchiato.png" alt="Caramel Macchiato" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Caramel Macchiato
+                            </h3>
+
+                            <p>
+                                Espresso with creamy caramel flavor.
+                            </p>
+
+                            <strong>
+                                ₱110.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Caramel Macchiato" data-price="110"
+                                data-image="../images/Caramel_Macchiato.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 56. CUCUMBER LEMONADE -->
+
+                    <article class="product-card" data-category="drinks" data-name="Cucumber Lemonade" data-price="85"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Cucumber_Lemonade.png" alt="Cucumber Lemonade" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Cucumber Lemonade
+                            </h3>
+
+                            <p>
+                                Refreshing cucumber lemonade.
+                                Glass ₱85 · Pitcher ₱145.
+                            </p>
+
+                            <strong>
+                                ₱85.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Cucumber Lemonade" data-price="85"
+                                data-image="../images/Cucumber_Lemonade.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 57. BLUE LEMONADE -->
+
+                    <article class="product-card" data-category="drinks" data-name="Blue Lemonade" data-price="85"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Blue_Lemonade.png" alt="Blue Lemonade" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Blue Lemonade
+                            </h3>
+
+                            <p>
+                                Cool and refreshing blue lemonade.
+                            </p>
+
+                            <strong>
+                                ₱85.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Blue Lemonade" data-price="85"
+                                data-image="../images/Blue_Lemonade.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 58. PINK LEMONADE -->
+
+                    <article class="product-card" data-category="drinks" data-name="Pink Lemonade" data-price="85"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Pink_Lemonade.png" alt="Pink Lemonade" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Pink Lemonade
+                            </h3>
+
+                            <p>
+                                Sweet and refreshing pink lemonade.
+                            </p>
+
+                            <strong>
+                                ₱85.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Pink Lemonade" data-price="85"
+                                data-image="../images/Pink_Lemonade.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 59. ICED TEA -->
+
+                    <article class="product-card" data-category="drinks" data-name="Iced Tea" data-price="85"
+                        data-tags="">
+
+                        <div class="food-image">
+
+                            <img src="../images/Iced_Tea.png" alt="Iced Tea" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Iced Tea
+                            </h3>
+
+                            <p>
+                                Refreshing iced tea.
+                                Glass ₱85 · Pitcher ₱145.
+                            </p>
+
+                            <strong>
+                                ₱85.00
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Iced Tea" data-price="85"
+                                data-image="../images/Iced_Tea.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LETTUCE SALAD
+            ================================================== -->
+
+            <section class="menu-section" data-section="salad">
+
+                <div class="section-header">
+
+                    <h2>
+                        LETTUCE SALAD 🥗
+                    </h2>
+
+                    <a href="#">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid">
+
+
+                    <!-- 60. LETTUCE SALAD -->
+
+                    <article class="product-card" data-category="salad" data-name="Lettuce Salad - Solo"
+                        data-price="180" data-tags="vegetarian">
+
+                        <div class="food-image">
+
+                            <img src="../images/Lettuce_Salad.png" alt="Lettuce Salad" class="food-img">
+
+                            <button type="button" class="favorite">
+                                ♡
+                            </button>
+
+                        </div>
+
+                        <div class="product-content">
+
+                            <h3>
+                                Lettuce Salad
+                            </h3>
+
+                            <p>
+                                Fresh lettuce salad with Liv's Special Mayo Vinaigrette.
+                            </p>
+
+                            <strong>
+                                Solo ₱180 · Medium ₱330 · Large ₱650
+                            </strong>
+
+                            <button type="button" class="add-cart" data-name="Lettuce Salad" data-price="180"
+                                data-image="../images/Lettuce_Salad.png">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BENEFITS
+            ================================================== -->
+
+            <section class="benefits">
+
+                <div>
+
+                    <span class="benefit-icon quality">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <b>
+                            Best Quality
+                        </b>
+
+                        <small>
+                            We use the finest ingredients
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <span class="benefit-icon prices">
+                        %
+                    </span>
+
+                    <div>
+
+                        <b>
+                            Great Prices
+                        </b>
+
+                        <small>
+                            Affordable prices and exclusive deals
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <span class="benefit-icon support">
+                        🎧
+                    </span>
+
+                    <div>
+
+                        <b>
+                            24/7 Support
+                        </b>
+
+                        <small>
+                            We're here to help you anytime
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =================================================
+             RIGHT PANEL / CART
+        ================================================== -->
+
+        <aside class="right-panel">
+
+
+            <!-- CART -->
+
+            <div class="side-card cart-card">
+
+                <div class="side-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Your Order
+                        (<span id="cartCount">3</span>)
+
+                    </h2>
+
+                    <button id="clearCart" type="button">
+
+                        <i class="fa-regular fa-trash-can"></i>
+
+                        Clear Cart
+
+                    </button>
+
+                </div>
+
+
+                <div id="cartItems">
+
+                    <!-- PEPPERONI -->
+
+                    <div class="cart-item" data-cart-name="Pepperoni Pizza">
+
+                        <div class="cart-image">
+
+                            <img src="../images/Pepperoni.png" alt="Pepperoni Pizza" class="cart-food-img">
+
+                        </div>
+
+                        <div class="cart-info">
+
+                            <b>
+                                Pepperoni Pizza
+                            </b>
+
+                            <small>
+                                12" · Regular
+                            </small>
+
+                        </div>
+
+                        <div class="quantity">
+
+                            <button class="qty-minus" type="button">
+                                −
+                            </button>
+
+                            <span>
+                                1
+                            </span>
+
+                            <button class="qty-plus" type="button">
+                                +
+                            </button>
+
+                        </div>
+
+                        <strong>
+                            ₱335.00
+                        </strong>
+
+                        <button class="remove" type="button">
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <!-- CHEESY FRIES -->
+
+                    <div class="cart-item" data-cart-name="Cheesy Fries">
+
+                        <div class="cart-image">
+
+                            <img src="../images/cheesy fries.png" alt="Cheesy Fries" class="cart-food-img">
+
+                        </div>
+
+                        <div class="cart-info">
+
+                            <b>
+                                Cheesy Fries
+                            </b>
+
+                            <small>
+                                Solo
+                            </small>
+
+                        </div>
+
+                        <div class="quantity">
+
+                            <button class="qty-minus" type="button">
+                                −
+                            </button>
+
+                            <span>
+                                1
+                            </span>
+
+                            <button class="qty-plus" type="button">
+                                +
+                            </button>
+
+                        </div>
+
+                        <strong>
+                            ₱150.00
+                        </strong>
+
+                        <button class="remove" type="button">
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <!-- COKE -->
+
+                    <div class="cart-item" data-cart-name="Coke (1.5L)">
+
+                        <div class="cart-image drink-image">
+
+                            <img src="../images/coke.png" alt="Coke" class="cart-food-img">
+
+                        </div>
+
+                        <div class="cart-info">
+
+                            <b>
+                                Coke (1.5L)
+                            </b>
+
+                            <small>
+                                1.5 Liter
+                            </small>
+
+                        </div>
+
+                        <div class="quantity">
+
+                            <button class="qty-minus" type="button">
+                                −
+                            </button>
+
+                            <span>
+                                1
+                            </span>
+
+                            <button class="qty-plus" type="button">
+                                +
+                            </button>
+
+                        </div>
+
+                        <strong>
+                            ₱90.00
+                        </strong>
+
+                        <button class="remove" type="button">
+                            ×
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOTAL -->
+
+                <div class="cart-total">
+
+                    <div>
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="subtotal">
+                            ₱575.00
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Delivery Fee
+                        </span>
+
+                        <strong>
+                            ₱40.00
+                        </strong>
+
+                    </div>
+
+                    <hr>
+
+
+                    <div class="grand-total">
+
+                        <strong>
+                            Total
+                        </strong>
+
+                        <strong id="grandTotal">
+                            ₱615.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHECKOUT -->
+
+                <button class="checkout-button" type="button">
+
+                    Proceed to Checkout
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+                <!-- ADDRESS -->
+
+                <button class="address-button" type="button">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Add Delivery Address
+
+                </button>
+
+            </div>
+
+            <!-- =====================================================
+     CHECKOUT MODAL
+===================================================== -->
+
+            <div class="checkout-modal" id="checkoutModal">
+
+                <div class="checkout-modal-overlay"></div>
+
+                <div class="checkout-modal-box">
+
+                    <!-- HEADER -->
+                    <div class="checkout-modal-header">
+
+                        <div>
+                            <h2>Checkout</h2>
+                            <p>Review your order before placing it.</p>
+                        </div>
+
+                        <button type="button" class="checkout-close" id="checkoutClose">
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <!-- BODY -->
+                    <div class="checkout-modal-body">
+
+                        <!-- ORDER SUMMARY -->
+                        <div class="checkout-section">
+
+                            <h3>
+                                <i class="fa-solid fa-receipt"></i>
+                                Your Order
+                            </h3>
+
+                            <div id="checkoutItems"></div>
+
+                        </div>
+
+
+                        <!-- DELIVERY ADDRESS -->
+                        <div class="checkout-section">
+
+                            <h3>
+                                <i class="fa-solid fa-user"></i>
+                                Contact Information
+                            </h3>
+
+                            <div class="checkout-input-group">
+                                <label for="checkoutCustomerName">Full Name</label>
+                                <input id="checkoutCustomerName" type="text" autocomplete="name" required>
+                            </div>
+
+                            <div class="checkout-input-group">
+                                <label for="checkoutCustomerEmail">Email</label>
+                                <input id="checkoutCustomerEmail" type="email" autocomplete="email" required>
+                            </div>
+
+                            <div class="checkout-input-group">
+                                <label for="checkoutCustomerPhone">Phone Number</label>
+                                <input id="checkoutCustomerPhone" type="tel" autocomplete="tel" required>
+                            </div>
+
+                        </div>
+
+                        <!-- DELIVERY ADDRESS -->
+                        <div class="checkout-section">
+
+                            <h3>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Delivery Address
+                            </h3>
+
+                            <div class="checkout-input-group">
+
+                                <label for="checkoutAddress">
+                                    Delivery Address
+                                </label>
+
+                                <textarea id="checkoutAddress" placeholder="Enter your complete delivery address..."
+                                    rows="3"></textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PAYMENT METHOD -->
+                        <div class="checkout-section">
+
+                            <h3>
+                                <i class="fa-solid fa-wallet"></i>
+                                Payment Method
+                            </h3>
+
+                            <div class="payment-options">
+
+                                <label class="payment-option">
+
+                                    <input type="radio" name="paymentMethod" value="Cash on Delivery" checked>
+
+                                    <span>
+                                        <i class="fa-solid fa-money-bill-wave"></i>
+                                    </span>
+
+                                    <div>
+                                        <strong>Cash on Delivery</strong>
+                                        <small>Pay when your order arrives.</small>
+                                    </div>
+
+                                </label>
+
+
+                                <label class="payment-option">
+
+                                    <input type="radio" name="paymentMethod" value="GCash">
+
+                                    <span>
+                                        <i class="fa-solid fa-mobile-screen-button"></i>
+                                    </span>
+
+                                    <div>
+                                        <strong>GCash</strong>
+                                        <small>Pay using your GCash account.</small>
+                                    </div>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ORDER TOTAL -->
+                        <div class="checkout-summary">
+
+                            <div>
+                                <span>Subtotal</span>
+                                <strong id="checkoutSubtotal">
+                                    ₱0.00
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Delivery Fee</span>
+                                <strong id="checkoutDelivery">
+                                    ₱0.00
+                                </strong>
+                            </div>
+
+                            <hr>
+
+                            <div class="checkout-grand-total">
+                                <strong>Total</strong>
+
+                                <strong id="checkoutTotal">
+                                    ₱0.00
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FOOTER -->
+                    <div class="checkout-modal-footer">
+
+                        <button type="button" class="checkout-cancel" id="checkoutCancel">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="place-order-button" id="placeOrderButton">
+                            Place Order
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- =================================================
+                 PAYMENT
+            ================================================== -->
+
+            <div class="side-card">
+
+                <div class="payment-title">
+
+                    <h2>
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        Secure & Convenient Payments
+
+                    </h2>
+
+                </div>
+
+                <small class="accept-text">
+                    We accept
+                </small>
+
+                <div class="payment-methods">
+
+                    <b>
+                        VISA
+                    </b>
+
+                    <b>
+                        ●●
+                    </b>
+
+                    <b>
+                        GCash
+                    </b>
+
+                    <b>
+                        GrabPay
+                    </b>
+
+                    <b>
+                        <i class="fa-solid fa-money-bill"></i>
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FREE DELIVERY
+            ================================================== -->
+
+            <div class="delivery-notice">
+
+                <span>
+                    🚚
+                </span>
+
+                <div>
+
+                    <strong>
+                        Free delivery on orders over ₱800!
+                    </strong>
+
+                    <small id="deliveryMessage">
+                        Add ₱185.00 more to avail.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div class="toast" id="toast">
+
+        Added to cart!
+
+    </div>
+
+
+    <!-- VANILLA JAVASCRIPT -->
+
+    <script src="header.js"></script>
+
+
+    <script>
+        /* =========================================================
+           JOLIE'S PIZZA - MENU JAVASCRIPT
+           Vanilla JavaScript only
+           ========================================================= */
+
+        document.addEventListener("DOMContentLoaded", async () => {
+
+            // Keep the fixed dialog outside the sticky, scrollable cart panel.
+            document.body.appendChild(
+                document.getElementById("checkoutModal")
+            );
+
+            /* =====================================================
+               STATE
+            ===================================================== */
+
+            const CART_STORAGE_KEY = "joliesPizzaCart";
+            let cart = [];
+            let currentCategory = "all";
+            let searchTerm = "";
+            let sortMode = "popular";
+            let activeDietFilters = [];
+            const VISIBLE_ITEMS = 4;
+            const API_BASE_URL =
+                ["3000", "5500"].includes(window.location.port)
+                    ? "http://localhost:5000"
+                    : "";
+
+
+            /* =====================================================
+               HELPERS
+            ===================================================== */
+
+            const money = (value) =>
+                Number(value || 0).toLocaleString("en-PH", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+
+            const getProductName = (card) =>
+                card.dataset.name ||
+                card.querySelector(".product-content h3")?.textContent.trim() ||
+                "Product";
+
+            const getProductPrice = (card) =>
+                parseFloat(card.dataset.price || "0") || 0;
+
+            const getProductImage = (card) =>
+                card.querySelector(".food-img")?.getAttribute("src") || "";
+
+            const getCartKey = (item) =>
+                item.cartKey || `${item.name}__${item.size || "Regular"}`;
+
+            const getItemDetail = (item) =>
+                item.detail || item.size || "Regular";
+
+            function readSavedCart() {
+                try {
+                    const savedCart = JSON.parse(
+                        localStorage.getItem(CART_STORAGE_KEY) || "[]"
+                    );
+                    return Array.isArray(savedCart)
+                        ? savedCart.filter(item =>
+                            item &&
+                            Number.isSafeInteger(Number(item.productId)) &&
+                            Number(item.productId) > 0 &&
+                            Number.isSafeInteger(Number(item.quantity)) &&
+                            Number(item.quantity) > 0
+                        )
+                        : [];
+                } catch (error) {
+                    console.warn("Could not read the saved shopping cart:", error);
+                    return [];
+                }
+            }
+
+            function showToast(message) {
+                const toast = document.getElementById("toast");
+                if (!toast) return;
+
+                toast.textContent = message;
+                toast.classList.add("show");
+
+                clearTimeout(window.__jolieToastTimer);
+
+                window.__jolieToastTimer = setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 1800);
+            }
+
+            function showMenuStatus(message, isError = false) {
+                let status = document.getElementById("menuLoadStatus");
+
+                if (!status) {
+                    status = document.createElement("p");
+                    status.id = "menuLoadStatus";
+                    status.setAttribute("role", isError ? "alert" : "status");
+                    status.style.padding = "16px";
+                    status.style.textAlign = "center";
+                    status.style.color = isError ? "#b42318" : "#555";
+
+                    const content = document.querySelector(".content");
+                    const firstSection = content?.querySelector(".menu-section");
+
+                    if (content && firstSection) {
+                        content.insertBefore(status, firstSection);
+                    } else if (content) {
+                        content.appendChild(status);
+                    }
+                }
+
+                status.textContent = message;
+                status.setAttribute("role", isError ? "alert" : "status");
+            }
+
+            function createMenuCard(product) {
+                const price = Number(product.price);
+                const card = document.createElement("article");
+                card.className = "product-card";
+                card.dataset.productId = String(product.id);
+                card.dataset.category = product.category;
+                card.dataset.name = product.name;
+                card.dataset.price = String(price);
+                card.dataset.tags = product.tags || "";
+
+                const imageContainer = document.createElement("div");
+                imageContainer.className = "food-image";
+
+                if (product.image_url) {
+                    const image = document.createElement("img");
+                    image.src = product.image_url;
+                    image.alt = product.name;
+                    image.className = "food-img";
+                    imageContainer.appendChild(image);
+                }
+
+                const favorite = document.createElement("button");
+                favorite.type = "button";
+                favorite.className = "favorite";
+                favorite.setAttribute("aria-label", `Add ${product.name} to favorites`);
+                favorite.textContent = "♡";
+                imageContainer.appendChild(favorite);
+
+                const content = document.createElement("div");
+                content.className = "product-content";
+
+                const title = document.createElement("h3");
+                title.textContent = product.name;
+                content.appendChild(title);
+
+                const description = document.createElement("p");
+                description.textContent = product.description || "";
+                content.appendChild(description);
+
+                const priceLabel = document.createElement("strong");
+                priceLabel.textContent = `₱${money(price)}`;
+                content.appendChild(priceLabel);
+
+                const addButton = document.createElement("button");
+                addButton.type = "button";
+                addButton.className = "add-cart";
+                addButton.dataset.name = product.name;
+                addButton.dataset.price = String(price);
+                addButton.dataset.image = product.image_url || "";
+                addButton.innerHTML =
+                    '<i class="fa-solid fa-cart-shopping"></i> Add to Cart';
+                content.appendChild(addButton);
+
+                card.append(imageContainer, content);
+                return card;
+            }
+
+            function ensureMenuSection(category) {
+                let section = document.querySelector(
+                    `.menu-section[data-section="${CSS.escape(category.slug)}"]`
+                );
+
+                if (section) return section;
+
+                section = document.createElement("section");
+                section.className = "menu-section";
+                section.dataset.section = category.slug;
+
+                const header = document.createElement("div");
+                header.className = "section-header";
+
+                const title = document.createElement("h2");
+                title.textContent = category.name.toUpperCase();
+
+                const viewAll = document.createElement("a");
+                viewAll.href = "menus.html";
+                viewAll.textContent = "View All";
+                header.append(title, viewAll);
+
+                const grid = document.createElement("div");
+                grid.className = "product-grid";
+                section.append(header, grid);
+                document.querySelector(".content")?.appendChild(section);
+                return section;
+            }
+
+            function syncCategoryButtons(categories) {
+                const list = document.querySelector(".category-list");
+                if (!list) return;
+
+                const categorySlugs = new Set(
+                    categories.map(category => category.slug)
+                );
+
+                list.querySelectorAll(".sidebar-category").forEach(button => {
+                    if (
+                        button.dataset.category !== "all" &&
+                        !categorySlugs.has(button.dataset.category)
+                    ) {
+                        button.remove();
+                    }
+                });
+
+                categories.forEach(category => {
+                    const existing = Array.from(
+                        list.querySelectorAll(".sidebar-category")
+                    ).some(button => button.dataset.category === category.slug);
+
+                    if (existing) return;
+
+                    const button = document.createElement("button");
+                    button.type = "button";
+                    button.className = "sidebar-category";
+                    button.dataset.category = category.slug;
+
+                    const label = document.createElement("span");
+                    label.textContent = category.name;
+                    button.appendChild(label);
+                    list.appendChild(button);
+                });
+            }
+
+            async function loadMenuFromDatabase() {
+                document.querySelectorAll(".product-grid").forEach(grid => {
+                    grid.replaceChildren();
+                });
+
+                const [categoriesResponse, productsResponse] = await Promise.all([
+                    fetch(`${API_BASE_URL}/api/categories`),
+                    fetch(`${API_BASE_URL}/api/products`)
+                ]);
+
+                const categoriesData = await categoriesResponse.json();
+                const productsData = await productsResponse.json();
+
+                if (!categoriesResponse.ok || !categoriesData.success) {
+                    throw new Error(
+                        categoriesData.message || "Could not load menu categories."
+                    );
+                }
+
+                if (!productsResponse.ok || !productsData.success) {
+                    throw new Error(
+                        productsData.message || "Could not load menu products."
+                    );
+                }
+
+                if (
+                    !Array.isArray(categoriesData.categories) ||
+                    !Array.isArray(productsData.products)
+                ) {
+                    throw new Error("The menu API returned invalid data.");
+                }
+
+                const categoriesBySlug = new Map(
+                    categoriesData.categories.map(category => [
+                        category.slug,
+                        category
+                    ])
+                );
+
+                categoriesData.categories.forEach(category => {
+                    ensureMenuSection(category);
+                });
+                syncCategoryButtons(categoriesData.categories);
+
+                productsData.products.forEach(product => {
+                    const category = categoriesBySlug.get(product.category);
+
+                    if (
+                        !category ||
+                        !Number.isSafeInteger(Number(product.id)) ||
+                        !product.name ||
+                        !Number.isFinite(Number(product.price))
+                    ) {
+                        throw new Error("The menu API returned an invalid product.");
+                    }
+
+                    ensureMenuSection(category)
+                        .querySelector(".product-grid")
+                        .appendChild(createMenuCard(product));
+                });
+
+                const status = document.getElementById("menuLoadStatus");
+                if (status) status.remove();
+
+                if (productsData.products.length === 0) {
+                    showMenuStatus("There are no menu items available right now.");
+                }
+            }
+
+
+            /* =====================================================
+               MENU VARIANTS
+            ===================================================== */
+
+            function parseMenuVariants(card) {
+
+                const variants = [];
+
+                /*
+                 * IMPORTANT:
+                 * Your actual HTML uses .product-content p,
+                 * not .food-description.
+                 */
+                const descriptionElement =
+                    card.querySelector(".food-description") ||
+                    card.querySelector(".product-content p");
+
+                const priceElement =
+                    card.querySelector(".product-content > strong");
+
+                const descriptionText =
+                    descriptionElement?.textContent
+                        .replace(/\s+/g, " ")
+                        .trim() || "";
+
+                const priceText =
+                    priceElement?.textContent
+                        .replace(/\s+/g, " ")
+                        .trim() || "";
+
+                const combinedText =
+                    `${descriptionText} ${priceText}`;
+
+
+                /*
+                 * Only create choices when an actual size price
+                 * exists in the HTML.
+                 */
+                const variantRegex =
+                    /(Solo Flavored|Barkada Flavored|Solo|Medium|Large|Platter|Barkada|Glass|Pitcher|Regular|12"\s*DT|12"\s*ST|18"\s*ST|18"\s*DT|12"|18"|1\.5\s*Liter)\s*₱\s*([\d,]+(?:\.\d{1,2})?)/gi;
+
+                let match;
+
+                while ((match = variantRegex.exec(combinedText)) !== null) {
+
+                    const size = match[1].trim();
+
+                    const price =
+                        parseFloat(
+                            match[2].replace(/,/g, "")
+                        );
+
+                    if (
+                        price > 0 &&
+                        !variants.some(
+                            v =>
+                                v.size.toLowerCase() ===
+                                size.toLowerCase()
+                        )
+                    ) {
+                        variants.push({
+                            size,
+                            price,
+                            productId: Number(card.dataset.productId)
+                        });
+                    }
+                }
+
+
+                /*
+                 * No explicit variant:
+                 * use the existing data-price as Regular.
+                 */
+                if (variants.length === 0) {
+
+                    variants.push({
+                        size: "Regular",
+                        price: getProductPrice(card)
+                    });
+                }
+
+                return variants;
+            }
+
+
+            /* =====================================================
+               LETTUCE SALAD
+               Merge Solo / Medium / Large cards.
+            ===================================================== */
+
+            function mergeLettuceSaladCards() {
+
+                const saladCards = Array.from(
+                    document.querySelectorAll(
+                        '.product-card[data-name^="Lettuce Salad -"]'
+                    )
+                );
+
+                if (saladCards.length <= 1) return;
+
+                let mainCard =
+                    saladCards.find(card =>
+                        (card.dataset.name || "")
+                            .toLowerCase()
+                            .includes("- solo")
+                    ) || saladCards[0];
+
+                const variants = [];
+
+                saladCards.forEach(card => {
+
+                    const name =
+                        (card.dataset.name || "").toLowerCase();
+
+                    let size = "";
+
+                    if (name.includes("- solo")) {
+                        size = "Solo";
+                    }
+                    else if (name.includes("- medium")) {
+                        size = "Medium";
+                    }
+                    else if (name.includes("- large")) {
+                        size = "Large";
+                    }
+
+                    const price =
+                        parseFloat(card.dataset.price || "0");
+
+                    if (size && price > 0) {
+                        variants.push({
+                            size,
+                            price,
+                            productId: Number(card.dataset.productId)
+                        });
+                    }
+                });
+
+                mainCard.dataset.name = "Lettuce Salad";
+                mainCard._menuVariants = variants;
+
+                const title =
+                    mainCard.querySelector(
+                        ".product-content h3"
+                    );
+
+                if (title) {
+                    title.textContent = "Lettuce Salad";
+                }
+
+                saladCards.forEach(card => {
+                    if (card !== mainCard) {
+                        card.remove();
+                    }
+                });
+            }
+
+
+            /* =====================================================
+               INITIALIZE SIZE CHOICES
+            ===================================================== */
+
+            function initializeMenuVariants() {
+
+                document
+                    .querySelectorAll(".product-card")
+                    .forEach(card => {
+
+                        const variants =
+                            card._menuVariants ||
+                            parseMenuVariants(card);
+
+                        card._menuVariants = variants;
+
+                        const content =
+                            card.querySelector(".product-content");
+
+                        if (!content) return;
+
+                        /*
+                         * Remove generated controls if this
+                         * function is called again.
+                         */
+                        content
+                            .querySelectorAll(
+                                ".size-options, .selected-size"
+                            )
+                            .forEach(element => element.remove());
+
+
+                        const priceElement =
+                            content.querySelector(
+                                ":scope > strong"
+                            );
+
+                        const addButton =
+                            content.querySelector(
+                                ".add-cart, .add-to-cart"
+                            );
+
+                        if (!addButton) return;
+
+
+                        /*
+                         * ONE PRICE ONLY
+                         */
+                        if (
+                            variants.length === 1 &&
+                            variants[0].size === "Regular"
+                        ) {
+
+                            card.dataset.selectedSize =
+                                "Regular";
+
+                            card.dataset.selectedProductId =
+                                card.dataset.productId || "";
+
+                            card.dataset.price =
+                                variants[0].price;
+
+                            addButton.dataset.price =
+                                variants[0].price;
+
+                            addButton.dataset.size =
+                                "Regular";
+
+                            return;
+                        }
+
+
+                        /*
+                         * Multiple variants:
+                         * hide original "From ₱..." price because
+                         * the selected-size element will show it.
+                         */
+                        if (priceElement) {
+                            priceElement.style.display = "none";
+                        }
+
+
+                        const selectedDisplay =
+                            document.createElement("div");
+
+                        selectedDisplay.className =
+                            "selected-size";
+
+
+                        const sizeContainer =
+                            document.createElement("div");
+
+                        sizeContainer.className =
+                            "size-options";
+
+
+                        let selected =
+                            variants[0];
+
+
+                        function updateSelected() {
+
+                            card.dataset.selectedSize =
+                                selected.size;
+
+                            card.dataset.selectedProductId =
+                                selected.productId || card.dataset.productId || "";
+
+                            card.dataset.price =
+                                selected.price;
+
+                            addButton.dataset.size =
+                                selected.size;
+
+                            addButton.dataset.price =
+                                selected.price;
+
+                            selectedDisplay.innerHTML =
+                                `${selected.size} <strong>₱${money(selected.price)}</strong>`;
+                        }
+
+
+                        variants.forEach(
+                            (variant, index) => {
+
+                                const option =
+                                    document.createElement("button");
+
+                                option.type = "button";
+                                option.className = "size-option";
+
+                                option.textContent =
+                                    `${variant.size} ₱${money(variant.price)}`;
+
+                                option.dataset.size =
+                                    variant.size;
+
+                                option.dataset.price =
+                                    variant.price;
+
+                                if (index === 0) {
+                                    option.classList.add("active");
+                                }
+
+
+                                option.addEventListener(
+                                    "click",
+                                    event => {
+
+                                        event.preventDefault();
+                                        event.stopPropagation();
+
+                                        sizeContainer
+                                            .querySelectorAll(
+                                                ".size-option"
+                                            )
+                                            .forEach(
+                                                button =>
+                                                    button.classList.remove(
+                                                        "active"
+                                                    )
+                                            );
+
+                                        option.classList.add(
+                                            "active"
+                                        );
+
+                                        selected = {
+                                            size:
+                                                variant.size,
+
+                                            price:
+                                                variant.price
+                                        };
+
+                                        updateSelected();
+                                    }
+                                );
+
+                                sizeContainer.appendChild(
+                                    option
+                                );
+                            }
+                        );
+
+
+                        updateSelected();
+
+
+                        /*
+                         * Put choices immediately before Add to Cart.
+                         */
+                        addButton.parentNode.insertBefore(
+                            selectedDisplay,
+                            addButton
+                        );
+
+                        addButton.parentNode.insertBefore(
+                            sizeContainer,
+                            addButton
+                        );
+                    });
+            }
+
+
+            /* =====================================================
+               ADD TO CART
+            ===================================================== */
+
+            function addToCart(button) {
+
+                const card =
+                    button.closest(".product-card");
+
+                if (!card) return;
+
+
+                const name =
+                    getProductName(card);
+
+                const size =
+                    card.dataset.selectedSize ||
+                    button.dataset.size ||
+                    "Regular";
+
+                const price =
+                    parseFloat(
+                        button.dataset.price ||
+                        card.dataset.price ||
+                        "0"
+                    ) || 0;
+
+                const image =
+                    getProductImage(card);
+
+                const productId =
+                    Number(
+                        card.dataset.selectedProductId ||
+                        card.dataset.productId
+                    );
+
+                const cartKey =
+                    `${name}__${size}`;
+
+
+                const existing =
+                    cart.find(
+                        item =>
+                            getCartKey(item) === cartKey
+                    );
+
+
+                if (existing) {
+                    existing.quantity += 1;
+                }
+                else {
+                    cart.push({
+                        cartKey,
+                        name,
+                        productId,
+                        price,
+                        quantity: 1,
+                        image,
+                        size,
+                        detail: size
+                    });
+                }
+
+
+                renderCart();
+
+                showToast(
+                    `${name} (${size}) added to cart`
+                );
+            }
+
+
+            function initializeAddToCart() {
+
+                document
+                    .querySelectorAll(
+                        ".add-cart, .add-to-cart"
+                    )
+                    .forEach(button => {
+
+                        if (
+                            button.dataset.cartReady ===
+                            "true"
+                        ) {
+                            return;
+                        }
+
+                        button.dataset.cartReady =
+                            "true";
+
+                        button.addEventListener(
+                            "click",
+                            event => {
+
+                                event.preventDefault();
+                                event.stopPropagation();
+
+                                addToCart(button);
+                            }
+                        );
+                    });
+            }
+
+
+            /* =====================================================
+               CART
+            ===================================================== */
+
+            function renderCart() {
+                try {
+                    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+                } catch (error) {
+                    console.warn("Could not save the shopping cart:", error);
+                }
+
+                const cartItems =
+                    document.getElementById("cartItems");
+
+                if (!cartItems) return;
+
+
+                cartItems.innerHTML = "";
+
+
+                if (cart.length === 0) {
+
+                    cartItems.innerHTML = `
+                <div class="empty-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p>Your cart is empty.</p>
+                </div>
+            `;
+
+                    updateTotals();
+                    return;
+                }
+
+
+                cart.forEach(
+                    (item, index) => {
+
+                        const itemTotal =
+                            item.price *
+                            item.quantity;
+
+                        const cartItem =
+                            document.createElement("div");
+
+                        cartItem.className =
+                            "cart-item";
+
+                        cartItem.dataset.index =
+                            index;
+
+
+                        cartItem.innerHTML = `
+                    <div class="cart-image">
+                        ${item.image
+                                ? `<img src="${item.image}" alt="${escapeHtml(item.name)}" class="cart-food-img">`
+                                : `<i class="fa-solid fa-utensils"></i>`
+                            }
+                    </div>
+
+                    <div class="cart-info">
+                        <b>${escapeHtml(item.name)}</b>
+                        <small class="size-detail">
+                            ${escapeHtml(getItemDetail(item))}
+                        </small>
+                    </div>
+
+                    <div class="quantity">
+                        <button
+                            class="qty-minus"
+                            type="button"
+                            aria-label="Decrease quantity"
+                        >−</button>
+
+                        <span>${item.quantity}</span>
+
+                        <button
+                            class="qty-plus"
+                            type="button"
+                            aria-label="Increase quantity"
+                        >+</button>
+                    </div>
+
+                    <strong>
+                        ₱${money(itemTotal)}
+                    </strong>
+
+                    <button
+                        class="remove"
+                        type="button"
+                        aria-label="Remove item"
+                    >×</button>
+                `;
+
+
+                        cartItems.appendChild(
+                            cartItem
+                        );
+                    }
+                );
+
+
+                updateTotals();
+            }
+
+
+            function escapeHtml(value) {
+
+                return String(value)
+                    .replaceAll("&", "&amp;")
+                    .replaceAll("<", "&lt;")
+                    .replaceAll(">", "&gt;")
+                    .replaceAll('"', "&quot;")
+                    .replaceAll("'", "&#039;");
+            }
+
+
+            function updateTotals() {
+
+                const subtotal =
+                    cart.reduce(
+                        (sum, item) =>
+                            sum +
+                            (
+                                item.price *
+                                item.quantity
+                            ),
+                        0
+                    );
+
+
+                /*
+                 * Your page uses ₱40 delivery.
+                 * Free delivery applies at ₱800.
+                 */
+                const delivery =
+                    subtotal >= 800 || subtotal === 0
+                        ? 0
+                        : 40;
+
+                const total =
+                    subtotal + delivery;
+
+
+                const itemCount =
+                    cart.reduce(
+                        (sum, item) =>
+                            sum + item.quantity,
+                        0
+                    );
+
+
+                const subtotalElement =
+                    document.getElementById(
+                        "subtotal"
+                    );
+
+                const totalElement =
+                    document.getElementById(
+                        "grandTotal"
+                    );
+
+                const cartCountElement =
+                    document.getElementById(
+                        "cartCount"
+                    );
+
+                const badge =
+                    document.getElementById(
+                        "cartBadge"
+                    );
+
+                const headerTotal =
+                    document.getElementById(
+                        "headerTotal"
+                    );
+
+
+                if (subtotalElement) {
+                    subtotalElement.textContent =
+                        `₱${money(subtotal)}`;
+                }
+
+
+                if (totalElement) {
+                    totalElement.textContent =
+                        `₱${money(total)}`;
+                }
+
+
+                if (cartCountElement) {
+                    cartCountElement.textContent =
+                        itemCount;
+                }
+
+
+                if (badge) {
+                    badge.textContent =
+                        itemCount;
+                    badge.hidden = itemCount === 0;
+
+                    badge.style.display =
+                        itemCount > 0
+                            ? "grid"
+                            : "none";
+                }
+
+
+                if (headerTotal) {
+                    headerTotal.textContent =
+                        `₱${money(total)}`;
+                    headerTotal.hidden = itemCount === 0;
+                }
+
+
+                const deliveryMessage =
+                    document.getElementById(
+                        "deliveryMessage"
+                    );
+
+
+                if (deliveryMessage) {
+
+                    if (subtotal >= 800) {
+
+                        deliveryMessage.textContent =
+                            "You qualify for free delivery!";
+
+                    }
+                    else if (subtotal === 0) {
+
+                        deliveryMessage.textContent =
+                            "Add items to your cart.";
+
+                    }
+                    else {
+
+                        deliveryMessage.textContent =
+                            `Add ₱${money(800 - subtotal)} more to avail.`;
+                    }
+                }
+
+
+                const deliveryStrong =
+                    document.querySelector(
+                        ".cart-total > div:nth-of-type(2) strong"
+                    );
+
+                if (deliveryStrong) {
+
+                    deliveryStrong.textContent =
+                        `₱${money(delivery)}`;
+                }
+            }
+
+
+            /* =====================================================
+               CART EVENTS
+            ===================================================== */
+
+            function initializeCartEvents() {
+
+                const cartItems =
+                    document.getElementById(
+                        "cartItems"
+                    );
+
+
+                if (cartItems) {
+
+                    cartItems.addEventListener(
+                        "click",
+                        event => {
+
+                            const cartItem =
+                                event.target.closest(
+                                    ".cart-item"
+                                );
+
+                            if (!cartItem) return;
+
+
+                            const index =
+                                Number(
+                                    cartItem.dataset.index
+                                );
+
+                            if (
+                                Number.isNaN(index) ||
+                                !cart[index]
+                            ) {
+                                return;
+                            }
+
+
+                            if (
+                                event.target.closest(
+                                    ".qty-plus"
+                                )
+                            ) {
+
+                                cart[index].quantity += 1;
+
+                                renderCart();
+                                return;
+                            }
+
+
+                            if (
+                                event.target.closest(
+                                    ".qty-minus"
+                                )
+                            ) {
+
+                                cart[index].quantity -= 1;
+
+                                if (
+                                    cart[index].quantity <= 0
+                                ) {
+                                    cart.splice(index, 1);
+                                }
+
+                                renderCart();
+                                return;
+                            }
+
+
+                            if (
+                                event.target.closest(
+                                    ".remove"
+                                )
+                            ) {
+
+                                const removed =
+                                    cart[index].name;
+
+                                cart.splice(index, 1);
+
+                                renderCart();
+
+                                showToast(
+                                    `${removed} removed from cart`
+                                );
+                            }
+                        }
+                    );
+                }
+
+
+                const clearButton =
+                    document.getElementById(
+                        "clearCart"
+                    );
+
+
+                if (clearButton) {
+
+                    clearButton.addEventListener(
+                        "click",
+                        () => {
+
+                            if (cart.length === 0) {
+                                showToast(
+                                    "Your cart is already empty."
+                                );
+                                return;
+                            }
+
+                            cart = [];
+
+                            renderCart();
+
+                            showToast(
+                                "Cart cleared."
+                            );
+                        }
+                    );
+                }
+
+
+                const cartHeader =
+                    document.querySelector(
+                        ".cart-header"
+                    );
+
+
+                if (cartHeader) {
+
+                    cartHeader.addEventListener(
+                        "click",
+                        () => {
+
+                            document
+                                .querySelector(
+                                    ".right-panel"
+                                )
+                                ?.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "start"
+                                });
+                        }
+                    );
+                }
+
+
+                const address =
+                    document.querySelector(
+                        ".address-button"
+                    );
+
+
+                if (address) {
+
+                    address.addEventListener(
+                        "click",
+                        () => {
+
+                            showToast(
+                                "Delivery address option selected."
+                            );
+                        }
+                    );
+                }
+            }
+
+
+            /* =====================================================
+               VIEW ALL / SHOW LESS
+            ===================================================== */
+
+            function initializeViewAll() {
+
+                document
+                    .querySelectorAll(
+                        ".menu-section"
+                    )
+                    .forEach(section => {
+
+                        const grid =
+                            section.querySelector(
+                                ".product-grid"
+                            );
+
+                        const link =
+                            section.querySelector(
+                                ".section-header a"
+                            );
+
+                        if (!grid || !link) {
+                            return;
+                        }
+
+
+                        /*
+                         * Prevent navigation.
+                         */
+                        link.href = "#";
+                        link.dataset.viewAllReady =
+                            "true";
+
+
+                        /*
+                         * Create a state on the section.
+                         */
+                        section.dataset.expanded =
+                            "false";
+
+
+                        link.addEventListener(
+                            "click",
+                            event => {
+
+                                event.preventDefault();
+                                event.stopPropagation();
+
+                                const cards =
+                                    Array.from(
+                                        grid.querySelectorAll(
+                                            ".product-card"
+                                        )
+                                    );
+
+
+                                const currentlyExpanded =
+                                    section.dataset.expanded ===
+                                    "true";
+
+
+                                section.dataset.expanded =
+                                    currentlyExpanded
+                                        ? "false"
+                                        : "true";
+
+
+                                updateSectionDisplay(
+                                    section
+                                );
+
+
+                                /*
+                                 * When collapsing, return
+                                 * to the section heading.
+                                 */
+                                if (currentlyExpanded) {
+
+                                    section
+                                        .querySelector(
+                                            ".section-header"
+                                        )
+                                        ?.scrollIntoView({
+                                            behavior: "smooth",
+                                            block: "start"
+                                        });
+                                }
+                            }
+                        );
+
+
+                        updateSectionDisplay(
+                            section
+                        );
+                    });
+            }
+
+
+            function updateSectionDisplay(section) {
+
+                const grid =
+                    section.querySelector(
+                        ".product-grid"
+                    );
+
+                const link =
+                    section.querySelector(
+                        ".section-header a"
+                    );
+
+                if (!grid || !link) return;
+
+
+                const cards =
+                    Array.from(
+                        grid.querySelectorAll(
+                            ".product-card"
+                        )
+                    );
+
+
+                const expanded =
+                    section.dataset.expanded ===
+                    "true";
+
+
+                /*
+                 * Only count cards that are not hidden
+                 * by search/category/diet filtering.
+                 */
+                const matchingCards =
+                    cards.filter(
+                        card =>
+                            !card.classList.contains(
+                                "filter-hidden"
+                            )
+                    );
+
+
+                /*
+                 * No View All if there are
+                 * four or fewer matching products.
+                 */
+                if (
+                    matchingCards.length <=
+                    VISIBLE_ITEMS
+                ) {
+
+                    link.style.display =
+                        "none";
+
+                    cards.forEach(card =>
+                        card.classList.remove(
+                            "view-all-hidden"
+                        )
+                    );
+
+                    return;
+                }
+
+
+                link.style.display =
+                    "inline-flex";
+
+
+                matchingCards.forEach(
+                    (card, index) => {
+
+                        if (
+                            expanded ||
+                            index < VISIBLE_ITEMS
+                        ) {
+
+                            card.classList.remove(
+                                "view-all-hidden"
+                            );
+
+                        }
+                        else {
+
+                            card.classList.add(
+                                "view-all-hidden"
+                            );
+                        }
+                    }
+                );
+
+
+                link.innerHTML =
+                    expanded
+                        ? `Show Less <i class="fa-solid fa-chevron-up"></i>`
+                        : `View All <i class="fa-solid fa-chevron-right"></i>`;
+            }
+
+
+            /* =====================================================
+               FILTERING
+            ===================================================== */
+
+            function cardMatchesFilters(card) {
+
+                const name =
+                    getProductName(card)
+                        .toLowerCase();
+
+                const description =
+                    card.querySelector(
+                        ".product-content p"
+                    )?.textContent
+                        .toLowerCase() || "";
+
+                const tags =
+                    (
+                        card.dataset.tags ||
+                        ""
+                    )
+                        .toLowerCase()
+                        .split(/\s+/)
+                        .filter(Boolean);
+
+
+                const searchableText =
+                    `${name} ${description} ${tags.join(" ")}`
+                        .toLowerCase();
+
+
+                /*
+                 * Search.
+                 */
+                if (
+                    searchTerm &&
+                    !searchableText.includes(
+                        searchTerm
+                    )
+                ) {
+                    return false;
+                }
+
+
+                /*
+                 * Dietary filters.
+                 * All selected filters must match.
+                 */
+                if (
+                    activeDietFilters.length > 0
+                ) {
+
+                    const matchesDiet =
+                        activeDietFilters.every(
+                            filter =>
+                                tags.includes(filter)
+                        );
+
+                    if (!matchesDiet) {
+                        return false;
+                    }
+                }
+
+
+                return true;
+            }
+
+
+            function applyFilters() {
+
+                document
+                    .querySelectorAll(
+                        ".product-card"
+                    )
+                    .forEach(card => {
+
+                        const matches =
+                            cardMatchesFilters(
+                                card
+                            );
+
+                        card.classList.toggle(
+                            "filter-hidden",
+                            !matches
+                        );
+                    });
+
+
+                document
+                    .querySelectorAll(
+                        ".menu-section"
+                    )
+                    .forEach(section => {
+
+                        const cards =
+                            Array.from(
+                                section.querySelectorAll(
+                                    ".product-card"
+                                )
+                            );
+
+                        const matching =
+                            cards.filter(
+                                card =>
+                                    !card.classList.contains(
+                                        "filter-hidden"
+                                    )
+                            );
+
+
+                        const categoryMatches =
+                            currentCategory === "all" ||
+                            section.dataset.section === currentCategory;
+
+                        section.classList.toggle(
+                            "hidden",
+                            !categoryMatches || matching.length === 0
+                        );
+
+
+                        updateSectionDisplay(
+                            section
+                        );
+                    });
+            }
+
+
+            /* =====================================================
+               CATEGORY BUTTONS
+            ===================================================== */
+
+            function initializeCategories() {
+
+                document
+                    .querySelectorAll(
+                        ".sidebar-category"
+                    )
+                    .forEach(button => {
+
+                        button.addEventListener(
+                            "click",
+                            () => {
+
+                                document
+                                    .querySelectorAll(
+                                        ".sidebar-category"
+                                    )
+                                    .forEach(
+                                        item =>
+                                            item.classList.remove(
+                                                "active"
+                                            )
+                                    );
+
+                                button.classList.add(
+                                    "active"
+                                );
+
+
+                                currentCategory =
+                                    button.dataset.category ||
+                                    "all";
+
+
+                                /*
+                                 * Reset View All state whenever the
+                                 * sidebar category changes.
+                                 *
+                                 * This prevents a category that was previously
+                                 * expanded from staying expanded after the
+                                 * user selects another category.
+                                 */
+                                document
+                                    .querySelectorAll(".menu-section")
+                                    .forEach(section => {
+                                        section.dataset.expanded = "false";
+                                    });
+
+
+                                /*
+                                 * Apply the sidebar category + search +
+                                 * dietary filters.
+                                 *
+                                 * When a category is selected, every other
+                                 * menu section is hidden.
+                                 *
+                                 * When "All Items" is selected, all sections
+                                 * return, but only the first 4 products of
+                                 * each section are shown.
+                                 */
+                                applyFilters();
+
+
+                                /*
+                                 * For a selected category,
+                                 * show that category at the top.
+                                 */
+                                if (
+                                    currentCategory !==
+                                    "all"
+                                ) {
+
+                                    const target =
+                                        document.querySelector(
+                                            `.menu-section[data-section="${currentCategory}"]`
+                                        );
+
+                                    target?.scrollIntoView({
+                                        behavior: "smooth",
+                                        block: "start"
+                                    });
+                                }
+                            }
+                        );
+                    });
+            }
+
+
+            /* =====================================================
+               SEARCH
+            ===================================================== */
+
+            function initializeSearch() {
+
+                const search =
+                    document.getElementById(
+                        "searchInput"
+                    );
+
+                if (!search) return;
+
+
+                search.addEventListener(
+                    "input",
+                    () => {
+
+                        searchTerm =
+                            search.value
+                                .trim()
+                                .toLowerCase();
+
+                        applyFilters();
+                    }
+                );
+            }
+
+
+            /* =====================================================
+               SORTING
+            ===================================================== */
+
+            function initializeSorting() {
+
+                const select =
+                    document.getElementById(
+                        "sortSelect"
+                    );
+
+                if (!select) return;
+
+
+                select.addEventListener(
+                    "change",
+                    () => {
+
+                        sortMode =
+                            select.value;
+
+                        sortAllSections();
+                    }
+                );
+            }
+
+
+            function sortAllSections() {
+
+                document
+                    .querySelectorAll(
+                        ".product-grid"
+                    )
+                    .forEach(grid => {
+
+                        const cards =
+                            Array.from(
+                                grid.querySelectorAll(
+                                    ".product-card"
+                                )
+                            );
+
+
+                        if (
+                            sortMode === "low"
+                        ) {
+
+                            cards.sort(
+                                (a, b) =>
+                                    getProductPrice(a) -
+                                    getProductPrice(b)
+                            );
+
+                        }
+                        else if (
+                            sortMode === "high"
+                        ) {
+
+                            cards.sort(
+                                (a, b) =>
+                                    getProductPrice(b) -
+                                    getProductPrice(a)
+                            );
+
+                        }
+                        else if (
+                            sortMode === "name"
+                        ) {
+
+                            cards.sort(
+                                (a, b) =>
+                                    getProductName(a)
+                                        .localeCompare(
+                                            getProductName(b)
+                                        )
+                            );
+                        }
+
+
+                        cards.forEach(
+                            card =>
+                                grid.appendChild(card)
+                        );
+                    });
+
+
+                /*
+                 * Recalculate View All after sorting.
+                 */
+                applyFilters();
+            }
+
+
+            /* =====================================================
+               DIETARY FILTERS
+            ===================================================== */
+
+            function initializeDietaryFilters() {
+
+                document
+                    .querySelectorAll(
+                        ".diet-filter"
+                    )
+                    .forEach(input => {
+
+                        input.addEventListener(
+                            "change",
+                            () => {
+
+                                activeDietFilters =
+                                    Array.from(
+                                        document.querySelectorAll(
+                                            ".diet-filter:checked"
+                                        )
+                                    )
+                                        .map(
+                                            item =>
+                                                item.value
+                                                    .toLowerCase()
+                                        );
+
+
+                                applyFilters();
+                            }
+                        );
+                    });
+            }
+
+
+            /* =====================================================
+               FAVORITES
+            ===================================================== */
+
+            function initializeFavorites() {
+
+                document
+                    .querySelectorAll(
+                        ".favorite"
+                    )
+                    .forEach(button => {
+
+                        if (
+                            button.dataset.favoriteReady ===
+                            "true"
+                        ) {
+                            return;
+                        }
+
+                        button.dataset.favoriteReady =
+                            "true";
+
+
+                        button.addEventListener(
+                            "click",
+                            event => {
+
+                                event.preventDefault();
+                                event.stopPropagation();
+
+
+                                button.classList.toggle(
+                                    "active"
+                                );
+
+
+                                button.textContent =
+                                    button.classList.contains(
+                                        "active"
+                                    )
+                                        ? "♥"
+                                        : "♡";
+                            }
+                        );
+                    });
+            }
+
+
+            /* =====================================================
+               HEADER USER BUTTON
+            ===================================================== */
+
+            function initializeHeaderActions() {
+
+                const userButton =
+                    document.querySelector(
+                        ".user-button"
+                    );
+
+                if (userButton) {
+
+                    userButton.addEventListener(
+                        "click",
+                        () => {
+
+                            showToast(
+                                "Account menu selected."
+                            );
+                        }
+                    );
+                }
+            }
+
+
+            /* =====================================================
+               INITIAL CART
+               Ignore the sample cart markup; database orders need
+               product IDs from the API.
+            ===================================================== */
+
+            function initializeInitialCart() {
+                cart = readSavedCart();
+                renderCart();
+            }
+
+
+            /* =====================================================
+               INITIALIZE
+            ===================================================== */
+
+            try {
+                await loadMenuFromDatabase();
+            } catch (error) {
+                console.error("Menu database request failed:", error);
+                showMenuStatus(
+                    "Unable to load the menu from the database. Start the backend and check its MySQL connection.",
+                    true
+                );
+            }
+
+            mergeLettuceSaladCards();
+
+            initializeMenuVariants();
+
+            initializeInitialCart();
+
+            initializeAddToCart();
+
+            initializeCartEvents();
+
+            initializeViewAll();
+
+            initializeCategories();
+
+            initializeSearch();
+
+            initializeSorting();
+
+            initializeDietaryFilters();
+
+            initializeFavorites();
+
+            initializeHeaderActions();
+
+            /*
+             * Enable the checkout modal.
+             */
+            initializeCheckoutModal();
+
+            /*
+             * Start with every category collapsed.
+             * "All Items" therefore shows only the first 4
+             * products in each menu section.
+             */
+            document
+                .querySelectorAll(".menu-section")
+                .forEach(section => {
+                    section.dataset.expanded = "false";
+                });
+
+            applyFilters();
+
+        /* =====================================================
+           CHECKOUT MODAL
+        ===================================================== */
+
+        function getSavedCheckoutCustomer() {
+            const keys = ["loggedInUser", "currentUser", "user"];
+            let savedCustomer = null;
+
+            for (const storage of [window.localStorage, window.sessionStorage]) {
+                for (const key of keys) {
+                    const savedValue = storage.getItem(key);
+                    if (!savedValue) continue;
+
+                    try {
+                        const customer = JSON.parse(savedValue);
+                        if (customer && typeof customer === "object") {
+                            if (customer.sessionToken) {
+                                return customer;
+                            }
+                            savedCustomer ||= customer;
+                        }
+                    } catch (error) {
+                        console.warn(`Could not read customer data from "${key}".`, error);
+                    }
+                }
+            }
+
+            return savedCustomer;
+        }
+
+        function populateCheckoutCustomerFields() {
+            const customer = getSavedCheckoutCustomer();
+            if (!customer) return;
+
+            const fields = [
+                ["checkoutCustomerName", customer.fullName || customer.full_name || customer.name],
+                ["checkoutCustomerEmail", customer.email],
+                ["checkoutCustomerPhone", customer.phone]
+            ];
+
+            fields.forEach(([id, value]) => {
+                const input = document.getElementById(id);
+                if (input && value && !input.value) {
+                    input.value = value;
+                }
+            });
+        }
+
+        function openCheckoutModal() {
+
+            // Make sure cart has products
+            if (!cart || cart.length === 0) {
+
+                showToast(
+                    "Your cart is empty. Please add an item first."
+                );
+
+                return;
+            }
+
+
+            const modal =
+                document.getElementById("checkoutModal");
+
+            if (!modal) return;
+
+            populateCheckoutCustomerFields();
+            renderCheckoutItems();
+
+            modal.classList.add("show");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        /* =====================================================
+           RENDER CHECKOUT ITEMS
+        ===================================================== */
+
+        function renderCheckoutItems() {
+
+            const container =
+                document.getElementById("checkoutItems");
+
+            if (!container) return;
+
+
+            container.innerHTML = "";
+
+
+            cart.forEach(item => {
+
+                const quantity =
+                    Number(item.quantity || 1);
+
+                const price =
+                    Number(item.price || 0);
+
+                const total =
+                    price * quantity;
+
+
+                const image =
+                    item.image ||
+                    "../images/logo.png";
+
+
+                const detail =
+                    item.detail ||
+                    item.size ||
+                    "Regular";
+
+
+                const itemHTML = `
+
+            <div class="checkout-item">
+
+                <img
+                    class="checkout-item-image"
+                    src="${image}"
+                    alt="${escapeHtml(item.name)}"
+                >
+
+                <div class="checkout-item-info">
+
+                    <strong>
+                        ${escapeHtml(item.name)}
+                    </strong>
+
+                    <small>
+                        ${escapeHtml(detail)}
+                        × ${quantity}
+                    </small>
+
+                </div>
+
+                <strong class="checkout-item-price">
+                    ₱${money(total)}
+                </strong>
+
+            </div>
+
+        `;
+
+
+                container.insertAdjacentHTML(
+                    "beforeend",
+                    itemHTML
+                );
+
+            });
+
+
+            updateCheckoutTotals();
+        }
+
+
+        /* =====================================================
+           CHECKOUT TOTALS
+        ===================================================== */
+
+        function updateCheckoutTotals() {
+
+            let subtotal = 0;
+
+
+            cart.forEach(item => {
+
+                subtotal +=
+                    Number(item.price || 0) *
+                    Number(item.quantity || 1);
+
+            });
+
+
+            const deliveryFee =
+                subtotal >= 800
+                    ? 0
+                    : 40;
+
+
+            const total =
+                subtotal + deliveryFee;
+
+
+            const subtotalElement =
+                document.getElementById(
+                    "checkoutSubtotal"
+                );
+
+            const deliveryElement =
+                document.getElementById(
+                    "checkoutDelivery"
+                );
+
+            const totalElement =
+                document.getElementById(
+                    "checkoutTotal"
+                );
+
+
+            if (subtotalElement) {
+
+                subtotalElement.textContent =
+                    `₱${money(subtotal)}`;
+
+            }
+
+
+            if (deliveryElement) {
+
+                deliveryElement.textContent =
+                    `₱${money(deliveryFee)}`;
+
+            }
+
+
+            if (totalElement) {
+
+                totalElement.textContent =
+                    `₱${money(total)}`;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CLOSE CHECKOUT MODAL
+        ===================================================== */
+
+        function closeCheckoutModal() {
+
+            const modal =
+                document.getElementById("checkoutModal");
+
+            if (!modal) return;
+
+
+            modal.classList.remove("show");
+
+            document.body.style.overflow = "";
+
+        }
+
+
+        /* =====================================================
+           CHECKOUT EVENTS
+        ===================================================== */
+
+        function initializeCheckoutModal() {
+
+            const checkoutButton =
+                document.querySelector(
+                    ".checkout-button"
+                );
+
+
+            const closeButton =
+                document.getElementById(
+                    "checkoutClose"
+                );
+
+
+            const cancelButton =
+                document.getElementById(
+                    "checkoutCancel"
+                );
+
+
+            const overlay =
+                document.querySelector(
+                    ".checkout-modal-overlay"
+                );
+
+
+            const placeOrderButton =
+                document.getElementById(
+                    "placeOrderButton"
+                );
+
+
+            /* OPEN */
+
+            if (checkoutButton) {
+
+                checkoutButton.addEventListener(
+                    "click",
+                    openCheckoutModal
+                );
+
+            }
+
+
+            /* CLOSE */
+
+            if (closeButton) {
+
+                closeButton.addEventListener(
+                    "click",
+                    closeCheckoutModal
+                );
+
+            }
+
+
+            if (cancelButton) {
+
+                cancelButton.addEventListener(
+                    "click",
+                    closeCheckoutModal
+                );
+
+            }
+
+
+            if (overlay) {
+
+                overlay.addEventListener(
+                    "click",
+                    closeCheckoutModal
+                );
+
+            }
+
+
+            /* ESC KEY */
+
+            document.addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key === "Escape"
+                    ) {
+
+                        closeCheckoutModal();
+
+                    }
+
+                }
+            );
+
+
+            /* PLACE ORDER */
+
+            if (placeOrderButton) {
+
+                placeOrderButton.addEventListener(
+                    "click",
+                    placeOrder
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           PLACE ORDER
+        ===================================================== */
+
+        async function placeOrder() {
+
+            if (!cart || cart.length === 0) {
+
+                showToast(
+                    "Your cart is empty."
+                );
+
+                return;
+            }
+
+            if (cart.some(item => !Number.isSafeInteger(Number(item.productId)))) {
+                showToast("One or more cart items are not linked to the menu database.");
+                return;
+            }
+
+            const customerName =
+                document.getElementById("checkoutCustomerName")?.value.trim();
+            const customerEmail =
+                document.getElementById("checkoutCustomerEmail")?.value.trim();
+            const customerPhone =
+                document.getElementById("checkoutCustomerPhone")?.value.trim();
+
+            const address =
+                document
+                    .getElementById(
+                        "checkoutAddress"
+                    )
+                    ?.value
+                    .trim();
+
+            if (!customerName || !customerEmail || !customerPhone) {
+                showToast("Please enter your name, email, and phone number.");
+                return;
+            }
+
+            if (!address) {
+
+                showToast(
+                    "Please enter your delivery address."
+                );
+
+                document
+                    .getElementById(
+                        "checkoutAddress"
+                    )
+                    ?.focus();
+
+                return;
+            }
+
+
+            const payment =
+                document.querySelector(
+                    'input[name="paymentMethod"]:checked'
+                )?.value ||
+                "Cash on Delivery";
+
+            const placeOrderButton =
+                document.getElementById("placeOrderButton");
+            const originalButtonMarkup = placeOrderButton?.innerHTML;
+
+            if (placeOrderButton) {
+                placeOrderButton.disabled = true;
+                placeOrderButton.textContent = payment === "GCash"
+                    ? "Opening GCash checkout..."
+                    : "Saving order...";
+            }
+
+            try {
+                const customer = getSavedCheckoutCustomer();
+                const headers = {
+                    "Content-Type": "application/json"
+                };
+                if (customer?.sessionToken) {
+                    headers.Authorization = `Bearer ${customer.sessionToken}`;
+                }
+
+                const isGcash = payment === "GCash";
+                const response = await fetch(
+                    `${API_BASE_URL}${isGcash
+                        ? "/api/payments/gcash/checkout"
+                        : "/api/orders"}`,
+                    {
+                        method: "POST",
+                        headers,
+                        body: JSON.stringify({
+                            customerName,
+                            customerEmail,
+                            customerPhone,
+                            deliveryAddress: address,
+                            paymentMethod: payment,
+                            items: cart.map(item => ({
+                                productId: Number(item.productId),
+                                quantity: item.quantity,
+                                size: item.size
+                            }))
+                        })
+                    }
+                );
+
+                const result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    showToast(result.message || "Unable to save your order.");
+                    return;
+                }
+
+                if (isGcash) {
+                    if (!result.checkoutUrl) {
+                        throw new Error("PayMongo did not return a checkout URL.");
+                    }
+
+                    cart = [];
+                    renderCart();
+                    window.location.assign(result.checkoutUrl);
+                    return;
+                }
+
+                const order = {
+                    ...result.order,
+                    orderId: result.order.orderNumber,
+                    items: JSON.parse(JSON.stringify(cart)),
+                    customerName,
+                    customerEmail,
+                    customerPhone,
+                    address,
+                    paymentMethod: payment,
+                    orderDate: new Date().toISOString()
+                };
+
+                try {
+                    localStorage.setItem(
+                        "joliesPizzaLatestOrder",
+                        JSON.stringify(order)
+                    );
+                } catch (error) {
+                    console.warn("Could not save the order receipt locally:", error);
+                }
+
+                cart = [];
+                renderCart();
+                closeCheckoutModal();
+                showToast(
+                    customer?.sessionToken
+                        ? `Order ${order.orderId} placed successfully!`
+                        : `Order ${order.orderId} saved. Sign in with the same email address to see it in My Orders.`
+                );
+            } catch (error) {
+                console.error("Order request failed:", error);
+                showToast("Unable to connect to the order service. Please try again.");
+            } finally {
+                if (placeOrderButton) {
+                    placeOrderButton.disabled = false;
+                    placeOrderButton.innerHTML = originalButtonMarkup;
+                }
+            }
+
+        }
+
+    });
+
+    </script>
+
+
+</body>
+
+</html>

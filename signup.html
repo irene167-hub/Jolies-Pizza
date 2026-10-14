@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jolie's Pizza - Create Account</title>
+
+    <link rel="stylesheet" href="signup.css">
+
+    <!-- Font Awesome for icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="icon" type="image/png" href="images/logoadmin.png">
+</head>
+
+<body>
+
+<div class="signup-container">
+
+    <!-- =====================================================
+         LEFT BRANDING
+    ====================================================== -->
+
+    <section class="brand-section">
+
+        <div class="brand-content">
+
+            <img
+                src="images/logoadmin.png"
+                alt="Jolie's Pizza San Roque"
+                class="pizza-logo"
+            >
+
+            <p class="brand-tagline">
+                Good Pizza. Good Times.<br>
+                Made for You.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RIGHT SIGNUP SECTION
+    ====================================================== -->
+
+    <section class="form-section">
+
+        <div class="signup-card">
+
+
+            <!-- =================================================
+                 HEADER
+            ================================================== -->
+
+            <div class="welcome">
+
+                <h1>
+                    <span class="pizza-emoji">🍕</span>
+                    Create Your Account
+                </h1>
+
+                <p>
+                    Join Jolie's Pizza and enjoy delicious food<br>
+                    delivered to your door!
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROGRESS
+            ================================================== -->
+
+            <div class="progress">
+
+                <div class="progress-step active">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <span>
+                        Account Type
+                    </span>
+
+                </div>
+
+
+                <div class="progress-line"></div>
+
+
+                <div class="progress-step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <span>
+                        Your Details
+                    </span>
+
+                </div>
+
+
+                <div class="progress-line"></div>
+
+
+                <div class="progress-step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <span>
+                        Complete
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SIGNUP FORM
+            ================================================== -->
+
+            <form id="signupForm">
+
+
+                <!-- =================================================
+                     STEP 1
+                ================================================== -->
+
+                <div class="form-step active" id="step1">
+
+                    <p class="signup-label">
+                        I am signing up as
+                    </p>
+
+
+                    <div class="roles">
+
+
+                        <!-- CUSTOMER -->
+
+                        <div
+                            class="role-card active"
+                            data-role="customer"
+                        >
+
+                            <div class="check">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+
+                            <div class="role-icon customer-icon">
+                                <i class="fa-solid fa-user-group"></i>
+                            </div>
+
+                            <h3>
+                                CUSTOMER
+                            </h3>
+
+                            <p>
+                                Place orders and<br>
+                                enjoy our menu.
+                            </p>
+
+                        </div>
+
+
+                        <!-- STAFF -->
+
+                        <div
+                            class="role-card"
+                            data-role="staff"
+                        >
+
+                            <div class="check">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+
+                            <div class="role-icon staff-icon">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+
+                            <h3>
+                                STAFF
+                            </h3>
+
+                            <p>
+                                Manage orders and<br>
+                                daily operations.
+                            </p>
+
+                        </div>
+
+
+                        <!-- ADMIN -->
+
+                        <div
+                            class="role-card"
+                            data-role="admin"
+                        >
+
+                            <div class="check">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+
+                            <div class="role-icon admin-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+
+                            <h3>
+                                ADMIN
+                            </h3>
+
+                            <p>
+                                Full access to system<br>
+                                and management.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="next-btn"
+                        id="nextBtn"
+                    >
+                        Continue
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     STEP 2
+                ================================================== -->
+
+                <div class="form-step" id="step2">
+
+                    <div class="section-title">
+                        Create Your Account
+                    </div>
+
+
+                    <div class="input-row">
+
+                        <!-- FULL NAME -->
+
+                        <div class="input-group">
+
+                            <i class="fa-regular fa-user input-icon"></i>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Full Name"
+                                autocomplete="name"
+                            >
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="input-group">
+
+                            <i class="fa-regular fa-envelope input-icon"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Email Address"
+                                autocomplete="email"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-row">
+
+                        <!-- PHONE -->
+
+                        <div class="input-group">
+
+                            <i class="fa-solid fa-phone input-icon"></i>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="Phone Number"
+                                autocomplete="tel"
+                            >
+
+                        </div>
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="input-group">
+
+                            <i class="fa-solid fa-lock input-icon"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Password"
+                                autocomplete="new-password"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="password"
+                            >
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="input-group full-width">
+
+                        <i class="fa-solid fa-lock input-icon"></i>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm Password"
+                            autocomplete="new-password"
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="confirmPassword"
+                        >
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+
+                    </div>
+
+
+                    <!-- TERMS -->
+
+                    <label class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                        >
+
+                        <span class="custom-checkbox">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        <span class="terms-text">
+                            I agree to the
+                            <a href="#">
+                                Terms and Conditions
+                            </a>
+                            and
+                            <a href="#">
+                                Privacy Policy
+                            </a>
+                        </span>
+
+                    </label>
+
+
+                    <!-- ERROR MESSAGE -->
+
+                    <div
+                        class="error-message"
+                        id="errorMessage"
+                    ></div>
+
+
+                    <!-- CREATE ACCOUNT -->
+
+                    <button
+                        type="submit"
+                        class="create-btn"
+                    >
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Create Account
+
+                    </button>
+
+
+                    <!-- DIVIDER -->
+
+                    <div class="or-divider">
+                        <span>or</span>
+                    </div>
+
+
+                    <!-- GOOGLE -->
+
+                    <button
+                        type="button"
+                        class="google-btn"
+                    >
+
+                        <span class="google-icon">
+                            G
+                        </span>
+
+                        Sign up with Google
+
+                    </button>
+
+
+                    <!-- LOGIN -->
+
+                    <p class="login-link">
+
+                        Already have an account?
+
+                        <a href="login.html">
+                            Login here
+                        </a>
+
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     STEP 3
+                ================================================== -->
+
+                <div
+                    class="form-step complete-step"
+                    id="step3"
+                >
+
+                    <div class="success-icon">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+
+                    <h2>
+                        Account Created!
+                    </h2>
+
+                    <p>
+                        Your Jolie's Pizza account has been
+                        successfully created.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="create-btn"
+                        onclick="window.location.href='login.html'"
+                    >
+                        Go to Login
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="signup.js"></script>   
+
+</body>
+</html>

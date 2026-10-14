@@ -1,0 +1,632 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+/* =========================================================
+   CUSTOMER HEADER
+========================================================= */
+
+.header {
+    width: 100%;
+    height: 70px;
+    min-height: 70px;
+    padding: 0 27px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   BRAND / LOGO
+========================================================= */
+
+.header .brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+    margin: 0;
+    color: #d71920;
+    font-family: "Lobster", "Brush Script MT", cursive;
+    font-size: 29px;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.header .brand-logo {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    object-fit: contain;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.header .main-nav {
+    height: 100%;
+    margin: 0 20px 0 35px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(15px, 2.5vw, 35px);
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.header .main-nav a {
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #111;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    transition: color 0.2s ease;
+}
+
+.header .main-nav a:hover,
+.header .main-nav a.active {
+    color: #d71920;
+}
+
+.header .main-nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 9px;
+    height: 2px;
+    background: #d71920;
+}
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header .header-actions {
+    margin: 0 0 0 auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   SHOPPING CART
+========================================================= */
+
+.header .cart-header {
+    width: 35px;
+    height: 40px;
+    padding: 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 35px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #111;
+    font-size: 23px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.header .cart-header > i {
+    display: inline-block;
+    font-size: 23px;
+    line-height: 1;
+}
+
+.header .cart-header > svg,
+.header .cart-icon svg {
+    width: 25px;
+    height: 25px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.header .cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 17px;
+    height: 17px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #c9151d;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Cart total */
+
+.header #headerTotal {
+    min-width: 73px;
+    margin: 0;
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+    flex: 0 0 auto;
+}
+
+.header .cart-badge[hidden],
+.header #headerTotal[hidden] {
+    display: none !important;
+}
+
+/* Vertical divider */
+
+.header .header-divider {
+    width: 1px;
+    height: 36px;
+    flex: 0 0 1px;
+    margin: 0 8px;
+    background: #ddd;
+    border: 0;
+}
+
+/* =========================================================
+   PROFILE DROPDOWN
+========================================================= */
+
+.header .profile-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    z-index: 1100;
+}
+
+/* Profile toggle button */
+
+.header .user-button {
+    height: 44px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.header .user-button:hover {
+    background: transparent;
+}
+
+.header .user-avatar {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: grid;
+    place-items: center;
+    border: 2px solid #222;
+    border-radius: 50%;
+    background: #fff;
+    color: #111;
+    font-size: 17px;
+}
+
+.header .user-avatar i {
+    display: inline-block;
+    font-size: 17px;
+}
+
+.header .user-button > span:nth-child(2) {
+    display: inline;
+    color: #111;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.header .user-button .profile-chevron {
+    display: inline-block;
+    flex: 0 0 auto;
+    margin-left: 2px;
+    color: #111;
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+.header .profile-dropdown.open .profile-chevron {
+    transform: rotate(180deg);
+}
+
+/* =========================================================
+   PROFILE MENU PANEL
+========================================================= */
+
+.header .profile-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 270px;
+    max-width: calc(100vw - 24px);
+    padding: 10px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+    z-index: 1200;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.header .profile-dropdown.open .profile-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Profile information */
+
+.header .profile-menu-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 8px;
+}
+
+.header .profile-avatar-large {
+    width: 45px;
+    height: 45px;
+    flex: 0 0 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff0f0;
+    color: #df1720;
+    font-size: 19px;
+}
+
+.header .profile-details {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header .profile-details strong {
+    color: #222;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.header .profile-details span {
+    color: #555;
+    font-size: 12px;
+}
+
+.header .profile-details small {
+    color: #888;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.header .profile-menu-divider {
+    height: 1px;
+    margin: 7px 0;
+    background: #eee;
+}
+
+/* =========================================================
+   PROFILE MENU LINKS / LOGOUT
+========================================================= */
+
+.header .profile-menu-item {
+    width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 11px 12px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #333;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.header .profile-menu-item i {
+    width: 17px;
+    flex: 0 0 17px;
+    text-align: center;
+    color: #777;
+}
+
+.header .profile-menu-item:hover {
+    background: #fff0f0;
+    color: #d71920;
+}
+
+.header .profile-menu-item:hover i {
+    color: #d71920;
+}
+
+.header .profile-menu-item.logout-item {
+    margin-top: 5px;
+    padding-top: 13px;
+    border-top: 1px solid #eee;
+    border-radius: 0 0 7px 7px;
+    color: #d71920;
+}
+
+.header .profile-menu-item.logout-item i {
+    color: #d71920;
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+    .header {
+        padding: 0 20px;
+    }
+
+    .header .brand {
+        font-size: 26px;
+    }
+
+    .header .brand-logo {
+        width: 45px;
+        height: 45px;
+        flex-basis: 45px;
+    }
+
+    .header .main-nav {
+        margin-left: 22px;
+        margin-right: 12px;
+        gap: 18px;
+    }
+
+    .header .main-nav a {
+        font-size: 13px;
+    }
+
+    .header .header-actions {
+        gap: 9px;
+    }
+
+    .header .header-divider {
+        margin: 0 4px;
+    }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+    .header {
+        padding: 0 16px;
+    }
+
+    .header .brand {
+        font-size: 24px;
+    }
+
+    .header .brand-logo {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+    }
+
+    .header .main-nav {
+        margin-left: 16px;
+        margin-right: 8px;
+        gap: 14px;
+    }
+
+    .header .main-nav a {
+        font-size: 12px;
+    }
+
+    .header .user-button > span:nth-child(2) {
+        display: none;
+    }
+
+    .header #headerTotal {
+        min-width: 0;
+        font-size: 13px;
+    }
+}
+
+/* =========================================================
+   MOBILE HEADER
+========================================================= */
+
+@media (max-width: 760px) {
+    .header {
+        height: auto;
+        min-height: 64px;
+        padding: 8px 14px;
+        flex-wrap: wrap;
+        row-gap: 5px;
+    }
+
+    .header .brand {
+        font-size: 24px;
+        gap: 6px;
+    }
+
+    .header .brand-logo {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
+
+    .header .header-actions {
+        margin-left: auto;
+        gap: 8px;
+    }
+
+    .header .cart-header {
+        width: 32px;
+        flex-basis: 32px;
+    }
+
+    .header .cart-badge {
+        top: -1px;
+        right: -1px;
+    }
+
+    .header .header-divider {
+        height: 30px;
+        margin: 0 2px;
+    }
+
+    .header .user-avatar {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+    }
+
+    .header .main-nav {
+        order: 3;
+        width: 100%;
+        height: 42px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 22px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        flex: 1 0 100%;
+        scrollbar-width: none;
+    }
+
+    .header .main-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .header .main-nav a {
+        height: 42px;
+        flex: 0 0 auto;
+        font-size: 13px;
+    }
+
+    .header .main-nav a.active::after {
+        bottom: 2px;
+    }
+
+    .header .profile-menu {
+        top: calc(100% + 8px);
+        right: -2px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+    .header {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .header .brand {
+        font-size: 21px;
+        gap: 5px;
+    }
+
+    .header .brand-logo {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+
+    .header .header-actions {
+        gap: 6px;
+    }
+
+    .header .cart-header {
+        width: 29px;
+        flex-basis: 29px;
+        font-size: 20px;
+    }
+
+    .header .cart-header > i {
+        font-size: 20px;
+    }
+
+    .header #headerTotal {
+        font-size: 12px;
+    }
+
+    .header .header-divider {
+        margin: 0 2px;
+    }
+
+    .header .user-avatar {
+        width: 32px;
+        height: 32px;
+        flex-basis: 32px;
+    }
+
+    .header .main-nav {
+        gap: 18px;
+    }
+
+    .header .profile-menu {
+        width: 260px;
+        right: -2px;
+    }
+}

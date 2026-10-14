@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Jolie's Pizza | About Us </title>
+
+    <link rel="stylesheet" href="about-us.css">
+    <link rel="stylesheet" href="customer-header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <a href="home.html" class="brand">
+            <img src="../images/logo.png" alt="Jolie's Pizza" class="brand-logo">
+
+            <span>Jolie's Pizza</span>
+        </a>
+
+
+        <nav class="main-nav">
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="menus.html">
+                Menus
+            </a>
+
+            <a href="my orders.html">
+                My Orders
+            </a>
+
+            <a href="track-order.html">
+                Track Order
+            </a>
+
+            <a href="about-us.html" class="active">
+                About Us
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button class="cart-header" type="button" aria-label="Shopping cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge" id="cartBadge">3</span>
+            </button>
+
+            <strong id="headerTotal">₱615.00</strong>
+
+            <div class="header-divider"></div>
+
+            <div class="profile-dropdown" id="profileDropdown">
+
+                <button class="user-button" type="button" id="profileToggle" aria-expanded="false"
+                    aria-controls="profileMenu">
+
+                    <span class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+
+                    <span>Juan Dela Cruz</span>
+
+                    <i class="fa-solid fa-chevron-down profile-chevron"></i>
+                </button>
+
+                <div class="profile-menu" id="profileMenu">
+
+                    <div class="profile-menu-header">
+                        <span class="profile-avatar-large">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+
+                        <div class="profile-details">
+                            <strong>Juan Dela Cruz</strong>
+                            <span>Customer Account</span>
+                            <small>juan@gmail.com</small>
+                        </div>
+                    </div>
+
+                    <div class="profile-menu-divider"></div>
+
+                    <a href="profile.html" class="profile-menu-item">
+                        <i class="fa-regular fa-user"></i>
+                        My Profile
+                    </a>
+
+                    <a href="my orders.html" class="profile-menu-item">
+                        <i class="fa-solid fa-box"></i>
+                        My Orders
+                    </a>
+
+                    <button type="button" class="profile-menu-item logout-item" id="logoutButton">
+
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PAGE
+    ====================================================== -->
+
+    <main class="page">
+
+
+        <!-- =====================================================
+             ABOUT HERO
+        ====================================================== -->
+
+        <section class="about-hero">
+
+            <div class="about-hero-content">
+
+                <h1>
+                    About
+                    <span>Jolie's Pizza</span>
+                </h1>
+
+
+                <div class="red-line"></div>
+
+
+                <p>
+                    Jolie's Pizza started with a simple goal – to serve
+                    delicious, high-quality food that brings people
+                    together. From our oven to your table, every meal
+                    is made with love, fresh ingredients, and a passion
+                    for great taste.
+                </p>
+
+
+                <strong class="family-message">
+                    Thank you for being part of our pizza family!
+                </strong>
+
+
+                <button class="story-button" id="storyButton" type="button">
+
+                    <span class="heart-icon">♡</span>
+
+                    Our Story
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             WHAT MAKES US SPECIAL
+        ====================================================== -->
+
+        <section class="special-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    What Makes Us Special
+                </h2>
+
+                <div class="heading-line"></div>
+
+            </div>
+
+
+            <div class="special-grid">
+
+
+                <!-- CARD 1 -->
+
+                <article class="special-card">
+
+                    <div class="special-icon">
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 4C12 4 6 7 4 13c-1 3 1 6 4 7 4 1 7-2 8-6" />
+
+                            <path d="M4 20c2-5 6-8 11-10"></path>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Fresh Ingredients
+                        </h3>
+
+                        <p>
+                            We use only the freshest and finest
+                            ingredients in every dish.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD 2 -->
+
+                <article class="special-card">
+
+                    <div class="special-icon">
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 20h16" />
+
+                            <path d="M6 20V10l6-5 6 5v10" />
+
+                            <path d="M9 20v-5h6v5" />
+
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Oven-Baked Goodness
+                        </h3>
+
+                        <p>
+                            Our pizzas are oven-baked to perfection
+                            for that irresistible flavor.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD 3 -->
+
+                <article class="special-card">
+
+                    <div class="special-icon">
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M20.8 8.8c0 5.4-8.8 10.2-8.8 10.2S3.2 14.2 3.2 8.8A4.8 4.8 0 0 1 12 6.4a4.8 4.8 0 0 1 8.8 2.4Z" />
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Made with Love
+                        </h3>
+
+                        <p>
+                            Every meal is made with care and passion
+                            for our customers.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD 4 -->
+
+                <article class="special-card">
+
+                    <div class="special-icon">
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="9" cy="8" r="3" />
+
+                            <circle cx="17" cy="9" r="2.5" />
+
+                            <path d="M3 20c.6-4 2.6-6 6-6s5.4 2 6 6" />
+
+                            <path d="M14 15c3.2-.2 5.4 1.5 6 5" />
+
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            For Everyone
+                        </h3>
+
+                        <p>
+                            Great food that brings families, friends,
+                            and communities together.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             LOCATION
+        ====================================================== -->
+
+        <section class="location-section">
+
+
+            <!-- STORE IMAGE -->
+
+            <div class="store-image-card">
+
+                <img src="../images/venue.png" alt="Jolie's Pizza Store" onerror="this.src='../images/venue.png'">
+
+                <div class="image-dot"></div>
+
+            </div>
+
+
+
+            <!-- LOCATION DETAILS -->
+
+            <div class="location-info">
+
+                <h2>
+                    Our Location
+                </h2>
+
+
+                <div class="location-item">
+
+                    <span class="location-icon">
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+
+                            <circle cx="12" cy="10" r="2.5" />
+
+                        </svg>
+
+                    </span>
+
+
+                    <p>
+                        Zone 3, San Isidro St, San Roque<br>
+                        Northern Samar
+                    </p>
+
+                </div>
+
+
+                <div class="location-divider"></div>
+
+
+                <div class="contact-line">
+
+                    <span class="contact-icon">
+                        ☎
+                    </span>
+
+                    <span>
+                        +639978736812
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <span class="contact-icon">
+                        ◷
+                    </span>
+
+                    <span>
+                        10:00 AM – 9:00 PM<br>
+                        Monday – Sunday
+                    </span>
+
+                </div>
+
+
+                <div class="contact-line">
+
+                    <span class="contact-icon">
+                        ✉
+                    </span>
+
+                    <span>
+                        joliespizza@gmail.com
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GOOGLE MAP -->
+
+            <div class="location-map">
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3431.5722492483546!2d124.87161104083908!3d12.536679855795596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x330a23ad558be785%3A0xf92e96d5410e8fd8!2sJoelie's%20Pizza%20House!5e0!3m2!1sen!2sph!4v1790071219142!5m2!1sen!2sph"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin" title="Jolie's Pizza Location" loading="lazy"
+                    allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FEEDBACK
+        ====================================================== -->
+
+        <section class="feedback-section">
+
+            <div class="feedback-icon">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                    <path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H10l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />
+
+                    <path d="M8 10h8M8 13h5" />
+
+                </svg>
+
+            </div>
+
+
+            <div class="feedback-text">
+
+                <h3>
+                    We’d love to hear from you!
+                </h3>
+
+                <p>
+                    Your feedback helps us serve you better.
+                </p>
+
+            </div>
+
+
+            <button class="feedback-button" id="feedbackButton" type="button">
+
+                <span>●</span>
+
+                Send Feedback
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="header.js"></script>
+
+    <script>
+        /* =====================================================
+   JOLIE'S PIZZA
+   ABOUT US
+   PURE VANILLA JAVASCRIPT
+===================================================== */
+
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        const toast = document.getElementById("toast");
+
+
+        function showToast(message) {
+
+            if (!toast) {
+                return;
+            }
+
+            toast.textContent = message;
+
+            toast.classList.add("show");
+
+            clearTimeout(window.toastTimer);
+
+            window.toastTimer = setTimeout(() => {
+
+                toast.classList.remove("show");
+
+            }, 2500);
+        }
+
+
+
+        /* =====================================================
+           CART
+        ===================================================== */
+
+        const cartButton =
+            document.getElementById("cartButton");
+
+
+        if (cartButton) {
+
+            cartButton.addEventListener("click", () => {
+
+                window.location.href = "menus.html";
+
+            });
+
+        }
+
+
+
+        /* =====================================================
+           USER BUTTON
+        ===================================================== */
+
+        const userButton =
+            document.getElementById("userButton");
+
+
+        if (userButton) {
+
+            userButton.addEventListener("click", () => {
+
+                showToast("Account menu");
+
+            });
+
+        }
+
+
+
+        /* =====================================================
+           OUR STORY
+        ===================================================== */
+
+        const storyButton =
+            document.getElementById("storyButton");
+
+
+        if (storyButton) {
+
+            storyButton.addEventListener("click", () => {
+
+                showToast(
+                    "Thank you for being part of the Jolie's Pizza family!"
+                );
+
+            });
+
+        }
+
+
+
+        /* =====================================================
+           FEEDBACK
+        ===================================================== */
+
+        const feedbackButton =
+            document.getElementById("feedbackButton");
+
+
+        if (feedbackButton) {
+
+            feedbackButton.addEventListener("click", () => {
+
+                showToast(
+                    "Thank you! Feedback form is opening..."
+                );
+
+                /*
+                    Replace this later with your actual
+                    feedback page:
+        
+                    window.location.href = "feedback.html";
+                */
+
+            });
+
+        }
+
+
+
+        /* =====================================================
+           MAP
+        ===================================================== */
+
+        const map =
+            document.querySelector(".location-map");
+
+
+        if (map) {
+
+            map.addEventListener("click", () => {
+
+                showToast(
+                    "Jolie's Pizza — Zone 3, San Roque, Northern Samar"
+                );
+
+            });
+
+        }
+    </script>
+
+</body>
+
+</html>

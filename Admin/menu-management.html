@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jolie's Pizza - Menu Management</title>
+
+    <link rel="stylesheet" href="menu-management.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <img src="../images/logoadmin.png" alt="Jolie's Pizza" class="sidebar-logo">
+            </div>
+
+            <nav class="side-nav">
+
+                <a class="nav-item" href="dashboard.html">
+                    <span class="nav-icon"></span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a class="nav-item" href="orders.html">
+                    <span class="nav-icon"></span>
+                    <span>Orders</span>
+                </a>
+
+                <a class="nav-item active" href="menu-management.html">
+                    <span class="nav-icon"></span>
+                    <span>Menu Management</span>
+                </a>
+
+                <div class="submenu">
+
+                    <a href="menu-management.html" class="submenu-item active-sub">
+                        <span class="submenu-dot"></span>
+                        Menu Items
+                    </a>
+
+                    <a href="categories.html" class="submenu-item">
+                        <span class="submenu-dot"></span>
+                        Categories
+                    </a>
+
+                    <a class="nav-item" href="inventory overview.html">
+                        <span class="nav-icon"></span>
+                        <span>Inventory</span>
+                    </a>
+
+                    <a class="nav-item" href="delivery-tracking.html">
+                        <span class="nav-icon"></span>
+                        <span>Delivery Tracking</span>
+                    </a>
+
+                    <a class="nav-item" href="online-payments.html">
+                        <span class="nav-icon"></span>
+                        <span>Online Payments</span>
+                    </a>
+
+                    <a class="nav-item" href="reports.html">
+                        <span class="nav-icon"></span>
+                        <span>Reports</span>
+                    </a>
+
+                    <a class="nav-item" href="staff-management.html">
+                        <span class="nav-icon"></span>
+                        <span>Staff Management</span>
+                    </a>
+
+                    <a class="nav-item" href="settings.html">
+                        <span class="nav-icon"></span>
+                        <span>Settings</span>
+                    </a>
+
+                    <!-- =================================================
+                     LOG OUT
+                    ================================================== -->
+
+                    <button type="button" class="nav-item logout-item" id="sidebarLogoutBtn">
+                        <span class="nav-icon"></span>
+                        <span>Log Out</span>
+                    </button>
+
+            </nav>
+
+            <!-- SUPPORT -->
+
+            <div class="support-box">
+
+                <div class="support-icon">
+                    ♧
+                </div>
+
+                <div class="support-content">
+
+                    <strong>Need Help?</strong>
+
+                    <a href="tel:09123456789">
+                        Contact support
+                    </a>
+
+                    <span>
+                        0912 345 6789
+                    </span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+         MAIN
+        ====================================================== -->
+
+        <main class="main">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu">
+                    ☰
+                </button>
+
+                <div class="page-heading">
+
+                    <h1>
+                        Menu Management
+                    </h1>
+
+                    <div class="breadcrumb">
+
+                        <span>Dashboard</span>
+
+                        <b>›</b>
+
+                        <span>Menu Management</span>
+
+                        <b>›</b>
+
+                        <strong id="breadcrumbCurrent">
+                            Menu Items
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOP ACTIONS -->
+
+                <div class="top-actions">
+
+                    <button class="date-picker" type="button">
+
+                        <span>
+                            May 20, 2024
+                        </span>
+
+                        <span>
+                            ▣
+                        </span>
+
+                    </button>
+
+
+                    <button class="notification" type="button" aria-label="Notifications">
+
+                        ♧
+
+                        <b>
+                            3
+                        </b>
+
+                    </button>
+
+
+                    <!-- PROFILE -->
+
+                    <div class="profile-wrap">
+
+                        <button class="profile" id="profileButton" type="button">
+
+                            <span class="avatar">
+                                A
+                            </span>
+
+                            <span class="profile-text">
+
+                                <strong>
+                                    Admin
+                                </strong>
+
+                                <small>
+                                    Administrator
+                                </small>
+
+                            </span>
+
+                            <span class="chevron">
+                                ⌄
+                            </span>
+
+                        </button>
+
+
+                        <div class="profile-menu" id="profileMenu">
+
+                            <button type="button">
+                                My Profile
+                            </button>
+
+                            <button type="button">
+                                Account Settings
+                            </button>
+
+                            <button type="button" id="logoutBtn">
+                                Logout
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+             TABS
+        ================================================== -->
+
+            <section class="menu-toolbar">
+
+                <div class="tabs">
+
+                    <button class="tab active" data-tab="items" type="button">
+                        Menu Items
+                    </button>
+
+                    <button class="tab" data-tab="categories" type="button">
+                        Categories
+                    </button>
+
+                </div>
+
+
+                <button class="add-btn" id="addMenuBtn" type="button">
+
+                    <span>
+                        ＋
+                    </span>
+
+                    Add Menu Item
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+             MENU ITEMS
+        ================================================== -->
+
+            <section id="itemsView" class="content-grid">
+
+                <!-- MENU TABLE -->
+
+                <div class="menu-card">
+
+                    <!-- FILTER -->
+
+                    <div class="filter-bar">
+
+                        <div class="search-box">
+
+                            <input id="searchInput" type="search" placeholder="Search menu items...">
+
+                            <button id="searchBtn" type="button">
+                                ⌕
+                            </button>
+
+                        </div>
+
+
+                        <select id="categoryFilter">
+
+                            <option value="all">
+                                All Categories
+                            </option>
+
+                            <option value="Pizza">
+                                Pizza
+                            </option>
+
+                            <option value="Pasta">
+                                Pasta
+                            </option>
+
+                            <option value="Sides">
+                                Sides
+                            </option>
+
+                            <option value="Drinks">
+                                Drinks
+                            </option>
+
+                            <option value="Desserts">
+                                Desserts
+                            </option>
+
+                        </select>
+
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All Status
+                            </option>
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+
+                        <button class="filter-btn" id="filterBtn" type="button">
+                            ⌁ Filters
+                        </button>
+
+                    </div>
+
+
+                    <!-- TABLE -->
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Item
+                                    </th>
+
+                                    <th>
+                                        Category
+                                    </th>
+
+                                    <th>
+                                        Price
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Popularity
+                                    </th>
+
+                                    <th>
+                                        Actions
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="menuTableBody">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- PAGINATION -->
+
+                    <div class="pagination">
+
+                        <span id="resultCount">
+                            Showing 1 to 8 of 48 items
+                        </span>
+
+                        <div class="page-buttons">
+
+                            <button type="button" data-page="prev">
+                                ‹
+                            </button>
+
+                            <button type="button" class="active" data-page="1">
+                                1
+                            </button>
+
+                            <button type="button" data-page="2">
+                                2
+                            </button>
+
+                            <button type="button" data-page="3">
+                                3
+                            </button>
+
+                            <button type="button" data-page="more">
+                                ...
+                            </button>
+
+                            <button type="button" data-page="6">
+                                6
+                            </button>
+
+                            <button type="button" data-page="next">
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                 RIGHT COLUMN
+            ================================================== -->
+
+                <aside class="right-column">
+
+
+                    <!-- MENU OVERVIEW -->
+
+                    <div class="side-card overview-card">
+
+                        <div class="side-card-title">
+
+                            <h2>
+                                Menu Overview
+                            </h2>
+
+                        </div>
+
+
+                        <div class="overview-grid">
+
+                            <div class="overview-stat">
+
+                                <span class="circle red-circle">
+                                    ♨
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        48
+                                    </strong>
+
+                                    <small>
+                                        Total Items
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="overview-stat">
+
+                                <span class="circle green-circle">
+                                    ✓
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        42
+                                    </strong>
+
+                                    <small>
+                                        Active Items
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="overview-stat">
+
+                                <span class="circle orange-circle">
+                                    Ⅱ
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        6
+                                    </strong>
+
+                                    <small>
+                                        Inactive Items
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="overview-stat">
+
+                                <span class="circle purple-circle">
+                                    ◇
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        8
+                                    </strong>
+
+                                    <small>
+                                        Categories
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TOP CATEGORIES -->
+
+                    <div class="side-card category-card" id="categories">
+
+                        <div class="side-card-title">
+
+                            <h2>
+                                Top Categories
+                            </h2>
+
+                            <button class="view-all" type="button">
+                                View all
+                            </button>
+
+                        </div>
+
+
+                        <div class="category-row">
+
+                            <span class="category-icon pizza-icon">
+                                ♨
+                            </span>
+
+                            <strong>
+                                Pizza
+                            </strong>
+
+                            <span>
+                                18 items
+                            </span>
+
+                        </div>
+
+
+                        <div class="category-row">
+
+                            <span class="category-icon sides-icon">
+                                ▣
+                            </span>
+
+                            <strong>
+                                Sides
+                            </strong>
+
+                            <span>
+                                8 items
+                            </span>
+
+                        </div>
+
+
+                        <div class="category-row">
+
+                            <span class="category-icon drinks-icon">
+                                ▢
+                            </span>
+
+                            <strong>
+                                Drinks
+                            </strong>
+
+                            <span>
+                                7 items
+                            </span>
+
+                        </div>
+
+
+                        <div class="category-row">
+
+                            <span class="category-icon pasta-icon">
+                                ♨
+                            </span>
+
+                            <strong>
+                                Pasta
+                            </strong>
+
+                            <span>
+                                6 items
+                            </span>
+
+                        </div>
+
+
+                        <div class="category-row">
+
+                            <span class="category-icon dessert-icon">
+                                ♧
+                            </span>
+
+                            <strong>
+                                Desserts
+                            </strong>
+
+                            <span>
+                                4 items
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TIP -->
+
+                    <div class="tip-card">
+
+                        <span class="tip-icon">
+                            ♧
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Tip
+                            </strong>
+
+                            <p>
+                                Keep your menu updated to attract more customers and increase sales.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+
+            <!-- =================================================
+             CATEGORIES VIEW
+        ================================================== -->
+
+            <section id="categoriesView" class="categories-view hidden">
+
+                <div class="menu-card category-management-card">
+
+                    <div class="category-management-header">
+
+                        <div>
+
+                            <h2>
+                                Categories
+                            </h2>
+
+                            <p>
+                                Manage your menu categories.
+                            </p>
+
+                        </div>
+
+
+                        <button class="add-btn" id="addCategoryBtn" type="button">
+                            ＋ Add Category
+                        </button>
+
+                    </div>
+
+
+                    <div class="category-management-grid">
+
+                        <div class="managed-category">
+
+                            <span class="category-icon pizza-icon">
+                                ♨
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Pizza
+                                </strong>
+
+                                <small>
+                                    18 items
+                                </small>
+
+                            </div>
+
+                            <button type="button">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <div class="managed-category">
+
+                            <span class="category-icon sides-icon">
+                                ▣
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Sides
+                                </strong>
+
+                                <small>
+                                    8 items
+                                </small>
+
+                            </div>
+
+                            <button type="button">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <div class="managed-category">
+
+                            <span class="category-icon drinks-icon">
+                                ▢
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Drinks
+                                </strong>
+
+                                <small>
+                                    7 items
+                                </small>
+
+                            </div>
+
+                            <button type="button">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <div class="managed-category">
+
+                            <span class="category-icon pasta-icon">
+                                ♨
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Pasta
+                                </strong>
+
+                                <small>
+                                    6 items
+                                </small>
+
+                            </div>
+
+                            <button type="button">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <div class="managed-category">
+
+                            <span class="category-icon dessert-icon">
+                                ♧
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Desserts
+                                </strong>
+
+                                <small>
+                                    4 items
+                                </small>
+
+                            </div>
+
+                            <button type="button">
+                                ⋮
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+     ADD / EDIT MENU MODAL
+====================================================== -->
+
+    <div class="modal" id="menuModal">
+
+        <div class="modal-box">
+
+            <button class="modal-close" id="modalClose" type="button">
+                ×
+            </button>
+
+
+            <h2 id="modalTitle">
+                Add Menu Item
+            </h2>
+
+
+            <form id="menuForm">
+
+                <label>
+
+                    Item Name
+
+                    <input id="itemName" type="text" required placeholder="e.g. Pepperoni Pizza (Large)">
+
+                </label>
+
+
+                <label>
+
+                    Description
+
+                    <textarea id="itemDescription" rows="3" required placeholder="Item description"></textarea>
+
+                </label>
+
+
+                <div class="form-row">
+
+                    <label>
+
+                        Category
+
+                        <select id="itemCategory" required>
+
+                            <option value="Pizza">
+                                Pizza
+                            </option>
+
+                            <option value="Pasta">
+                                Pasta
+                            </option>
+
+                            <option value="Sides">
+                                Sides
+                            </option>
+
+                            <option value="Drinks">
+                                Drinks
+                            </option>
+
+                            <option value="Desserts">
+                                Desserts
+                            </option>
+
+                        </select>
+
+                    </label>
+
+
+                    <label>
+
+                        Price
+
+                        <input id="itemPrice" type="number" min="0" step="0.01" required placeholder="540">
+
+                    </label>
+
+                </div>
+
+
+                <label>
+
+                    Status
+
+                    <select id="itemStatus">
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <button class="save-btn" type="submit">
+                    Save Menu Item
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+        /* =========================================================
+       JOLIE'S PIZZA - MENU MANAGEMENT
+       VANILLA JAVASCRIPT - NO FRAMEWORK
+    ========================================================= */
+
+
+        /* =========================================================
+           MENU DATA
+        ========================================================= */
+
+        const menuItems = [
+
+            {
+                id: 1,
+                name: "Pepperoni Pizza (Large)",
+                description:
+                    "Classic pizza with pepperoni and mozzarella cheese",
+                category: "Pizza",
+                price: 540,
+                status: "Active",
+                rating: 5,
+                reviews: 125,
+                image: "pizza"
+            },
+
+            {
+                id: 2,
+                name: "Hawaiian Pizza (Large)",
+                description:
+                    "Ham, pineapple, mozzarella cheese and pizza sauce",
+                category: "Pizza",
+                price: 520,
+                status: "Active",
+                rating: 4,
+                reviews: 98,
+                image: "pizza"
+            },
+
+            {
+                id: 3,
+                name: "Bacon Cheeseburger Pizza",
+                description:
+                    "Bacon, ground beef, onions, pickles, mozzarella cheese",
+                category: "Pizza",
+                price: 560,
+                status: "Active",
+                rating: 4,
+                reviews: 87,
+                image: "pizza"
+            },
+
+            {
+                id: 4,
+                name: "Chicken Alfredo Pasta",
+                description:
+                    "Creamy alfredo sauce with grilled chicken",
+                category: "Pasta",
+                price: 280,
+                status: "Active",
+                rating: 4,
+                reviews: 76,
+                image: "pasta"
+            },
+
+            {
+                id: 5,
+                name: "Chicken Wings (6pcs)",
+                description:
+                    "Crispy fried chicken wings with your choice of sauce",
+                category: "Sides",
+                price: 165,
+                status: "Active",
+                rating: 4,
+                reviews: 64,
+                image: "wings"
+            },
+
+            {
+                id: 6,
+                name: "Iced Tea (Regular)",
+                description:
+                    "Refreshing iced tea",
+                category: "Drinks",
+                price: 50,
+                status: "Active",
+                rating: 4,
+                reviews: 55,
+                image: "drink"
+            },
+
+            {
+                id: 7,
+                name: "Coke (1.5L)",
+                description:
+                    "1.5 Liter Coca-Cola",
+                category: "Drinks",
+                price: 90,
+                status: "Active",
+                rating: 4,
+                reviews: 48,
+                image: "coke"
+            },
+
+            {
+                id: 8,
+                name: "Garlic Bread",
+                description:
+                    "Toasted bread with garlic butter and herbs",
+                category: "Sides",
+                price: 95,
+                status: "Inactive",
+                rating: 3,
+                reviews: 32,
+                image: "bread"
+            }
+
+        ];
+
+
+        /* =========================================================
+           ELEMENTS
+        ========================================================= */
+
+        const tableBody =
+            document.getElementById("menuTableBody");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const categoryFilter =
+            document.getElementById("categoryFilter");
+
+        const statusFilter =
+            document.getElementById("statusFilter");
+
+        const resultCount =
+            document.getElementById("resultCount");
+
+        const toast =
+            document.getElementById("toast");
+
+
+        /* MODAL */
+
+        const modal =
+            document.getElementById("menuModal");
+
+        const modalTitle =
+            document.getElementById("modalTitle");
+
+        const menuForm =
+            document.getElementById("menuForm");
+
+        const itemName =
+            document.getElementById("itemName");
+
+        const itemDescription =
+            document.getElementById("itemDescription");
+
+        const itemCategory =
+            document.getElementById("itemCategory");
+
+        const itemPrice =
+            document.getElementById("itemPrice");
+
+        const itemStatus =
+            document.getElementById("itemStatus");
+
+
+        let editingId = null;
+
+        let currentPage = 1;
+
+
+        /* =========================================================
+           ESCAPE HTML
+        ========================================================= */
+
+        function escapeHTML(value) {
+
+            return String(value)
+
+                .replaceAll("&", "&amp;")
+
+                .replaceAll("<", "&lt;")
+
+                .replaceAll(">", "&gt;")
+
+                .replaceAll('"', "&quot;")
+
+                .replaceAll("'", "&#039;");
+        }
+
+
+        /* =========================================================
+           STARS
+        ========================================================= */
+
+        function renderStars(rating) {
+
+            const full =
+                "★".repeat(rating);
+
+            const empty =
+                "★".repeat(5 - rating);
+
+            return `
+        <span class="stars">
+            ${full}
+            <span style="color:#d9dce1">
+                ${empty}
+            </span>
+        </span>
+    `;
+        }
+
+
+        /* =========================================================
+           RENDER TABLE
+        ========================================================= */
+
+        function renderTable() {
+
+            const search =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+            const category =
+                categoryFilter.value;
+
+            const status =
+                statusFilter.value;
+
+
+            const filtered =
+                menuItems.filter(item => {
+
+                    const matchesSearch =
+
+                        item.name
+                            .toLowerCase()
+                            .includes(search)
+
+                        ||
+
+                        item.description
+                            .toLowerCase()
+                            .includes(search)
+
+                        ||
+
+                        item.category
+                            .toLowerCase()
+                            .includes(search);
+
+
+                    const matchesCategory =
+
+                        category === "all"
+
+                        ||
+
+                        item.category === category;
+
+
+                    const matchesStatus =
+
+                        status === "all"
+
+                        ||
+
+                        item.status === status;
+
+
+                    return (
+                        matchesSearch &&
+                        matchesCategory &&
+                        matchesStatus
+                    );
+
+                });
+
+
+            tableBody.innerHTML = "";
+
+
+            /* NO RESULTS */
+
+            if (!filtered.length) {
+
+                tableBody.innerHTML = `
+
+            <tr>
+
+                <td colspan="6">
+
+                    <div
+                        style="
+                            padding:35px;
+                            text-align:center;
+                            color:#69707d;
+                        "
+                    >
+                        No menu items found.
+                    </div>
+
+                </td>
+
+            </tr>
+
+        `;
+
+                resultCount.textContent =
+                    "Showing 0 items";
+
+                return;
+            }
+
+
+            /* RENDER ITEMS */
+
+            filtered.forEach(item => {
+
+                const row =
+                    document.createElement("tr");
+
+
+                row.innerHTML = `
+
+            <td>
+
+                <div class="item-cell">
+
+                    <div
+                        class="item-image ${escapeHTML(item.image)}"
+                        aria-hidden="true"
+                    ></div>
+
+
+                    <div class="item-info">
+
+                        <strong>
+                            ${escapeHTML(item.name)}
+                        </strong>
+
+                        <span>
+                            ${escapeHTML(item.description)}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </td>
+
+
+            <td>
+                ${escapeHTML(item.category)}
+            </td>
+
+
+            <td class="price">
+
+                ₱${Number(item.price).toFixed(2)}
+
+            </td>
+
+
+            <td>
+
+                <span
+                    class="
+                        status
+                        ${item.status.toLowerCase()}
+                    "
+                >
+
+                    ${escapeHTML(item.status)}
+
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <div class="popularity">
+
+                    ${renderStars(item.rating)}
+
+                    <span class="rating-count">
+
+                        (${item.reviews})
+
+                    </span>
+
+                </div>
+
+            </td>
+
+
+            <td>
+
+                <div class="actions">
+
+                    <button
+                        class="action-btn edit-btn"
+                        data-id="${item.id}"
+                        title="Edit"
+                        type="button"
+                    >
+                        ✎
+                    </button>
+
+
+                    <button
+                        class="
+                            action-btn
+                            delete
+                            delete-btn
+                        "
+                        data-id="${item.id}"
+                        title="Delete"
+                        type="button"
+                    >
+                        ♧
+                    </button>
+
+                </div>
+
+            </td>
+
+        `;
+
+
+                tableBody.appendChild(row);
+
+            });
+
+
+            resultCount.textContent =
+
+                `Showing 1 to ${filtered.length} of ${filtered.length} items`;
+        }
+
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        function showToast(message) {
+
+            toast.textContent = message;
+
+            toast.classList.add("show");
+
+
+            clearTimeout(showToast.timer);
+
+
+            showToast.timer =
+                setTimeout(() => {
+
+                    toast.classList.remove("show");
+
+                }, 2200);
+        }
+
+
+        /* =========================================================
+           OPEN MODAL
+        ========================================================= */
+
+        function openModal(item = null) {
+
+            modal.classList.add("show");
+
+
+            if (item) {
+
+                editingId = item.id;
+
+                modalTitle.textContent =
+                    "Edit Menu Item";
+
+
+                itemName.value =
+                    item.name;
+
+                itemDescription.value =
+                    item.description;
+
+                itemCategory.value =
+                    item.category;
+
+                itemPrice.value =
+                    item.price;
+
+                itemStatus.value =
+                    item.status;
+
+            }
+
+            else {
+
+                editingId = null;
+
+                modalTitle.textContent =
+                    "Add Menu Item";
+
+                menuForm.reset();
+
+            }
+
+
+            setTimeout(() => {
+
+                itemName.focus();
+
+            }, 50);
+        }
+
+
+        /* =========================================================
+           CLOSE MODAL
+        ========================================================= */
+
+        function closeModal() {
+
+            modal.classList.remove("show");
+
+            editingId = null;
+
+            menuForm.reset();
+        }
+
+
+        /* =========================================================
+           ADD MENU ITEM
+        ========================================================= */
+
+        document
+            .getElementById("addMenuBtn")
+            .addEventListener("click", () => {
+
+                openModal();
+
+            });
+
+
+        /* =========================================================
+           CLOSE MODAL BUTTON
+        ========================================================= */
+
+        document
+            .getElementById("modalClose")
+            .addEventListener("click", closeModal);
+
+
+        /* =========================================================
+           CLOSE MODAL BY CLICKING BACKGROUND
+        ========================================================= */
+
+        modal.addEventListener(
+            "click",
+            event => {
+
+                if (event.target === modal) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           FORM SUBMIT
+        ========================================================= */
+
+        menuForm.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+
+                const newData = {
+
+                    name:
+                        itemName.value.trim(),
+
+                    description:
+                        itemDescription.value.trim(),
+
+                    category:
+                        itemCategory.value,
+
+                    price:
+                        Number(itemPrice.value),
+
+                    status:
+                        itemStatus.value
+
+                };
+
+
+                /* VALIDATION */
+
+                if (
+                    !newData.name ||
+                    !newData.description ||
+                    newData.price <= 0
+                ) {
+
+                    showToast(
+                        "Please complete all fields."
+                    );
+
+                    return;
+                }
+
+
+                /* EDIT */
+
+                if (editingId !== null) {
+
+                    const index =
+                        menuItems.findIndex(
+                            item =>
+                                item.id === editingId
+                        );
+
+
+                    if (index !== -1) {
+
+                        menuItems[index] = {
+
+                            ...menuItems[index],
+
+                            ...newData
+
+                        };
+
+                    }
+
+
+                    showToast(
+                        "Menu item updated successfully."
+                    );
+
+                }
+
+
+                /* ADD */
+
+                else {
+
+                    menuItems.push({
+
+                        id:
+                            Date.now(),
+
+                        ...newData,
+
+                        rating: 0,
+
+                        reviews: 0,
+
+                        image: "pizza"
+
+                    });
+
+
+                    showToast(
+                        "Menu item added successfully."
+                    );
+
+                }
+
+
+                closeModal();
+
+                renderTable();
+
+            }
+        );
+
+
+        /* =========================================================
+           EDIT / DELETE
+        ========================================================= */
+
+        tableBody.addEventListener(
+            "click",
+            event => {
+
+                const editButton =
+                    event.target.closest(".edit-btn");
+
+                const deleteButton =
+                    event.target.closest(".delete-btn");
+
+
+                /* EDIT */
+
+                if (editButton) {
+
+                    const id =
+                        Number(editButton.dataset.id);
+
+
+                    const item =
+                        menuItems.find(
+                            menu =>
+                                menu.id === id
+                        );
+
+
+                    if (item) {
+
+                        openModal(item);
+
+                    }
+
+                }
+
+
+                /* DELETE */
+
+                if (deleteButton) {
+
+                    const id =
+                        Number(deleteButton.dataset.id);
+
+
+                    const item =
+                        menuItems.find(
+                            menu =>
+                                menu.id === id
+                        );
+
+
+                    if (!item) {
+                        return;
+                    }
+
+
+                    const confirmed =
+                        confirm(
+                            `Delete "${item.name}" from the menu?`
+                        );
+
+
+                    if (confirmed) {
+
+                        const index =
+                            menuItems.findIndex(
+                                menu =>
+                                    menu.id === id
+                            );
+
+
+                        if (index !== -1) {
+
+                            menuItems.splice(
+                                index,
+                                1
+                            );
+
+                        }
+
+
+                        renderTable();
+
+                        showToast(
+                            "Menu item deleted."
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           SEARCH
+        ========================================================= */
+
+        searchInput.addEventListener(
+            "input",
+            () => {
+
+                currentPage = 1;
+
+                renderTable();
+
+            }
+        );
+
+
+        /* =========================================================
+           CATEGORY FILTER
+        ========================================================= */
+
+        categoryFilter.addEventListener(
+            "change",
+            () => {
+
+                currentPage = 1;
+
+                renderTable();
+
+            }
+        );
+
+
+        /* =========================================================
+           STATUS FILTER
+        ========================================================= */
+
+        statusFilter.addEventListener(
+            "change",
+            () => {
+
+                currentPage = 1;
+
+                renderTable();
+
+            }
+        );
+
+
+        /* =====================================================
+   LOGOUT FUNCTION
+===================================================== */
+
+        function handleLogout() {
+
+            const confirmLogout =
+                confirm(
+                    "Are you sure you want to log out?"
+                );
+
+
+            if (!confirmLogout) {
+
+                return;
+
+            }
+
+
+            showToast(
+                "Logging out..."
+            );
+
+
+            setTimeout(
+                function () {
+
+                    /*
+                     * login.html is in the root folder.
+                     * dashboard.html is inside Admin.
+                     */
+
+                    window.location.href =
+                        "../login.html";
+
+                },
+                1000
+            );
+
+        }
+
+
+        /* =====================================================
+           SIDEBAR LOGOUT
+        ===================================================== */
+
+        if (sidebarLogoutBtn) {
+
+            sidebarLogoutBtn.addEventListener(
+                "click",
+                function () {
+
+                    handleLogout();
+
+                }
+            );
+
+        }
+
+        /* =========================================================
+           SEARCH BUTTON
+        ========================================================= */
+
+        document
+            .getElementById("searchBtn")
+            .addEventListener(
+                "click",
+                renderTable
+            );
+
+
+        /* =========================================================
+           FILTER BUTTON
+        ========================================================= */
+
+        document
+            .getElementById("filterBtn")
+            .addEventListener(
+                "click",
+                () => {
+
+                    categoryFilter.focus();
+
+                }
+            );
+
+
+        /* =========================================================
+           PAGINATION
+        ========================================================= */
+
+        document
+            .querySelectorAll(
+                ".page-buttons button"
+            )
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const page =
+                            button.dataset.page;
+
+
+                        if (page === "prev") {
+
+                            currentPage =
+                                Math.max(
+                                    1,
+                                    currentPage - 1
+                                );
+
+                        }
+
+                        else if (
+                            page === "next"
+                        ) {
+
+                            currentPage =
+                                Math.min(
+                                    6,
+                                    currentPage + 1
+                                );
+
+                        }
+
+                        else if (
+                            page !== "more"
+                        ) {
+
+                            currentPage =
+                                Number(page);
+
+                        }
+
+
+                        document
+                            .querySelectorAll(
+                                ".page-buttons button"
+                            )
+                            .forEach(btn => {
+
+                                btn.classList.remove(
+                                    "active"
+                                );
+
+                            });
+
+
+                        const active =
+                            document.querySelector(
+                                `.page-buttons button[data-page="${currentPage}"]`
+                            );
+
+
+                        if (active) {
+
+                            active.classList.add(
+                                "active"
+                            );
+
+                        }
+
+
+                        showToast(
+                            `Page ${currentPage}`
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* =========================================================
+           TABS
+        ========================================================= */
+
+        const tabs =
+            document.querySelectorAll(".tab");
+
+        const itemsView =
+            document.getElementById("itemsView");
+
+        const categoriesView =
+            document.getElementById("categoriesView");
+
+        const breadcrumbCurrent =
+            document.getElementById(
+                "breadcrumbCurrent"
+            );
+
+
+        tabs.forEach(tab => {
+
+            tab.addEventListener(
+                "click",
+                () => {
+
+                    tabs.forEach(item => {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                    tab.classList.add(
+                        "active"
+                    );
+
+
+                    const selected =
+                        tab.dataset.tab;
+
+
+                    if (
+                        selected === "categories"
+                    ) {
+
+                        itemsView.classList.add(
+                            "hidden"
+                        );
+
+                        categoriesView.classList.remove(
+                            "hidden"
+                        );
+
+                        breadcrumbCurrent.textContent =
+                            "Categories";
+
+                    }
+
+                    else {
+
+                        categoriesView.classList.add(
+                            "hidden"
+                        );
+
+                        itemsView.classList.remove(
+                            "hidden"
+                        );
+
+                        breadcrumbCurrent.textContent =
+                            "Menu Items";
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* =========================================================
+           ADD CATEGORY
+        ========================================================= */
+
+        document
+            .getElementById("addCategoryBtn")
+            .addEventListener(
+                "click",
+                () => {
+
+                    showToast(
+                        "Category form can be connected here."
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
+           PROFILE MENU
+        ========================================================= */
+
+        const profileButton =
+            document.getElementById(
+                "profileButton"
+            );
+
+        const profileMenu =
+            document.getElementById(
+                "profileMenu"
+            );
+
+
+        profileButton.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                profileMenu.classList.toggle(
+                    "show"
+                );
+
+            }
+        );
+
+
+        /* CLOSE PROFILE MENU */
+
+        document.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    !event.target.closest(
+                        ".profile-wrap"
+                    )
+                ) {
+
+                    profileMenu.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* LOGOUT */
+
+        document
+            .getElementById("logoutBtn")
+            .addEventListener(
+                "click",
+                () => {
+
+                    showToast(
+                        "Logout button clicked."
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
+           MOBILE SIDEBAR
+        ========================================================= */
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+        const menuToggle =
+            document.getElementById(
+                "menuToggle"
+            );
+
+
+        menuToggle.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                sidebar.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        /* CLOSE MOBILE SIDEBAR */
+
+        document.addEventListener(
+            "click",
+            event => {
+
+                if (
+
+                    window.innerWidth <= 900 &&
+
+                    sidebar.classList.contains(
+                        "open"
+                    ) &&
+
+                    !sidebar.contains(
+                        event.target
+                    ) &&
+
+                    event.target !== menuToggle
+
+                ) {
+
+                    sidebar.classList.remove(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           INITIAL RENDER
+        ========================================================= */
+
+        renderTable();
+    </script>
+
+    <script src="sidebar-icons.js"></script>
+</body>
+
+</html>

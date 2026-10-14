@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolie's Pizza - My Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+    <div class="staff-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand"><img src="../images/logostaff.png" alt="Jolie's Pizza Logo"></div>
+            <nav class="sidebar-nav" aria-label="Staff navigation">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+                <a href="orders.html" class="nav-item"><i class="fa-regular fa-clipboard"></i><span>Orders</span></a>
+                <a href="delivery-tracking.html" class="nav-item"><i class="fa-solid fa-truck-fast"></i><span>Delivery
+                        Tracking</span></a>
+                <a href="inventory.html" class="nav-item"><i class="fa-solid fa-cube"></i><span>Inventory</span></a>
+                <a href="payments.html" class="nav-item"><i
+                        class="fa-regular fa-credit-card"></i><span>Payments</span></a>
+                <a href="notifications.html" class="nav-item"><i
+                        class="fa-regular fa-bell"></i><span>Notifications</span><span
+                        class="notification-count">6</span></a>
+                <a href="reports.html" class="nav-item"><i class="fa-solid fa-chart-column"></i><span>Reports</span></a>
+                <a href="profile.html" class="nav-item active" aria-current="page"><i
+                        class="fa-regular fa-user"></i><span>Profile</span></a>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="staff-profile">
+                    <div class="staff-avatar" aria-hidden="true">👨🏻‍🍳</div>
+                    <div class="staff-info"><strong id="sidebarName">Mark Santos</strong><span>Kitchen Staff</span><span
+                            class="online-status">Online</span></div>
+                </div>
+                <button class="nav-item logout-button" id="logoutButton" type="button"><i
+                        class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></button>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle sidebar"
+                        aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+                    <div class="welcome">
+                        <h1>My Profile</h1>
+                        <p>View and manage your personal information.</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-location"><i class="fa-solid fa-location-dot"></i>
+                        <div><strong>Zone 3, San Roque</strong><span>Northern Samar</span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <div class="header-date"><i class="fa-regular fa-calendar-days"></i>
+                        <div><strong id="currentDate"></strong><span id="currentTime"></span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <a class="header-notifications" href="notifications.html" aria-label="Notifications, 6 unread"><i
+                            class="fa-regular fa-bell"></i><span>6</span></a>
+                </div>
+            </header>
+
+            <section class="profile-page" aria-label="Staff profile">
+                <div class="profile-top-grid">
+                    <section class="profile-identity panel">
+                        <div class="identity-main">
+                            <div class="portrait" aria-hidden="true"><span>👨🏻‍🍳</span></div>
+                            <div class="identity-copy">
+                                <h2 id="profileName">Mark Santos</h2><strong id="profileRole">Kitchen Staff</strong>
+                            </div>
+                        </div>
+                        <span class="online-pill"><i></i>Online</span>
+                        <div class="identity-contact">
+                            <div><i class="fa-regular fa-envelope"></i><span
+                                    id="summaryEmail">mark.santos@joliespizza.com</span></div>
+                            <div><i class="fa-solid fa-phone"></i><span id="summaryPhone">0917 123 4567</span></div>
+                            <div><i class="fa-regular fa-calendar"></i><span>March 15, 2023<small>Date
+                                        Hired</small></span></div>
+                            <div><i class="fa-regular fa-shield"></i><span>Active<small>Account Status</small></span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="profile-details panel">
+                        <div class="profile-tabs" id="profileTabs" role="tablist" aria-label="Profile sections">
+                            <button class="profile-tab active" type="button" role="tab" aria-selected="true"
+                                data-tab="personal"><i class="fa-regular fa-user"></i> Personal Info</button>
+                            <button class="profile-tab" type="button" role="tab" aria-selected="false"
+                                data-tab="work"><i class="fa-regular fa-calendar"></i> Work Info</button>
+                            <button class="profile-tab" type="button" role="tab" aria-selected="false"
+                                data-tab="security"><i class="fa-solid fa-shield-halved"></i> Account &amp;
+                                Security</button>
+                            <button class="profile-tab" type="button" role="tab" aria-selected="false"
+                                data-tab="preferences"><i class="fa-solid fa-gear"></i> Preferences</button>
+                        </div>
+                        <div class="tab-panel" id="tabPanel" role="tabpanel"></div>
+                    </section>
+                </div>
+
+                <div class="profile-lower-grid">
+                    <section class="panel information-panel">
+                        <div class="panel-heading">
+                            <h2>Contact Information</h2><button class="outline-action" type="button"
+                                data-edit="contact"><i class="fa-solid fa-pen"></i> Edit Contact</button>
+                        </div>
+                        <div class="information-rows">
+                            <div><span>Email Address</span><strong
+                                    id="contactEmail">mark.santos@joliespizza.com</strong></div>
+                            <div><span>Phone Number</span><strong id="contactPhone">0917 123 4567</strong></div>
+                            <div><span>Emergency Contact</span><strong id="contactEmergency">Maria Santos
+                                    (Mother)</strong></div>
+                            <div><span>Emergency Phone</span><strong id="contactEmergencyPhone">0921 765 4321</strong>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel information-panel">
+                        <div class="panel-heading">
+                            <h2>Account &amp; Security</h2><button class="outline-action" type="button"
+                                data-action="password"><i class="fa-solid fa-lock"></i> Change Password</button>
+                        </div>
+                        <div class="information-rows">
+                            <div><span>Username</span><strong>marksantos</strong></div>
+                            <div><span>Password</span><strong>••••••••••</strong></div>
+                            <div><span>Last Login</span><strong>May 10, 2025 · 10:15 AM</strong></div>
+                            <div><span>Two-Factor Authentication</span><strong class="enabled-status">Enabled</strong>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel work-panel">
+                        <div class="panel-heading">
+                            <h2>Work Information</h2>
+                            <div class="heading-actions"><button class="outline-action" id="scheduleButton"
+                                    type="button"><i class="fa-regular fa-calendar"></i> View Schedule</button><button
+                                    class="icon-select" id="scheduleMenu" type="button" aria-label="Schedule options"><i
+                                        class="fa-solid fa-chevron-down"></i></button></div>
+                        </div>
+                        <div class="work-panel-content">
+                            <div class="information-rows">
+                                <div><span>Position</span><strong id="workPosition">Kitchen Staff</strong></div>
+                                <div><span>Department</span><strong>Kitchen</strong></div>
+                                <div><span>Shift</span><strong>Morning Shift</strong></div>
+                                <div><span>Working Hours</span><strong>6:00 AM - 2:00 PM</strong></div>
+                                <div><span>Days Off</span><strong>Sunday</strong></div>
+                                <div><span>Employee ID</span><strong>JPZ-STAFF-025</strong></div>
+                                <div><span>Date Hired</span><strong>March 15, 2023</strong></div>
+                            </div>
+                            <aside class="schedule-mini"><strong><i class="fa-regular fa-calendar-check"></i> Today's
+                                    Schedule</strong><span><i class="fa-regular fa-clock"></i> Shift Time<small>6:00 AM
+                                        - 2:00 PM</small></span><span><i class="fa-regular fa-clock"></i> Break
+                                    Time<small>10:00 AM - 10:30 AM (30 mins)</small></span><span><i
+                                        class="fa-solid fa-utensils"></i> Station<small>Pizza Station</small></span>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <section class="panel activity-panel">
+                        <div class="panel-heading">
+                            <h2>Recent Account Activity</h2><button class="outline-action" id="activityToggle"
+                                type="button">View All</button>
+                        </div>
+                        <div class="activity-list" id="activityList">
+                            <article class="activity-row"><span class="activity-icon success"><i
+                                        class="fa-regular fa-circle-check"></i></span>
+                                <div><strong>Logged in successfully</strong><small>192.168.1.25</small></div><time
+                                    datetime="2025-05-10T10:15">May 10, 2025 · 10:15 AM</time>
+                            </article>
+                            <article class="activity-row"><span class="activity-icon edit"><i
+                                        class="fa-solid fa-pen"></i></span>
+                                <div><strong>Updated profile information</strong><small>192.168.1.25</small></div><time
+                                    datetime="2025-05-08T14:45">May 8, 2025 · 02:45 PM</time>
+                            </article>
+                            <article class="activity-row"><span class="activity-icon security"><i
+                                        class="fa-solid fa-lock"></i></span>
+                                <div><strong>Password changed</strong><small>192.168.1.25</small></div><time
+                                    datetime="2025-04-30T11:20">Apr 30, 2025 · 11:20 AM</time>
+                            </article>
+                            <article class="activity-row"><span class="activity-icon success"><i
+                                        class="fa-regular fa-circle-check"></i></span>
+                                <div><strong>Logged in successfully</strong><small>192.168.1.25</small></div><time
+                                    datetime="2025-04-30T06:02">Apr 30, 2025 · 06:02 AM</time>
+                            </article>
+                            <article class="activity-row extra-activity"><span class="activity-icon logout"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                                <div><strong>Logged out</strong><small>192.168.1.25</small></div><time
+                                    datetime="2025-04-29T14:00">Apr 29, 2025 · 02:00 PM</time>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+                <footer class="page-footer"><span>© 2025 Jolie's Pizza San Roque. All rights
+                        reserved.</span><span>Version 1.0.0</span></footer>
+            </section>
+        </main>
+    </div>
+
+    <dialog class="profile-dialog" id="editDialog" aria-labelledby="editDialogTitle">
+        <form id="editForm">
+            <div class="dialog-heading">
+                <div><span class="dialog-kicker">PROFILE SETTINGS</span>
+                    <h2 id="editDialogTitle">Edit Contact Information</h2>
+                </div><button class="dialog-close" type="button" data-close="editDialog" aria-label="Close"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="form-grid">
+                <label class="form-field full-field">Full Name<input name="name" value="Mark Santos" required></label>
+                <label class="form-field">Date of Birth<input name="birthDate" type="date" value="1999-05-22"></label>
+                <label class="form-field">Gender<select name="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Prefer not to say</option>
+                    </select></label>
+                <label class="form-field">Email Address<input name="email" type="email"
+                        value="mark.santos@joliespizza.com" required></label>
+                <label class="form-field">Phone Number<input name="phone" type="tel" value="0917 123 4567"
+                        required></label>
+                <label class="form-field">Emergency Contact<input name="emergency"
+                        value="Maria Santos (Mother)"></label>
+                <label class="form-field">Emergency Phone<input name="emergencyPhone" type="tel"
+                        value="0921 765 4321"></label>
+                <label class="form-field full-field">Address<input name="address"
+                        value="Poblacion, San Roque, Northern Samar"></label>
+            </div>
+            <div class="dialog-actions"><button class="secondary-button" type="button"
+                    data-close="editDialog">Cancel</button><button class="primary-button" type="submit">Save
+                    Changes</button></div>
+        </form>
+    </dialog>
+
+    <dialog class="profile-dialog password-dialog" id="passwordDialog" aria-labelledby="passwordDialogTitle">
+        <form id="passwordForm">
+            <div class="dialog-heading">
+                <div><span class="dialog-kicker">ACCOUNT SECURITY</span>
+                    <h2 id="passwordDialogTitle">Change Password</h2>
+                </div><button class="dialog-close" type="button" data-close="passwordDialog" aria-label="Close"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="dialog-copy">Choose a new password you do not use for other accounts.</p>
+            <label class="form-field">New Password<input name="newPassword" type="password" minlength="8"
+                    autocomplete="new-password" required></label>
+            <label class="form-field">Confirm New Password<input name="confirmPassword" type="password" minlength="8"
+                    autocomplete="new-password" required></label>
+            <p class="form-error" id="passwordError" aria-live="polite"></p>
+            <div class="dialog-actions"><button class="secondary-button" type="button"
+                    data-close="passwordDialog">Cancel</button><button class="primary-button" type="submit">Update
+                    Password</button></div>
+        </form>
+    </dialog>
+
+    <dialog class="profile-dialog schedule-dialog" id="scheduleDialog" aria-labelledby="scheduleDialogTitle">
+        <div class="dialog-heading">
+            <div><span class="dialog-kicker">WORK SCHEDULE</span>
+                <h2 id="scheduleDialogTitle">This Week</h2>
+            </div><button class="dialog-close" type="button" data-close="scheduleDialog" aria-label="Close"><i
+                    class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="schedule-list">
+            <div><strong>Monday – Saturday</strong><span>6:00 AM – 2:00 PM</span></div>
+            <div><strong>Meal break</strong><span>10:00 AM – 10:30 AM</span></div>
+            <div><strong>Sunday</strong><span class="day-off">Day off</span></div>
+            <div><strong>Assigned station</strong><span>Pizza Station</span></div>
+        </div>
+        <div class="dialog-actions"><button class="primary-button" type="button"
+                data-close="scheduleDialog">Done</button></div>
+    </dialog>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        const defaultProfile = {
+            name: "Mark Santos", role: "Kitchen Staff", birthDate: "1999-05-22", gender: "Male", civilStatus: "Single", nationality: "Filipino",
+            address: "Poblacion, San Roque, Northern Samar", email: "mark.santos@joliespizza.com", phone: "0917 123 4567",
+            emergency: "Maria Santos (Mother)", emergencyPhone: "0921 765 4321"
+        };
+        let profile = { ...defaultProfile, ...JSON.parse(localStorage.getItem("joliesStaffProfile") || "{}") };
+        const tabPanel = document.getElementById("tabPanel");
+
+        function escapeHTML(value) {
+            return String(value ?? "").replace(/[&<>"']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[character]);
+        }
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.classList.add("show");
+            clearTimeout(showToast.timer);
+            showToast.timer = setTimeout(() => toast.classList.remove("show"), 2300);
+        }
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("currentDate").textContent = now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+            document.getElementById("currentTime").textContent = now.toLocaleDateString("en-US", { weekday: "long" }) + " · " + now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+        }
+        function renderProfileSummary() {
+            document.getElementById("profileName").textContent = profile.name;
+            document.getElementById("sidebarName").textContent = profile.name;
+            document.getElementById("summaryEmail").textContent = profile.email;
+            document.getElementById("summaryPhone").textContent = profile.phone;
+            document.getElementById("contactEmail").textContent = profile.email;
+            document.getElementById("contactPhone").textContent = profile.phone;
+            document.getElementById("contactEmergency").textContent = profile.emergency;
+            document.getElementById("contactEmergencyPhone").textContent = profile.emergencyPhone;
+        }
+        function personalPanel() {
+            const birthDate = profile.birthDate ? new Date(`${profile.birthDate}T12:00:00`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) : "Not provided";
+            return `<div class="tab-panel-heading"><h2>Personal Information</h2><button class="outline-action" type="button" data-edit="personal"><i class="fa-solid fa-pen"></i> Edit Information</button></div><div class="information-rows"><div><span>Full Name</span><strong>${escapeHTML(profile.name === "Mark Santos" ? "Mark Anthony Santos" : profile.name)}</strong></div><div><span>Date of Birth</span><strong>${escapeHTML(birthDate)}</strong></div><div><span>Gender</span><strong>${escapeHTML(profile.gender)}</strong></div><div><span>Civil Status</span><strong>${escapeHTML(profile.civilStatus)}</strong></div><div><span>Nationality</span><strong>${escapeHTML(profile.nationality)}</strong></div><div><span>Address</span><strong>${escapeHTML(profile.address)}</strong></div></div>`;
+        }
+        function workPanel() {
+            return `<div class="tab-panel-heading"><h2>Work Information</h2><button class="outline-action" type="button" id="tabSchedule"><i class="fa-regular fa-calendar"></i> View Schedule</button></div><div class="information-rows"><div><span>Position</span><strong>${escapeHTML(profile.role)}</strong></div><div><span>Department</span><strong>Kitchen</strong></div><div><span>Shift</span><strong>Morning Shift</strong></div><div><span>Working Hours</span><strong>6:00 AM – 2:00 PM</strong></div><div><span>Days Off</span><strong>Sunday</strong></div><div><span>Employee ID</span><strong>JPZ-STAFF-025</strong></div><div><span>Date Hired</span><strong>March 15, 2023</strong></div></div>`;
+        }
+        function securityPanel() {
+            return `<div class="tab-panel-heading"><h2>Account &amp; Security</h2><button class="outline-action" type="button" data-action="password"><i class="fa-solid fa-lock"></i> Change Password</button></div><div class="information-rows"><div><span>Username</span><strong>marksantos</strong></div><div><span>Password</span><strong>••••••••••</strong></div><div><span>Last Login</span><strong>May 10, 2025 · 10:15 AM</strong></div><div><span>Two-Factor Authentication</span><strong class="enabled-status">Enabled</strong></div><div><span>Account Status</span><strong class="enabled-status">Active</strong></div></div>`;
+        }
+        function preferencesPanel() {
+            const saved = JSON.parse(localStorage.getItem("joliesStaffPreferences") || "{}");
+            const checked = (key, fallback) => Object.prototype.hasOwnProperty.call(saved, key) ? saved[key] : fallback;
+            return `<div class="tab-panel-heading"><h2>Preferences</h2><span class="saved-label" id="preferencesSaved">Saved automatically</span></div><div class="preference-list"><label class="preference-row"><span><strong>Email notifications</strong><small>Receive updates about orders and account activity.</small></span><input type="checkbox" data-preference="email" ${checked("email", true) ? "checked" : ""}></label><label class="preference-row"><span><strong>Order alerts</strong><small>Show an alert when a new order arrives.</small></span><input type="checkbox" data-preference="orders" ${checked("orders", true) ? "checked" : ""}></label><label class="preference-row"><span><strong>Inventory alerts</strong><small>Notify me when items need to be restocked.</small></span><input type="checkbox" data-preference="inventory" ${checked("inventory", true) ? "checked" : ""}></label><label class="preference-row"><span><strong>Compact dashboard</strong><small>Use denser layouts on staff screens.</small></span><input type="checkbox" data-preference="compact" ${checked("compact", false) ? "checked" : ""}></label></div>`;
+        }
+        const panelRenderers = { personal: personalPanel, work: workPanel, security: securityPanel, preferences: preferencesPanel };
+        function setActiveTab(tabName) {
+            document.querySelectorAll(".profile-tab").forEach(tab => {
+                const active = tab.dataset.tab === tabName;
+                tab.classList.toggle("active", active);
+                tab.setAttribute("aria-selected", String(active));
+            });
+            tabPanel.innerHTML = panelRenderers[tabName]();
+        }
+        function openEditDialog() {
+            const form = document.getElementById("editForm");
+            form.elements.name.value = profile.name;
+            form.elements.birthDate.value = profile.birthDate;
+            form.elements.gender.value = profile.gender;
+            form.elements.email.value = profile.email;
+            form.elements.phone.value = profile.phone;
+            form.elements.emergency.value = profile.emergency;
+            form.elements.emergencyPhone.value = profile.emergencyPhone;
+            form.elements.address.value = profile.address;
+            document.getElementById("editDialog").showModal();
+        }
+        function recordActivity(title, iconClass) {
+            const list = document.getElementById("activityList");
+            const item = document.createElement("article");
+            item.className = "activity-row new-activity";
+            const now = new Date();
+            item.innerHTML = `<span class="activity-icon ${iconClass}"><i class="fa-regular fa-circle-check"></i></span><div><strong>${escapeHTML(title)}</strong><small>192.168.1.25</small></div><time>${now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })} · ${now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</time>`;
+            list.prepend(item);
+        }
+        function closeDialog(id) { document.getElementById(id).close(); }
+
+        document.getElementById("profileTabs").addEventListener("click", event => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const tab = target.closest("[data-tab]");
+            if (tab) setActiveTab(tab.dataset.tab);
+        });
+        document.addEventListener("click", event => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const edit = target.closest("[data-edit]");
+            const action = target.closest("[data-action]");
+            if (edit) {
+                document.getElementById("editDialogTitle").textContent = edit.dataset.edit === "personal" ? "Edit Personal Information" : "Edit Contact Information";
+                openEditDialog();
+            }
+            if (action?.dataset.action === "password") document.getElementById("passwordDialog").showModal();
+            if (target.closest("#tabSchedule")) document.getElementById("scheduleDialog").showModal();
+            const close = target.closest("[data-close]");
+            if (close) closeDialog(close.dataset.close);
+        });
+        document.getElementById("editForm").addEventListener("submit", event => {
+            event.preventDefault();
+            const form = event.currentTarget;
+            const birthDate = form.elements.birthDate.value;
+            profile = {
+                ...profile,
+                name: form.elements.name.value.trim(),
+                birthDate: birthDate || profile.birthDate,
+                gender: form.elements.gender.value,
+                email: form.elements.email.value.trim(),
+                phone: form.elements.phone.value.trim(),
+                emergency: form.elements.emergency.value.trim(),
+                emergencyPhone: form.elements.emergencyPhone.value.trim(),
+                address: form.elements.address.value.trim()
+            };
+            localStorage.setItem("joliesStaffProfile", JSON.stringify(profile));
+            renderProfileSummary();
+            setActiveTab(document.querySelector(".profile-tab.active").dataset.tab);
+            closeDialog("editDialog");
+            recordActivity("Updated profile information", "edit");
+            showToast("Profile information saved.");
+        });
+        document.getElementById("passwordForm").addEventListener("submit", event => {
+            event.preventDefault();
+            const form = event.currentTarget;
+            const error = document.getElementById("passwordError");
+            if (form.elements.newPassword.value !== form.elements.confirmPassword.value) {
+                error.textContent = "The passwords do not match.";
+                return;
+            }
+            error.textContent = "";
+            form.reset();
+            closeDialog("passwordDialog");
+            recordActivity("Password changed", "security");
+            showToast("Password updated successfully.");
+        });
+        tabPanel.addEventListener("change", event => {
+            const target = event.target;
+            if (!(target instanceof HTMLInputElement) || !target.matches("[data-preference]")) return;
+            const preferences = JSON.parse(localStorage.getItem("joliesStaffPreferences") || "{}");
+            preferences[target.dataset.preference] = target.checked;
+            localStorage.setItem("joliesStaffPreferences", JSON.stringify(preferences));
+            showToast("Preference saved.");
+        });
+        document.getElementById("scheduleButton").addEventListener("click", () => document.getElementById("scheduleDialog").showModal());
+        document.getElementById("scheduleMenu").addEventListener("click", () => document.getElementById("scheduleDialog").showModal());
+        document.getElementById("activityToggle").addEventListener("click", event => {
+            const expanded = document.getElementById("activityList").classList.toggle("show-all");
+            event.currentTarget.textContent = expanded ? "Show Less" : "View All";
+        });
+        document.getElementById("menuToggle").addEventListener("click", event => {
+            const open = document.getElementById("sidebar").classList.toggle("open");
+            event.currentTarget.setAttribute("aria-expanded", String(open));
+        });
+        document.getElementById("logoutButton").addEventListener("click", () => {
+            if (confirm("Are you sure you want to logout?")) window.location.href = "../login.html";
+        });
+        updateDateTime();
+        setInterval(updateDateTime, 60000);
+        renderProfileSummary();
+        setActiveTab("personal");
+    </script>
+</body>
+
+</html>

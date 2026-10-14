@@ -1,0 +1,2976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Payments - Jolie's Pizza</title>
+
+    <link rel="stylesheet" href="online-payments.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <a href="dashboard.html">
+                <img
+                    src="../images/logoadmin.png"
+                    alt="Jolie's Pizza"
+                    class="sidebar-logo"
+                >
+            </a>
+        </div>
+
+        <nav class="side-nav">
+
+            <!-- Dashboard -->
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                    </svg>
+                </span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <!-- Orders -->
+            <a href="orders.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 64 64">
+                        <path d="M17 15H10V55H42V49"></path>
+                        <path d="M17 10H35V18H17V10Z"></path>
+                        <path d="M21 10V7.5C21 5.6 22.6 4 24.5 4H27.5C29.4 4 31 5.6 31 7.5V10"></path>
+
+                        <rect x="15" y="23" width="6" height="6"></rect>
+                        <line x1="25" y1="26" x2="38" y2="26"></line>
+
+                        <rect x="15" y="34" width="6" height="6"></rect>
+                        <line x1="25" y1="37" x2="38" y2="37"></line>
+
+                        <rect x="15" y="45" width="6" height="6"></rect>
+
+                        <path d="M35 27L49 34L49 48L35 55L21 48V34L35 27Z"></path>
+                        <path d="M21 34L35 41L49 34"></path>
+                        <path d="M35 41V55"></path>
+                    </svg>
+                </span>
+
+                <span>Orders</span>
+            </a>
+
+
+            <!-- Menu Management -->
+            <div class="nav-group">
+
+                <button
+                    class="nav-item nav-parent"
+                    type="button"
+                    data-menu="menu-management"
+                >
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 21L7 8L12 4L17 8L19 21"></path>
+                            <path d="M8 11C9.5 12 10.5 12 12 11"></path>
+                            <path d="M12 11C13.5 12 14.5 12 16 11"></path>
+                        </svg>
+                    </span>
+
+                    <span>Menu Management</span>
+
+                    <span class="nav-arrow">⌄</span>
+                </button>
+
+                <div class="submenu" id="menu-management">
+
+                    <a href="menu-management.html" class="submenu-item">
+                        <span>Menu Items</span>
+                    </a>
+
+                    <a href="menu-management.html#categories" class="submenu-item">
+                        <span>Categories</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Inventory -->
+            <div class="nav-group">
+
+                <button
+                    class="nav-item nav-parent"
+                    type="button"
+                    data-menu="inventory-menu"
+                >
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 7L12 3L20 7V18L12 22L4 18V7Z"></path>
+                            <path d="M4 7L12 11L20 7"></path>
+                            <path d="M12 11V22"></path>
+                        </svg>
+                    </span>
+
+                    <span>Inventory</span>
+
+                    <span class="nav-arrow">⌄</span>
+
+                </button>
+
+
+                <div class="submenu" id="inventory-menu">
+
+                    <a href="inventory overview.html" class="submenu-item">
+                        Overview
+                    </a>
+
+                    <a href="inventory stock-items.html" class="submenu-item">
+                        Stock Items
+                    </a>
+
+                    <a href="inventory stock-in.html" class="submenu-item">
+                        Stock In
+                    </a>
+
+                    <a href="inventory stock-out.html" class="submenu-item">
+                        Stock Out
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Delivery Tracking -->
+            <a href="delivery-tracking.html" class="nav-item">
+
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 6H15V17H3Z"></path>
+                        <path d="M15 10H19L22 13V17H15Z"></path>
+                        <circle cx="7" cy="18" r="2"></circle>
+                        <circle cx="18" cy="18" r="2"></circle>
+                    </svg>
+                </span>
+
+                <span>Delivery Tracking</span>
+
+            </a>
+
+
+            <!-- Online Payments -->
+            <a href="online-payments.html" class="nav-item active">
+
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                        <line x1="7" y1="15" x2="11" y2="15"></line>
+                    </svg>
+                </span>
+
+                <span>Online Payments</span>
+
+            </a>
+
+
+            <!-- Reports -->
+            <a href="reports.html" class="nav-item">
+
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3A9 9 0 1 0 21 12"></path>
+                        <path d="M12 3V12H21"></path>
+                    </svg>
+                </span>
+
+                <span>Reports</span>
+
+            </a>
+
+
+            <!-- Staff Management -->
+            <a href="staff-management.html" class="nav-item">
+
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="7" r="4"></circle>
+                        <path d="M4 21C4 16.6 7.6 14 12 14C16.4 14 20 16.6 20 21"></path>
+                    </svg>
+                </span>
+
+                <span>Staff Management</span>
+
+            </a>
+
+
+            <!-- Settings -->
+            <a href="settings.html" class="nav-item">
+
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15A1.7 1.7 0 0 0 20 16.7L18.7 19L16.5 18.2A1.7 1.7 0 0 0 15 19.1L14.7 21.5H9.3L9 19.1A1.7 1.7 0 0 0 7.5 18.2L5.3 19L4 16.7A1.7 1.7 0 0 0 4.6 15L3 13L4.6 11A1.7 1.7 0 0 0 4 9.3L5.3 7L7.5 7.8A1.7 1.7 0 0 0 9 6.9L9.3 4.5H14.7L15 6.9A1.7 1.7 0 0 0 16.5 7.8L18.7 7L20 9.3A1.7 1.7 0 0 0 19.4 11L21 13L19.4 15Z"></path>
+                    </svg>
+                </span>
+
+                <span>Settings</span>
+
+            </a>
+
+
+            <!-- Logout -->
+            <button class="nav-item logout-item" id="logoutBtn" type="button">
+
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 17L15 12L10 7"></path>
+                        <path d="M15 12H3"></path>
+                        <path d="M14 4H20V20H14"></path>
+                    </svg>
+                </span>
+
+                <span>Log Out</span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- Support -->
+        <div class="support-box">
+
+            <div class="support-icon">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 13V11A8 8 0 0 1 20 11V13"></path>
+                    <rect x="2" y="12" width="4" height="7" rx="2"></rect>
+                    <rect x="18" y="12" width="4" height="7" rx="2"></rect>
+                    <path d="M20 19C20 21 18 22 15 22H12"></path>
+                </svg>
+
+            </div>
+
+            <div class="support-content">
+
+                <strong>Need Help?</strong>
+
+                <a href="tel:09123456789">
+                    Contact support
+                </a>
+
+                <span>0912 345 6789</span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="heading-area">
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                >
+                    ☰
+                </button>
+
+                <div class="page-heading">
+
+                    <h1>Online Payments</h1>
+
+                    <div class="breadcrumb">
+
+                        <span>Dashboard</span>
+
+                        <span>›</span>
+
+                        <strong>Online Payments</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <!-- Date -->
+
+                <button class="date-picker" type="button">
+
+                    <span>May 20, 2024</span>
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="17" rx="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+
+                </button>
+
+
+                <!-- Notification -->
+
+                <button class="notification" type="button">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 8A6 6 0 0 0 6 8C6 15 3 16 3 18H21C21 16 18 15 18 8"></path>
+                        <path d="M10 21H14"></path>
+                    </svg>
+
+                    <b>3</b>
+
+                </button>
+
+
+                <!-- Profile -->
+
+                <div class="profile-wrap">
+
+                    <button class="profile" id="profileBtn" type="button">
+
+                        <span class="avatar">
+                            A
+                        </span>
+
+                        <span class="profile-text">
+
+                            <strong>Admin</strong>
+
+                            <small>Administrator</small>
+
+                        </span>
+
+                        <span class="chevron">
+                            ⌄
+                        </span>
+
+                    </button>
+
+
+                    <div class="profile-menu" id="profileMenu">
+
+                        <button type="button">
+                            My Profile
+                        </button>
+
+                        <button type="button">
+                            Account Settings
+                        </button>
+
+                        <button type="button" id="profileLogout">
+                            Log Out
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="payment-stats">
+
+
+            <!-- Total Payments -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                        <line x1="7" y1="15" x2="11" y2="15"></line>
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <span>Total Payments</span>
+
+                    <h2>₱48,350.00</h2>
+
+                    <small class="trend green-text">
+                        ↑ 12.6%
+                        <em>vs yesterday</em>
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Completed -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M8 12L11 15L17 9"></path>
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <span>Completed</span>
+
+                    <h2>₱42,180.00</h2>
+
+                    <small class="trend green-text">
+                        ↑ 14.8%
+                        <em>vs yesterday</em>
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Pending -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M12 7V12L15 14"></path>
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <span>Pending</span>
+
+                    <h2>₱4,620.00</h2>
+
+                    <small class="trend orange-text">
+                        ↑ 8.4%
+                        <em>vs yesterday</em>
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Failed -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9 9L15 15"></path>
+                        <path d="M15 9L9 15"></path>
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <span>Failed</span>
+
+                    <h2>₱1,550.00</h2>
+
+                    <small class="trend red-text">
+                        ↓ 16.3%
+                        <em>vs yesterday</em>
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Refunded -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 12A8 8 0 1 0 7 6"></path>
+                        <path d="M4 5V10H9"></path>
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <span>Refunded</span>
+
+                    <h2>₱0.00</h2>
+
+                    <small class="trend muted-text">
+                        — 0%
+                        <em>vs yesterday</em>
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PAYMENT CONTENT
+        ================================================== -->
+
+        <section class="payment-layout">
+
+
+            <!-- LEFT -->
+
+            <div class="payments-container">
+
+
+                <!-- TABS -->
+
+                <div class="payment-tabs">
+
+                    <button
+                        class="payment-tab active"
+                        data-status="all"
+                    >
+                        All Payments
+                    </button>
+
+                    <button
+                        class="payment-tab"
+                        data-status="Completed"
+                    >
+                        Completed
+                    </button>
+
+                    <button
+                        class="payment-tab"
+                        data-status="Pending"
+                    >
+                        Pending
+                    </button>
+
+                    <button
+                        class="payment-tab"
+                        data-status="Failed"
+                    >
+                        Failed
+                    </button>
+
+                    <button
+                        class="payment-tab"
+                        data-status="Refunded"
+                    >
+                        Refunded
+                    </button>
+
+
+                    <div class="tab-actions">
+
+                        <button class="date-range">
+
+                            <span>
+                                May 13, 2024 - May 20, 2024
+                            </span>
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="4" width="18" height="17" rx="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+
+                        </button>
+
+                        <button class="export-btn" id="exportBtn">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 3V15"></path>
+                                <path d="M8 11L12 15L16 11"></path>
+                                <path d="M4 17V21H20V17"></path>
+                            </svg>
+
+                            Export
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FILTER BAR -->
+
+                <div class="filter-bar">
+
+                    <div class="search-box">
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search order ID, reference no., customer..."
+                        >
+
+                        <button
+                            type="button"
+                            id="searchBtn"
+                        >
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="7"></circle>
+                                <line x1="16" y1="16" x2="21" y2="21"></line>
+                            </svg>
+                        </button>
+
+                    </div>
+
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="Failed">
+                            Failed
+                        </option>
+
+                        <option value="Refunded">
+                            Refunded
+                        </option>
+
+                    </select>
+
+
+                    <select id="methodFilter">
+
+                        <option value="all">
+                            All Payment Method
+                        </option>
+
+                        <option value="GCash">
+                            GCash
+                        </option>
+
+                        <option value="Maya">
+                            Maya
+                        </option>
+
+                        <option value="Credit / Debit Card">
+                            Credit / Debit Card
+                        </option>
+
+                        <option value="Cash on Delivery">
+                            Cash on Delivery
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        class="filter-btn"
+                        id="filterBtn"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 5H20L14 12V19L10 21V12L4 5Z"></path>
+                        </svg>
+
+                        Filters
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- TABLE -->
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Payment ID</th>
+
+                                <th>Order ID</th>
+
+                                <th>Customer</th>
+
+                                <th>Amount</th>
+
+                                <th>Payment Method</th>
+
+                                <th>Status</th>
+
+                                <th>Date & Time</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="paymentTableBody">
+
+
+                            <!-- ROW 1 -->
+
+                            <tr
+                                data-id="PAY-000256"
+                                data-status="Completed"
+                                data-method="GCash"
+                                data-order="#ORD-000158"
+                            >
+
+                                <td>
+
+                                    <strong>PAY-000256</strong>
+
+                                    <small>
+                                        Ref: 7H8K9L2M3N
+                                    </small>
+
+                                </td>
+
+                                <td>
+                                    <strong>#ORD-000158</strong>
+                                </td>
+
+                                <td>
+
+                                    <strong>John D.</strong>
+
+                                    <small>0917 123 4567</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>₱549.00</strong>
+                                </td>
+
+                                <td>
+
+                                    <div class="payment-method gcash">
+
+                                        <span class="method-logo">G</span>
+
+                                        <strong>GCash</strong>
+
+                                        <small>0917 123 4567</small>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <strong>May 20, 2024</strong>
+
+                                    <small>2:45 PM</small>
+
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="view-payment"
+                                        title="View payment"
+                                    >
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M2 12S5.5 5 12 5S22 12 22 12S18.5 19 12 19S2 12 2 12Z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- ROW 2 -->
+
+                            <tr
+                                data-id="PAY-000255"
+                                data-status="Completed"
+                                data-method="Maya"
+                                data-order="#ORD-000157"
+                            >
+
+                                <td>
+
+                                    <strong>PAY-000255</strong>
+
+                                    <small>Ref: 6G7H8J9K1L</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>#ORD-000157</strong>
+                                </td>
+
+                                <td>
+
+                                    <strong>Maria S.</strong>
+
+                                    <small>0908 765 4321</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>₱644.00</strong>
+                                </td>
+
+                                <td>
+
+                                    <div class="payment-method maya">
+
+                                        <span class="method-logo">
+                                            m
+                                        </span>
+
+                                        <strong>Maya</strong>
+
+                                        <small>maria.s@email.com</small>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <strong>May 20, 2024</strong>
+
+                                    <small>2:30 PM</small>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-payment">
+
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M2 12S5.5 5 12 5S22 12 22 12S18.5 19 12 19S2 12 2 12Z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- ROW 3 -->
+
+                            <tr
+                                data-id="PAY-000254"
+                                data-status="Completed"
+                                data-method="Credit / Debit Card"
+                                data-order="#ORD-000156"
+                            >
+
+                                <td>
+
+                                    <strong>PAY-000254</strong>
+
+                                    <small>Ref: 5F6G7H8J9K</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>#ORD-000156</strong>
+                                </td>
+
+                                <td>
+
+                                    <strong>Kevin T.</strong>
+
+                                    <small>0916 555 1122</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>₱879.00</strong>
+                                </td>
+
+                                <td>
+
+                                    <div class="payment-method card">
+
+                                        <span class="method-logo">
+                                            ▭
+                                        </span>
+
+                                        <strong>Credit / Debit Card</strong>
+
+                                        <small>•••• •••• 1234</small>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <strong>May 20, 2024</strong>
+
+                                    <small>2:10 PM</small>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-payment">
+
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M2 12S5.5 5 12 5S22 12 22 12S18.5 19 12 19S2 12 2 12Z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- ROW 4 -->
+
+                            <tr
+                                data-id="PAY-000253"
+                                data-status="Pending"
+                                data-method="Cash on Delivery"
+                                data-order="#ORD-000155"
+                            >
+
+                                <td>
+
+                                    <strong>PAY-000253</strong>
+
+                                    <small>Ref: 4E5F6G7H8</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>#ORD-000155</strong>
+                                </td>
+
+                                <td>
+
+                                    <strong>Walk-in Customer</strong>
+
+                                    <small>(Counter Order)</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>₱329.00</strong>
+                                </td>
+
+                                <td>
+
+                                    <div class="payment-method cod">
+
+                                        <span class="method-logo">
+                                            ₱
+                                        </span>
+
+                                        <strong>Cash on Delivery</strong>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="status pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <strong>May 20, 2024</strong>
+
+                                    <small>1:55 PM</small>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-payment">
+
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M2 12S5.5 5 12 5S22 12 22 12S18.5 19 12 19S2 12 2 12Z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- ROW 5 -->
+
+                            <tr
+                                data-id="PAY-000252"
+                                data-status="Failed"
+                                data-method="GCash"
+                                data-order="#ORD-000154"
+                            >
+
+                                <td>
+
+                                    <strong>PAY-000252</strong>
+
+                                    <small>Ref: 3D4E5F6G7H</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>#ORD-000154</strong>
+                                </td>
+
+                                <td>
+
+                                    <strong>David L.</strong>
+
+                                    <small>0920 111 2233</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>₱1,098.00</strong>
+                                </td>
+
+                                <td>
+
+                                    <div class="payment-method gcash">
+
+                                        <span class="method-logo">G</span>
+
+                                        <strong>GCash</strong>
+
+                                        <small>0920 111 2233</small>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="status failed">
+                                        Failed
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <strong>May 20, 2024</strong>
+
+                                    <small>1:40 PM</small>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-payment">
+
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M2 12S5.5 5 12 5S22 12 22 12S18.5 19 12 19S2 12 2 12Z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- ROW 6 -->
+
+                            <tr
+                                data-id="PAY-000251"
+                                data-status="Completed"
+                                data-method="Credit / Debit Card"
+                                data-order="#ORD-000153"
+                            >
+
+                                <td>
+
+                                    <strong>PAY-000251</strong>
+
+                                    <small>Ref: 2C3D4E5F6G</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>#ORD-000153</strong>
+                                </td>
+
+                                <td>
+
+                                    <strong>Alyssa G.</strong>
+
+                                    <small>0912 444 5566</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>₱644.00</strong>
+                                </td>
+
+                                <td>
+
+                                    <div class="payment-method card">
+
+                                        <span class="method-logo">
+                                            ▭
+                                        </span>
+
+                                        <strong>Credit / Debit Card</strong>
+
+                                        <small>•••• •••• 5678</small>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <strong>May 20, 2024</strong>
+
+                                    <small>1:25 PM</small>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-payment">
+
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M2 12S5.5 5 12 5S22 12 22 12S18.5 19 12 19S2 12 2 12Z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- ROW 7 -->
+
+                            <tr
+                                data-id="PAY-000250"
+                                data-status="Pending"
+                                data-method="Maya"
+                                data-order="#ORD-000152"
+                            >
+
+                                <td>
+
+                                    <strong>PAY-000250</strong>
+
+                                    <small>Ref: 1B2C3D4E5F</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>#ORD-000152</strong>
+                                </td>
+
+                                <td>
+
+                                    <strong>Paolo R.</strong>
+
+                                    <small>0905 333 7788</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>₱549.00</strong>
+                                </td>
+
+                                <td>
+
+                                    <div class="payment-method maya">
+
+                                        <span class="method-logo">
+                                            m
+                                        </span>
+
+                                        <strong>Maya</strong>
+
+                                        <small>paolo.r@email.com</small>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="status pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <strong>May 20, 2024</strong>
+
+                                    <small>12:50 PM</small>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-payment">
+
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M2 12S5.5 5 12 5S22 12 22 12S18.5 19 12 19S2 12 2 12Z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- ROW 8 -->
+
+                            <tr
+                                data-id="PAY-000249"
+                                data-status="Completed"
+                                data-method="Cash on Delivery"
+                                data-order="#ORD-000151"
+                            >
+
+                                <td>
+
+                                    <strong>PAY-000249</strong>
+
+                                    <small>Ref: 0A1B2C3D4E</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>#ORD-000151</strong>
+                                </td>
+
+                                <td>
+
+                                    <strong>Camille B.</strong>
+
+                                    <small>0919 888 9900</small>
+
+                                </td>
+
+                                <td>
+                                    <strong>₱879.00</strong>
+                                </td>
+
+                                <td>
+
+                                    <div class="payment-method cod">
+
+                                        <span class="method-logo">
+                                            ₱
+                                        </span>
+
+                                        <strong>Cash on Delivery</strong>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <strong>May 20, 2024</strong>
+
+                                    <small>12:30 PM</small>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-payment">
+
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M2 12S5.5 5 12 5S22 12 22 12S18.5 19 12 19S2 12 2 12Z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- PAGINATION -->
+
+                <div class="pagination">
+
+                    <span id="resultText">
+                        Showing 1 to 8 of 48 payments
+                    </span>
+
+                    <div class="page-buttons">
+
+                        <button class="page-arrow" type="button">
+                            ‹
+                        </button>
+
+                        <button class="page-number active" type="button">
+                            1
+                        </button>
+
+                        <button class="page-number" type="button">
+                            2
+                        </button>
+
+                        <button class="page-number" type="button">
+                            3
+                        </button>
+
+                        <button class="page-number" type="button">
+                            4
+                        </button>
+
+                        <button class="page-number" type="button">
+                            5
+                        </button>
+
+                        <button class="page-number" type="button">
+                            …
+                        </button>
+
+                        <button class="page-number" type="button">
+                            6
+                        </button>
+
+                        <button class="page-arrow" type="button">
+                            ›
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT PAYMENT DETAILS
+            ================================================== -->
+
+            <aside class="payment-details" id="paymentDetails">
+
+                <div class="details-header">
+
+                    <h2>Payment Details</h2>
+
+                    <button
+                        class="print-btn"
+                        id="printBtn"
+                        type="button"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6 9V3H18V9"></path>
+                            <path d="M6 18H4C3 18 2 17 2 16V10C2 9 3 8 4 8H20C21 8 22 9 22 10V16C22 17 21 18 20 18H18"></path>
+                            <rect x="6" y="14" width="12" height="7"></rect>
+                        </svg>
+                    </button>
+
+                </div>
+
+
+                <div class="payment-id-label">
+                    Payment ID
+                </div>
+
+                <div class="details-payment-heading">
+
+                    <strong id="detailPaymentId">
+                        PAY-000256
+                    </strong>
+
+                    <span
+                        class="status completed"
+                        id="detailStatus"
+                    >
+                        Completed
+                    </span>
+
+                </div>
+
+
+
+                <!-- Payment Information -->
+
+                <section class="detail-section">
+
+                    <h3>
+                        Payment Information
+                    </h3>
+
+                    <div class="detail-row">
+
+                        <span>Order ID</span>
+
+                        <strong
+                            class="red-value"
+                            id="detailOrderId"
+                        >
+                            #ORD-000158
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Reference No.</span>
+
+                        <strong id="detailReference">
+                            7H8K9L2M3N
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Payment Method</span>
+
+                        <strong id="detailMethod">
+                            GCash
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Phone / Account</span>
+
+                        <strong id="detailAccount">
+                            0917 123 4567
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Amount</span>
+
+                        <strong id="detailAmount">
+                            ₱549.00
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Transaction Fee</span>
+
+                        <strong>
+                            ₱0.00
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Total Paid</span>
+
+                        <strong class="green-value">
+                            ₱549.00
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Status</span>
+
+                        <strong
+                            class="green-value"
+                            id="detailStatusText"
+                        >
+                            Completed
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Paid At</span>
+
+                        <strong id="detailPaidAt">
+                            May 20, 2024 2:45 PM
+                        </strong>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- Customer Information -->
+
+                <section class="detail-section">
+
+                    <h3>
+                        Customer Information
+                    </h3>
+
+                    <div class="detail-row">
+
+                        <span>Name</span>
+
+                        <strong id="detailCustomer">
+                            John D.
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Phone</span>
+
+                        <strong id="detailCustomerPhone">
+                            0917 123 4567
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-row">
+
+                        <span>Email</span>
+
+                        <strong>
+                            john.d@email.com
+                        </strong>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- Order Summary -->
+
+                <section class="detail-section">
+
+                    <div class="section-heading">
+
+                        <h3>
+                            Order Summary
+                        </h3>
+
+                        <button class="view-order">
+                            View Order
+                        </button>
+
+                    </div>
+
+
+                    <div class="order-line">
+
+                        <span>
+                            1x &nbsp; Pizza Supreme (Large)
+                        </span>
+
+                        <strong>
+                            ₱549.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="order-line">
+
+                        <span>
+                            1x &nbsp; Coke 1.5L
+                        </span>
+
+                        <strong>
+                            ₱95.00
+                        </strong>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- Totals -->
+
+                <section class="totals">
+
+                    <div>
+
+                        <span>Subtotal</span>
+
+                        <strong>
+                            ₱644.00
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>Delivery Fee</span>
+
+                        <strong>
+                            ₱0.00
+                        </strong>
+
+                    </div>
+
+                    <div class="total">
+
+                        <span>Total</span>
+
+                        <strong>
+                            ₱644.00
+                        </strong>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- Actions -->
+
+                <div class="details-actions">
+
+                    <button
+                        class="issue-refund"
+                        id="refundBtn"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 12A8 8 0 1 0 7 6"></path>
+                            <path d="M4 5V10H9"></path>
+                        </svg>
+
+                        Issue Refund
+
+                    </button>
+
+
+                    <button
+                        class="download-receipt"
+                        id="receiptBtn"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3V15"></path>
+                            <path d="M8 11L12 15L16 11"></path>
+                            <path d="M4 17V21H20V17"></path>
+                        </svg>
+
+                        Download Receipt
+
+                    </button>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+====================================================== -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+    /* =========================================================
+   JOLIE'S PIZZA
+   ONLINE PAYMENTS
+   PURE VANILLA JAVASCRIPT
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
+
+    const sidebar =
+        document.getElementById("sidebar");
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const profileBtn =
+        document.getElementById("profileBtn");
+
+    const profileMenu =
+        document.getElementById("profileMenu");
+
+    const logoutBtn =
+        document.getElementById("logoutBtn");
+
+    const profileLogout =
+        document.getElementById("profileLogout");
+
+    const toast =
+        document.getElementById("toast");
+
+    const paymentTableBody =
+        document.getElementById("paymentTableBody");
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const searchBtn =
+        document.getElementById("searchBtn");
+
+    const statusFilter =
+        document.getElementById("statusFilter");
+
+    const methodFilter =
+        document.getElementById("methodFilter");
+
+    const filterBtn =
+        document.getElementById("filterBtn");
+
+    const paymentTabs =
+        document.querySelectorAll(".payment-tab");
+
+    const rows =
+        document.querySelectorAll("#paymentTableBody tr");
+
+
+
+    /* =====================================================
+       TOAST
+    ====================================================== */
+
+    function showToast(message) {
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+        clearTimeout(window.toastTimer);
+
+        window.toastTimer =
+            setTimeout(function () {
+
+                toast.classList.remove("show");
+
+            }, 2500);
+    }
+
+
+
+    /* =====================================================
+       MOBILE SIDEBAR
+    ====================================================== */
+
+    if (menuToggle) {
+
+        menuToggle.addEventListener("click", function () {
+
+            sidebar.classList.toggle("open");
+
+        });
+
+    }
+
+
+
+    /* =====================================================
+       SIDEBAR SUBMENUS
+    ====================================================== */
+
+    document.querySelectorAll(".nav-parent").forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const submenu = document.getElementById(
+                button.getAttribute("data-menu")
+            );
+
+            if (!submenu) {
+                return;
+            }
+
+            const isOpen = submenu.classList.contains("open");
+
+            document.querySelectorAll(".submenu").forEach(function (item) {
+                item.classList.remove("open");
+            });
+
+            document.querySelectorAll(".nav-parent").forEach(function (item) {
+                item.classList.remove("open");
+            });
+
+            if (!isOpen) {
+                submenu.classList.add("open");
+                button.classList.add("open");
+            }
+
+        });
+
+    });
+
+
+
+    /* =====================================================
+       PROFILE DROPDOWN
+    ====================================================== */
+
+    profileBtn && profileBtn.addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+            profileMenu.classList.toggle("show");
+
+        });
+
+
+    document.addEventListener("click", function (event) {
+
+        if (
+            profileMenu &&
+            !profileMenu.contains(event.target) &&
+            !profileBtn.contains(event.target)
+        ) {
+
+            profileMenu.classList.remove("show");
+
+        }
+
+    });
+
+
+
+    /* =====================================================
+       LOGOUT
+    ====================================================== */
+
+    function logout() {
+
+        const confirmed =
+            confirm("Are you sure you want to log out?");
+
+        if (!confirmed) {
+            return;
+        }
+
+        showToast("Logging out...");
+
+        setTimeout(function () {
+
+            window.location.href =
+                "../login.html";
+
+        }, 800);
+
+    }
+
+
+    if (logoutBtn) {
+
+        logoutBtn.addEventListener(
+            "click",
+            logout
+        );
+
+    }
+
+
+    if (profileLogout) {
+
+        profileLogout.addEventListener(
+            "click",
+            logout
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PAYMENT DATA
+    ====================================================== */
+
+    const paymentData = {
+
+        "PAY-000256": {
+
+            id: "PAY-000256",
+
+            order: "#ORD-000158",
+
+            reference: "7H8K9L2M3N",
+
+            method: "GCash",
+
+            account: "0917 123 4567",
+
+            amount: "₱549.00",
+
+            customer: "John D.",
+
+            phone: "0917 123 4567",
+
+            email: "john.d@email.com",
+
+            status: "Completed",
+
+            date: "May 20, 2024",
+
+            time: "2:45 PM"
+
+        },
+
+
+        "PAY-000255": {
+
+            id: "PAY-000255",
+
+            order: "#ORD-000157",
+
+            reference: "6G7H8J9K1L",
+
+            method: "Maya",
+
+            account: "maria.s@email.com",
+
+            amount: "₱644.00",
+
+            customer: "Maria S.",
+
+            phone: "0908 765 4321",
+
+            email: "maria.s@email.com",
+
+            status: "Completed",
+
+            date: "May 20, 2024",
+
+            time: "2:30 PM"
+
+        },
+
+
+        "PAY-000254": {
+
+            id: "PAY-000254",
+
+            order: "#ORD-000156",
+
+            reference: "5F6G7H8J9K",
+
+            method: "Credit / Debit Card",
+
+            account: "•••• •••• 1234",
+
+            amount: "₱879.00",
+
+            customer: "Kevin T.",
+
+            phone: "0916 555 1122",
+
+            email: "kevin.t@email.com",
+
+            status: "Completed",
+
+            date: "May 20, 2024",
+
+            time: "2:10 PM"
+
+        },
+
+
+        "PAY-000253": {
+
+            id: "PAY-000253",
+
+            order: "#ORD-000155",
+
+            reference: "4E5F6G7H8",
+
+            method: "Cash on Delivery",
+
+            account: "Cash on Delivery",
+
+            amount: "₱329.00",
+
+            customer: "Walk-in Customer",
+
+            phone: "—",
+
+            email: "—",
+
+            status: "Pending",
+
+            date: "May 20, 2024",
+
+            time: "1:55 PM"
+
+        },
+
+
+        "PAY-000252": {
+
+            id: "PAY-000252",
+
+            order: "#ORD-000154",
+
+            reference: "3D4E5F6G7H",
+
+            method: "GCash",
+
+            account: "0920 111 2233",
+
+            amount: "₱1,098.00",
+
+            customer: "David L.",
+
+            phone: "0920 111 2233",
+
+            email: "david.l@email.com",
+
+            status: "Failed",
+
+            date: "May 20, 2024",
+
+            time: "1:40 PM"
+
+        },
+
+
+        "PAY-000251": {
+
+            id: "PAY-000251",
+
+            order: "#ORD-000153",
+
+            reference: "2C3D4E5F6G",
+
+            method: "Credit / Debit Card",
+
+            account: "•••• •••• 5678",
+
+            amount: "₱644.00",
+
+            customer: "Alyssa G.",
+
+            phone: "0912 444 5566",
+
+            email: "alyssa.g@email.com",
+
+            status: "Completed",
+
+            date: "May 20, 2024",
+
+            time: "1:25 PM"
+
+        },
+
+
+        "PAY-000250": {
+
+            id: "PAY-000250",
+
+            order: "#ORD-000152",
+
+            reference: "1B2C3D4E5F",
+
+            method: "Maya",
+
+            account: "paolo.r@email.com",
+
+            amount: "₱549.00",
+
+            customer: "Paolo R.",
+
+            phone: "0905 333 7788",
+
+            email: "paolo.r@email.com",
+
+            status: "Pending",
+
+            date: "May 20, 2024",
+
+            time: "12:50 PM"
+
+        },
+
+
+        "PAY-000249": {
+
+            id: "PAY-000249",
+
+            order: "#ORD-000151",
+
+            reference: "0A1B2C3D4E",
+
+            method: "Cash on Delivery",
+
+            account: "Cash on Delivery",
+
+            amount: "₱879.00",
+
+            customer: "Camille B.",
+
+            phone: "0919 888 9900",
+
+            email: "camille.b@email.com",
+
+            status: "Completed",
+
+            date: "May 20, 2024",
+
+            time: "12:30 PM"
+
+        }
+
+    };
+
+
+
+    /* =====================================================
+       DETAILS ELEMENTS
+    ====================================================== */
+
+    const detailPaymentId =
+        document.getElementById("detailPaymentId");
+
+    const detailStatus =
+        document.getElementById("detailStatus");
+
+    const detailOrderId =
+        document.getElementById("detailOrderId");
+
+    const detailReference =
+        document.getElementById("detailReference");
+
+    const detailMethod =
+        document.getElementById("detailMethod");
+
+    const detailAccount =
+        document.getElementById("detailAccount");
+
+    const detailAmount =
+        document.getElementById("detailAmount");
+
+    const detailStatusText =
+        document.getElementById("detailStatusText");
+
+    const detailPaidAt =
+        document.getElementById("detailPaidAt");
+
+    const detailCustomer =
+        document.getElementById("detailCustomer");
+
+    const detailCustomerPhone =
+        document.getElementById("detailCustomerPhone");
+
+
+
+    /* =====================================================
+       LOAD PAYMENT DETAILS
+    ====================================================== */
+
+    function loadPaymentDetails(paymentId) {
+
+        const payment =
+            paymentData[paymentId];
+
+        if (!payment) {
+            return;
+        }
+
+
+        detailPaymentId.textContent =
+            payment.id;
+
+        detailOrderId.textContent =
+            payment.order;
+
+        detailReference.textContent =
+            payment.reference;
+
+        detailMethod.textContent =
+            payment.method;
+
+        detailAccount.textContent =
+            payment.account;
+
+        detailAmount.textContent =
+            payment.amount;
+
+        detailStatusText.textContent =
+            payment.status;
+
+        detailPaidAt.textContent =
+            payment.date + " " + payment.time;
+
+        detailCustomer.textContent =
+            payment.customer;
+
+        detailCustomerPhone.textContent =
+            payment.phone;
+
+
+        /*
+            Update status badge
+        */
+
+        detailStatus.textContent =
+            payment.status;
+
+        detailStatus.className =
+            "status " +
+            payment.status
+                .toLowerCase()
+                .replace(/\s+/g, "-");
+
+
+        /*
+            Status text color
+        */
+
+        detailStatusText.className = "";
+
+        if (payment.status === "Completed") {
+
+            detailStatusText.classList.add(
+                "green-value"
+            );
+
+        }
+        else if (payment.status === "Failed") {
+
+            detailStatusText.classList.add(
+                "red-value"
+            );
+
+        }
+        else if (payment.status === "Pending") {
+
+            detailStatusText.classList.add(
+                "orange-text"
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       SELECT PAYMENT ROW
+    ====================================================== */
+
+    function selectPayment(row) {
+
+        rows.forEach(function (item) {
+
+            item.classList.remove("selected");
+
+        });
+
+        row.classList.add("selected");
+
+
+        const paymentId =
+            row.getAttribute("data-id");
+
+        loadPaymentDetails(paymentId);
+
+    }
+
+
+    rows.forEach(function (row) {
+
+        row.addEventListener("click", function (event) {
+
+            /*
+                Prevent double action when clicking
+                directly on view button
+            */
+
+            selectPayment(row);
+
+        });
+
+    });
+
+
+
+    /* =====================================================
+       VIEW BUTTON
+    ====================================================== */
+
+    document
+        .querySelectorAll(".view-payment")
+        .forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function (event) {
+
+                    event.stopPropagation();
+
+                    const row =
+                        button.closest("tr");
+
+                    if (row) {
+
+                        selectPayment(row);
+
+                    }
+
+                }
+            );
+
+        });
+
+
+
+    /* =====================================================
+       SEARCH + FILTER
+    ====================================================== */
+
+    function filterPayments() {
+
+        const search =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+        const selectedStatus =
+            statusFilter.value;
+
+        const selectedMethod =
+            methodFilter.value;
+
+
+        let visibleCount = 0;
+
+
+        rows.forEach(function (row) {
+
+            const text =
+                row.textContent.toLowerCase();
+
+            const rowStatus =
+                row.getAttribute("data-status");
+
+            const rowMethod =
+                row.getAttribute("data-method");
+
+
+            const searchMatch =
+                search === "" ||
+                text.includes(search);
+
+
+            const statusMatch =
+                selectedStatus === "all" ||
+                rowStatus === selectedStatus;
+
+
+            const methodMatch =
+                selectedMethod === "all" ||
+                rowMethod === selectedMethod;
+
+
+            if (
+                searchMatch &&
+                statusMatch &&
+                methodMatch
+            ) {
+
+                row.style.display = "";
+
+                visibleCount++;
+
+            }
+            else {
+
+                row.style.display = "none";
+
+            }
+
+        });
+
+
+        document.getElementById(
+            "resultText"
+        ).textContent =
+            "Showing 1 to " +
+            visibleCount +
+            " of 48 payments";
+
+    }
+
+
+
+    searchInput.addEventListener(
+        "input",
+        filterPayments
+    );
+
+
+    searchBtn.addEventListener(
+        "click",
+        filterPayments
+    );
+
+
+    statusFilter.addEventListener(
+        "change",
+        filterPayments
+    );
+
+
+    methodFilter.addEventListener(
+        "change",
+        filterPayments
+    );
+
+
+    filterBtn.addEventListener(
+        "click",
+        function () {
+
+            filterPayments();
+
+            showToast(
+                "Filters applied successfully."
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       PAYMENT TABS
+    ====================================================== */
+
+    paymentTabs.forEach(function (tab) {
+
+        tab.addEventListener(
+            "click",
+            function () {
+
+                paymentTabs.forEach(
+                    function (item) {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                tab.classList.add("active");
+
+
+                const status =
+                    tab.getAttribute(
+                        "data-status"
+                    );
+
+
+                statusFilter.value =
+                    status;
+
+
+                filterPayments();
+
+            }
+        );
+
+    });
+
+
+
+    /* =====================================================
+       EXPORT
+    ====================================================== */
+
+    const exportBtn =
+        document.getElementById("exportBtn");
+
+
+    exportBtn.addEventListener(
+        "click",
+        function () {
+
+            const visibleRows =
+                Array.from(rows)
+                    .filter(function (row) {
+
+                        return row.style.display !== "none";
+
+                    });
+
+
+            if (visibleRows.length === 0) {
+
+                showToast(
+                    "No payments to export."
+                );
+
+                return;
+
+            }
+
+
+            let csv =
+                "Payment ID,Order ID,Customer,Amount,Payment Method,Status,Date\n";
+
+
+            visibleRows.forEach(
+                function (row) {
+
+                    const cells =
+                        row.querySelectorAll("td");
+
+
+                    const paymentId =
+                        cells[0]
+                            .innerText
+                            .split("\n")[0];
+
+                    const orderId =
+                        cells[1].innerText.trim();
+
+                    const customer =
+                        cells[2]
+                            .innerText
+                            .split("\n")[0];
+
+                    const amount =
+                        cells[3].innerText.trim();
+
+                    const method =
+                        row.getAttribute(
+                            "data-method"
+                        );
+
+                    const status =
+                        row.getAttribute(
+                            "data-status"
+                        );
+
+                    const date =
+                        cells[6].innerText
+                            .replace(/\n/g, " ");
+
+
+                    csv +=
+                        `"${paymentId}","${orderId}","${customer}","${amount}","${method}","${status}","${date}"\n`;
+
+                }
+            );
+
+
+            const blob =
+                new Blob(
+                    [csv],
+                    {
+                        type:
+                            "text/csv;charset=utf-8;"
+                    }
+                );
+
+
+            const url =
+                URL.createObjectURL(blob);
+
+
+            const link =
+                document.createElement("a");
+
+            link.href = url;
+
+            link.download =
+                "jolies-pizza-payments.csv";
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
+
+            URL.revokeObjectURL(url);
+
+
+            showToast(
+                "Payments exported successfully."
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       PRINT PAYMENT
+    ====================================================== */
+
+    const printBtn =
+        document.getElementById("printBtn");
+
+
+    printBtn.addEventListener(
+        "click",
+        function () {
+
+            window.print();
+
+        }
+    );
+
+
+
+    /* =====================================================
+       REFUND
+    ====================================================== */
+
+    const refundBtn =
+        document.getElementById("refundBtn");
+
+
+    refundBtn.addEventListener(
+        "click",
+        function () {
+
+            const paymentId =
+                detailPaymentId.textContent;
+
+
+            const confirmed =
+                confirm(
+                    "Issue refund for " +
+                    paymentId +
+                    "?"
+                );
+
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            showToast(
+                "Refund request submitted."
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       RECEIPT
+    ====================================================== */
+
+    const receiptBtn =
+        document.getElementById("receiptBtn");
+
+
+    receiptBtn.addEventListener(
+        "click",
+        function () {
+
+            const paymentId =
+                detailPaymentId.textContent;
+
+            const payment =
+                paymentData[paymentId];
+
+
+            if (!payment) {
+                return;
+            }
+
+
+            const receipt =
+`
+JOLIE'S PIZZA
+SAN ROQUE
+
+PAYMENT RECEIPT
+--------------------------------
+
+Payment ID:
+${payment.id}
+
+Order ID:
+${payment.order}
+
+Reference No.:
+${payment.reference}
+
+Customer:
+${payment.customer}
+
+Payment Method:
+${payment.method}
+
+Account:
+${payment.account}
+
+Amount:
+${payment.amount}
+
+Status:
+${payment.status}
+
+Date:
+${payment.date}
+
+Time:
+${payment.time}
+
+--------------------------------
+Thank you for ordering!
+`;
+
+
+            const blob =
+                new Blob(
+                    [receipt],
+                    {
+                        type: "text/plain"
+                    }
+                );
+
+
+            const url =
+                URL.createObjectURL(blob);
+
+
+            const link =
+                document.createElement("a");
+
+            link.href = url;
+
+            link.download =
+                payment.id +
+                "-receipt.txt";
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
+
+            URL.revokeObjectURL(url);
+
+
+            showToast(
+                "Receipt downloaded."
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       VIEW ORDER
+    ====================================================== */
+
+    const viewOrder =
+        document.querySelector(".view-order");
+
+
+    viewOrder.addEventListener(
+        "click",
+        function () {
+
+            const orderId =
+                detailOrderId.textContent;
+
+            showToast(
+                "Opening " +
+                orderId +
+                "..."
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       INITIAL PAYMENT
+    ====================================================== */
+
+    const firstRow =
+        document.querySelector(
+            "#paymentTableBody tr"
+        );
+
+
+    if (firstRow) {
+
+        selectPayment(firstRow);
+
+    }
+
+
+
+    /* =====================================================
+       INITIAL SIDEBAR STATE
+    ====================================================== */
+
+    /*
+        Inventory stays closed on this page.
+        Menu Management stays closed as well.
+    */
+
+});
+</script>
+
+    <script src="sidebar-icons.js"></script>
+</body>
+</html>

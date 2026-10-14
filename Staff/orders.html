@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolie's Pizza - Orders</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="orders.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+    <div class="staff-layout">
+
+        <!-- SIDEBAR: SAME STRUCTURE AS DASHBOARD -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+                <!-- Change this path to your logo file -->
+                <img src="../images/logostaff.png" alt="Jolie's Pizza Logo">
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="orders.html" class="nav-item active">
+                    <i class="fa-regular fa-clipboard"></i>
+                    <span>Orders</span>
+                </a>
+
+                <a href="delivery-tracking.html" class="nav-item">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>Delivery Tracking</span>
+                </a>
+
+                <a href="inventory.html" class="nav-item">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>Inventory</span>
+                </a>
+
+                <a href="payments.html" class="nav-item">
+                    <i class="fa-regular fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+
+                <a href="notifications.html" class="nav-item">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>Notifications</span>
+                    <span class="notification-count">3</span>
+                </a>
+
+                <a href="reports.html" class="nav-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Reports</span>
+                </a>
+                
+                <a href="profile.html" class="nav-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="staff-profile">
+                    <div class="staff-avatar">👨🏻‍🍳</div>
+                    <div class="staff-info">
+                        <strong>Mark Santos</strong>
+                        <span>Kitchen Staff</span>
+                        <span class="online-status">Online</span>
+                    </div>
+                </div>
+
+                <button class="nav-item logout-button" id="logoutButton" type="button">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- HEADER: SAME STRUCTURE AS DASHBOARD -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="welcome">
+                        <h1>Orders</h1>
+                        <p>Manage and update customer orders.</p>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="header-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Zone 3, San Roque</strong>
+                            <span>Northern Samar</span>
+                        </div>
+                    </div>
+
+                    <div class="header-divider"></div>
+
+                    <div class="header-date">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <div>
+                            <strong id="currentDate">May 10, 2025</strong>
+                            <span id="currentTime">Saturday · 10:30 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="header-divider"></div>
+                    <i class="fa-regular fa-bell" style="font-size:19px;"></i>
+                </div>
+            </header>
+
+            <section class="orders-page">
+                <div class="orders-layout">
+
+                    <div class="orders-main">
+
+                        <!-- ORDER STATISTICS -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon red"><i class="fa-regular fa-clipboard"></i></div>
+                                <div>
+                                    <div class="stat-label">All Orders</div>
+                                    <div class="stat-value" id="allCount">24</div>
+                                    <div class="stat-note">View all orders</div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon red"><i class="fa-solid fa-user-clock"></i></div>
+                                <div>
+                                    <div class="stat-label">New</div>
+                                    <div class="stat-value" id="newCount">4</div>
+                                    <div class="stat-note">New orders</div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon orange"><i class="fa-regular fa-clock"></i></div>
+                                <div>
+                                    <div class="stat-label">Preparing</div>
+                                    <div class="stat-value" id="preparingCount">8</div>
+                                    <div class="stat-note">Being prepared</div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon blue"><i class="fa-solid fa-bag-shopping"></i></div>
+                                <div>
+                                    <div class="stat-label">Ready</div>
+                                    <div class="stat-value" id="readyCount">6</div>
+                                    <div class="stat-note">Ready for pickup</div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon green"><i class="fa-regular fa-circle-check"></i></div>
+                                <div>
+                                    <div class="stat-label">Completed</div>
+                                    <div class="stat-value" id="completedCount">14</div>
+                                    <div class="stat-note">Completed today</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ORDERS TABLE -->
+                        <section class="orders-card">
+
+                            <div class="order-tabs" id="orderTabs">
+                                <button class="order-tab active" data-status="all">All Orders</button>
+                                <button class="order-tab" data-status="New">New</button>
+                                <button class="order-tab" data-status="Preparing">Preparing</button>
+                                <button class="order-tab" data-status="Ready">Ready</button>
+                                <button class="order-tab" data-status="Completed">Completed</button>
+                                <button class="order-tab" data-status="Cancelled">Cancelled</button>
+                            </div>
+
+                            <div class="table-tools">
+                                <label class="search-box">
+                                    <input type="search" id="orderSearch"
+                                        placeholder="Search by Order ID, Customer or Phone...">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </label>
+
+                                <select class="filter-select" id="typeFilter" aria-label="Filter order type">
+                                    <option value="all">All Types</option>
+                                    <option value="Dine In">Dine In</option>
+                                    <option value="Pick Up">Pick Up</option>
+                                    <option value="Delivery">Delivery</option>
+                                </select>
+
+                                <div class="sort-wrap">
+                                    <span>Sort by:</span>
+                                    <select class="sort-select" id="sortSelect">
+                                        <option value="newest">Newest</option>
+                                        <option value="oldest">Oldest</option>
+                                        <option value="highest">Highest Total</option>
+                                        <option value="lowest">Lowest Total</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="table-scroll">
+                                <table class="orders-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Customer</th>
+                                            <th>Type</th>
+                                            <th>Time</th>
+                                            <th>Items</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ordersTableBody"></tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-footer">
+                                <span id="showingText">Showing 1 to 8 of 24 orders</span>
+                                <div class="pagination" id="pagination"></div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- ORDER DETAILS PANEL -->
+                    <aside class="details-card" id="detailsCard">
+                        <div class="details-header">
+                            <h2>Order Details</h2>
+                            <button class="close-details" id="closeDetails" type="button" aria-label="Close details">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+
+                        <div class="details-body" id="detailsBody">
+                            <!-- Filled by JavaScript -->
+                        </div>
+                    </aside>
+
+                </div>
+
+                <footer class="page-footer">
+                    <span>© 2025 Jolie's Pizza San Roque. All rights reserved.</span>
+                    <span>Orders v1.0.0</span>
+                </footer>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast"></div>
+
+    <script>
+        /* SAMPLE ORDER DATA
+           Replace this array with data fetched from your Node.js/MySQL backend. */
+        const orders = [
+            {
+                id: "ORD-00052",
+                customer: "Maria Santos",
+                phone: "0912 345 6789",
+                type: "Dine In",
+                time: "10:28 AM",
+                date: "May 10, 2025",
+                items: [
+                    { name: 'Pepperoni Pizza (12")', qty: 1, price: 485 },
+                    { name: "Coke (1.5L)", qty: 1, price: 35 },
+                    { name: "Garlic Bread", qty: 1, price: 95 }
+                ],
+                total: 615,
+                status: "New",
+                payment: "Cash on Delivery",
+                note: "Extra sauce please. Thank you!"
+            },
+            {
+                id: "ORD-00051",
+                customer: "John Reyes",
+                phone: "0908 765 4321",
+                type: "Pick Up",
+                time: "10:25 AM",
+                date: "May 10, 2025",
+                items: [
+                    { name: 'Hawaiian Pizza (12")', qty: 1, price: 335 },
+                    { name: "Coke (1.5L)", qty: 1, price: 35 },
+                    { name: "French Fries", qty: 1, price: 170 }
+                ],
+                total: 540,
+                status: "Preparing",
+                payment: "Cash",
+                note: "Please prepare on time."
+            },
+            {
+                id: "ORD-00050",
+                customer: "Ana Bella",
+                phone: "0935 678 9012",
+                type: "Delivery",
+                time: "10:24 AM",
+                date: "May 10, 2025",
+                items: [
+                    { name: "Cheesy Fries", qty: 1, price: 150 },
+                    { name: "Coke (1.5L)", qty: 1, price: 90 },
+                    { name: "Garlic Bread", qty: 1, price: 95 },
+                    { name: "Carbonara", qty: 1, price: 445 }
+                ],
+                total: 780,
+                status: "Preparing",
+                payment: "Cash on Delivery",
+                note: "Call when arriving."
+            },
+            {
+                id: "ORD-00049",
+                customer: "Mark Villanueva",
+                phone: "0917 111 2233",
+                type: "Dine In",
+                time: "10:21 AM",
+                date: "May 10, 2025",
+                items: [
+                    { name: "Buffalo Wings", qty: 1, price: 315 },
+                    { name: "Coke", qty: 2, price: 300 }
+                ],
+                total: 615,
+                status: "Ready",
+                payment: "Cash",
+                note: "No additional instructions."
+            },
+            {
+                id: "ORD-00048",
+                customer: "Crisanto L.",
+                phone: "0920 333 4455",
+                type: "Pick Up",
+                time: "10:18 AM",
+                date: "May 10, 2025",
+                items: [
+                    { name: "All Cheese Pizza", qty: 1, price: 335 }
+                ],
+                total: 335,
+                status: "Ready",
+                payment: "Cash",
+                note: "No additional instructions."
+            },
+            {
+                id: "ORD-00047",
+                customer: "Liza Mae",
+                phone: "0966 888 1234",
+                type: "Delivery",
+                time: "10:15 AM",
+                date: "May 10, 2025",
+                items: [
+                    { name: "Meat Lovers Pizza", qty: 1, price: 380 },
+                    { name: "Coke", qty: 1, price: 90 },
+                    { name: "Garlic Bread", qty: 1, price: 245 }
+                ],
+                total: 715,
+                status: "Out for Delivery",
+                payment: "Cash on Delivery",
+                note: "Please handle with care."
+            },
+            {
+                id: "ORD-00046",
+                customer: "Rogelio Dasig Jr.",
+                phone: "0991 234 5678",
+                type: "Dine In",
+                time: "10:10 AM",
+                date: "May 10, 2025",
+                items: [
+                    { name: "Pepperoni Pizza", qty: 2, price: 700 },
+                    { name: "Coke", qty: 2, price: 180 },
+                    { name: "Fries", qty: 1, price: 240 }
+                ],
+                total: 1120,
+                status: "Completed",
+                payment: "Cash",
+                note: "No additional instructions."
+            },
+            {
+                id: "ORD-00045",
+                customer: "Jane Ocampo",
+                phone: "0915 222 3344",
+                type: "Pick Up",
+                time: "09:58 AM",
+                date: "May 10, 2025",
+                items: [
+                    { name: "Hawaiian Pizza", qty: 1, price: 335 },
+                    { name: "Coke", qty: 1, price: 85 }
+                ],
+                total: 420,
+                status: "Completed",
+                payment: "Cash",
+                note: "No additional instructions."
+            }
+        ];
+
+        const PAGE_SIZE = 8;
+        const STATUS_TRANSITIONS = {
+            New: ["Preparing", "Cancelled"],
+            Preparing: ["Ready", "Cancelled"],
+            Ready: ["Cancelled"],
+            "Out for Delivery": ["Completed", "Cancelled"],
+            Completed: [],
+            Cancelled: []
+        };
+        let activeStatus = "all";
+        let currentPage = 1;
+        let selectedOrderId = orders[0].id;
+
+        const tableBody = document.getElementById("ordersTableBody");
+        const detailsBody = document.getElementById("detailsBody");
+        const toast = document.getElementById("toast");
+
+        function money(value) {
+            return "₱" + Number(value).toLocaleString("en-PH", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, character => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+            })[character]);
+        }
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add("show");
+
+            clearTimeout(showToast.timer);
+            showToast.timer = setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2200);
+        }
+
+        function statusClass(status) {
+            if (status === "Out for Delivery") return "delivery-status";
+            return status.toLowerCase().replaceAll(" ", "-");
+        }
+
+        function typeClass(type) {
+            if (type === "Dine In") return "dine";
+            if (type === "Pick Up") return "pickup";
+            return "delivery";
+        }
+
+        function getFilteredOrders() {
+            const search = document.getElementById("orderSearch").value.toLowerCase().trim();
+            const type = document.getElementById("typeFilter").value;
+            const sort = document.getElementById("sortSelect").value;
+
+            let result = orders.filter(order => {
+                const matchesStatus =
+                    activeStatus === "all" || order.status === activeStatus;
+
+                const matchesType =
+                    type === "all" || order.type === type;
+
+                const searchable = [
+                    order.id,
+                    order.customer,
+                    order.phone,
+                    order.type,
+                    order.status
+                ].join(" ").toLowerCase();
+
+                return matchesStatus && matchesType && searchable.includes(search);
+            });
+
+            const orderTimestamp = order =>
+                new Date(`${order.date} ${order.time}`).getTime();
+
+            if (sort === "newest") {
+                result.sort((a, b) => orderTimestamp(b) - orderTimestamp(a));
+            }
+            if (sort === "oldest") {
+                result.sort((a, b) => orderTimestamp(a) - orderTimestamp(b));
+            }
+            if (sort === "highest") result.sort((a, b) => b.total - a.total);
+            if (sort === "lowest") result.sort((a, b) => a.total - b.total);
+
+            return result;
+        }
+
+        function renderOrders() {
+            const filtered = getFilteredOrders();
+            const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+
+            if (currentPage > totalPages) currentPage = totalPages;
+
+            const start = (currentPage - 1) * PAGE_SIZE;
+            const visibleOrders = filtered.slice(start, start + PAGE_SIZE);
+
+            if (!visibleOrders.length) {
+                tableBody.innerHTML = `
+                <tr><td colspan="8" class="empty-row">
+                    No orders found.
+                </td></tr>`;
+            } else {
+                tableBody.innerHTML = visibleOrders.map(order => `
+                <tr data-id="${escapeHTML(order.id)}"
+                    class="${order.id === selectedOrderId ? "selected" : ""}">
+                    <td><span class="order-id">#${escapeHTML(order.id)}</span></td>
+                    <td class="customer-cell">
+                        <strong>${escapeHTML(order.customer)}</strong>
+                        <span>${escapeHTML(order.phone)}</span>
+                    </td>
+                    <td><span class="type-badge ${typeClass(order.type)}">${escapeHTML(order.type)}</span></td>
+                    <td class="time-cell">
+                        <strong>${escapeHTML(order.time)}</strong>
+                        <span>${escapeHTML(order.date)}</span>
+                    </td>
+                    <td>${order.items.reduce((sum, item) => sum + item.qty, 0)} items</td>
+                    <td><strong>${money(order.total)}</strong></td>
+                    <td><span class="status-badge ${statusClass(order.status)}">${escapeHTML(order.status)}</span></td>
+                    <td><button class="view-button" type="button" data-view="${escapeHTML(order.id)}">View</button></td>
+                </tr>
+            `).join("");
+            }
+
+            const first = filtered.length ? start + 1 : 0;
+            const last = Math.min(start + PAGE_SIZE, filtered.length);
+            document.getElementById("showingText").textContent =
+                `Showing ${first} to ${last} of ${filtered.length} orders`;
+
+            renderPagination(totalPages);
+            updateCounts();
+        }
+
+        function renderPagination(totalPages) {
+            const pagination = document.getElementById("pagination");
+            let html = `
+            <button class="page-button" data-page="${currentPage - 1}"
+                ${currentPage === 1 ? "disabled" : ""} aria-label="Previous page">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>`;
+
+            for (let page = 1; page <= totalPages; page++) {
+                html += `
+                <button class="page-button ${page === currentPage ? "active" : ""}"
+                    data-page="${page}">${page}</button>`;
+            }
+
+            html += `
+            <button class="page-button" data-page="${currentPage + 1}"
+                ${currentPage === totalPages ? "disabled" : ""} aria-label="Next page">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>`;
+
+            pagination.innerHTML = html;
+        }
+
+        function updateCounts() {
+            document.getElementById("allCount").textContent = orders.length;
+            document.getElementById("newCount").textContent =
+                orders.filter(order => order.status === "New").length;
+            document.getElementById("preparingCount").textContent =
+                orders.filter(order => order.status === "Preparing").length;
+            document.getElementById("readyCount").textContent =
+                orders.filter(order => order.status === "Ready").length;
+            document.getElementById("completedCount").textContent =
+                orders.filter(order => order.status === "Completed").length;
+        }
+
+        function renderDetails(order) {
+            if (!order) {
+                detailsBody.innerHTML = `<p style="color:#697386;">Select an order to view its details.</p>`;
+                return;
+            }
+
+            const itemsHTML = order.items.map(item => `
+            <div class="item-line">
+                <span>${item.qty}x</span>
+                <span>${escapeHTML(item.name)}</span>
+                <strong>${money(item.price)}</strong>
+            </div>
+        `).join("");
+
+            detailsBody.innerHTML = `
+            <div class="detail-order-top">
+                <h3>#${escapeHTML(order.id)}</h3>
+                <span class="status-badge ${statusClass(order.status)}">${escapeHTML(order.status)}</span>
+            </div>
+
+            <div class="detail-type-line">
+                <strong><i class="fa-regular fa-clipboard"></i> ${escapeHTML(order.type)}</strong>
+                <span>${escapeHTML(order.time)} • ${escapeHTML(order.date)}</span>
+            </div>
+
+            <div class="detail-section">
+                <h3><i class="fa-solid fa-user"></i> Customer Information</h3>
+                <div class="customer-detail">
+                    <i class="fa-regular fa-user"></i>
+                    <div>
+                        <strong>${escapeHTML(order.customer)}</strong>
+                        <span>${escapeHTML(order.phone)}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>Order Items</h3>
+                ${itemsHTML}
+            </div>
+
+            <div class="detail-section">
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <strong>${money(order.total)}</strong>
+                </div>
+                <div class="summary-line">
+                    <span>Service Fee</span>
+                    <strong>${money(0)}</strong>
+                </div>
+                <div class="summary-line total">
+                    <span>Total</span>
+                    <strong>${money(order.total)}</strong>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>Payment Method</h3>
+                <div class="payment-method">
+                    <i class="fa-regular fa-credit-card"></i>
+                    ${escapeHTML(order.payment)}
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3><i class="fa-regular fa-comment"></i> Order Note</h3>
+                <p class="order-note">${escapeHTML(order.note)}</p>
+            </div>
+
+            <div class="detail-section">
+                <h3>Actions</h3>
+                <div class="action-buttons">
+                    <button class="action-button accept" data-action="accept">
+                        <i class="fa-regular fa-circle-check"></i> Accept Order
+                    </button>
+                    <button class="action-button prepare" data-action="prepare">
+                        <i class="fa-regular fa-clock"></i> Start Preparing
+                    </button>
+                    <button class="action-button ready" data-action="ready">
+                        <i class="fa-regular fa-square"></i> Mark as Ready
+                    </button>
+                    <button class="action-button cancel" data-action="cancel">
+                        <i class="fa-regular fa-circle-xmark"></i> Cancel Order
+                    </button>
+                    <button class="action-button print" data-action="print">
+                        <i class="fa-solid fa-print"></i> Print Order
+                    </button>
+                </div>
+            </div>
+        `;
+        }
+
+        function selectOrder(id) {
+            const order = orders.find(item => item.id === id);
+            if (!order) return;
+
+            selectedOrderId = id;
+            document.getElementById("detailsCard").hidden = false;
+            renderOrders();
+            renderDetails(order);
+        }
+
+        function updateOrderStatus(status) {
+            const order = orders.find(item => item.id === selectedOrderId);
+            if (!order) return;
+
+            if (!STATUS_TRANSITIONS[order.status]?.includes(status)) {
+                showToast(`Cannot change ${order.status} to ${status}.`);
+                return;
+            }
+
+            order.status = status;
+            renderOrders();
+            renderDetails(order);
+            showToast(`${order.id} status updated to ${status}.`);
+        }
+
+        /* TABLE AND DETAILS EVENTS */
+        tableBody.addEventListener("click", event => {
+            const viewButton = event.target.closest("[data-view]");
+            const row = event.target.closest("tr[data-id]");
+            const id = viewButton?.dataset.view || row?.dataset.id;
+
+            if (id) selectOrder(id);
+        });
+
+        detailsBody.addEventListener("click", event => {
+            const button = event.target.closest("[data-action]");
+            if (!button) return;
+
+            const action = button.dataset.action;
+            const order = orders.find(item => item.id === selectedOrderId);
+            if (!order) return;
+
+            if (action === "accept") {
+                updateOrderStatus("Preparing");
+            }
+
+            if (action === "prepare") {
+                updateOrderStatus("Preparing");
+            }
+
+            if (action === "ready") {
+                updateOrderStatus("Ready");
+            }
+
+            if (action === "cancel") {
+                if (!STATUS_TRANSITIONS[order.status]?.includes("Cancelled")) {
+                    showToast(`A ${order.status.toLowerCase()} order cannot be cancelled.`);
+                } else if (confirm(`Cancel order ${order.id}?`)) {
+                    updateOrderStatus("Cancelled");
+                }
+            }
+
+            if (action === "print") {
+                window.print();
+            }
+        });
+
+        /* FILTER TABS */
+        document.getElementById("orderTabs").addEventListener("click", event => {
+            const tab = event.target.closest(".order-tab");
+            if (!tab) return;
+
+            document.querySelectorAll(".order-tab").forEach(item => {
+                item.classList.remove("active");
+            });
+
+            tab.classList.add("active");
+            activeStatus = tab.dataset.status;
+            currentPage = 1;
+            renderOrders();
+        });
+
+        /* SEARCH, FILTER AND SORT */
+        document.getElementById("orderSearch").addEventListener("input", () => {
+            currentPage = 1;
+            renderOrders();
+        });
+
+        document.getElementById("typeFilter").addEventListener("change", () => {
+            currentPage = 1;
+            renderOrders();
+        });
+
+        document.getElementById("sortSelect").addEventListener("change", () => {
+            currentPage = 1;
+            renderOrders();
+        });
+
+        /* PAGINATION */
+        document.getElementById("pagination").addEventListener("click", event => {
+            const button = event.target.closest("[data-page]");
+            if (!button || button.disabled) return;
+
+            currentPage = Number(button.dataset.page);
+            renderOrders();
+        });
+
+        /* SIDEBAR */
+        document.getElementById("menuToggle").addEventListener("click", () => {
+            document.getElementById("sidebar").classList.toggle("open");
+        });
+
+        document.getElementById("logoutButton").addEventListener("click", () => {
+            if (confirm("Are you sure you want to logout?")) {
+                window.location.href = "../login.html";
+            }
+        });
+
+        document.getElementById("closeDetails").addEventListener("click", () => {
+            document.getElementById("detailsCard").hidden = true;
+        });
+
+        /* DATE AND TIME */
+        function updateDateTime() {
+            const now = new Date();
+
+            document.getElementById("currentDate").textContent =
+                now.toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric"
+                });
+
+            document.getElementById("currentTime").textContent =
+                now.toLocaleDateString("en-US", { weekday: "long" }) +
+                " · " +
+                now.toLocaleTimeString("en-US", {
+                    hour: "numeric",
+                    minute: "2-digit"
+                });
+        }
+
+        /* INITIALIZE */
+        updateDateTime();
+        selectOrder(selectedOrderId);
+        renderOrders();
+    </script>
+</body>
+
+</html>

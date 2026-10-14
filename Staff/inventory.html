@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolie's Pizza - Inventory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="inventory.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+    <div class="staff-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand"><img src="../images/logostaff.png" alt="Jolie's Pizza Logo"></div>
+            <nav class="sidebar-nav" aria-label="Staff navigation">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+                <a href="orders.html" class="nav-item"><i class="fa-regular fa-clipboard"></i><span>Orders</span></a>
+                <a href="delivery-tracking.html" class="nav-item"><i class="fa-solid fa-truck-fast"></i><span>Delivery
+                        Tracking</span></a>
+                <a href="inventory.html" class="nav-item active" aria-current="page"><i
+                        class="fa-solid fa-cube"></i><span>Inventory</span></a>
+                <a href="payments.html" class="nav-item"><i
+                        class="fa-regular fa-credit-card"></i><span>Payments</span></a>
+                <a href="notifications.html" class="nav-item"><i
+                        class="fa-regular fa-bell"></i><span>Notifications</span><span
+                        class="notification-count">3</span></a>
+                <a href="reports.html" class="nav-item" aria-current="page"><i
+                        class="fa-solid fa-chart-column"></i><span>Reports</span></a>
+                <a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i><span>Profile</span></a>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="staff-profile">
+                    <div class="staff-avatar" aria-hidden="true">👨🏻‍🍳</div>
+                    <div class="staff-info"><strong>Mark Santos</strong><span>Kitchen Staff</span><span
+                            class="online-status">Online</span></div>
+                </div>
+                <button class="nav-item logout-button" id="logoutButton" type="button"><i
+                        class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></button>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle sidebar"
+                        aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+                    <div class="welcome">
+                        <h1>Inventory</h1>
+                        <p>Check stock levels and manage inventory usage.</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-location"><i class="fa-solid fa-location-dot"></i>
+                        <div><strong>Zone 3, San Roque</strong><span>Northern Samar</span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <div class="header-date"><i class="fa-regular fa-calendar-days"></i>
+                        <div><strong id="currentDate"></strong><span id="currentTime"></span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <a class="header-notifications" href="notifications.html" aria-label="Notifications, 3 unread"><i
+                            class="fa-regular fa-bell"></i><span>3</span></a>
+                </div>
+            </header>
+
+            <section class="inventory-page" aria-label="Inventory management">
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <div class="stat-icon red"><i class="fa-regular fa-cube"></i></div>
+                        <div>
+                            <div class="stat-label">Total Items</div>
+                            <div class="stat-value" id="totalItems">0</div>
+                            <div class="stat-note">All inventory items</div>
+                        </div><button class="stat-link" type="button" data-stat="all">View all items</button>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon orange"><i class="fa-solid fa-layer-group"></i></div>
+                        <div>
+                            <div class="stat-label">Low Stock Items</div>
+                            <div class="stat-value" id="lowItems">0</div>
+                            <div class="stat-note">Need attention</div>
+                        </div><button class="stat-link orange-text" type="button" data-stat="Low Stock">View low
+                            stock</button>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon green"><i class="fa-regular fa-circle-check"></i></div>
+                        <div>
+                            <div class="stat-label">In Stock Items</div>
+                            <div class="stat-value" id="inStockItems">0</div>
+                            <div class="stat-note">Well stocked</div>
+                        </div><button class="stat-link green-text" type="button" data-stat="In Stock">View all</button>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon purple"><i class="fa-regular fa-file-lines"></i></div>
+                        <div>
+                            <div class="stat-label">Out of Stock Items</div>
+                            <div class="stat-value" id="outItems">0</div>
+                            <div class="stat-note">Unavailable</div>
+                        </div><button class="stat-link purple-text" type="button" data-stat="Out of Stock">View out of
+                            stock</button>
+                    </article>
+                </div>
+
+                <div class="inventory-layout">
+                    <div class="inventory-main-column">
+                        <section class="inventory-card">
+                            <div class="section-heading">
+                                <h2>Inventory Items</h2><span id="lastUpdatedLabel">Updated just now</span>
+                            </div>
+                            <div class="table-tools">
+                                <label class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input
+                                        type="search" id="itemSearch" placeholder="Search item name..."></label>
+                                <label class="select-wrap"><i class="fa-solid fa-table-cells-large"></i><select
+                                        id="categoryFilter" aria-label="Filter by category">
+                                        <option value="all">All Categories</option>
+                                    </select></label>
+                                <label class="select-wrap filter-label"><i class="fa-solid fa-filter"></i><select
+                                        id="statusFilter" aria-label="Filter by stock status">
+                                        <option value="all">All Status</option>
+                                        <option>Inactive</option>
+                                        <option>In Stock</option>
+                                        <option>Low Stock</option>
+                                        <option>Out of Stock</option>
+                                    </select></label>
+                                <label class="sort-wrap"><span>Sort by:</span><select id="sortSelect"
+                                        aria-label="Sort inventory">
+                                        <option value="name-asc">Name (A-Z)</option>
+                                        <option value="name-desc">Name (Z-A)</option>
+                                        <option value="stock-asc">Stock (Low-High)</option>
+                                        <option value="stock-desc">Stock (High-Low)</option>
+                                        <option value="updated">Recently Updated</option>
+                                    </select></label>
+                            </div>
+                            <div class="table-scroll">
+                                <table class="inventory-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Item Name</th>
+                                            <th>Category</th>
+                                            <th>Current Stock</th>
+                                            <th>Unit</th>
+                                            <th>Status</th>
+                                            <th>Last Updated</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="inventoryTableBody"></tbody>
+                                </table>
+                            </div>
+                            <div class="table-footer"><span id="showingText"></span>
+                                <div class="pagination" id="pagination" aria-label="Inventory pages"></div>
+                            </div>
+                        </section>
+                        <aside class="inventory-tip"><i class="fa-regular fa-lightbulb"></i>
+                            <div><strong>Inventory Tip</strong><span>Always record stock usage after every shift to keep
+                                    inventory accurate and avoid shortages.</span></div>
+                        </aside>
+                    </div>
+
+                    <aside class="inventory-side-column">
+                        <section class="side-card stock-summary">
+                            <div class="side-heading">
+                                <h2>Stock Summary</h2>
+                            </div>
+                            <div class="summary-content">
+                                <div class="donut-chart" id="stockChart">
+                                    <div><strong id="chartTotal">0</strong><span>Total Items</span></div>
+                                </div>
+                                <div class="chart-legend" id="chartLegend"></div>
+                            </div>
+                        </section>
+                        <section class="side-card quick-actions-card">
+                            <div class="side-heading">
+                                <h2>Quick Stock Actions</h2>
+                            </div>
+                            <div class="quick-actions">
+                                <button class="quick-action green-action" type="button" data-action="stock-out"><i
+                                        class="fa-regular fa-circle-down"></i><strong>Record Stock Out</strong><span>Use
+                                        ingredients / deduct stock</span></button>
+                                <button class="quick-action blue-action" type="button" data-action="request"><i
+                                        class="fa-regular fa-circle-up"></i><strong>Request Stock</strong><span>Request
+                                        items needed</span></button>
+                                <button class="quick-action orange-action" type="button" data-action="requests"><i
+                                        class="fa-regular fa-cube"></i><strong>View Stock Requests</strong><span>See
+                                        pending requests</span></button>
+                                <button class="quick-action purple-action" type="button" data-action="history"><i
+                                        class="fa-regular fa-clock"></i><strong>Inventory History</strong><span>View
+                                        stock activity</span></button>
+                            </div>
+                        </section>
+                        <section class="side-card activity-card">
+                            <div class="side-heading">
+                                <h2>Recent Stock Activity</h2><button class="text-button" type="button"
+                                    data-action="history">View all</button>
+                            </div>
+                            <div class="activity-list" id="activityList"></div>
+                        </section>
+                    </aside>
+                </div>
+
+                <footer class="page-footer"><span>© 2025 Jolie's Pizza San Roque. All rights
+                        reserved.</span><span>Inventory v1.0.0</span></footer>
+            </section>
+        </main>
+    </div>
+
+    <dialog class="stock-dialog" id="stockDialog" aria-labelledby="dialogTitle">
+        <form id="stockForm" method="dialog">
+            <div class="dialog-heading">
+                <div><span class="dialog-eyebrow" id="dialogEyebrow">INVENTORY</span>
+                    <h2 id="dialogTitle">Record Stock Movement</h2>
+                </div><button class="dialog-close" id="dialogClose" type="button" aria-label="Close"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="dialog-copy" id="dialogCopy">Update item quantities and keep your stock records current.</p>
+            <label class="field-label" for="dialogItem">Inventory item</label><select id="dialogItem" required></select>
+            <label class="field-label" for="dialogQuantity">Quantity</label><input id="dialogQuantity" type="number"
+                min="1" step="0.1" placeholder="Enter quantity" required>
+            <label class="field-label" for="dialogNote">Note <span>(optional)</span></label><textarea id="dialogNote"
+                rows="3" placeholder="Add a short note"></textarea>
+            <div class="dialog-actions"><button class="button-secondary" id="dialogCancel"
+                    type="button">Cancel</button><button class="button-primary" id="dialogSubmit" type="submit">Save
+                    stock movement</button></div>
+        </form>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        const inventory = [
+            { id: 1, name: "Mozzarella Cheese", category: "Dairy", stock: 1.2, unit: "kg", threshold: 2, updated: "2026-10-02T08:45:00", icon: "fa-cheese", color: "dairy" },
+            { id: 2, name: "Pepperoni Slices", category: "Meat", stock: 300, unit: "g", threshold: 500, updated: "2026-10-02T08:40:00", icon: "fa-bacon", color: "meat" },
+            { id: 3, name: "Tomato Sauce", category: "Sauce", stock: 2.5, unit: "kg", threshold: 1, updated: "2026-10-02T08:30:00", icon: "fa-jar", color: "sauce" },
+            { id: 4, name: "Mushrooms", category: "Vegetables", stock: 1.8, unit: "kg", threshold: 0.8, updated: "2026-10-02T08:22:00", icon: "fa-leaf", color: "vegetables" },
+            { id: 5, name: "Pizza Dough", category: "Dough", stock: 12, unit: "pcs", threshold: 5, updated: "2026-10-02T08:15:00", icon: "fa-bread-slice", color: "dough" },
+            { id: 6, name: "Garlic Bread", category: "Sides", stock: 5, unit: "packs", threshold: 2, updated: "2026-10-02T08:10:00", icon: "fa-bread-slice", color: "sides" },
+            { id: 7, name: "Coke (1.5L)", category: "Drinks", stock: 3, unit: "bottles", threshold: 6, updated: "2026-10-02T08:02:00", icon: "fa-bottle-water", color: "drinks" },
+            { id: 8, name: "Black Olives", category: "Toppings", stock: 0, unit: "g", threshold: 200, updated: "2026-10-02T07:55:00", icon: "fa-circle", color: "toppings" },
+            { id: 9, name: "All-Purpose Flour", category: "Dough", stock: 8, unit: "kg", threshold: 3, updated: "2026-10-01T17:20:00", icon: "fa-wheat-awn", color: "dough" },
+            { id: 10, name: "Cooking Oil", category: "Sauce", stock: 4, unit: "L", threshold: 2, updated: "2026-10-01T16:45:00", icon: "fa-bottle-droplet", color: "sauce" },
+            { id: 11, name: "Chicken Wings", category: "Meat", stock: 2.4, unit: "kg", threshold: 2, updated: "2026-10-01T16:10:00", icon: "fa-drumstick-bite", color: "meat" },
+            { id: 12, name: "Paper Pizza Boxes", category: "Packaging", stock: 46, unit: "pcs", threshold: 20, updated: "2026-10-01T15:30:00", icon: "fa-box", color: "packaging" }
+        ];
+        const extraNames = [
+            ["Parmesan Cheese", "Dairy"], ["Cheddar Cheese", "Dairy"], ["Beef Sausage", "Meat"], ["Chicken Breast", "Meat"],
+            ["Bell Peppers", "Vegetables"], ["Red Onions", "Vegetables"], ["Pineapple Chunks", "Vegetables"], ["Basil Leaves", "Vegetables"],
+            ["Flour Tortillas", "Dough"], ["Pizza Dough Balls", "Dough"], ["Mozzarella Sticks", "Sides"], ["Potato Wedges", "Sides"],
+            ["Iced Tea", "Drinks"], ["Bottled Water", "Drinks"], ["Chili Flakes", "Toppings"], ["Oregano", "Toppings"],
+            ["Pesto Sauce", "Sauce"], ["BBQ Sauce", "Sauce"], ["Paper Cups", "Packaging"], ["Pizza Box Liners", "Packaging"],
+            ["Cooking Gloves", "Packaging"], ["Parmesan Sachets", "Toppings"], ["Lemonade Concentrate", "Drinks"], ["Lettuce", "Vegetables"],
+            ["Cream Cheese", "Dairy"], ["Ground Beef", "Meat"]
+        ];
+        const categoryStyle = {
+            Dairy: ["fa-cheese", "dairy"], Meat: ["fa-drumstick-bite", "meat"], Vegetables: ["fa-leaf", "vegetables"],
+            Dough: ["fa-bread-slice", "dough"], Sides: ["fa-bowl-food", "sides"], Drinks: ["fa-bottle-water", "drinks"],
+            Toppings: ["fa-pepper-hot", "toppings"], Sauce: ["fa-jar", "sauce"], Packaging: ["fa-box", "packaging"]
+        };
+        extraNames.forEach(([name, category], index) => {
+            const [icon, color] = categoryStyle[category];
+            inventory.push({ id: inventory.length + 1, name, category, stock: 8 + index % 9, unit: category === "Drinks" ? "bottles" : "kg", threshold: 2, updated: "2026-10-01T14:00:00", icon, color });
+        });
+        [
+            ["Basil Pesto", "Sauce", "fa-jar", "sauce"], ["Jalapenos", "Vegetables", "fa-leaf", "vegetables"], ["Cream", "Dairy", "fa-cheese", "dairy"]
+        ].forEach(([name, category, icon, color]) => inventory.push({ id: inventory.length + 1, name, category, stock: 1, unit: "kg", threshold: 2, updated: "2026-10-01T13:00:00", icon, color }));
+        inventory.push({ id: inventory.length + 1, name: "Anchovies", category: "Toppings", stock: 0, unit: "g", threshold: 100, updated: "2026-10-01T12:00:00", icon: "fa-fish", color: "toppings" });
+        [
+            ["Seasonal Pumpkin Sauce", "Sauce", "fa-jar", "sauce"], ["Holiday Sprinkle Mix", "Toppings", "fa-cookie", "toppings"],
+            ["Limited Edition Cups", "Packaging", "fa-box", "packaging"], ["Mango Puree", "Drinks", "fa-bottle-water", "drinks"],
+            ["Roasted Corn", "Vegetables", "fa-leaf", "vegetables"], ["Smoked Gouda", "Dairy", "fa-cheese", "dairy"]
+        ].forEach(([name, category, icon, color]) => inventory.push({ id: inventory.length + 1, name, category, stock: 5, unit: "pcs", threshold: 1, updated: "2026-09-30T12:00:00", icon, color, inactive: true }));
+        const activities = [
+            { type: "out", title: "Stock Out", item: "Mozzarella Cheese (200g) used", time: "10 mins ago", by: "Mark Santos" },
+            { type: "in", title: "Stock Request", item: "Pepperoni Slices (1 kg)", time: "1 hour ago", by: "Mark Santos" },
+            { type: "out", title: "Stock Out", item: "Tomato Sauce (500g) used", time: "2 hours ago", by: "Mark Santos" },
+            { type: "alert", title: "Out of Stock", item: "Black Olives is now out of stock", time: "3 hours ago", by: "System" }
+        ];
+        const PAGE_SIZE = 8;
+        let currentPage = 1;
+        let activeStatus = "all";
+        let dialogAction = "stock-in";
+        let toastTimer;
+        const tableBody = document.getElementById("inventoryTableBody");
+        const stockDialog = document.getElementById("stockDialog");
+
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[character]);
+        }
+
+        function itemStatus(item) {
+            if (item.inactive) return "Inactive";
+            if (item.stock <= 0) return "Out of Stock";
+            if (item.stock <= item.threshold) return "Low Stock";
+            return "In Stock";
+        }
+
+        function formatStock(value) {
+            return Number.isInteger(value) ? String(value) : String(Number(value.toFixed(2)));
+        }
+
+        function formatDate(value) {
+            return new Date(value).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.classList.add("show");
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove("show"), 2400);
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("currentDate").textContent = now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+            document.getElementById("currentTime").textContent = now.toLocaleDateString("en-US", { weekday: "long" }) + " · " + now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+        }
+
+        function updateSummary() {
+            const counts = { "In Stock": 0, "Low Stock": 0, "Out of Stock": 0, "Inactive": 0 };
+            inventory.forEach(item => counts[itemStatus(item)]++);
+            const total = inventory.length;
+            document.getElementById("totalItems").textContent = total;
+            document.getElementById("lowItems").textContent = counts["Low Stock"];
+            document.getElementById("inStockItems").textContent = counts["In Stock"];
+            document.getElementById("outItems").textContent = counts["Out of Stock"];
+            document.getElementById("chartTotal").textContent = total;
+            const segments = ["In Stock", "Low Stock", "Out of Stock", "Inactive"];
+            const colors = { "In Stock": "#20a668", "Low Stock": "#ff9a16", "Out of Stock": "#e31b23", "Inactive": "#c5cad1" };
+            let degree = 0;
+            const gradient = segments.map(status => {
+                const start = degree;
+                degree += total ? counts[status] / total * 360 : 0;
+                return `${colors[status]} ${start}deg ${degree}deg`;
+            }).join(", ");
+            document.getElementById("stockChart").style.background = `conic-gradient(${gradient})`;
+            document.getElementById("chartLegend").innerHTML = segments.map(status => `<div class="legend-row"><span class="legend-label"><i style="--legend-color:${colors[status]}"></i>${status}</span><strong>${counts[status]} <small>${total ? (counts[status] / total * 100).toFixed(1) : "0.0"}%</small></strong></div>`).join("");
+        }
+
+        function getFilteredItems() {
+            const query = document.getElementById("itemSearch").value.trim().toLowerCase();
+            const category = document.getElementById("categoryFilter").value;
+            const status = document.getElementById("statusFilter").value;
+            const sort = document.getElementById("sortSelect").value;
+            const filtered = inventory.filter(item => {
+                const matchesText = `${item.name} ${item.category} ${item.unit}`.toLowerCase().includes(query);
+                const matchesCategory = category === "all" || item.category === category;
+                const matchesStatus = (activeStatus === "all" || itemStatus(item) === activeStatus) && (status === "all" || itemStatus(item) === status);
+                return matchesText && matchesCategory && matchesStatus;
+            });
+            if (sort === "name-asc") filtered.sort((a, b) => a.name.localeCompare(b.name));
+            if (sort === "name-desc") filtered.sort((a, b) => b.name.localeCompare(a.name));
+            if (sort === "stock-asc") filtered.sort((a, b) => a.stock - b.stock);
+            if (sort === "stock-desc") filtered.sort((a, b) => b.stock - a.stock);
+            if (sort === "updated") filtered.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+            return filtered;
+        }
+
+        function renderPagination(totalPages) {
+            const pagination = document.getElementById("pagination");
+            let html = `<button class="page-button" type="button" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""} aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></button>`;
+            for (let page = 1; page <= totalPages; page++) html += `<button class="page-button ${page === currentPage ? "active" : ""}" type="button" data-page="${page}" aria-label="Page ${page}" ${page === currentPage ? 'aria-current="page"' : ""}>${page}</button>`;
+            html += `<button class="page-button" type="button" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""} aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></button>`;
+            pagination.innerHTML = html;
+        }
+
+        function renderInventory() {
+            const filtered = getFilteredItems();
+            const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+            currentPage = Math.min(currentPage, totalPages);
+            const start = (currentPage - 1) * PAGE_SIZE;
+            const visible = filtered.slice(start, start + PAGE_SIZE);
+            if (!visible.length) {
+                tableBody.innerHTML = '<tr><td colspan="7" class="empty-row">No inventory items match your filters.</td></tr>';
+            } else {
+                tableBody.innerHTML = visible.map(item => {
+                    const status = itemStatus(item);
+                    return `<tr data-id="${item.id}"><td><div class="item-cell"><span class="item-thumb ${item.color}"><i class="fa-solid ${item.icon}"></i></span><span><strong>${escapeHTML(item.name)}</strong><small>${escapeHTML(item.category)}</small></span></div></td><td><span class="category-badge ${item.color}">${escapeHTML(item.category)}</span></td><td class="stock-cell ${status === "Low Stock" || status === "Out of Stock" ? "attention" : ""}">${formatStock(item.stock)} ${escapeHTML(item.unit)}</td><td>${escapeHTML(item.unit)}</td><td><span class="status-badge ${status.toLowerCase().replaceAll(" ", "-")}">${status}</span></td><td class="updated-cell">${formatDate(item.updated)}</td><td><button class="row-menu" type="button" data-menu="${item.id}" aria-label="Actions for ${escapeHTML(item.name)}"><i class="fa-solid fa-ellipsis"></i></button></td></tr>`;
+                }).join("");
+            }
+            const first = filtered.length ? start + 1 : 0;
+            document.getElementById("showingText").textContent = `Showing ${first} to ${Math.min(start + PAGE_SIZE, filtered.length)} of ${filtered.length} items`;
+            renderPagination(totalPages);
+            updateSummary();
+        }
+
+        function renderActivities() {
+            const iconClass = { out: "activity-out", in: "activity-in", alert: "activity-alert" };
+            const icon = { out: "fa-arrow-down", in: "fa-box", alert: "fa-xmark" };
+            document.getElementById("activityList").innerHTML = activities.slice(0, 5).map(activity => `<article class="activity-row"><span class="activity-icon ${iconClass[activity.type]}"><i class="fa-solid ${icon[activity.type]}"></i></span><div class="activity-info"><strong>${escapeHTML(activity.title)}</strong><span>${escapeHTML(activity.item)}</span></div><div class="activity-time"><span>${escapeHTML(activity.time)}</span><small>by ${escapeHTML(activity.by)}</small></div></article>`).join("");
+        }
+
+        function populateItemSelect() {
+            document.getElementById("dialogItem").innerHTML = inventory.map(item => `<option value="${item.id}">${escapeHTML(item.name)} (${formatStock(item.stock)} ${escapeHTML(item.unit)})</option>`).join("");
+        }
+
+        function openStockDialog(action, itemId = null) {
+            if (action === "requests") {
+                const requests = activities.filter(activity => activity.title === "Stock Request");
+                window.alert(requests.length ? requests.map(activity => `${activity.item} (${activity.time})`).join("\n") : "There are no pending stock requests.");
+                return;
+            }
+            if (action === "history") {
+                const lines = activities.map(activity => `${activity.title}: ${activity.item} (${activity.time})`).join("\n");
+                window.alert(lines || "No inventory activity yet.");
+                return;
+            }
+            dialogAction = action;
+            populateItemSelect();
+            const titles = { "stock-in": "Record Stock In", "stock-out": "Record Stock Out", request: "Request Stock" };
+            const submitLabels = { "stock-in": "Add to inventory", "stock-out": "Record stock out", request: "Submit request" };
+            document.getElementById("dialogTitle").textContent = titles[action] || titles["stock-in"];
+            document.getElementById("dialogEyebrow").textContent = action === "request" ? "STOCK REQUEST" : "STOCK MOVEMENT";
+            document.getElementById("dialogCopy").textContent = action === "stock-out" ? "Record ingredients or supplies used from your current inventory." : action === "request" ? "Send a request for the quantity your team needs." : "Add received quantities to your current inventory.";
+            document.getElementById("dialogSubmit").textContent = submitLabels[action] || submitLabels["stock-in"];
+            document.getElementById("dialogQuantity").value = "";
+            document.getElementById("dialogNote").value = "";
+            if (itemId) document.getElementById("dialogItem").value = String(itemId);
+            stockDialog.showModal();
+        }
+
+        function resetFilters(status = "all") {
+            activeStatus = status;
+            document.getElementById("statusFilter").value = status;
+            currentPage = 1;
+            renderInventory();
+        }
+
+        document.getElementById("itemSearch").addEventListener("input", () => { currentPage = 1; renderInventory(); });
+        document.getElementById("categoryFilter").addEventListener("change", () => { currentPage = 1; renderInventory(); });
+        document.getElementById("statusFilter").addEventListener("change", event => resetFilters(event.currentTarget.value));
+        document.getElementById("sortSelect").addEventListener("change", () => { currentPage = 1; renderInventory(); });
+        document.getElementById("pagination").addEventListener("click", event => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const button = target.closest("[data-page]");
+            if (!button || button.disabled) return;
+            currentPage = Number(button.dataset.page);
+            renderInventory();
+        });
+        document.querySelectorAll("[data-stat]").forEach(button => button.addEventListener("click", () => resetFilters(button.dataset.stat === "all" ? "all" : button.dataset.stat)));
+        document.querySelectorAll("[data-action]").forEach(button => button.addEventListener("click", () => openStockDialog(button.dataset.action)));
+        tableBody.addEventListener("click", event => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const button = target.closest("[data-menu]");
+            if (!button) return;
+            openStockDialog("stock-in", Number(button.dataset.menu));
+        });
+        document.getElementById("stockForm").addEventListener("submit", event => {
+            event.preventDefault();
+            const item = inventory.find(entry => entry.id === Number(document.getElementById("dialogItem").value));
+            const quantity = Number(document.getElementById("dialogQuantity").value);
+            if (!item || !Number.isFinite(quantity) || quantity <= 0) return;
+            const note = document.getElementById("dialogNote").value.trim();
+            const now = new Date();
+            if (dialogAction === "stock-out") {
+                if (item.inactive) {
+                    showToast("Inactive inventory items cannot be used for stock out.");
+                    return;
+                }
+                if (quantity > item.stock) {
+                    showToast(`Only ${formatStock(item.stock)} ${item.unit} available.`);
+                    return;
+                }
+                item.stock = Math.max(0, item.stock - quantity);
+                activities.unshift({ type: "out", title: "Stock Out", item: `${item.name} (${formatStock(quantity)} ${item.unit}) used${note ? ` · ${note}` : ""}`, time: "Just now", by: "Mark Santos" });
+            } else if (dialogAction === "request") {
+                activities.unshift({ type: "in", title: "Stock Request", item: `${item.name} (${formatStock(quantity)} ${item.unit}) requested${note ? ` · ${note}` : ""}`, time: "Just now", by: "Mark Santos" });
+            } else {
+                item.stock = Number((item.stock + quantity).toFixed(2));
+                item.inactive = false;
+                activities.unshift({ type: "in", title: "Stock In", item: `${item.name} (${formatStock(quantity)} ${item.unit}) received${note ? ` · ${note}` : ""}`, time: "Just now", by: "Mark Santos" });
+            }
+            item.updated = now.toISOString();
+            stockDialog.close();
+            renderInventory();
+            renderActivities();
+            showToast(dialogAction === "request" ? "Stock request submitted." : "Inventory updated successfully.");
+        });
+        document.getElementById("dialogClose").addEventListener("click", () => stockDialog.close());
+        document.getElementById("dialogCancel").addEventListener("click", () => stockDialog.close());
+        document.getElementById("menuToggle").addEventListener("click", event => {
+            const open = document.getElementById("sidebar").classList.toggle("open");
+            event.currentTarget.setAttribute("aria-expanded", String(open));
+        });
+        document.getElementById("logoutButton").addEventListener("click", () => {
+            if (confirm("Are you sure you want to logout?")) window.location.href = "../login.html";
+        });
+        document.getElementById("categoryFilter").innerHTML += [...new Set(inventory.map(item => item.category))].sort().map(category => `<option value="${escapeHTML(category)}">${escapeHTML(category)}</option>`).join("");
+        updateDateTime();
+        setInterval(updateDateTime, 60000);
+        renderInventory();
+        renderActivities();
+    </script>
+</body>
+
+</html>

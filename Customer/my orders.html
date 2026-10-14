@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Jolie's Pizza | My Orders </title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="my orders.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="customer-header.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="home.html" class="brand">
+            <img src="../images/logo.png" alt="Jolie's Pizza" class="brand-logo">
+            <span>Jolie's Pizza</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="home.html">Home</a>
+            <a href="menus.html">Menus</a>
+            <a href="my orders.html" class="active">My Orders</a>
+            <a href="track-order.html">Track Order</a>
+            <a href="about-us.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+       <div class="header-actions">
+
+            <button class="cart-header" type="button" aria-label="Shopping cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge" id="cartBadge" hidden>0</span>
+            </button>
+
+            <strong id="headerTotal" hidden>₱0.00</strong>
+
+            <div class="header-divider"></div>
+
+            <div class="profile-dropdown" id="profileDropdown">
+
+                <button class="user-button" type="button" id="profileToggle" aria-expanded="false"
+                    aria-controls="profileMenu">
+
+                    <span class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+
+                    <span>Juan Dela Cruz</span>
+
+                    <i class="fa-solid fa-chevron-down profile-chevron"></i>
+                </button>
+
+                <div class="profile-menu" id="profileMenu">
+
+                    <div class="profile-menu-header">
+                        <span class="profile-avatar-large">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+
+                        <div class="profile-details">
+                            <strong>Juan Dela Cruz</strong>
+                            <span>Customer Account</span>
+                            <small>juan@gmail.com</small>
+                        </div>
+                    </div>
+
+                    <div class="profile-menu-divider"></div>
+
+                    <a href="profile.html" class="profile-menu-item">
+                        <i class="fa-regular fa-user"></i>
+                        My Profile
+                    </a>
+
+                    <a href="my orders.html" class="profile-menu-item">
+                        <i class="fa-solid fa-box"></i>
+                        My Orders
+                    </a>
+
+                    <button type="button" class="profile-menu-item logout-item" id="logoutButton">
+
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="page">
+
+        <!-- HERO -->
+        <section class="orders-hero">
+            <div class="hero-content">
+                <h1>My Orders</h1>
+                <p>
+                    Track your orders and view<br>
+                    your order history.
+                </p>
+            </div>
+        </section>
+
+        <!-- MAIN ORDER AREA -->
+        <section class="orders-layout">
+
+            <!-- ORDER HISTORY -->
+            <aside class="history-card card">
+                <div class="card-title">
+                    <span class="title-icon">◔</span>
+                    <h2>Order History</h2>
+                </div>
+
+                <div class="history-list" id="historyList">
+                    <p class="orders-message" id="ordersMessage" role="status">
+                        Loading your orders...
+                    </p>
+                </div>
+
+                <button class="more-orders" id="moreOrders" hidden>
+                    <span>View More Orders</span>
+                    <span>⌄</span>
+                </button>
+            </aside>
+
+            <!-- ORDER DETAILS -->
+            <section class="order-card card" hidden>
+                <div class="empty-order-state">
+                    <span class="empty-order-icon"><i class="fa-regular fa-clipboard"></i></span>
+                    <h2>No order selected</h2>
+                    <p>Your MySQL order history will appear here after you place an order.</p>
+                </div>
+
+                <div class="order-heading">
+                    <div>
+                        <h2 id="orderHeading">Order details</h2>
+                        <p id="orderDate"></p>
+                    </div>
+
+                    <div class="heading-status">
+                        <span class="status-dot"></span>
+                        <span id="orderStatus">—</span>
+                        <span class="heading-arrow">›</span>
+                    </div>
+                </div>
+
+                <!-- TRACKING STEPS -->
+                <div class="tracking-steps">
+
+                    <div class="step completed-step">
+                        <div class="step-circle">✓</div>
+                        <strong>Order Placed</strong>
+                        <span>May 10, 2025 • 11:30 AM</span>
+                    </div>
+
+                    <div class="step active-step">
+                        <div class="step-circle">♟</div>
+                        <strong>Preparing</strong>
+                        <span>Your order is being prepared</span>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-circle">🛵</div>
+                        <strong>On The Way</strong>
+                        <span>Waiting for pickup/delivery</span>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-circle">✓</div>
+                        <strong>Delivered</strong>
+                        <span>Enjoy your meal!</span>
+                    </div>
+                </div>
+
+                <!-- ORDER ITEMS + SUMMARY -->
+                <div class="details-grid">
+
+                    <section class="items-card">
+                        <div class="inner-heading">
+                            <h3>Order Items</h3>
+                            <button id="receiptButton" class="receipt-button">⇩ &nbsp; Download Receipt</button>
+                        </div>
+
+                        <div id="orderItemsList"></div>
+                    </section>
+
+                    <section class="summary-card">
+                        <h3>Order Summary</h3>
+
+                        <div class="summary-row">
+                            <span id="orderSubtotalLabel">Subtotal</span>
+                            <strong id="orderSubtotal">₱0.00</strong>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Delivery Fee</span>
+                            <strong id="orderDeliveryFee">₱0.00</strong>
+                        </div>
+
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <strong id="orderTotal">₱0.00</strong>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Payment Method</span>
+                            <span id="orderPaymentMethod">—</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Payment Status</span>
+                            <span id="orderPaymentStatus">—</span>
+                        </div>
+
+                        <div class="delivery-address">
+                            <strong>Delivery Address</strong>
+                            <p id="orderDeliveryAddress"></p>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <!-- DELIVERY TRACKING -->
+            <aside class="right-column">
+
+                <section class="delivery-card card">
+                    <div class="delivery-heading">
+                        <h2>Delivery Tracking</h2>
+                        <span class="tracking-badge" id="trackingBadge">Not started</span>
+                    </div>
+
+                    <p class="rider-message" id="trackingMessage" role="status">
+                        Live GPS will appear here after your rider starts sharing location.
+                    </p>
+
+                    <div class="rider-info">
+                        <div class="rider-avatar">🛵</div>
+                        <div>
+                            <strong id="trackingRiderName">Rider not yet assigned</strong>
+                            <span id="trackingRiderContact">Waiting for rider GPS</span>
+                        </div>
+                    </div>
+
+                    <div id="deliveryMap" class="delivery-map"
+                        role="application" aria-label="Live Google Map for this delivery"></div>
+
+                    <div class="arrival">
+                        <span>Estimated Arrival</span>
+                        <strong id="trackingEta">Not available</strong>
+                    </div>
+                </section>
+
+                <section class="notice-card">
+                    <div class="notice-icon">♟</div>
+                    <div>
+                        <strong id="trackingNoticeTitle">Waiting for live GPS</strong>
+                        <p id="trackingNotice">Rider location appears after GPS sharing starts.</p>
+                    </div>
+                </section>
+
+            </aside>
+        </section>
+
+        <!-- ACTIONS -->
+        <section class="bottom-actions" id="orderActions" hidden>
+
+            <div class="feedback card">
+                <div>
+                    <strong>How was your order?</strong>
+                    <span>We'd love to hear your feedback!</span>
+                </div>
+
+                <div class="stars" id="stars">
+                    <button data-rating="1">☆</button>
+                    <button data-rating="2">☆</button>
+                    <button data-rating="3">☆</button>
+                    <button data-rating="4">☆</button>
+                    <button data-rating="5">☆</button>
+                </div>
+
+                <button class="outline-button" id="rateButton">Rate Order</button>
+            </div>
+
+            <button class="cancel-button" id="cancelButton">♧ &nbsp; Cancel Order</button>
+            <button class="reorder-button" id="reorderButton">↻ &nbsp; Reorder</button>
+            <button class="details-button" id="detailsButton">◉ &nbsp; View Order Details</button>
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="benefits card">
+            <div class="benefit">
+                <span class="benefit-icon">🛵</span>
+                <div>
+                    <strong>Fast Delivery</strong>
+                    <p>Quick and reliable delivery<br>to your door.</p>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <span class="benefit-icon">🛡</span>
+                <div>
+                    <strong>Secure Payments</strong>
+                    <p>100% secure and encrypted<br>transactions.</p>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <span class="benefit-icon">💳</span>
+                <div>
+                    <strong>Multiple Payment Options</strong>
+                    <p>Pay online or cash on<br>delivery.</p>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <span class="benefit-icon">🎧</span>
+                <div>
+                    <strong>24/7 Support</strong>
+                    <p>We're here to help you<br>anytime.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="header.js"></script>
+    <script src="google-maps-loader.js"></script>
+
+    <script>
+        /* =========================================================
+       JOLIE'S PIZZA - MY ORDERS
+       PURE VANILLA JAVASCRIPT
+    ========================================================= */
+
+        const toast = document.getElementById("toast");
+        const API_BASE_URL =
+            ["3000", "5500"].includes(window.location.port)
+                ? "http://localhost:5000"
+                : "";
+        let customerOrders = [];
+        let selectedOrder = null;
+        let showAllOrders = false;
+        let trackingPollTimer = null;
+        let trackingOrderNumber = "";
+        let deliveryMap = null;
+        let deliveryGeocoder = null;
+        let deliveryDirections = null;
+        let riderMarker = null;
+        let destinationMarker = null;
+        let destinationPosition = null;
+        let lastRouteRequestAt = 0;
+        let deliveryMapFitted = false;
+
+        /* =========================================================
+           TOAST MESSAGE
+        ========================================================= */
+
+        function showToast(message) {
+            if (!toast) return;
+
+            toast.textContent = message;
+            toast.classList.add("show");
+
+            clearTimeout(window.toastTimer);
+
+            window.toastTimer = setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2500);
+        }
+
+
+        /* =========================================================
+           ORDER DATA
+        ========================================================= */
+
+        const formatMoney = value =>
+            `₱${Number(value || 0).toLocaleString("en-PH", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })}`;
+
+        const formatOrderDate = value => {
+            const date = new Date(value);
+            return Number.isNaN(date.getTime())
+                ? "Date unavailable"
+                : date.toLocaleString("en-PH", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit"
+                });
+        };
+
+        function getSavedCustomer() {
+            const keys = ["loggedInUser", "currentUser", "user"];
+            let savedCustomer = null;
+
+            for (const storage of [window.localStorage, window.sessionStorage]) {
+                for (const key of keys) {
+                    const savedValue = storage.getItem(key);
+                    if (!savedValue) continue;
+
+                    try {
+                        const customer = JSON.parse(savedValue);
+                        if (customer && typeof customer === "object") {
+                            if (customer.sessionToken) {
+                                return customer;
+                            }
+                            savedCustomer ||= customer;
+                        }
+                    } catch (error) {
+                        console.warn(`Could not read customer data from "${key}".`, error);
+                    }
+                }
+            }
+
+            return savedCustomer;
+        }
+
+        function showLoginPrompt(message) {
+            const historyList = document.getElementById("historyList");
+            if (!historyList) return;
+
+            const notice = document.createElement("p");
+            notice.className = "orders-message";
+            notice.append(document.createTextNode(`${message} `));
+
+            const loginLink = document.createElement("a");
+            loginLink.href = "../login.html";
+            loginLink.textContent = "Log in";
+            notice.appendChild(loginLink);
+
+            historyList.replaceChildren(notice);
+        }
+
+        function renderOrderHistory() {
+            const historyList = document.getElementById("historyList");
+            const moreOrdersButton = document.getElementById("moreOrders");
+            if (!historyList) return;
+
+            historyList.replaceChildren();
+
+            if (customerOrders.length === 0) {
+                const message = document.createElement("p");
+                message.className = "orders-message";
+                message.textContent =
+                    "No orders were found for this account. Orders appear here after checkout using the same email address as your login.";
+                historyList.appendChild(message);
+                if (moreOrdersButton) moreOrdersButton.hidden = true;
+                return;
+            }
+
+            customerOrders.forEach((order, index) => {
+                const item = document.createElement("button");
+                item.type = "button";
+                item.className = "history-item";
+                item.dataset.orderId = String(order.id);
+                item.classList.toggle(
+                    "selected",
+                    selectedOrder?.id === order.id
+                );
+                item.hidden = index >= 5 && !showAllOrders;
+
+                const details = document.createElement("div");
+                const number = document.createElement("strong");
+                number.textContent = `#${order.orderNumber}`;
+                const date = document.createElement("span");
+                date.textContent = formatOrderDate(order.createdAt);
+                details.append(number, date);
+
+                const summary = document.createElement("div");
+                summary.className = "history-right";
+                const status = document.createElement("em");
+                status.className = `status ${String(order.status).toLowerCase().replaceAll(" ", "-")}`;
+                status.textContent = order.status;
+                const total = document.createElement("strong");
+                total.textContent = formatMoney(order.total);
+                summary.append(status, total);
+
+                const arrow = document.createElement("span");
+                arrow.className = "history-arrow";
+                arrow.textContent = "›";
+                item.append(details, summary, arrow);
+
+                item.addEventListener("click", () => {
+                    selectedOrder = order;
+                    renderOrderHistory();
+                    renderSelectedOrder();
+                });
+
+                historyList.appendChild(item);
+            });
+
+            if (moreOrdersButton) {
+                moreOrdersButton.hidden = customerOrders.length <= 5;
+                moreOrdersButton.classList.toggle("expanded", showAllOrders);
+                const label = moreOrdersButton.querySelector("span:first-child");
+                if (label) {
+                    label.textContent = showAllOrders
+                        ? "Show Fewer Orders"
+                        : "View More Orders";
+                }
+            }
+        }
+
+        function renderSelectedOrder() {
+            const orderCard = document.querySelector(".order-card");
+            const rightColumn = document.querySelector(".right-column");
+            const orderActions = document.getElementById("orderActions");
+
+            if (rightColumn) rightColumn.hidden = false;
+            if (orderActions) orderActions.hidden = !selectedOrder;
+
+            if (orderCard) {
+                orderCard.hidden = false;
+                orderCard.classList.toggle("empty-order", !selectedOrder);
+            }
+
+            if (!selectedOrder) {
+                return;
+            }
+
+            document.getElementById("orderHeading").textContent =
+                `Order #${selectedOrder.orderNumber}`;
+            document.getElementById("orderDate").textContent =
+                formatOrderDate(selectedOrder.createdAt);
+            document.getElementById("orderStatus").textContent =
+                selectedOrder.status;
+
+            const itemsList = document.getElementById("orderItemsList");
+            itemsList.replaceChildren();
+            selectedOrder.items.forEach(item => {
+                const row = document.createElement("div");
+                row.className = "order-item";
+
+                const image = document.createElement("img");
+                image.src = item.image || "../images/logo.png";
+                image.alt = item.name;
+
+                const details = document.createElement("div");
+                details.className = "item-info";
+                const name = document.createElement("strong");
+                name.textContent = item.name;
+                const size = document.createElement("span");
+                size.textContent = item.size || "Regular";
+                details.append(name, size);
+
+                const quantity = document.createElement("span");
+                quantity.className = "item-qty";
+                quantity.textContent = String(item.quantity);
+                const price = document.createElement("strong");
+                price.className = "item-price";
+                price.textContent = formatMoney(item.lineTotal);
+
+                row.append(image, details, quantity, price);
+                itemsList.appendChild(row);
+            });
+
+            const itemCount = selectedOrder.items.reduce(
+                (total, item) => total + Number(item.quantity || 0),
+                0
+            );
+            document.getElementById("orderSubtotalLabel").textContent =
+                `Subtotal (${itemCount} ${itemCount === 1 ? "item" : "items"})`;
+            document.getElementById("orderSubtotal").textContent =
+                formatMoney(selectedOrder.subtotal);
+            document.getElementById("orderDeliveryFee").textContent =
+                formatMoney(selectedOrder.deliveryFee);
+            document.getElementById("orderTotal").textContent =
+                formatMoney(selectedOrder.total);
+            document.getElementById("orderPaymentMethod").textContent =
+                selectedOrder.paymentMethod || "Not provided";
+            document.getElementById("orderPaymentStatus").textContent =
+                selectedOrder.paymentStatus || "Unpaid";
+            document.getElementById("orderDeliveryAddress").textContent =
+                selectedOrder.deliveryAddress;
+
+            const stages = [
+                "Pending",
+                "Preparing",
+                "Out for Delivery",
+                "Completed"
+            ];
+            const currentStage = selectedOrder.status === "Confirmed"
+                ? 1
+                : stages.indexOf(selectedOrder.status);
+            const trackingSteps = document.querySelector(".tracking-steps");
+            if (trackingSteps) {
+                const progress = selectedOrder.status === "Cancelled"
+                    ? 0
+                    : Math.max(0, currentStage) / (stages.length - 1) * 84;
+                trackingSteps.style.setProperty(
+                    "--tracking-progress",
+                    `${progress}%`
+                );
+            }
+            const stepDescriptions = [
+                formatOrderDate(selectedOrder.createdAt),
+                selectedOrder.status === "Pending"
+                    ? "Waiting for confirmation"
+                    : selectedOrder.status === "Confirmed"
+                        ? "Your order is confirmed"
+                        : "Your order is being prepared",
+                selectedOrder.status === "Out for Delivery"
+                    ? "Your order is on the way"
+                    : "Waiting for delivery",
+                selectedOrder.status === "Completed"
+                    ? "Enjoy your meal!"
+                    : "Not delivered yet"
+            ];
+            document.querySelectorAll(".tracking-steps .step").forEach(
+                (step, index) => {
+                    const description = step.querySelector("span:last-child");
+                    if (description) {
+                        description.textContent = stepDescriptions[index];
+                    }
+
+                    step.classList.toggle(
+                        "completed-step",
+                        selectedOrder.status !== "Cancelled" &&
+                            currentStage >= 0 &&
+                            (index < currentStage ||
+                                (selectedOrder.status === "Completed" &&
+                                    index === currentStage))
+                    );
+                    step.classList.toggle(
+                        "active-step",
+                        selectedOrder.status !== "Cancelled" &&
+                            index === currentStage
+                    );
+                }
+            );
+
+            updateDeliveryTracking(selectedOrder);
+        }
+
+        function setDeliveryTrackingMessage(message, badge = "Not started") {
+            const trackingBadge = document.getElementById("trackingBadge");
+            document.getElementById("trackingMessage").textContent = message;
+            trackingBadge.textContent = badge;
+            trackingBadge.classList.toggle("tracking-live", badge === "Live GPS");
+            trackingBadge.classList.toggle(
+                "tracking-delayed",
+                badge === "GPS delayed" || badge === "Map unavailable"
+            );
+            trackingBadge.classList.toggle(
+                "tracking-waiting",
+                badge !== "Live GPS" &&
+                    badge !== "GPS delayed" &&
+                    badge !== "Map unavailable"
+            );
+            document.getElementById("trackingNoticeTitle").textContent = badge;
+            document.getElementById("trackingNotice").textContent = message;
+        }
+
+        async function ensureDeliveryMap(order) {
+            const maps = await window.loadGoogleMaps(API_BASE_URL);
+            if (trackingOrderNumber !== order.orderNumber) return null;
+            if (!deliveryMap) {
+                deliveryMap = new maps.Map(
+                    document.getElementById("deliveryMap"),
+                    {
+                        center: { lat: 12.5367, lng: 124.8716 },
+                        zoom: 14,
+                        mapTypeControl: false,
+                        streetViewControl: false,
+                        fullscreenControl: true
+                    }
+                );
+                deliveryGeocoder = new maps.Geocoder();
+                deliveryDirections = new maps.DirectionsRenderer({
+                    map: deliveryMap,
+                    suppressMarkers: true,
+                    preserveViewport: true
+                });
+            }
+
+            if (trackingOrderNumber !== order.orderNumber || !destinationPosition) {
+                const geocoded = await deliveryGeocoder.geocode({
+                    address: `${order.deliveryAddress}, San Roque, Northern Samar, Philippines`
+                });
+                if (trackingOrderNumber !== order.orderNumber) return null;
+                if (!geocoded.results?.length) {
+                    throw new Error("Google Maps could not locate the delivery address.");
+                }
+                destinationPosition = geocoded.results[0].geometry.location;
+                if (destinationMarker) destinationMarker.setMap(null);
+                destinationMarker = new maps.Marker({
+                    map: deliveryMap,
+                    position: destinationPosition,
+                    title: "Delivery destination",
+                    label: "A"
+                });
+                deliveryMap.setCenter(destinationPosition);
+                deliveryMap.setZoom(15);
+            }
+
+            return maps;
+        }
+
+        function updateRiderMapLocation(location, orderNumber) {
+            if (!deliveryMap || !window.google?.maps) return;
+            const maps = window.google.maps;
+            const position = {
+                lat: Number(location.latitude),
+                lng: Number(location.longitude)
+            };
+
+            if (!Number.isFinite(position.lat) || !Number.isFinite(position.lng)) {
+                return;
+            }
+
+            if (!riderMarker) {
+                riderMarker = new maps.Marker({
+                    map: deliveryMap,
+                    position,
+                    title: "Live rider location",
+                    icon: {
+                        path: maps.SymbolPath.CIRCLE,
+                        scale: 9,
+                        fillColor: "#1677e8",
+                        fillOpacity: 1,
+                        strokeColor: "#ffffff",
+                        strokeWeight: 3
+                    }
+                });
+            } else {
+                riderMarker.setPosition(position);
+            }
+
+            if (!deliveryMapFitted && destinationPosition) {
+                const bounds = new maps.LatLngBounds();
+                bounds.extend(position);
+                bounds.extend(destinationPosition);
+                deliveryMap.fitBounds(bounds);
+                deliveryMapFitted = true;
+            } else {
+                deliveryMap.panTo(position);
+            }
+            if (Date.now() - lastRouteRequestAt >= 60_000) {
+                lastRouteRequestAt = Date.now();
+                new maps.DirectionsService().route(
+                    {
+                        origin: position,
+                        destination: destinationPosition,
+                        travelMode: maps.TravelMode.DRIVING,
+                        drivingOptions: {
+                            departureTime: new Date(),
+                            trafficModel: maps.TrafficModel.BEST_GUESS
+                        }
+                    },
+                    (result, status) => {
+                        if (trackingOrderNumber !== orderNumber) return;
+                        if (status !== "OK" || !result?.routes?.[0]?.legs?.[0]) {
+                            document.getElementById("trackingEta").textContent =
+                                "Not available";
+                            return;
+                        }
+                        deliveryDirections.setDirections(result);
+                        document.getElementById("trackingEta").textContent =
+                            result.routes[0].legs[0].duration_in_traffic?.text ||
+                            result.routes[0].legs[0].duration?.text ||
+                            "Not available";
+                    }
+                );
+            }
+        }
+
+        async function refreshDeliveryTracking(order) {
+            const customer = getSavedCustomer();
+            if (!customer?.sessionToken) return;
+
+            const response = await fetch(
+                `${API_BASE_URL}/api/orders/${encodeURIComponent(order.orderNumber)}/tracking`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${customer.sessionToken}`
+                    },
+                    cache: "no-store"
+                }
+            );
+            const result = await response.json();
+            if (!response.ok || !result.success) {
+                throw new Error(result.message || "Could not load live delivery location.");
+            }
+
+            if (selectedOrder?.orderNumber !== order.orderNumber) return;
+            const tracking = result.tracking;
+            if (tracking.orderStatus !== order.status) {
+                order.status = tracking.orderStatus;
+                if (selectedOrder?.orderNumber === order.orderNumber) {
+                    renderSelectedOrder();
+                }
+                return;
+            }
+
+            if (order.status !== "Out for Delivery") {
+                return;
+            }
+
+            const riderName = document.getElementById("trackingRiderName");
+            const riderContact = document.getElementById("trackingRiderContact");
+            const phone = tracking.riderPhone;
+            riderName.textContent = tracking.rider || "Rider not yet assigned";
+            riderContact.textContent = phone || "GPS updates while the rider shares location";
+
+            if (!tracking.location) {
+                setDeliveryTrackingMessage(
+                    "Your order is out for delivery. The map will update when the rider starts GPS sharing.",
+                    "Waiting for GPS"
+                );
+                document.getElementById("trackingEta").textContent = "Not available";
+                if (riderMarker) {
+                    riderMarker.setMap(null);
+                    riderMarker = null;
+                }
+                if (deliveryDirections) deliveryDirections.set("directions", null);
+                deliveryMapFitted = false;
+                lastRouteRequestAt = 0;
+                return;
+            }
+
+            const updatedAt = new Date(tracking.location.updatedAt);
+            const isStale =
+                Number.isNaN(updatedAt.getTime()) ||
+                Date.now() - updatedAt.getTime() > 60_000;
+            setDeliveryTrackingMessage(
+                isStale
+                    ? "The rider's last location is old. Waiting for a fresh GPS update."
+                    : `Live GPS location updated ${updatedAt.toLocaleTimeString("en-PH", {
+                        hour: "numeric",
+                        minute: "2-digit"
+                    })}.`,
+                isStale ? "GPS delayed" : "Live GPS"
+            );
+            updateRiderMapLocation(tracking.location, order.orderNumber);
+        }
+
+        function updateDeliveryTracking(order) {
+            if (trackingPollTimer) {
+                clearInterval(trackingPollTimer);
+                trackingPollTimer = null;
+            }
+
+            if (!order) {
+                trackingOrderNumber = "";
+                destinationPosition = null;
+                lastRouteRequestAt = 0;
+                deliveryMapFitted = false;
+                if (deliveryDirections) deliveryDirections.set("directions", null);
+                if (riderMarker) {
+                    riderMarker.setMap(null);
+                    riderMarker = null;
+                }
+                if (destinationMarker) {
+                    destinationMarker.setMap(null);
+                    destinationMarker = null;
+                }
+                document.getElementById("trackingRiderName").textContent =
+                    "Rider not yet assigned";
+                document.getElementById("trackingRiderContact").textContent =
+                    "Live location is available while delivery is in progress";
+                document.getElementById("trackingEta").textContent = "Not available";
+                setDeliveryTrackingMessage(
+                    "Select an order to view its delivery tracking."
+                );
+                return;
+            }
+
+            if (trackingOrderNumber !== order.orderNumber) {
+                trackingOrderNumber = order.orderNumber;
+                destinationPosition = null;
+                lastRouteRequestAt = 0;
+                deliveryMapFitted = false;
+                if (deliveryDirections) deliveryDirections.set("directions", null);
+                if (riderMarker) {
+                    riderMarker.setMap(null);
+                    riderMarker = null;
+                }
+            }
+
+            const selectedOrderNumber = order.orderNumber;
+            if (order.status !== "Out for Delivery") {
+                if (deliveryDirections) deliveryDirections.set("directions", null);
+                if (riderMarker) {
+                    riderMarker.setMap(null);
+                    riderMarker = null;
+                }
+                document.getElementById("trackingRiderName").textContent =
+                    "Rider not yet assigned";
+                document.getElementById("trackingRiderContact").textContent =
+                    "Live tracking starts when delivery is underway";
+                document.getElementById("trackingEta").textContent = "Not available";
+                setDeliveryTrackingMessage(
+                    order.status === "Completed"
+                        ? "This order has been delivered."
+                        : order.status === "Cancelled"
+                            ? "This order was cancelled."
+                            : "Live GPS appears here once this order is out for delivery.",
+                    order.status === "Completed"
+                        ? "Delivered"
+                        : order.status === "Cancelled"
+                            ? "Cancelled"
+                            : "Waiting for delivery"
+                );
+                void ensureDeliveryMap(order).catch(error => {
+                    console.error("Could not load delivery destination map:", error);
+                    setDeliveryTrackingMessage(error.message, "Map unavailable");
+                });
+                const refreshStatus = async () => {
+                    try {
+                        await refreshDeliveryTracking(order);
+                    } catch (error) {
+                        console.error("Could not refresh order delivery status:", error);
+                    }
+                };
+                void refreshStatus();
+                trackingPollTimer = setInterval(() => void refreshStatus(), 15_000);
+                return;
+            }
+
+            const poll = async () => {
+                try {
+                    await ensureDeliveryMap(order);
+                    if (trackingOrderNumber !== selectedOrderNumber || !destinationPosition) return;
+                    await refreshDeliveryTracking(order);
+                } catch (error) {
+                    console.error("Could not update delivery tracking:", error);
+                    setDeliveryTrackingMessage(error.message, "Map unavailable");
+                }
+            };
+
+            void poll();
+            trackingPollTimer = setInterval(() => void poll(), 5000);
+        }
+
+        async function loadCustomerOrders() {
+            const customer = getSavedCustomer();
+            const sessionToken = customer?.sessionToken;
+            const historyList = document.getElementById("historyList");
+
+            if (!sessionToken) {
+                showLoginPrompt(
+                    "Log in with the same email address you used at checkout to view your orders."
+                );
+                renderSelectedOrder();
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/orders`, {
+                    headers: {
+                        Authorization: `Bearer ${sessionToken}`
+                    }
+                });
+
+                if (response.status === 401) {
+                    showLoginPrompt(
+                        "Your login session has expired. Log in again with the same email address you used at checkout."
+                    );
+                    selectedOrder = null;
+                    renderSelectedOrder();
+                    return;
+                }
+
+                const result = await response.json();
+                if (!response.ok || !result.success) {
+                    throw new Error(result.message || "Could not load your orders.");
+                }
+
+                if (!Array.isArray(result.orders)) {
+                    throw new Error("The order service returned invalid data.");
+                }
+
+                customerOrders = result.orders;
+                selectedOrder = customerOrders[0] || null;
+                renderOrderHistory();
+                renderSelectedOrder();
+
+                if (customerOrders.length > 0) {
+                    const orderData = localStorage.getItem("joliesPizzaLatestOrder");
+                    if (orderData) {
+                        try {
+                            const latestOrder = JSON.parse(orderData);
+                            if (latestOrder.orderNumber === selectedOrder.orderNumber) {
+                                localStorage.removeItem("joliesPizzaLatestOrder");
+                            }
+                        } catch (error) {
+                            console.warn("Could not clear the saved order receipt.", error);
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error("Could not load customer orders:", error);
+                showLoginPrompt(
+                    "Unable to load your orders. Check the server, then log in again if the problem continues."
+                );
+                selectedOrder = null;
+                renderSelectedOrder();
+            }
+        }
+
+        loadCustomerOrders();
+
+
+        /* =========================================================
+           VIEW MORE ORDERS
+        ========================================================= */
+
+        const moreOrdersButton =
+            document.getElementById("moreOrders");
+
+        if (moreOrdersButton) {
+
+            moreOrdersButton.addEventListener("click", function () {
+
+                this.classList.toggle("expanded");
+
+                const expanded =
+                    this.classList.contains("expanded");
+                showAllOrders = expanded;
+                renderOrderHistory();
+
+                const text =
+                    this.querySelector("span:first-child");
+
+                if (text) {
+
+                    text.textContent =
+                        expanded
+                            ? "Show Fewer Orders"
+                            : "View More Orders";
+
+                }
+
+                showToast(
+                    expanded
+                        ? "Showing all your orders"
+                        : "Showing your latest orders"
+                );
+
+            });
+
+        }
+
+
+        /* =========================================================
+           CART BUTTON
+        ========================================================= */
+
+        const cartButton =
+            document.getElementById("cartButton");
+
+        if (cartButton) {
+
+            cartButton.addEventListener("click", function () {
+
+                window.location.href = "menus.html";
+
+            });
+
+        }
+
+
+        /* =========================================================
+           USER BUTTON
+        ========================================================= */
+
+        const userButton =
+            document.getElementById("userButton");
+
+        if (userButton) {
+
+            userButton.addEventListener("click", function () {
+
+                showToast("Account menu");
+
+            });
+
+        }
+
+
+        /* =========================================================
+           DOWNLOAD RECEIPT
+        ========================================================= */
+
+        const receiptButton =
+            document.getElementById("receiptButton");
+
+        if (receiptButton) {
+
+            receiptButton.addEventListener("click", function () {
+
+                if (!selectedOrder) {
+                    showToast("Select an order before downloading a receipt.");
+                    return;
+                }
+
+                const itemLines = selectedOrder.items.map(item =>
+                    `${item.name} x${item.quantity} - ${formatMoney(item.lineTotal)}\n${item.size || "Regular"}`
+                ).join("\n\n");
+
+                const receipt = `
+JOLIE'S PIZZA
+ORDER RECEIPT
+================================
+
+Order Number:
+#${selectedOrder.orderNumber}
+
+Date:
+${formatOrderDate(selectedOrder.createdAt)}
+
+ORDER ITEMS
+--------------------------------
+${itemLines}
+
+--------------------------------
+Subtotal              ${formatMoney(selectedOrder.subtotal)}
+Delivery Fee           ${formatMoney(selectedOrder.deliveryFee)}
+
+TOTAL                 ${formatMoney(selectedOrder.total)}
+
+Payment Method:
+${selectedOrder.paymentMethod}
+
+Delivery Address:
+${selectedOrder.deliveryAddress}
+
+================================
+Thank you for ordering
+from Jolie's Pizza!
+`;
+
+                const blob = new Blob(
+                    [receipt],
+                    {
+                        type: "text/plain;charset=utf-8"
+                    }
+                );
+
+                const url =
+                    URL.createObjectURL(blob);
+
+                const link =
+                    document.createElement("a");
+
+                link.href = url;
+
+                link.download =
+                    `Jolies-Pizza-${selectedOrder.orderNumber}-Receipt.txt`;
+
+                document.body.appendChild(link);
+
+                link.click();
+
+                document.body.removeChild(link);
+
+                URL.revokeObjectURL(url);
+
+                showToast("Receipt downloaded");
+
+            });
+
+        }
+
+
+        /* =========================================================
+           CALL RIDER
+        ========================================================= */
+
+        const callButton =
+            document.getElementById("callButton");
+
+        if (callButton) {
+
+            callButton.addEventListener("click", function () {
+
+                showToast(
+                    "Calling Juan Delivery..."
+                );
+
+            });
+
+        }
+
+
+        /* =========================================================
+           STAR RATING
+        ========================================================= */
+
+        let selectedRating = 0;
+
+        const stars =
+            document.querySelectorAll("#stars button");
+
+        stars.forEach(star => {
+
+            star.addEventListener("click", function () {
+
+                selectedRating =
+                    Number(this.dataset.rating);
+
+                stars.forEach(button => {
+
+                    const rating =
+                        Number(button.dataset.rating);
+
+                    if (rating <= selectedRating) {
+
+                        button.textContent = "★";
+
+                        button.classList.add(
+                            "selected"
+                        );
+
+                    } else {
+
+                        button.textContent = "☆";
+
+                        button.classList.remove(
+                            "selected"
+                        );
+
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        /* =========================================================
+           RATE ORDER
+        ========================================================= */
+
+        const rateButton =
+            document.getElementById("rateButton");
+
+        if (rateButton) {
+
+            rateButton.addEventListener("click", function () {
+
+                if (selectedRating === 0) {
+
+                    showToast(
+                        "Please select a rating first"
+                    );
+
+                    return;
+
+                }
+
+                showToast(
+                    `Thank you for rating your order ${selectedRating}/5`
+                );
+
+            });
+
+        }
+
+
+        /* =========================================================
+           CANCEL ORDER
+        ========================================================= */
+
+        const cancelButton =
+            document.getElementById("cancelButton");
+
+        if (cancelButton) {
+
+            cancelButton.addEventListener("click", function () {
+
+                const confirmed =
+                    window.confirm(
+                        selectedOrder
+                            ? `Are you sure you want to request cancellation of Order #${selectedOrder.orderNumber}?`
+                            : "Select an order first."
+                    );
+
+                if (!confirmed || !selectedOrder) {
+                    return;
+                }
+
+                showToast(
+                    "Order cancellation is not connected yet. Please contact the restaurant."
+                );
+
+            });
+
+        }
+
+
+        /* =========================================================
+           VIEW ORDER DETAILS
+        ========================================================= */
+
+        const detailsButton =
+            document.getElementById("detailsButton");
+
+        if (detailsButton) {
+
+            detailsButton.addEventListener("click", function () {
+
+                const orderCard =
+                    document.querySelector(".order-card");
+
+                if (orderCard) {
+
+                    orderCard.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+
+                showToast(
+                    "Order details are displayed above"
+                );
+
+            });
+
+        }
+
+        const reorderButton =
+            document.getElementById("reorderButton");
+
+        if (reorderButton) {
+            reorderButton.addEventListener("click", function () {
+                if (!selectedOrder) {
+                    showToast("Select an order before reordering.");
+                    return;
+                }
+
+                const reorderItems = selectedOrder.items
+                    .filter(item =>
+                        Number.isSafeInteger(Number(item.productId)) &&
+                        Number(item.productId) > 0 &&
+                        Number.isSafeInteger(Number(item.quantity)) &&
+                        Number(item.quantity) > 0
+                    )
+                    .map(item => {
+                        const size = item.size || "Regular";
+                        return {
+                            cartKey: `${item.name}__${size}`,
+                            name: item.name,
+                            productId: Number(item.productId),
+                            price: Number(item.price),
+                            quantity: Number(item.quantity),
+                            image: item.image || "",
+                            size,
+                            detail: size
+                        };
+                    });
+
+                if (reorderItems.length !== selectedOrder.items.length) {
+                    showToast(
+                        "Some items in this order are no longer available to reorder."
+                    );
+                    return;
+                }
+
+                let existingCart = [];
+                try {
+                    existingCart = JSON.parse(
+                        localStorage.getItem("joliesPizzaCart") || "[]"
+                    );
+                } catch (error) {
+                    console.warn("Could not read the current shopping cart.", error);
+                }
+
+                if (
+                    Array.isArray(existingCart) &&
+                    existingCart.length > 0 &&
+                    !window.confirm(
+                        "Replace your current cart with the items from this order?"
+                    )
+                ) {
+                    return;
+                }
+
+                try {
+                    localStorage.setItem(
+                        "joliesPizzaCart",
+                        JSON.stringify(reorderItems)
+                    );
+                } catch (error) {
+                    console.error("Could not save the reordered items:", error);
+                    showToast("Could not put these items in your cart.");
+                    return;
+                }
+
+                window.location.href = "menus.html";
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+/* Shared Admin sidebar brand and background */
+.sidebar {
+    background: linear-gradient(
+        180deg,
+        #080d11 0%,
+        #05090c 50%,
+        #030608 100%
+    );
+}
+
+.brand {
+    height: 115px;
+    min-height: 115px;
+    flex: 0 0 115px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sidebar-logo,
+.brand img,
+.brand .logo {
+    width: 145px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}

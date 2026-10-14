@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolie's Pizza - Reports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="reports.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+    <div class="staff-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand"><img src="../images/logostaff.png" alt="Jolie's Pizza Logo"></div>
+            <nav class="sidebar-nav" aria-label="Staff navigation">
+                <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+                <a href="orders.html" class="nav-item"><i class="fa-regular fa-clipboard"></i><span>Orders</span></a>
+                <a href="delivery-tracking.html" class="nav-item"><i class="fa-solid fa-truck-fast"></i><span>Delivery
+                        Tracking</span></a>
+                <a href="inventory.html" class="nav-item"><i class="fa-solid fa-cube"></i><span>Inventory</span></a>
+                <a href="payments.html" class="nav-item"><i
+                        class="fa-regular fa-credit-card"></i><span>Payments</span></a>
+                <a href="notifications.html" class="nav-item"><i
+                        class="fa-regular fa-bell"></i><span>Notifications</span><span
+                        class="notification-count">6</span></a>
+                <a href="reports.html" class="nav-item active" aria-current="page">
+                    <i class="fa-solid fa-chart-column"></i><span>Reports</span></a>
+                <a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i><span>Profile</span></a>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="staff-profile">
+                    <div class="staff-avatar" aria-hidden="true">👨🏻‍🍳</div>
+                    <div class="staff-info"><strong>Mark Santos</strong><span>Kitchen Staff</span><span
+                            class="online-status">Online</span></div>
+                </div>
+                <button class="nav-item logout-button" id="logoutButton" type="button"><i
+                        class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></button>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle sidebar"
+                        aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+                    <div class="welcome">
+                        <h1>Reports</h1>
+                        <p>View and monitor sales and order performance.</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-location"><i class="fa-solid fa-location-dot"></i>
+                        <div><strong>Zone 3, San Roque</strong><span>Northern Samar</span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <div class="header-date"><i class="fa-regular fa-calendar-days"></i>
+                        <div><strong id="currentDate"></strong><span id="currentTime"></span></div>
+                    </div>
+                    <div class="header-divider"></div>
+                    <a class="header-notifications" href="notifications.html" aria-label="Notifications, 6 unread"><i
+                            class="fa-regular fa-bell"></i><span>6</span></a>
+                </div>
+            </header>
+
+            <section class="reports-page" aria-label="Business reports">
+                <div class="report-toolbar">
+                    <div class="range-controls">
+                        <label class="date-select"><i class="fa-regular fa-calendar"></i><select id="rangeSelect"
+                                aria-label="Report period">
+                                <option value="week">May 4 – May 10, 2025</option>
+                                <option value="today">Today</option>
+                                <option value="month">This Month</option>
+                            </select></label>
+                        <label class="date-select compare-select"><span>Compare to:</span><select id="compareSelect"
+                                aria-label="Comparison period">
+                                <option value="previous">Apr 27 – May 3, 2025</option>
+                                <option value="none">No comparison</option>
+                            </select></label>
+                    </div>
+                    <button class="export-button" id="exportReport" type="button"><i class="fa-solid fa-download"></i>
+                        Export Report</button>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card"><span class="stat-icon red"><i
+                                class="fa-regular fa-clipboard"></i></span>
+                        <div><span class="stat-label">Total Sales</span><strong class="stat-value"
+                                id="salesTotal">₱24,650.00</strong><span class="stat-change positive" id="salesChange">↑
+                                21.3% vs Apr 27 – May 3</span></div>
+                    </article>
+                    <article class="stat-card"><span class="stat-icon orange"><i
+                                class="fa-regular fa-rectangle-list"></i></span>
+                        <div><span class="stat-label">Total Orders</span><strong class="stat-value"
+                                id="ordersTotal">156</strong><span class="stat-change positive" id="ordersChange">↑
+                                18.5% vs Apr 27 – May 3</span></div>
+                    </article>
+                    <article class="stat-card"><span class="stat-icon blue"><i
+                                class="fa-solid fa-cart-shopping"></i></span>
+                        <div><span class="stat-label">Average Order Value</span><strong class="stat-value"
+                                id="averageTotal">₱158.01</strong><span class="stat-change positive"
+                                id="averageChange">↑ 2.6% vs Apr 27 – May 3</span></div>
+                    </article>
+                    <article class="stat-card"><span class="stat-icon green"><i
+                                class="fa-regular fa-circle-check"></i></span>
+                        <div><span class="stat-label">Completed Orders</span><strong class="stat-value"
+                                id="completedTotal">138</strong><span class="stat-change positive"
+                                id="completedChange">↑ 17.2% vs Apr 27 – May 3</span></div>
+                    </article>
+                    <article class="stat-card"><span class="stat-icon purple"><i
+                                class="fa-regular fa-circle-xmark"></i></span>
+                        <div><span class="stat-label">Cancelled Orders</span><strong class="stat-value"
+                                id="cancelledTotal">8</strong><span class="stat-change negative" id="cancelledChange">↓
+                                11.1% vs Apr 27 – May 3</span></div>
+                    </article>
+                </div>
+
+                <div class="reports-grid top-reports-grid">
+                    <section class="report-card sales-chart-card">
+                        <div class="card-heading">
+                            <div>
+                                <h2>Sales Overview <button class="info-button" type="button"
+                                        aria-label="Sales overview compares the selected period with the previous period"
+                                        title="Compare sales for the selected period."><i
+                                            class="fa-regular fa-circle-question"></i></button></h2>
+                            </div><label class="chart-select"><select id="salesGranularity"
+                                    aria-label="Sales chart interval">
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                </select></label>
+                        </div>
+                        <div class="chart-legend"><span><i class="legend-current"></i>This Period</span><span><i
+                                    class="legend-previous"></i>Previous Period</span></div>
+                        <div class="canvas-wrap sales-canvas-wrap"><canvas id="salesChart"
+                                aria-label="Sales line chart comparing selected and previous periods"></canvas></div>
+                    </section>
+
+                    <section class="report-card status-card">
+                        <div class="card-heading">
+                            <h2>Orders by Status</h2>
+                        </div>
+                        <div class="status-content">
+                            <div class="status-donut" id="statusDonut">
+                                <div><strong id="donutTotal">156</strong><span>Total Orders</span></div>
+                            </div>
+                            <div class="status-legend" id="statusLegend"></div>
+                        </div>
+                        <div class="completion-rate"><span class="rate-icon"><i
+                                    class="fa-regular fa-circle-check"></i></span>
+                            <div><span>Completion Rate</span><strong id="completionRate">88.5% <small>↑ 12.4% vs Apr 27
+                                        – May 3</small></strong></div>
+                        </div>
+                    </section>
+
+                    <section class="report-card top-items-card">
+                        <div class="card-heading">
+                            <h2>Top Selling Items</h2><label class="chart-select"><select id="topItemsPeriod"
+                                    aria-label="Top selling items period">
+                                    <option>This Period</option>
+                                    <option>Today</option>
+                                    <option>This Month</option>
+                                </select></label>
+                        </div>
+                        <div class="top-items-table-wrap">
+                            <table class="top-items-table">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Qty Sold</th>
+                                        <th>Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="topItemsBody"></tbody>
+                            </table>
+                        </div>
+                        <a class="card-link" href="reports.html#top-items">View full report <i
+                                class="fa-solid fa-chevron-right"></i></a>
+                    </section>
+                </div>
+
+                <div class="reports-grid bottom-reports-grid">
+                    <section class="report-card time-chart-card">
+                        <div class="card-heading">
+                            <h2>Orders by Time of Day</h2><label class="chart-select"><select id="timePeriod"
+                                    aria-label="Orders by time period">
+                                    <option>This Period</option>
+                                    <option>Today</option>
+                                </select></label>
+                        </div>
+                        <div class="canvas-wrap bar-canvas-wrap"><canvas id="timeChart"
+                                aria-label="Bar chart of orders by time of day"></canvas></div>
+                    </section>
+                    <section class="report-card daily-summary-card">
+                        <div class="card-heading">
+                            <h2>Daily Summary</h2><span class="summary-range" id="summaryRange">May 4 – May 10,
+                                2025</span>
+                        </div>
+                        <div class="daily-table-wrap">
+                            <table class="daily-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Total Orders</th>
+                                        <th>Total Sales</th>
+                                        <th>Completed Orders</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dailySummaryBody"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th id="dailyOrderTotal">156</th>
+                                        <th id="dailySalesTotal">₱24,650.00</th>
+                                        <th id="dailyCompletedTotal">138</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </section>
+                    <section class="report-card payment-method-card">
+                        <div class="card-heading">
+                            <h2>Payment Method Summary</h2><label class="chart-select"><select id="paymentPeriod"
+                                    aria-label="Payment method period">
+                                    <option>This Period</option>
+                                    <option>Today</option>
+                                    <option>This Month</option>
+                                </select></label>
+                        </div>
+                        <div class="payment-method-table-wrap">
+                            <table class="payment-method-table">
+                                <thead>
+                                    <tr>
+                                        <th>Payment Method</th>
+                                        <th>Amount</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="paymentMethodBody"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th>₱24,650.00</th>
+                                        <th>100%</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <a class="card-link" href="payments.html">View full report <i
+                                class="fa-solid fa-chevron-right"></i></a>
+                    </section>
+                </div>
+                <footer class="page-footer"><span>© 2025 Jolie's Pizza San Roque. All rights
+                        reserved.</span><span>Reports v1.0.0</span></footer>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const reportPeriods = {
+            week: {
+                label: "May 4 – May 10, 2025", compareLabel: "Apr 27 – May 3", salesTotal: 24650, orders: 156, average: 158.01, completed: 138, cancelled: 8, statusBreakdown: [138, 10, 5, 3],
+                salesChange: 21.3, ordersChange: 18.5, averageChange: 2.6, completedChange: 17.2, cancelledChange: -11.1,
+                salesByDay: [2370, 3120, 2690, 3410, 5230, 2930, 4900], previousSales: [1900, 2800, 2450, 2750, 3860, 2050, 3700],
+                ordersByDay: [18, 20, 19, 22, 27, 25, 25], completedByDay: [16, 18, 17, 19, 25, 25, 18],
+                dates: ["May 4, 2025 (Sun)", "May 5, 2025 (Mon)", "May 6, 2025 (Tue)", "May 7, 2025 (Wed)", "May 8, 2025 (Thu)", "May 9, 2025 (Fri)", "May 10, 2025 (Sat)"],
+                hourly: [2, 8, 22, 32, 28, 36, 28]
+            },
+            today: {
+                label: "May 10, 2025", compareLabel: "May 9", salesTotal: 4380, orders: 25, average: 175.20, completed: 18, cancelled: 1, statusBreakdown: [18, 4, 2, 1],
+                salesChange: 12.4, ordersChange: 8.7, averageChange: 3.4, completedChange: 5.9, cancelledChange: -50,
+                salesByDay: [150, 320, 680, 740, 560, 1100, 830], previousSales: [120, 280, 590, 680, 510, 980, 740],
+                ordersByDay: [2, 3, 4, 4, 4, 5, 3], completedByDay: [2, 2, 3, 3, 3, 3, 2],
+                dates: ["May 10, 2025 (Sat)"], hourly: [2, 3, 5, 6, 4, 7, 5]
+            },
+            month: {
+                label: "May 1 – May 31, 2025", compareLabel: "Apr 1 – Apr 30", salesTotal: 106420, orders: 694, average: 153.34, completed: 622, cancelled: 31, statusBreakdown: [622, 40, 22, 10],
+                salesChange: 14.8, ordersChange: 11.2, averageChange: 3.2, completedChange: 13.6, cancelledChange: -6.2,
+                salesByDay: [14000, 15200, 13600, 16400, 15300, 17100, 14820], previousSales: [12000, 13700, 12100, 14200, 13900, 14400, 12500],
+                ordersByDay: [92, 98, 101, 105, 99, 108, 91], completedByDay: [82, 88, 92, 96, 88, 97, 79],
+                dates: ["May 1–4, 2025", "May 5–8, 2025", "May 9–12, 2025", "May 13–16, 2025", "May 17–20, 2025", "May 21–24, 2025", "May 25–31, 2025"],
+                hourly: [12, 25, 86, 145, 124, 171, 131]
+            }
+        };
+        const orderStatusData = [
+            { label: "Completed", value: 138, color: "#22a969" },
+            { label: "Preparing", value: 10, color: "#ff8b19" },
+            { label: "For Pickup / Delivery", value: 5, color: "#2584f4" },
+            { label: "Cancelled", value: 3, color: "#8b36d9" }
+        ];
+        const topItems = [
+            ["Pepperoni Pizza (12\")", "fa-pizza-slice", 64, 7360], ["Hawaiian Pizza (12\")", "fa-pizza-slice", 42, 4830],
+            ["Cheesy Fries", "fa-bowl-food", 35, 3325], ["Coke (1.5L)", "fa-bottle-water", 28, 980], ["Garlic Overload Pizza (12\")", "fa-pizza-slice", 26, 2600]
+        ];
+        const paymentMethods = [["Cash on Delivery / Pickup", "fa-money-bill-wave", 15450, "cash"], ["GCash", "fa-circle-dot", 6320, "gcash"], ["Credit / Debit Card", "fa-credit-card", 2880, "card"]];
+        let activePeriod = "week";
+
+        function money(value) { return "₱" + Number(value).toLocaleString("en-PH", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("currentDate").textContent = now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+            document.getElementById("currentTime").textContent = now.toLocaleDateString("en-US", { weekday: "long" }) + " · " + now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+        }
+        function drawLineChart(canvas, current, previous, compare) {
+            const rect = canvas.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
+            const ratio = window.devicePixelRatio || 1;
+            canvas.width = rect.width * ratio;
+            canvas.height = rect.height * ratio;
+            const context = canvas.getContext("2d");
+            context.scale(ratio, ratio);
+            const width = rect.width;
+            const height = rect.height;
+            const pad = { top: 12, right: 9, bottom: 22, left: 31 };
+            const chartWidth = width - pad.left - pad.right;
+            const chartHeight = height - pad.top - pad.bottom;
+            const max = Math.ceil(Math.max(...current, ...(compare ? previous : [])) / 1000) * 1000 || 1000;
+            context.font = "8px Inter, sans-serif";
+            context.textAlign = "right";
+            for (let line = 0; line <= 4; line++) {
+                const y = pad.top + chartHeight * line / 4;
+                context.strokeStyle = "#edf0f3";
+                context.lineWidth = 1;
+                context.beginPath(); context.moveTo(pad.left, y); context.lineTo(width - pad.right, y); context.stroke();
+                context.fillStyle = "#687181";
+                context.fillText(max ? `₱${(max * (4 - line) / 4 / 1000).toFixed(line === 4 ? 0 : 1)}K` : "₱0", pad.left - 5, y + 3);
+            }
+            const makePoints = values => values.map((value, index) => ({
+                x: pad.left + (values.length === 1 ? chartWidth / 2 : chartWidth * index / (values.length - 1)),
+                y: pad.top + chartHeight * (1 - value / max)
+            }));
+            const drawSeries = (values, color, dashed) => {
+                const points = makePoints(values);
+                context.beginPath();
+                context.setLineDash(dashed ? [4, 4] : []);
+                context.strokeStyle = color;
+                context.lineWidth = dashed ? 1.5 : 2;
+                points.forEach((point, index) => {
+                    if (index === 0) context.moveTo(point.x, point.y);
+                    else {
+                        const prior = points[index - 1];
+                        const middle = (prior.x + point.x) / 2;
+                        context.bezierCurveTo(middle, prior.y, middle, point.y, point.x, point.y);
+                    }
+                });
+                context.stroke();
+                context.setLineDash([]);
+            };
+            if (compare) drawSeries(previous, "#aab4c2", true);
+            drawSeries(current, "#e31b23", false);
+            const labels = current.length === 4 ? ["Week 1", "Week 2", "Week 3", "Week 4"] : activePeriod === "today" ? ["12 AM", "6 AM", "9 AM", "12 PM", "3 PM", "6 PM", "9 PM"] : activePeriod === "month" ? ["May 1", "May 5", "May 10", "May 15", "May 20", "May 25", "May 31"] : ["May 4", "May 5", "May 6", "May 7", "May 8", "May 9", "May 10"];
+            context.fillStyle = "#687181";
+            context.textAlign = "center";
+            labels.forEach((label, index) => {
+                const x = pad.left + chartWidth * index / (labels.length - 1);
+                context.fillText(label, x, height - 7);
+            });
+        }
+        function drawBarChart(canvas, values) {
+            const rect = canvas.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
+            const ratio = window.devicePixelRatio || 1;
+            canvas.width = rect.width * ratio;
+            canvas.height = rect.height * ratio;
+            const context = canvas.getContext("2d");
+            context.scale(ratio, ratio);
+            const width = rect.width;
+            const height = rect.height;
+            const pad = { top: 14, right: 8, bottom: 30, left: 25 };
+            const chartWidth = width - pad.left - pad.right;
+            const chartHeight = height - pad.top - pad.bottom;
+            const max = Math.ceil(Math.max(...values) / 10) * 10 || 10;
+            context.font = "8px Inter, sans-serif";
+            for (let line = 0; line <= 4; line++) {
+                const y = pad.top + chartHeight * line / 4;
+                context.strokeStyle = "#edf0f3";
+                context.beginPath(); context.moveTo(pad.left, y); context.lineTo(width - pad.right, y); context.stroke();
+                context.fillStyle = "#687181"; context.textAlign = "right";
+                context.fillText(String(Math.round(max * (4 - line) / 4)), pad.left - 5, y + 3);
+            }
+            const slot = chartWidth / values.length;
+            values.forEach((value, index) => {
+                const barWidth = Math.min(16, slot * .56);
+                const barHeight = chartHeight * value / max;
+                const x = pad.left + slot * index + (slot - barWidth) / 2;
+                const y = pad.top + chartHeight - barHeight;
+                context.fillStyle = "#e31b23";
+                context.beginPath();
+                if (context.roundRect) context.roundRect(x, y, barWidth, barHeight, [3, 3, 0, 0]);
+                else context.rect(x, y, barWidth, barHeight);
+                context.fill();
+                context.fillStyle = "#252a33"; context.textAlign = "center";
+                context.fillText(String(value), x + barWidth / 2, y - 4);
+                const timeLabels = [["12 AM", "– 6 AM"], ["6 AM", "– 9 AM"], ["9 AM", "– 12 PM"], ["12 PM", "– 3 PM"], ["3 PM", "– 6 PM"], ["6 PM", "– 9 PM"], ["9 PM", "– 12 AM"]][index];
+                context.fillStyle = "#687181"; context.font = "7px Inter, sans-serif";
+                context.fillText(timeLabels[0], x + barWidth / 2, height - 15);
+                context.fillText(timeLabels[1], x + barWidth / 2, height - 5);
+                context.font = "8px Inter, sans-serif";
+            });
+        }
+        function renderStatusChart(data) {
+            const total = data.reduce((sum, item) => sum + item.value, 0);
+            let degree = 0;
+            const gradient = data.map(item => {
+                const start = degree;
+                degree += item.value / total * 360;
+                return `${item.color} ${start}deg ${degree}deg`;
+            }).join(", ");
+            document.getElementById("statusDonut").style.background = `conic-gradient(${gradient})`;
+            document.getElementById("donutTotal").textContent = total;
+            document.getElementById("statusLegend").innerHTML = data.map(item => `<div class="status-legend-row"><span><i style="--status-color:${item.color}"></i>${item.label}</span><strong>${item.value} <small>(${(item.value / total * 100).toFixed(1)}%)</small></strong></div>`).join("");
+        }
+        function periodForWidget(id) {
+            const value = document.getElementById(id).value;
+            if (value === "Today") return reportPeriods.today;
+            if (value === "This Month") return reportPeriods.month;
+            return reportPeriods[activePeriod];
+        }
+        function aggregateSeries(values, groups) {
+            const groupSize = Math.ceil(values.length / groups);
+            return Array.from({ length: Math.ceil(values.length / groupSize) }, (_, index) => values.slice(index * groupSize, (index + 1) * groupSize).reduce((sum, value) => sum + value, 0));
+        }
+        function renderTables(data) {
+            const rows = data.dates.map((date, index) => {
+                const rowSales = activePeriod === "today" ? data.salesTotal : data.salesByDay[index];
+                const rowOrders = activePeriod === "today" ? data.orders : data.ordersByDay[index];
+                const rowCompleted = activePeriod === "today" ? data.completed : data.completedByDay[index];
+                return `<tr><td>${date}</td><td>${rowOrders ?? "-"}</td><td>${money(rowSales)}</td><td>${rowCompleted ?? "-"}</td></tr>`;
+            }).join("");
+            document.getElementById("dailySummaryBody").innerHTML = rows;
+            document.getElementById("dailyOrderTotal").textContent = data.orders;
+            document.getElementById("dailySalesTotal").textContent = money(data.salesTotal);
+            document.getElementById("dailyCompletedTotal").textContent = data.completed;
+            const paymentData = periodForWidget("paymentPeriod");
+            let methodAmountAssigned = 0;
+            document.getElementById("paymentMethodBody").innerHTML = paymentMethods.map(([name, icon, baseAmount, style], index) => {
+                const amount = index === paymentMethods.length - 1 ? paymentData.salesTotal - methodAmountAssigned : Math.round(paymentData.salesTotal * baseAmount / 24650);
+                methodAmountAssigned += amount;
+                return `<tr><td><span class="method-cell"><i class="${style}"><i class="fa-solid ${icon}"></i></i>${name}</span></td><td>${money(amount)}</td><td>${(amount / paymentData.salesTotal * 100).toFixed(1)}%</td></tr>`;
+            }).join("");
+            document.querySelector(".payment-method-table tfoot th:nth-child(2)").textContent = money(paymentData.salesTotal);
+            const topData = periodForWidget("topItemsPeriod");
+            const itemScale = topData.orders / 156;
+            document.getElementById("topItemsBody").innerHTML = topItems.map(([name, icon, quantity, revenue], index) => `<tr><td><span class="top-item-name"><i class="item-image item-${index}"><i class="fa-solid ${icon}"></i></i>${name}</span></td><td>${Math.max(1, Math.round(quantity * itemScale))}</td><td>${money(revenue * itemScale)}</td></tr>`).join("");
+        }
+        function renderReport() {
+            const data = reportPeriods[activePeriod];
+            const compare = document.getElementById("compareSelect").value !== "none";
+            document.getElementById("rangeSelect").options[0].textContent = "May 4 – May 10, 2025";
+            document.getElementById("rangeSelect").options[1].textContent = "May 10, 2025";
+            document.getElementById("rangeSelect").options[2].textContent = "May 1 – May 31, 2025";
+            document.getElementById("summaryRange").textContent = data.label;
+            document.getElementById("salesTotal").textContent = money(data.salesTotal);
+            document.getElementById("ordersTotal").textContent = data.orders;
+            document.getElementById("averageTotal").textContent = money(data.average);
+            document.getElementById("completedTotal").textContent = data.completed;
+            document.getElementById("cancelledTotal").textContent = data.cancelled;
+            const changeIds = ["sales", "orders", "average", "completed", "cancelled"];
+            const changeKeys = ["salesChange", "ordersChange", "averageChange", "completedChange", "cancelledChange"];
+            changeIds.forEach((key, index) => {
+                const value = data[changeKeys[index]];
+                const element = document.getElementById(`${key}Change`);
+                element.classList.toggle("negative", value < 0);
+                element.classList.toggle("positive", value >= 0);
+                const arrow = value >= 0 ? "↑" : "↓";
+                element.textContent = `${arrow} ${Math.abs(value).toFixed(1)}% ${compare ? `vs ${data.compareLabel}` : "vs previous period"}`;
+            });
+            renderStatusChart([
+                { label: "Completed", value: data.statusBreakdown[0], color: "#22a969" },
+                { label: "Preparing", value: data.statusBreakdown[1], color: "#ff8b19" },
+                { label: "For Pickup / Delivery", value: data.statusBreakdown[2], color: "#2584f4" },
+                { label: "Cancelled", value: data.statusBreakdown[3], color: "#8b36d9" }
+            ]);
+            document.getElementById("completionRate").innerHTML = `${(data.completed / data.orders * 100).toFixed(1)}% <small>${compare ? "↑ 12.4% vs " + data.compareLabel : "for selected period"}</small>`;
+            renderTables(data);
+            requestAnimationFrame(() => {
+                const granularity = document.getElementById("salesGranularity").value;
+                const currentSales = granularity === "daily" ? data.salesByDay : aggregateSeries(data.salesByDay, 4);
+                const previousSales = granularity === "daily" ? data.previousSales : aggregateSeries(data.previousSales, 4);
+                drawLineChart(document.getElementById("salesChart"), currentSales, previousSales, compare);
+                drawBarChart(document.getElementById("timeChart"), periodForWidget("timePeriod").hourly);
+            });
+        }
+        function exportCSV() {
+            const data = reportPeriods[activePeriod];
+            const rows = [["Date", "Total Orders", "Total Sales", "Completed Orders"], ...data.dates.map((date, index) => [date, data.ordersByDay[index] ?? "", activePeriod === "today" ? data.salesTotal : data.salesByDay[index], data.completedByDay[index] ?? ""]), ["Total", data.orders, data.salesTotal, data.completed]];
+            const csv = rows.map(row => row.map(value => `"${String(value).replaceAll('"', '""')}"`).join(",")).join("\r\n");
+            const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = `jolies-pizza-report-${activePeriod}.csv`;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+        document.getElementById("rangeSelect").addEventListener("change", event => {
+            activePeriod = event.currentTarget.value;
+            renderReport();
+        });
+        document.getElementById("compareSelect").addEventListener("change", renderReport);
+        ["salesGranularity", "topItemsPeriod", "timePeriod", "paymentPeriod"].forEach(id => document.getElementById(id).addEventListener("change", renderReport));
+        document.getElementById("exportReport").addEventListener("click", exportCSV);
+        document.getElementById("menuToggle").addEventListener("click", event => {
+            const open = document.getElementById("sidebar").classList.toggle("open");
+            event.currentTarget.setAttribute("aria-expanded", String(open));
+        });
+        document.getElementById("logoutButton").addEventListener("click", () => {
+            if (confirm("Are you sure you want to logout?")) window.location.href = "../login.html";
+        });
+        updateDateTime();
+        setInterval(updateDateTime, 60000);
+        renderReport();
+        window.addEventListener("resize", renderReport);
+    </script>
+</body>
+
+</html>

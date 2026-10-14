@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Jolie's Pizza</title>
+
+    <link rel="stylesheet" href="reports.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <a href="dashboard.html">
+                    <img src="../images/logoadmin.png" alt="Jolie's Pizza">
+                </a>
+            </div>
+
+            <nav class="side-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </span>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <a href="orders.html" class="nav-item">
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 64 64">
+                            <path d="M17 15H10V55H42V49"></path>
+                            <path d="M17 10H35V18H17V10Z"></path>
+                            <path d="M21 10V7.5C21 5.6 22.6 4 24.5 4H27.5C29.4 4 31 5.6 31 7.5V10"></path>
+                            <rect x="15" y="23" width="6" height="6"></rect>
+                            <line x1="25" y1="26" x2="38" y2="26"></line>
+                            <rect x="15" y="34" width="6" height="6"></rect>
+                            <line x1="25" y1="37" x2="38" y2="37"></line>
+                            <rect x="15" y="45" width="6" height="6"></rect>
+                            <path d="M35 27L49 34L49 48L35 55L21 48V34L35 27Z"></path>
+                            <path d="M21 34L35 41L49 34"></path>
+                            <path d="M35 41V55"></path>
+                        </svg>
+                    </span>
+                    <span>Orders</span>
+                </a>
+
+
+                <!-- MENU MANAGEMENT -->
+
+                <div class="nav-group">
+
+                    <button class="nav-item nav-parent" type="button" data-menu="menu-management">
+
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 21L7 8L12 4L17 8L19 21"></path>
+                                <path d="M8 11C9.5 12 10.5 12 12 11"></path>
+                                <path d="M12 11C13.5 12 14.5 12 16 11"></path>
+                            </svg>
+                        </span>
+
+                        <span>Menu Management</span>
+
+                        <span class="nav-arrow">⌄</span>
+
+                    </button>
+
+                    <div class="submenu" id="menu-management">
+
+                        <a href="menu-management.html" class="submenu-item">
+                            Menu Items
+                        </a>
+
+                        <a href="menu-management.html#categories" class="submenu-item">
+                            Categories
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INVENTORY -->
+
+                <div class="nav-group">
+
+                    <button class="nav-item nav-parent" type="button" data-menu="inventory-menu">
+
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 7L12 3L20 7V18L12 22L4 18V7Z"></path>
+                                <path d="M4 7L12 11L20 7"></path>
+                                <path d="M12 11V22"></path>
+                            </svg>
+                        </span>
+
+                        <span>Inventory</span>
+
+                        <span class="nav-arrow">⌄</span>
+
+                    </button>
+
+                    <div class="submenu" id="inventory-menu">
+
+                        <a href="inventory overview.html" class="submenu-item">
+                            Overview
+                        </a>
+
+                        <a href="inventory stock-items.html" class="submenu-item">
+                            Stock Items
+                        </a>
+
+                        <a href="inventory stock-in.html" class="submenu-item">
+                            Stock In
+                        </a>
+
+                        <a href="inventory stock-out.html" class="submenu-item">
+                            Stock Out
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <a href="delivery-tracking.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 6H15V17H3Z"></path>
+                            <path d="M15 10H19L22 13V17H15Z"></path>
+                            <circle cx="7" cy="18" r="2"></circle>
+                            <circle cx="18" cy="18" r="2"></circle>
+                        </svg>
+                    </span>
+
+                    <span>Delivery Tracking</span>
+
+                </a>
+
+
+                <a href="online-payments.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                            <line x1="7" y1="15" x2="11" y2="15"></line>
+                        </svg>
+                    </span>
+
+                    <span>Online Payments</span>
+
+                </a>
+
+
+                <!-- REPORTS ACTIVE -->
+
+                <a href="reports.html" class="nav-item active">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3A9 9 0 1 0 21 12"></path>
+                            <path d="M12 3V12H21"></path>
+                        </svg>
+                    </span>
+
+                    <span>Reports</span>
+
+                </a>
+
+
+                <a href="staff-management.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path d="M4 21C4 16.6 7.6 14 12 14C16.4 14 20 16.6 20 21"></path>
+                        </svg>
+                    </span>
+
+                    <span>Staff Management</span>
+
+                </a>
+
+
+                <a href="settings.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path
+                                d="M19.4 15A1.7 1.7 0 0 0 20 16.7L18.7 19L16.5 18.2A1.7 1.7 0 0 0 15 19.1L14.7 21.5H9.3L9 19.1A1.7 1.7 0 0 0 7.5 18.2L5.3 19L4 16.7A1.7 1.7 0 0 0 4.6 15L3 13L4.6 11A1.7 1.7 0 0 0 4 9.3L5.3 7L7.5 7.8A1.7 1.7 0 0 0 9 6.9L9.3 4.5H14.7L15 6.9A1.7 1.7 0 0 0 16.5 7.8L18.7 7L20 9.3A1.7 1.7 0 0 0 19.4 11L21 13L19.4 15Z">
+                            </path>
+                        </svg>
+                    </span>
+
+                    <span>Settings</span>
+
+                </a>
+
+
+                <button class="nav-item logout-item" id="logoutBtn" type="button">
+
+                    <span class="nav-icon">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10 17L15 12L10 7"></path>
+                            <path d="M15 12H3"></path>
+                            <path d="M14 4H20V20H14"></path>
+                        </svg>
+
+                    </span>
+
+                    <span>Log Out</span>
+
+                </button>
+
+            </nav>
+
+
+            <!-- SUPPORT -->
+
+            <div class="support-box">
+
+                <div class="support-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 13V11A8 8 0 0 1 20 11V13"></path>
+                        <rect x="2" y="12" width="4" height="7" rx="2"></rect>
+                        <rect x="18" y="12" width="4" height="7" rx="2"></rect>
+                        <path d="M20 19C20 21 18 22 15 22H12"></path>
+                    </svg>
+
+                </div>
+
+                <div class="support-content">
+
+                    <strong>Need Help?</strong>
+
+                    <a href="tel:09123456789">
+                        Contact support
+                    </a>
+
+                    <span>0912 345 6789</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div class="heading-area">
+
+                    <button class="menu-toggle" id="menuToggle">
+                        ☰
+                    </button>
+
+                    <div>
+
+                        <h1>Reports</h1>
+
+                        <div class="breadcrumb">
+
+                            <span>Dashboard</span>
+
+                            <span>›</span>
+
+                            <strong>Reports</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="top-actions">
+
+                    <button class="date-picker">
+
+                        <span>May 20, 2024</span>
+
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="17" rx="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+
+                    </button>
+
+
+                    <button class="notification">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M18 8A6 6 0 0 0 6 8C6 15 3 16 3 18H21C21 16 18 15 18 8"></path>
+                            <path d="M10 21H14"></path>
+                        </svg>
+
+                        <b>3</b>
+
+                    </button>
+
+
+                    <div class="profile-wrap">
+
+                        <button class="profile" id="profileBtn">
+
+                            <span class="avatar">
+                                A
+                            </span>
+
+                            <span class="profile-text">
+
+                                <strong>Admin</strong>
+
+                                <small>Administrator</small>
+
+                            </span>
+
+                            <span class="chevron">⌄</span>
+
+                        </button>
+
+
+                        <div class="profile-menu" id="profileMenu">
+
+                            <button>My Profile</button>
+
+                            <button>Account Settings</button>
+
+                            <button id="profileLogout">
+                                Log Out
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= STATISTICS ================= -->
+
+            <section class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6 8H18L20 21H4L6 8Z"></path>
+                            <path d="M8 8V6A4 4 0 0 1 16 6V8"></path>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <span>Total Sales</span>
+
+                        <h2>₱48,350.00</h2>
+
+                        <small class="green">
+                            ↑ 12.6%
+                            <em>vs Apr 20 - May 19</em>
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 4H5L7 16H19L21 8H6"></path>
+                            <circle cx="9" cy="20" r="1.5"></circle>
+                            <circle cx="17" cy="20" r="1.5"></circle>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <span>Total Orders</span>
+
+                        <h2>156</h2>
+
+                        <small class="green">
+                            ↑ 10.3%
+                            <em>vs Apr 20 - May 19</em>
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 17L9 11L13 15L21 7"></path>
+                            <path d="M16 7H21V12"></path>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <span>Average Order Value</span>
+
+                        <h2>₱309.94</h2>
+
+                        <small class="green">
+                            ↑ 2.1%
+                            <em>vs Apr 20 - May 19</em>
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="9" cy="8" r="4"></circle>
+                            <path d="M2 21C2 16.5 5 14 9 14C13 14 16 16.5 16 21"></path>
+                            <path d="M17 4C20 4 22 6 22 9"></path>
+                            <path d="M18 14C21 14.5 22 17 22 20"></path>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <span>New Customers</span>
+
+                        <h2>32</h2>
+
+                        <small class="green">
+                            ↑ 14.3%
+                            <em>vs Apr 20 - May 19</em>
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 12A8 8 0 1 0 7 6"></path>
+                            <path d="M4 5V10H9"></path>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <span>Total Refunds</span>
+
+                        <h2>₱1,550.00</h2>
+
+                        <small class="red-text">
+                            ↓ 16.3%
+                            <em>vs Apr 20 - May 19</em>
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= FILTER BAR ================= -->
+
+            <section class="report-filters">
+
+                <div class="filter-field">
+
+                    <label>Date Range</label>
+
+                    <button class="input-button">
+                        <span>May 13, 2024 - May 20, 2024</span>
+
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="17" rx="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </button>
+
+                </div>
+
+
+                <div class="filter-field">
+
+                    <label>Report Type</label>
+
+                    <select id="reportType">
+
+                        <option>Sales Summary</option>
+                        <option>Sales Detail</option>
+                        <option>Orders Report</option>
+                        <option>Customer Report</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-field">
+
+                    <label>Group By</label>
+
+                    <select id="groupBy">
+
+                        <option>Day</option>
+                        <option>Week</option>
+                        <option>Month</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-buttons">
+
+                    <button class="more-filter-btn" id="moreFilters">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 5H20L14 12V19L10 21V12L4 5Z"></path>
+                        </svg>
+
+                        More Filters
+
+                    </button>
+
+
+                    <button class="export-report" id="exportReport">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3V15"></path>
+                            <path d="M8 11L12 15L16 11"></path>
+                            <path d="M4 17V21H20V17"></path>
+                        </svg>
+
+                        Export Report
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= FIRST ROW ================= -->
+
+            <section class="report-grid">
+
+
+                <!-- SALES OVERVIEW -->
+
+                <div class="panel sales-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>Sales Overview</h2>
+
+                            <div class="legend">
+
+                                <span>
+                                    <i class="dot sales-dot"></i>
+                                    Sales (₱)
+                                </span>
+
+                                <span>
+                                    <i class="dot orders-dot"></i>
+                                    Orders
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <select id="chartType">
+
+                            <option>Line Chart</option>
+                            <option>Bar Chart</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <div class="y-axis">
+
+                            <span>₱10K</span>
+                            <span>₱8K</span>
+                            <span>₱6K</span>
+                            <span>₱4K</span>
+                            <span>₱2K</span>
+                            <span>₱0</span>
+
+                        </div>
+
+
+                        <svg class="sales-chart" viewBox="0 0 760 260" preserveAspectRatio="none">
+
+                            <!-- GRID -->
+
+                            <line x1="45" y1="20" x2="740" y2="20" class="grid-line" />
+
+                            <line x1="45" y1="62" x2="740" y2="62" class="grid-line" />
+
+                            <line x1="45" y1="104" x2="740" y2="104" class="grid-line" />
+
+                            <line x1="45" y1="146" x2="740" y2="146" class="grid-line" />
+
+                            <line x1="45" y1="188" x2="740" y2="188" class="grid-line" />
+
+                            <line x1="45" y1="230" x2="740" y2="230" class="grid-line" />
+
+
+                            <!-- SALES AREA -->
+
+                            <path class="sales-area" d="M45 170
+                               L145 145
+                               L245 115
+                               L345 150
+                               L445 45
+                               L545 115
+                               L645 85
+                               L740 175
+                               L740 230
+                               L45 230 Z" />
+
+
+                            <!-- SALES LINE -->
+
+                            <polyline class="sales-line" points="
+                            45,170
+                            145,145
+                            245,115
+                            345,150
+                            445,45
+                            545,115
+                            645,85
+                            740,175
+                            " />
+
+
+                            <!-- ORDER LINE -->
+
+                            <polyline class="orders-line" points="
+                            45,160
+                            145,178
+                            245,150
+                            345,165
+                            445,85
+                            545,55
+                            645,88
+                            740,160
+                            " />
+
+
+                            <!-- SALES POINTS -->
+
+                            <circle cx="45" cy="170" r="4" class="sales-point" />
+                            <circle cx="145" cy="145" r="4" class="sales-point" />
+                            <circle cx="245" cy="115" r="4" class="sales-point" />
+                            <circle cx="345" cy="150" r="4" class="sales-point" />
+                            <circle cx="445" cy="45" r="4" class="sales-point" />
+                            <circle cx="545" cy="115" r="4" class="sales-point" />
+                            <circle cx="645" cy="85" r="4" class="sales-point" />
+                            <circle cx="740" cy="175" r="4" class="sales-point" />
+
+
+                            <!-- ORDER POINTS -->
+
+                            <circle cx="45" cy="160" r="3.5" class="order-point" />
+                            <circle cx="145" cy="178" r="3.5" class="order-point" />
+                            <circle cx="245" cy="150" r="3.5" class="order-point" />
+                            <circle cx="345" cy="165" r="3.5" class="order-point" />
+                            <circle cx="445" cy="85" r="3.5" class="order-point" />
+                            <circle cx="545" cy="55" r="3.5" class="order-point" />
+                            <circle cx="645" cy="88" r="3.5" class="order-point" />
+                            <circle cx="740" cy="160" r="3.5" class="order-point" />
+
+                        </svg>
+
+
+                        <div class="x-axis">
+
+                            <span>May 13</span>
+                            <span>May 14</span>
+                            <span>May 15</span>
+                            <span>May 16</span>
+                            <span>May 17</span>
+                            <span>May 18</span>
+                            <span>May 19</span>
+                            <span>May 20</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT METHOD -->
+
+                <div class="panel payment-method-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Sales by Payment Method</h2>
+
+                    </div>
+
+
+                    <div class="donut-content">
+
+                        <div class="donut-chart">
+
+                            <div class="donut-hole"></div>
+
+                        </div>
+
+
+                        <div class="payment-legend">
+
+                            <div class="payment-legend-row">
+
+                                <span>
+                                    <i class="legend-dot blue-dot"></i>
+                                    GCash
+                                </span>
+
+                                <strong>
+                                    ₱20,980.00 (43.4%)
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-legend-row">
+
+                                <span>
+                                    <i class="legend-dot green-dot"></i>
+                                    Maya
+                                </span>
+
+                                <strong>
+                                    ₱13,420.00 (27.8%)
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-legend-row">
+
+                                <span>
+                                    <i class="legend-dot orange-dot"></i>
+                                    Cash on Delivery
+                                </span>
+
+                                <strong>
+                                    ₱9,350.00 (19.3%)
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-legend-row">
+
+                                <span>
+                                    <i class="legend-dot purple-dot"></i>
+                                    Credit / Debit Card
+                                </span>
+
+                                <strong>
+                                    ₱4,600.00 (9.5%)
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel-total">
+
+                        <strong>Total</strong>
+
+                        <strong>₱48,350.00</strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= SECOND ROW ================= -->
+
+            <section class="report-grid bottom-grid">
+
+
+                <!-- SALES SUMMARY -->
+
+                <div class="panel summary-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Sales Summary</h2>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="sales-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Orders</th>
+                                    <th>Sales (₱)</th>
+                                    <th>Discounts (₱)</th>
+                                    <th>Refunds (₱)</th>
+                                    <th>Net Sales (₱)</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>May 20, 2024</td>
+                                    <td>18</td>
+                                    <td>₱5,490.00</td>
+                                    <td>₱320.00</td>
+                                    <td>₱0.00</td>
+                                    <td>₱5,170.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>May 19, 2024</td>
+                                    <td>22</td>
+                                    <td>₱6,820.00</td>
+                                    <td>₱410.00</td>
+                                    <td>₱120.00</td>
+                                    <td>₱6,290.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>May 18, 2024</td>
+                                    <td>25</td>
+                                    <td>₱7,950.00</td>
+                                    <td>₱530.00</td>
+                                    <td>₱100.00</td>
+                                    <td>₱7,320.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>May 17, 2024</td>
+                                    <td>30</td>
+                                    <td>₱9,860.00</td>
+                                    <td>₱680.00</td>
+                                    <td>₱200.00</td>
+                                    <td>₱8,980.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>May 16, 2024</td>
+                                    <td>14</td>
+                                    <td>₱4,260.00</td>
+                                    <td>₱210.00</td>
+                                    <td>₱0.00</td>
+                                    <td>₱4,050.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>May 15, 2024</td>
+                                    <td>19</td>
+                                    <td>₱5,620.00</td>
+                                    <td>₱330.00</td>
+                                    <td>₱180.00</td>
+                                    <td>₱5,110.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>May 14, 2024</td>
+                                    <td>16</td>
+                                    <td>₱4,560.00</td>
+                                    <td>₱280.00</td>
+                                    <td>₱80.00</td>
+                                    <td>₱4,200.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>May 13, 2024</td>
+                                    <td>12</td>
+                                    <td>₱3,790.00</td>
+                                    <td>₱190.00</td>
+                                    <td>₱0.00</td>
+                                    <td>₱3,600.00</td>
+                                </tr>
+
+                            </tbody>
+
+
+                            <tfoot>
+
+                                <tr>
+                                    <td>Total</td>
+                                    <td>156</td>
+                                    <td>₱48,350.00</td>
+                                    <td>₱2,940.00</td>
+                                    <td>₱680.00</td>
+                                    <td>₱44,730.00</td>
+                                </tr>
+
+                            </tfoot>
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="entries">
+                        Showing 1 to 8 of 8 entries
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT COLUMN -->
+
+                <div class="right-column">
+
+
+                    <!-- TOP SELLING -->
+
+                    <div class="panel top-selling">
+
+                        <div class="panel-header">
+
+                            <h2>Top Selling Items</h2>
+
+                            <button class="view-report">
+                                View Full Report
+                            </button>
+
+                        </div>
+
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Quantity</th>
+                                    <th>Sales (₱)</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <span class="rank">1</span>
+                                        Pizza Supreme (Large)
+                                    </td>
+                                    <td>58</td>
+                                    <td>₱16,530.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span class="rank">2</span>
+                                        Pepperoni Pizza (Large)
+                                    </td>
+                                    <td>42</td>
+                                    <td>₱11,760.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span class="rank">3</span>
+                                        Hawaiian Pizza (Large)
+                                    </td>
+                                    <td>31</td>
+                                    <td>₱7,750.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span class="rank">4</span>
+                                        Carbonara Pasta
+                                    </td>
+                                    <td>26</td>
+                                    <td>₱4,420.00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span class="rank">5</span>
+                                        Garlic Bread
+                                    </td>
+                                    <td>24</td>
+                                    <td>₱2,880.00</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- ORDER TYPE -->
+
+                    <div class="panel order-type">
+
+                        <div class="panel-header">
+
+                            <h2>Order Type Summary</h2>
+
+                        </div>
+
+
+                        <div class="order-type-grid">
+
+
+                            <div class="order-type-card">
+
+                                <div class="order-icon delivery">
+
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6H15V17H3Z"></path>
+                                        <path d="M15 10H19L22 13V17H15Z"></path>
+                                        <circle cx="7" cy="18" r="2"></circle>
+                                        <circle cx="18" cy="18" r="2"></circle>
+                                    </svg>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>Delivery</strong>
+
+                                    <b>98 Orders</b>
+
+                                    <span>62.8%</span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="order-type-card">
+
+                                <div class="order-icon pickup">
+
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M5 8H19V20H5Z"></path>
+                                        <path d="M8 8V6A4 4 0 0 1 16 6V8"></path>
+                                    </svg>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>Pickup</strong>
+
+                                    <b>58 Orders</b>
+
+                                    <span>37.2%</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* ================= SIDEBAR ================= */
+
+            const sidebar =
+                document.getElementById("sidebar");
+
+            const menuToggle =
+                document.getElementById("menuToggle");
+
+            menuToggle?.addEventListener("click", () => {
+
+                sidebar.classList.toggle("open");
+
+            });
+
+
+            /* ================= SUBMENUS ================= */
+
+            const parentButtons =
+                document.querySelectorAll(".nav-parent");
+
+            parentButtons.forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    const menuId =
+                        button.dataset.menu;
+
+                    const submenu =
+                        document.getElementById(menuId);
+
+                    const wasOpen =
+                        submenu.classList.contains("open");
+
+
+                    document
+                        .querySelectorAll(".submenu")
+                        .forEach(menu => {
+
+                            menu.classList.remove("open");
+
+                        });
+
+
+                    document
+                        .querySelectorAll(".nav-parent")
+                        .forEach(parent => {
+
+                            parent.classList.remove("open");
+
+                        });
+
+
+                    if (!wasOpen) {
+
+                        submenu.classList.add("open");
+
+                        button.classList.add("open");
+
+                    }
+
+                });
+
+            });
+
+
+            /* ================= PROFILE ================= */
+
+            const profileBtn =
+                document.getElementById("profileBtn");
+
+            const profileMenu =
+                document.getElementById("profileMenu");
+
+
+            profileBtn?.addEventListener("click", event => {
+
+                event.stopPropagation();
+
+                profileMenu.classList.toggle("show");
+
+            });
+
+
+            document.addEventListener("click", event => {
+
+                if (
+                    !profileMenu.contains(event.target) &&
+                    !profileBtn.contains(event.target)
+                ) {
+
+                    profileMenu.classList.remove("show");
+
+                }
+
+            });
+
+
+            /* ================= TOAST ================= */
+
+            const toast =
+                document.getElementById("toast");
+
+
+            function showToast(message) {
+
+                toast.textContent = message;
+
+                toast.classList.add("show");
+
+                clearTimeout(window.toastTimer);
+
+                window.toastTimer =
+                    setTimeout(() => {
+
+                        toast.classList.remove("show");
+
+                    }, 2500);
+
+            }
+
+
+            /* ================= LOGOUT ================= */
+
+            function logout() {
+
+                if (
+                    !confirm(
+                        "Are you sure you want to log out?"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+                showToast("Logging out...");
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "../login.html";
+
+                }, 800);
+
+            }
+
+
+            document
+                .getElementById("logoutBtn")
+                ?.addEventListener(
+                    "click",
+                    logout
+                );
+
+
+            document
+                .getElementById("profileLogout")
+                ?.addEventListener(
+                    "click",
+                    logout
+                );
+
+
+            /* ================= MORE FILTERS ================= */
+
+            document
+                .getElementById("moreFilters")
+                ?.addEventListener(
+                    "click",
+                    () => {
+
+                        showToast(
+                            "More filters opened."
+                        );
+
+                    }
+                );
+
+
+            /* ================= REPORT TYPE ================= */
+
+            document
+                .getElementById("reportType")
+                ?.addEventListener(
+                    "change",
+                    event => {
+
+                        showToast(
+                            "Report type: " +
+                            event.target.value
+                        );
+
+                    }
+                );
+
+
+            /* ================= GROUP BY ================= */
+
+            document
+                .getElementById("groupBy")
+                ?.addEventListener(
+                    "change",
+                    event => {
+
+                        showToast(
+                            "Grouped by " +
+                            event.target.value
+                        );
+
+                    }
+                );
+
+
+            /* ================= CHART TYPE ================= */
+
+            document
+                .getElementById("chartType")
+                ?.addEventListener(
+                    "change",
+                    event => {
+
+                        if (
+                            event.target.value ===
+                            "Bar Chart"
+                        ) {
+
+                            showToast(
+                                "Bar Chart selected."
+                            );
+
+                        }
+                        else {
+
+                            showToast(
+                                "Line Chart selected."
+                            );
+
+                        }
+
+                    }
+                );
+
+
+            /* ================= EXPORT REPORT ================= */
+
+            document
+                .getElementById("exportReport")
+                ?.addEventListener(
+                    "click",
+                    () => {
+
+                        const csv = [
+                            [
+                                "Date",
+                                "Orders",
+                                "Sales",
+                                "Discounts",
+                                "Refunds",
+                                "Net Sales"
+                            ],
+
+                            [
+                                "May 20, 2024",
+                                "18",
+                                "5490",
+                                "320",
+                                "0",
+                                "5170"
+                            ],
+
+                            [
+                                "May 19, 2024",
+                                "22",
+                                "6820",
+                                "410",
+                                "120",
+                                "6290"
+                            ],
+
+                            [
+                                "May 18, 2024",
+                                "25",
+                                "7950",
+                                "530",
+                                "100",
+                                "7320"
+                            ],
+
+                            [
+                                "May 17, 2024",
+                                "30",
+                                "9860",
+                                "680",
+                                "200",
+                                "8980"
+                            ],
+
+                            [
+                                "May 16, 2024",
+                                "14",
+                                "4260",
+                                "210",
+                                "0",
+                                "4050"
+                            ],
+
+                            [
+                                "May 15, 2024",
+                                "19",
+                                "5620",
+                                "330",
+                                "180",
+                                "5110"
+                            ],
+
+                            [
+                                "May 14, 2024",
+                                "16",
+                                "4560",
+                                "280",
+                                "80",
+                                "4200"
+                            ],
+
+                            [
+                                "May 13, 2024",
+                                "12",
+                                "3790",
+                                "190",
+                                "0",
+                                "3600"
+                            ]
+
+                        ];
+
+
+                        const csvText =
+                            csv
+                                .map(row =>
+                                    row
+                                        .map(value =>
+                                            `"${value}"`
+                                        )
+                                        .join(",")
+                                )
+                                .join("\n");
+
+
+                        const blob =
+                            new Blob(
+                                [csvText],
+                                {
+                                    type:
+                                        "text/csv;charset=utf-8;"
+                                }
+                            );
+
+
+                        const url =
+                            URL.createObjectURL(blob);
+
+
+                        const link =
+                            document.createElement("a");
+
+
+                        link.href = url;
+
+                        link.download =
+                            "jolies-pizza-sales-report.csv";
+
+
+                        document.body.appendChild(link);
+
+                        link.click();
+
+                        document.body.removeChild(link);
+
+                        URL.revokeObjectURL(url);
+
+
+                        showToast(
+                            "Report exported successfully."
+                        );
+
+                    }
+                );
+
+
+            /* ================= VIEW FULL REPORT ================= */
+
+            document
+                .querySelector(".view-report")
+                ?.addEventListener(
+                    "click",
+                    () => {
+
+                        showToast(
+                            "Opening full sales report..."
+                        );
+
+                    }
+                );
+
+
+            /* ================= DATE BUTTONS ================= */
+
+            document
+                .querySelector(".date-picker")
+                ?.addEventListener(
+                    "click",
+                    () => {
+
+                        showToast(
+                            "Date picker opened."
+                        );
+
+                    }
+                );
+
+
+            document
+                .querySelector(".input-button")
+                ?.addEventListener(
+                    "click",
+                    () => {
+
+                        showToast(
+                            "Date range selector opened."
+                        );
+
+                    }
+                );
+
+
+        });
+    </script>
+
+</body>
+
+</html>

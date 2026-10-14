@@ -1,0 +1,913 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* FULL BACKGROUND */
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.18),
+            rgba(0, 0, 0, 0.18)),
+        url("images/background.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.login-container {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   LEFT BRANDING SECTION
+========================================================= */
+
+.brand-section {
+    width: 50%;
+    height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   REMOVE OLD OVERLAY
+========================================================= */
+
+.brand-section::before {
+    display: none;
+}
+
+
+/* =========================================================
+   BRAND CONTENT
+========================================================= */
+
+.brand-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    max-width: 360px;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Move the complete logo + text group upward */
+    transform: translateY(-70px);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.pizza-logo {
+    width: 350px;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    margin: 0 auto 12px;
+
+    filter:
+        drop-shadow(0 5px 8px rgba(0, 0, 0, 0.65));
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.brand-tagline {
+    width: 100%;
+
+    margin: 0;
+
+    font-size: 17px;
+
+    line-height: 1.35;
+
+    font-weight: 600;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    text-shadow:
+        2px 3px 6px rgba(0, 0, 0, 0.9);
+}
+
+
+/* =========================================================
+   RIGHT FORM SECTION
+========================================================= */
+
+.form-section {
+    width: 50%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 0 70px 0 20px;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.login-card {
+    width: 550px;
+    height: 590px;
+
+    max-width: 550px;
+    max-height: 590px;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 24px 34px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   REMOVE SCROLLBAR
+========================================================= */
+
+.login-card::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   OPTIONAL: PREVENT WHOLE PAGE SCROLL
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.welcome {
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.welcome h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    color: #111111;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.welcome p {
+    color: #6d7280;
+    font-size: 14px;
+}
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 11px 0 11px;
+
+    color: #111111;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+
+    height: 1px;
+
+    background: #e2e4e8;
+
+    flex: 1;
+}
+
+
+/* =========================================================
+   ROLE CARDS
+========================================================= */
+
+.roles {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    width: 100%;
+}
+
+.role-card {
+    border: 1px solid #e0e3e8;
+
+    border-radius: 10px;
+
+    height: 122px;
+    min-height: 122px;
+
+    padding: 12px 8px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    position: relative;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.role-card.active {
+    border: 2px solid #d71920;
+    background: #fff5f5;
+}
+
+.role-icon {
+    font-size: 30px;
+    line-height: 1;
+
+    margin-bottom: 6px;
+}
+
+.role-card h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.role-card p {
+    color: #686d78;
+    line-height: 1.3;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ROLE ICONS
+========================================================= */
+
+.role-icon {
+    font-size: 30px;
+
+    line-height: 1;
+
+    margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   ROLE TEXT
+========================================================= */
+
+.role-card h3 {
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+.role-card p {
+    color: #686d78;
+
+    line-height: 1.3;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CHECK MARK
+========================================================= */
+
+.check {
+    position: absolute;
+
+    right: 7px;
+    top: 7px;
+
+    width: 29px;
+    height: 29px;
+
+    border-radius: 50%;
+
+    background: #d71920;
+
+    color: #ffffff;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    font-size: 16px;
+}
+
+.role-card.active .check {
+    display: flex;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.input-group {
+    position: relative;
+
+    margin-bottom: 9px;
+}
+
+.input-group input {
+    width: 100%;
+
+    height: 42px;
+
+    border: 1px solid #dedfe5;
+
+    border-radius: 8px;
+
+    padding: 0 45px 0 48px;
+
+    font-size: 13px;
+
+    color: #333333;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+/* =========================================================
+   INPUT ICON
+========================================================= */
+
+.input-icon {
+    position: absolute;
+
+    left: 16px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 16px;
+
+    color: #7b808b;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   PASSWORD TOGGLE
+========================================================= */
+
+.password-toggle {
+    position: absolute;
+
+    right: 14px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #737984;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+.options {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 9px 0;
+}
+
+.remember {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #686d78;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.remember input {
+    width: 16px;
+    height: 16px;
+
+    accent-color: #d71920;
+
+    cursor: pointer;
+}
+
+.forgot {
+    color: #d71920;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-btn {
+    width: 100%;
+
+    height: 44px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: #d71920;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.or-divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 11px 0;
+
+    color: #777c86;
+
+    font-size: 12px;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #e1e3e7;
+}
+
+/* =========================================================
+   GOOGLE BUTTON
+========================================================= */
+
+.google-btn {
+    width: 100%;
+
+    height: 42px;
+
+    border: 1px solid #dedfe5;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+.register {
+    display: block;
+
+    width: 100%;
+
+    text-align: center;
+
+    margin-top: 11px;
+
+    color: #747983;
+
+    font-size: 12px;
+
+    line-height: 18px;
+
+    visibility: visible;
+}
+
+.register a {
+    color: #d71920;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+    display: none;
+
+    margin-top: 10px;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    background: #fff1f1;
+
+    color: #c5141b;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .brand-section {
+        width: 50%;
+    }
+
+    .pizza-logo {
+        width: 245px;
+    }
+
+    .brand-tagline {
+        font-size: 17px;
+    }
+
+    .brand-content {
+        transform: translateY(-60px);
+    }
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .brand-section {
+        width: 45%;
+    }
+
+    .form-section {
+        width: 55%;
+
+        padding: 0 30px 0 15px;
+    }
+
+    .login-card {
+        width: 520px;
+        height: 560px;
+
+        max-width: 520px;
+        max-height: 560px;
+
+        padding: 28px 30px;
+    }
+
+    .pizza-logo {
+        width: 310px;
+    }
+
+    .brand-tagline {
+        font-size: 20px;
+    }
+}
+
+/* =========================================================
+   SMALL LAPTOP / TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .brand-section {
+        width: 42%;
+    }
+
+    .form-section {
+        width: 58%;
+
+        padding-right: 15px;
+    }
+
+    .login-card {
+        width: 490px;
+        height: 550px;
+
+        max-width: 490px;
+        max-height: 550px;
+
+        padding: 25px 27px;
+    }
+
+    .pizza-logo {
+        width: 270px;
+    }
+
+    .brand-tagline {
+        font-size: 18px;
+    }
+
+    .welcome h1 {
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    body {
+        overflow: auto;
+        background-position: center center;
+    }
+
+    .login-container {
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+        display: block;
+    }
+
+    .brand-section {
+        display: none;
+    }
+
+    .form-section {
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+
+        padding: 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: visible;
+    }
+
+    .login-card {
+        width: 100%;
+        height: auto;
+
+        max-width: 550px;
+        max-height: none;
+
+        padding: 25px 20px;
+
+        border-radius: 15px;
+
+        overflow: hidden;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .form-section {
+        padding: 10px;
+    }
+
+    .login-card {
+        width: 100%;
+        height: auto;
+
+        max-width: 550px;
+        max-height: none;
+
+        padding: 22px 12px;
+
+        border-radius: 15px;
+
+        overflow: hidden;
+    }
+
+    .welcome {
+        margin-bottom: 14px;
+    }
+
+    .welcome h1 {
+        font-size: 27px;
+    }
+
+    .welcome p {
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 15px;
+        gap: 10px;
+        margin: 11px 0;
+    }
+
+    .roles {
+        gap: 6px;
+    }
+
+    .role-card {
+        height: 122px;
+        min-height: 122px;
+
+        padding: 12px 5px;
+    }
+
+    .role-icon {
+        font-size: 30px;
+        margin-bottom: 6px;
+    }
+
+    .role-card h3 {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .role-card p {
+        font-size: 10px;
+    }
+
+    .input-group input {
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .options {
+        margin: 9px 0;
+    }
+
+    .remember {
+        font-size: 12px;
+    }
+
+    .forgot {
+        font-size: 12px;
+    }
+
+    .login-btn {
+        height: 44px;
+        font-size: 15px;
+    }
+
+    .google-btn {
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .register {
+        margin-top: 11px;
+        font-size: 12px;
+    }
+}

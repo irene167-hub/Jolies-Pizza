@@ -1,0 +1,2595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jolie's Pizza - Stock Out</title>
+
+    <link rel="stylesheet" href="inventory stock-out.css">
+    <link rel="stylesheet" href="admin-sidebar.css">
+    <link rel="icon" type="image/png" href="../images/logoadmin.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <img src="../images/logoadmin.png" alt="Jolie's Pizza San Roque" class="sidebar-logo">
+            </div>
+
+
+            <nav class="side-nav">
+
+                <!-- DASHBOARD -->
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <!-- ORDERS -->
+
+                <a href="orders.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Orders</span>
+                </a>
+
+
+                <a href="menu-management.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Menu Management</span>
+                </a>
+
+
+                <!-- INVENTORY -->
+
+                <div class="nav-group">
+
+                    <button type="button" class="nav-item nav-dropdown active" id="inventoryToggle">
+
+                        <span class="nav-icon"></span>
+
+                        <span class="nav-title">Inventory</span>
+
+                        <span class="nav-arrow">⌄</span>
+
+                    </button>
+
+
+                    <div class="submenu" id="inventorySubmenu">
+
+                        <a href="inventory overview.html" class="submenu-item">
+                            Overview
+                        </a>
+
+                        <a href="inventory stock-items.html" class="submenu-item">
+                            Stock Items
+                        </a>
+
+                        <a href="inventory stock-in.html" class="submenu-item">
+                            Stock In
+                        </a>
+
+                        <a href="inventory stock-out.html" class="submenu-item active-sub">
+                            <span class="sub-dot"></span>
+                            Stock Out
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DELIVERY -->
+
+                <a href="delivery-tracking.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Delivery Tracking</span>
+                </a>
+
+
+                <!-- PAYMENTS -->
+
+                <a href="online-payments.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Online Payments</span>
+                </a>
+
+
+                <!-- REPORTS -->
+
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Reports</span>
+                </a>
+
+
+                <!-- STAFF -->
+
+                <a href="staff-management.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Staff Management</span>
+                </a>
+
+
+                <!-- SETTINGS -->
+
+                <a href="settings.html" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span>Settings</span>
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <button type="button" class="nav-item logout-item" id="logoutBtn">
+
+                    <span class="nav-icon"></span>
+
+                    <span>Log Out</span>
+
+                </button>
+
+            </nav>
+
+
+            <!-- =================================================
+             SUPPORT
+        ================================================== -->
+
+            <div class="support-box">
+
+                <div class="support-icon">
+                    ♧
+                </div>
+
+                <div class="support-content">
+
+                    <strong>
+                        Need Help?
+                    </strong>
+
+                    <a href="tel:09123456789">
+                        Contact support
+                    </a>
+
+                    <span>
+                        0912 345 6789
+                    </span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+        <main class="main">
+
+
+            <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+            <header class="topbar">
+
+                <button type="button" class="menu-toggle" id="menuToggle">
+                    ☰
+                </button>
+
+
+                <div class="page-heading">
+
+                    <h1>
+                        Stock Out
+                    </h1>
+
+
+                    <div class="breadcrumb">
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                        <b>›</b>
+
+                        <span>
+                            Inventory
+                        </span>
+
+                        <b>›</b>
+
+                        <strong>
+                            Stock Out
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="top-actions">
+
+
+                    <!-- DATE -->
+
+                    <button type="button" class="date-picker" id="datePicker">
+
+                        <span id="dateText">
+                            May 20, 2024
+                        </span>
+
+                        <span>
+                            ▣
+                        </span>
+
+                    </button>
+
+
+                    <!-- NOTIFICATION -->
+
+                    <button type="button" class="notification" id="notificationBtn">
+
+                        ♧
+
+                        <b>
+                            3
+                        </b>
+
+                    </button>
+
+
+                    <!-- PROFILE -->
+
+                    <div class="profile-wrap">
+
+                        <button type="button" class="profile" id="profileBtn">
+
+                            <span class="avatar">
+                                A
+                            </span>
+
+
+                            <span class="profile-text">
+
+                                <strong>
+                                    Admin
+                                </strong>
+
+                                <small>
+                                    Administrator
+                                </small>
+
+                            </span>
+
+
+                            <span class="chevron">
+                                ⌄
+                            </span>
+
+                        </button>
+
+
+                        <div class="profile-menu" id="profileMenu">
+
+                            <button type="button">
+                                My Profile
+                            </button>
+
+                            <button type="button">
+                                Account Settings
+                            </button>
+
+                            <button type="button" id="profileLogout">
+                                Log Out
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+            <section class="stock-stats">
+
+
+                <!-- TOTAL STOCK OUT -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon red">
+                        ⇩
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Stock Out (This Month)
+                        </span>
+
+                        <h2>
+                            22
+                        </h2>
+
+                        <p class="negative">
+                            ↓ 8.3%
+                            <small>
+                                vs Apr 1 - Apr 20
+                            </small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TOTAL ITEMS -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon green">
+                        ↓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Items Issued
+                        </span>
+
+                        <h2>
+                            134
+                        </h2>
+
+                        <p class="positive">
+                            ↑ 12.6%
+                            <small>
+                                vs Apr 1 - Apr 20
+                            </small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TOTAL AMOUNT -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ▤
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Amount
+                        </span>
+
+                        <h2>
+                            ₱15,230.00
+                        </h2>
+
+                        <p class="negative">
+                            ↓ 5.7%
+                            <small>
+                                vs Apr 1 - Apr 20
+                            </small>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- REQUESTED BY -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ♧
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Requested By
+                        </span>
+
+                        <h2>
+                            8
+                        </h2>
+
+                        <p>
+                            Staff members
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- NEW STOCK OUT -->
+
+                <button type="button" class="new-stock-btn" id="newStockBtn">
+
+                    <span>
+                        ＋
+                    </span>
+
+                    New Stock Out
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+             STOCK OUT CONTENT
+        ================================================== -->
+
+            <section class="stock-layout">
+
+
+                <!-- =================================================
+                 LEFT FORM
+            ================================================== -->
+
+                <section class="stock-form-card">
+
+
+                    <h2 class="section-title">
+                        Stock Out Information
+                    </h2>
+
+
+                    <!-- =================================================
+                     INFORMATION FORM
+                ================================================== -->
+
+                    <div class="form-grid">
+
+
+                        <!-- REFERENCE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Reference No.
+                                <span>*</span>
+                            </label>
+
+                            <input type="text" id="referenceNo" value="SOUT-2024-05-0021" readonly>
+
+                            <small>
+                                Auto generated number
+                            </small>
+
+                        </div>
+
+
+                        <!-- DATE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Stock Out Date
+                                <span>*</span>
+                            </label>
+
+                            <div class="input-icon">
+
+                                <input type="text" id="stockOutDate" value="May 20, 2024">
+
+                                <span>
+                                    ▣
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PURPOSE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Purpose / Reason
+                                <span>*</span>
+                            </label>
+
+                            <select id="purpose">
+
+                                <option>
+                                    Kitchen / Production Use
+                                </option>
+
+                                <option>
+                                    Wastage
+                                </option>
+
+                                <option>
+                                    Damaged Items
+                                </option>
+
+                                <option>
+                                    Branch Transfer
+                                </option>
+
+                                <option>
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- REQUESTED BY -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Requested By
+                                <span>*</span>
+                            </label>
+
+                            <select id="requestedBy">
+
+                                <option>
+                                    Kitchen Staff
+                                </option>
+
+                                <option>
+                                    Inventory Staff
+                                </option>
+
+                                <option>
+                                    Manager
+                                </option>
+
+                                <option>
+                                    Admin
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- NOTES -->
+
+                        <div class="form-group notes-group">
+
+                            <label>
+                                Notes
+                            </label>
+
+                            <div class="textarea-wrapper">
+
+                                <textarea id="notes" maxlength="255" placeholder="Enter notes (optional)"></textarea>
+
+                                <small id="characterCount">
+                                    0 / 255
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                     ITEMS HEADER
+                ================================================== -->
+
+                    <div class="items-header">
+
+                        <h2>
+                            Items
+                        </h2>
+
+
+                        <div class="item-actions">
+
+                            <button type="button" class="add-item-btn" id="addItemBtn">
+                                ＋ &nbsp; Add Item
+                            </button>
+
+
+                            <button type="button" class="barcode-btn" id="barcodeBtn">
+                                ▥ &nbsp; Scan Barcode
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                     ITEMS TABLE
+                ================================================== -->
+
+                    <div class="items-table-wrapper">
+
+                        <table class="items-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>#</th>
+
+                                    <th>
+                                        Item
+                                    </th>
+
+                                    <th>
+                                        Unit
+                                    </th>
+
+                                    <th>
+                                        Available Stock
+                                    </th>
+
+                                    <th>
+                                        Quantity
+                                    </th>
+
+                                    <th>
+                                        Unit Cost
+                                    </th>
+
+                                    <th>
+                                        Total Cost
+                                    </th>
+
+                                    <th>
+                                        Actions
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="itemsBody">
+
+
+                                <!-- =================================================
+                                 ITEM 1
+                            ================================================== -->
+
+                                <tr>
+
+                                    <td>
+                                        1
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image cheese">
+                                                🧀
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Mozzarella Cheese
+                                                </strong>
+
+                                                <small>
+                                                    Cheese
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>
+                                                kg
+                                            </option>
+
+                                            <option>
+                                                g
+                                            </option>
+
+                                            <option>
+                                                L
+                                            </option>
+
+                                            <option>
+                                                pcs
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="available-stock">
+                                            8.50 kg
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="2" min="0" step="0.01">
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="unit-cost">
+                                            ₱320.00
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="total-cost">
+                                        ₱640.00
+                                    </td>
+
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- =================================================
+                                 ITEM 2
+                            ================================================== -->
+
+                                <tr>
+
+                                    <td>
+                                        2
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image pepperoni">
+                                                🍕
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Pepperoni Slices
+                                                </strong>
+
+                                                <small>
+                                                    Meats
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>
+                                                kg
+                                            </option>
+
+                                            <option>
+                                                g
+                                            </option>
+
+                                            <option>
+                                                L
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="available-stock">
+                                            15.00 kg
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="1" min="0" step="0.01">
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="unit-cost">
+                                            ₱280.00
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="total-cost">
+                                        ₱280.00
+                                    </td>
+
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- =================================================
+                                 ITEM 3
+                            ================================================== -->
+
+                                <tr>
+
+                                    <td>
+                                        3
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image sauce">
+                                                🍅
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Tomato Sauce
+                                                </strong>
+
+                                                <small>
+                                                    Sauce & Condiments
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>
+                                                kg
+                                            </option>
+
+                                            <option>
+                                                g
+                                            </option>
+
+                                            <option>
+                                                L
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="available-stock">
+                                            2.00 kg
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="1" min="0" step="0.01">
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="unit-cost">
+                                            ₱120.00
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="total-cost">
+                                        ₱120.00
+                                    </td>
+
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- =================================================
+                                 ITEM 4
+                            ================================================== -->
+
+                                <tr>
+
+                                    <td>
+                                        4
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image flour">
+                                                🥣
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    All-Purpose Flour
+                                                </strong>
+
+                                                <small>
+                                                    Cooking Ingredients
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>
+                                                kg
+                                            </option>
+
+                                            <option>
+                                                g
+                                            </option>
+
+                                            <option>
+                                                L
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="available-stock">
+                                            25.00 kg
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="3" min="0" step="0.01">
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="unit-cost">
+                                            ₱45.00
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="total-cost">
+                                        ₱135.00
+                                    </td>
+
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- =================================================
+                                 ITEM 5
+                            ================================================== -->
+
+                                <tr>
+
+                                    <td>
+                                        5
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="product-cell">
+
+                                            <div class="product-image oil">
+                                                🫒
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Olive Oil
+                                                </strong>
+
+                                                <small>
+                                                    Oils & Vinegar
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <select class="unit-input">
+
+                                            <option>
+                                                L
+                                            </option>
+
+                                            <option>
+                                                kg
+                                            </option>
+
+                                            <option>
+                                                g
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="available-stock">
+                                            5.00 L
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input type="number" class="quantity-input" value="0.50" min="0" step="0.01">
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="unit-cost">
+                                            ₱350.00
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="total-cost">
+                                        ₱175.00
+                                    </td>
+
+
+                                    <td>
+
+                                        <button type="button" class="delete-item">
+                                            ♧
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- =================================================
+                     ADD MORE ITEMS
+                ================================================== -->
+
+                    <button type="button" class="add-more" id="addMoreBtn">
+
+                        ⊕ &nbsp; Add more items
+
+                    </button>
+
+
+                    <!-- =================================================
+                     TOTALS
+                ================================================== -->
+
+                    <div class="items-summary">
+
+                        <span>
+                            Total Items:
+                            <strong id="summaryItems">
+                                5
+                            </strong>
+                        </span>
+
+
+                        <span>
+                            Total Quantity:
+                            <strong id="summaryQuantity">
+                                7.50
+                            </strong>
+                        </span>
+
+
+                        <span>
+                            Total Amount:
+                            <strong id="summaryAmount">
+                                ₱1,350.00
+                            </strong>
+                        </span>
+
+                    </div>
+
+
+                    <!-- =================================================
+                     ACTION BUTTONS
+                ================================================== -->
+
+                    <div class="form-actions">
+
+                        <button type="button" class="cancel-btn" id="cancelBtn">
+                            Cancel
+                        </button>
+
+
+                        <button type="button" class="draft-btn" id="draftBtn">
+                            Save as Draft
+                        </button>
+
+
+                        <button type="button" class="confirm-btn" id="confirmBtn">
+                            ▣ &nbsp; Save & Confirm
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 RIGHT COLUMN
+            ================================================== -->
+
+                <aside class="right-column">
+
+
+                    <!-- =================================================
+                     STOCK OUT SUMMARY
+                ================================================== -->
+
+                    <section class="side-card summary-card">
+
+                        <h2>
+                            Stock Out Summary
+                        </h2>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Total Items
+                            </span>
+
+                            <strong id="sideItems">
+                                5
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Total Quantity
+                            </span>
+
+                            <strong id="sideQuantity">
+                                7.50
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Total Amount
+                            </span>
+
+                            <strong id="sideAmount">
+                                ₱1,350.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-divider"></div>
+
+
+                        <div class="summary-detail">
+
+                            <span>
+                                Purpose / Reason
+                            </span>
+
+                            <strong id="sidePurpose">
+                                Kitchen / Production Use
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-detail">
+
+                            <span>
+                                Requested By
+                            </span>
+
+                            <strong id="sideRequestedBy">
+                                Kitchen Staff
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-detail">
+
+                            <span>
+                                Date
+                            </span>
+
+                            <strong>
+                                May 20, 2024 10:30 AM
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-detail">
+
+                            <span>
+                                Notes
+                            </span>
+
+                            <strong id="sideNotes">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                     RECENT STOCK OUT
+                ================================================== -->
+
+                    <section class="side-card recent-card">
+
+                        <div class="side-header">
+
+                            <h2>
+                                Recent Stock Out
+                            </h2>
+
+                            <button type="button" id="viewAllBtn">
+                                View all
+                            </button>
+
+                        </div>
+
+
+                        <div class="recent-item">
+
+                            <div>
+
+                                <strong>
+                                    SOUT-2024-05-0020
+                                </strong>
+
+                                <small>
+                                    May 19, 2024
+                                </small>
+
+                            </div>
+
+                            <strong>
+                                ₱2,180.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="recent-item">
+
+                            <div>
+
+                                <strong>
+                                    SOUT-2024-05-0019
+                                </strong>
+
+                                <small>
+                                    May 18, 2024
+                                </small>
+
+                            </div>
+
+                            <strong>
+                                ₱1,540.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="recent-item">
+
+                            <div>
+
+                                <strong>
+                                    SOUT-2024-05-0018
+                                </strong>
+
+                                <small>
+                                    May 17, 2024
+                                </small>
+
+                            </div>
+
+                            <strong>
+                                ₱980.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="recent-item">
+
+                            <div>
+
+                                <strong>
+                                    SOUT-2024-05-0017
+                                </strong>
+
+                                <small>
+                                    May 16, 2024
+                                </small>
+
+                            </div>
+
+                            <strong>
+                                ₱1,210.00
+                            </strong>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                     TIP
+                ================================================== -->
+
+                    <section class="tip-card">
+
+                        <div class="tip-icon">
+                            💡
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Tip
+                            </strong>
+
+                            <p>
+                                Stock out is used for ingredients
+                                consumed in production, wastage,
+                                or branch transfer.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+                </aside>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+     TOAST
+========================================================== -->
+
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+        /* =========================================================
+       JOLIE'S PIZZA - STOCK OUT
+       PURE VANILLA JAVASCRIPT
+    ========================================================= */
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            /* =====================================================
+               ELEMENTS
+            ===================================================== */
+
+            const sidebar =
+                document.getElementById("sidebar");
+
+            const menuToggle =
+                document.getElementById("menuToggle");
+
+            const inventoryToggle =
+                document.getElementById("inventoryToggle");
+
+            const inventorySubmenu =
+                document.getElementById("inventorySubmenu");
+
+            const logoutBtn =
+                document.getElementById("logoutBtn");
+
+            const profileLogout =
+                document.getElementById("profileLogout");
+
+            const profileBtn =
+                document.getElementById("profileBtn");
+
+            const profileMenu =
+                document.getElementById("profileMenu");
+
+            const notificationBtn =
+                document.getElementById("notificationBtn");
+
+            const datePicker =
+                document.getElementById("datePicker");
+
+            const dateText =
+                document.getElementById("dateText");
+
+            const itemsBody =
+                document.getElementById("itemsBody");
+
+            const addItemBtn =
+                document.getElementById("addItemBtn");
+
+            const addMoreBtn =
+                document.getElementById("addMoreBtn");
+
+            const notes =
+                document.getElementById("notes");
+
+            const characterCount =
+                document.getElementById("characterCount");
+
+            const purpose =
+                document.getElementById("purpose");
+
+            const requestedBy =
+                document.getElementById("requestedBy");
+
+            const cancelBtn =
+                document.getElementById("cancelBtn");
+
+            const draftBtn =
+                document.getElementById("draftBtn");
+
+            const confirmBtn =
+                document.getElementById("confirmBtn");
+
+            const newStockBtn =
+                document.getElementById("newStockBtn");
+
+            const barcodeBtn =
+                document.getElementById("barcodeBtn");
+
+            const viewAllBtn =
+                document.getElementById("viewAllBtn");
+
+            const toast =
+                document.getElementById("toast");
+
+
+            /* =====================================================
+               TOAST
+            ===================================================== */
+
+            function showToast(message) {
+
+                if (!toast) return;
+
+                toast.textContent = message;
+
+                toast.classList.add("show");
+
+                clearTimeout(window.toastTimer);
+
+                window.toastTimer =
+                    setTimeout(function () {
+
+                        toast.classList.remove("show");
+
+                    }, 2500);
+
+            }
+
+
+            /* =====================================================
+               MOBILE SIDEBAR
+            ===================================================== */
+
+            if (menuToggle) {
+
+                menuToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        sidebar.classList.toggle(
+                            "open"
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               INVENTORY MENU
+            ===================================================== */
+
+            if (inventoryToggle && inventorySubmenu) {
+
+                inventoryToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        inventoryToggle.classList.toggle("open");
+
+                        inventorySubmenu.style.display = "flex";
+
+                    }
+                );
+
+                inventoryToggle.classList.add("open");
+
+                inventorySubmenu.style.display = "flex";
+
+            }
+
+
+            /* =====================================================
+               CLOSE SIDEBAR ON MOBILE
+            ===================================================== */
+
+            document
+                .querySelectorAll(".sidebar a")
+                .forEach(function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            if (
+                                window.innerWidth <= 900
+                            ) {
+
+                                sidebar.classList.remove(
+                                    "open"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                });
+
+
+            /* =====================================================
+               PROFILE
+            ===================================================== */
+
+            if (profileBtn) {
+
+                profileBtn.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        profileMenu.classList.toggle(
+                            "show"
+                        );
+
+                    }
+                );
+
+            }
+
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        profileMenu &&
+                        profileBtn &&
+                        !profileMenu.contains(
+                            event.target
+                        ) &&
+                        !profileBtn.contains(
+                            event.target
+                        )
+                    ) {
+
+                        profileMenu.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               LOGOUT
+            ===================================================== */
+
+            function logout() {
+
+                const confirmed =
+                    window.confirm(
+                        "Are you sure you want to log out?"
+                    );
+
+                if (!confirmed) {
+                    return;
+                }
+
+                showToast(
+                    "Logging out..."
+                );
+
+                setTimeout(
+                    function () {
+
+                        /*
+                         * login.html is outside Admin
+                         */
+
+                        window.location.href =
+                            "../login.html";
+
+                    },
+                    800
+                );
+
+            }
+
+
+            if (logoutBtn) {
+
+                logoutBtn.addEventListener(
+                    "click",
+                    logout
+                );
+
+            }
+
+
+            if (profileLogout) {
+
+                profileLogout.addEventListener(
+                    "click",
+                    logout
+                );
+
+            }
+
+
+            /* =====================================================
+               NOTIFICATION
+            ===================================================== */
+
+            if (notificationBtn) {
+
+                notificationBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "You have 3 notifications."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               DATE
+            ===================================================== */
+
+            if (datePicker) {
+
+                datePicker.addEventListener(
+                    "click",
+                    function () {
+
+                        const newDate =
+                            window.prompt(
+                                "Enter date:",
+                                dateText.textContent
+                            );
+
+                        if (
+                            newDate &&
+                            newDate.trim() !== ""
+                        ) {
+
+                            dateText.textContent =
+                                newDate.trim();
+
+                            showToast(
+                                "Date updated."
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               NOTES COUNTER
+            ===================================================== */
+
+            if (notes) {
+
+                notes.addEventListener(
+                    "input",
+                    function () {
+
+                        characterCount.textContent =
+                            notes.value.length +
+                            " / 255";
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               FORMAT CURRENCY
+            ===================================================== */
+
+            function formatCurrency(value) {
+
+                return "₱" +
+                    Number(value).toLocaleString(
+                        "en-PH",
+                        {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        }
+                    );
+
+            }
+
+
+            /* =====================================================
+               CALCULATE TOTALS
+            ===================================================== */
+
+            function calculateTotals() {
+
+                const rows =
+                    itemsBody.querySelectorAll("tr");
+
+                let totalQuantity = 0;
+
+                let totalAmount = 0;
+
+
+                rows.forEach(function (row) {
+
+                    const quantityInput =
+                        row.querySelector(
+                            ".quantity-input"
+                        );
+
+                    const unitCost =
+                        row.querySelector(
+                            ".unit-cost"
+                        );
+
+                    const totalCost =
+                        row.querySelector(
+                            ".total-cost"
+                        );
+
+
+                    if (!quantityInput || !unitCost) {
+                        return;
+                    }
+
+
+                    const quantity =
+                        parseFloat(
+                            quantityInput.value
+                        ) || 0;
+
+
+                    const costText =
+                        unitCost.textContent
+                            .replace("₱", "")
+                            .replace(/,/g, "")
+                            .trim();
+
+
+                    const cost =
+                        parseFloat(costText)
+                        || 0;
+
+
+                    const total =
+                        quantity * cost;
+
+
+                    totalQuantity += quantity;
+
+                    totalAmount += total;
+
+
+                    if (totalCost) {
+
+                        totalCost.textContent =
+                            formatCurrency(total);
+
+                    }
+
+                });
+
+
+                /* LEFT TOTALS */
+
+                document.getElementById(
+                    "summaryItems"
+                ).textContent =
+                    rows.length;
+
+
+                document.getElementById(
+                    "summaryQuantity"
+                ).textContent =
+                    totalQuantity.toFixed(2);
+
+
+                document.getElementById(
+                    "summaryAmount"
+                ).textContent =
+                    formatCurrency(totalAmount);
+
+
+                /* RIGHT TOTALS */
+
+                document.getElementById(
+                    "sideItems"
+                ).textContent =
+                    rows.length;
+
+
+                document.getElementById(
+                    "sideQuantity"
+                ).textContent =
+                    totalQuantity.toFixed(2);
+
+
+                document.getElementById(
+                    "sideAmount"
+                ).textContent =
+                    formatCurrency(totalAmount);
+
+            }
+
+
+            /* =====================================================
+               UPDATE ROW NUMBERS
+            ===================================================== */
+
+            function updateRowNumbers() {
+
+                const rows =
+                    itemsBody.querySelectorAll("tr");
+
+                rows.forEach(
+                    function (row, index) {
+
+                        row.children[0].textContent =
+                            index + 1;
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               ROW EVENTS
+            ===================================================== */
+
+            function attachRowEvents(row) {
+
+                const quantity =
+                    row.querySelector(
+                        ".quantity-input"
+                    );
+
+                const deleteButton =
+                    row.querySelector(
+                        ".delete-item"
+                    );
+
+
+                if (quantity) {
+
+                    quantity.addEventListener(
+                        "input",
+                        function () {
+
+                            const available =
+                                parseFloat(
+                                    row.dataset.available
+                                );
+
+
+                            const requested =
+                                parseFloat(
+                                    quantity.value
+                                ) || 0;
+
+
+                            if (
+                                !isNaN(available) &&
+                                requested > available
+                            ) {
+
+                                quantity.value =
+                                    available;
+
+                                showToast(
+                                    "Quantity cannot exceed available stock."
+                                );
+
+                            }
+
+                            calculateTotals();
+
+                        }
+                    );
+
+                }
+
+
+                if (deleteButton) {
+
+                    deleteButton.addEventListener(
+                        "click",
+                        function () {
+
+                            const confirmed =
+                                window.confirm(
+                                    "Remove this item?"
+                                );
+
+                            if (!confirmed) {
+                                return;
+                            }
+
+                            row.remove();
+
+                            updateRowNumbers();
+
+                            calculateTotals();
+
+                            showToast(
+                                "Item removed."
+                            );
+
+                        }
+                    );
+
+                }
+
+            }
+
+
+            /* =====================================================
+               EXISTING ROWS
+            ===================================================== */
+
+            itemsBody
+                .querySelectorAll("tr")
+                .forEach(function (row) {
+
+                    attachRowEvents(row);
+
+                });
+
+
+            /* =====================================================
+               ADD NEW ITEM
+            ===================================================== */
+
+            function addNewItem() {
+
+                const row =
+                    document.createElement("tr");
+
+
+                row.dataset.available = "10";
+
+
+                row.innerHTML = `
+
+            <td></td>
+
+            <td>
+
+                <div class="product-cell">
+
+                    <div class="product-image">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            New Inventory Item
+                        </strong>
+
+                        <small>
+                            General
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </td>
+
+
+            <td>
+
+                <select class="unit-input">
+
+                    <option>
+                        kg
+                    </option>
+
+                    <option>
+                        g
+                    </option>
+
+                    <option>
+                        L
+                    </option>
+
+                    <option>
+                        pcs
+                    </option>
+
+                </select>
+
+            </td>
+
+
+            <td>
+
+                <span class="available-stock">
+                    10.00 kg
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    value="1"
+                    min="0"
+                    step="0.01"
+                >
+
+            </td>
+
+
+            <td>
+
+                <span class="unit-cost">
+                    ₱0.00
+                </span>
+
+            </td>
+
+
+            <td class="total-cost">
+                ₱0.00
+            </td>
+
+
+            <td>
+
+                <button
+                    type="button"
+                    class="delete-item"
+                >
+                    ♧
+                </button>
+
+            </td>
+
+        `;
+
+
+                itemsBody.appendChild(row);
+
+                attachRowEvents(row);
+
+                updateRowNumbers();
+
+                calculateTotals();
+
+                showToast(
+                    "New item added."
+                );
+
+            }
+
+
+            if (addItemBtn) {
+
+                addItemBtn.addEventListener(
+                    "click",
+                    addNewItem
+                );
+
+            }
+
+
+            if (addMoreBtn) {
+
+                addMoreBtn.addEventListener(
+                    "click",
+                    addNewItem
+                );
+
+            }
+
+
+            /* =====================================================
+               PURPOSE UPDATE
+            ===================================================== */
+
+            if (purpose) {
+
+                purpose.addEventListener(
+                    "change",
+                    function () {
+
+                        document.getElementById(
+                            "sidePurpose"
+                        ).textContent =
+                            purpose.value;
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               REQUESTED BY UPDATE
+            ===================================================== */
+
+            if (requestedBy) {
+
+                requestedBy.addEventListener(
+                    "change",
+                    function () {
+
+                        document.getElementById(
+                            "sideRequestedBy"
+                        ).textContent =
+                            requestedBy.value;
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               NOTES UPDATE
+            ===================================================== */
+
+            if (notes) {
+
+                notes.addEventListener(
+                    "input",
+                    function () {
+
+                        if (
+                            notes.value.trim() === ""
+                        ) {
+
+                            document.getElementById(
+                                "sideNotes"
+                            ).textContent = "-";
+
+                        } else {
+
+                            document.getElementById(
+                                "sideNotes"
+                            ).textContent =
+                                notes.value;
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               BARCODE
+            ===================================================== */
+
+            if (barcodeBtn) {
+
+                barcodeBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const barcode =
+                            window.prompt(
+                                "Enter or scan barcode:"
+                            );
+
+                        if (
+                            barcode &&
+                            barcode.trim() !== ""
+                        ) {
+
+                            showToast(
+                                "Barcode scanned: " +
+                                barcode.trim()
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               NEW STOCK OUT
+            ===================================================== */
+
+            if (newStockBtn) {
+
+                newStockBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        document.getElementById(
+                            "referenceNo"
+                        ).value =
+                            generateReferenceNumber();
+
+                        showToast(
+                            "New Stock Out form ready."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               GENERATE REFERENCE
+            ===================================================== */
+
+            function generateReferenceNumber() {
+
+                const date =
+                    new Date();
+
+                const year =
+                    date.getFullYear();
+
+                const month =
+                    String(
+                        date.getMonth() + 1
+                    ).padStart(2, "0");
+
+                const random =
+                    Math.floor(
+                        1000 +
+                        Math.random() * 9000
+                    );
+
+                return (
+                    "SOUT-" +
+                    year +
+                    "-" +
+                    month +
+                    "-" +
+                    random
+                );
+
+            }
+
+
+            /* =====================================================
+               SAVE DRAFT
+            ===================================================== */
+
+            if (draftBtn) {
+
+                draftBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        calculateTotals();
+
+                        showToast(
+                            "Stock Out saved as draft."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               SAVE & CONFIRM
+            ===================================================== */
+
+            if (confirmBtn) {
+
+                confirmBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const rows =
+                            itemsBody.querySelectorAll("tr");
+
+
+                        if (rows.length === 0) {
+
+                            showToast(
+                                "Please add at least one item."
+                            );
+
+                            return;
+
+                        }
+
+
+                        calculateTotals();
+
+
+                        const confirmed =
+                            window.confirm(
+                                "Save and confirm this Stock Out transaction?"
+                            );
+
+
+                        if (!confirmed) {
+                            return;
+                        }
+
+
+                        showToast(
+                            "Stock Out saved successfully."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               CANCEL
+            ===================================================== */
+
+            if (cancelBtn) {
+
+                cancelBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const confirmed =
+                            window.confirm(
+                                "Are you sure you want to cancel?"
+                            );
+
+
+                        if (!confirmed) {
+                            return;
+                        }
+
+
+                        showToast(
+                            "Stock Out cancelled."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               VIEW ALL
+            ===================================================== */
+
+            if (viewAllBtn) {
+
+                viewAllBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        showToast(
+                            "Opening Stock Out records..."
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               INITIALIZE
+            ===================================================== */
+
+            updateRowNumbers();
+
+            calculateTotals();
+
+
+            console.log(
+                "Jolie's Pizza Stock Out loaded successfully."
+            );
+
+        });
+    </script>
+
+    <script src="sidebar-icons.js"></script>
+</body>
+
+</html>
